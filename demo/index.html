@@ -3,161 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGOLAND - Where Awesome Awaits</title>
+    <title>Skalatsky & Associates - Elite Web Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Fredoka', sans-serif;
-        }
-        .lego-gradient {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 25%, #6BCF7F 50%, #4ECDC4 75%, #5B7FFF 100%);
-        }
-        .lego-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .lego-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        .brick-shadow {
-            box-shadow: 0 8px 0 rgba(0,0,0,0.15);
-        }
-    </style>
 </head>
-<body class="lego-gradient min-h-screen">
+<body class="bg-gradient-to-br from-[#0a1628] via-[#0f1f3a] to-[#1a0b2e] text-white font-sans">
     
-    <header class="py-6 px-4">
-        <div class="container mx-auto">
-            <nav class="flex justify-between items-center">
-                <div class="text-4xl font-bold text-white">
-                    <span class="bg-red-600 px-3 py-1 rounded">LEGO</span><span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded ml-1">LAND</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gradient-to-r from-[#0a1628]/95 to-[#1a0b2e]/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-[#d4af37] to-[#f4e5b5] bg-clip-text text-transparent">Skalatsky & Associates</span>
                 </div>
-                <a href="#visit" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-yellow-400 hover:text-gray-900 transition brick-shadow">
-                    GET TICKETS
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="container mx-auto px-4 py-20 text-center">
-        <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 drop-shadow-lg">
-            WHERE AWESOME AWAITS
-        </h1>
-        <p class="text-2xl md:text-3xl text-white mb-12 drop-shadow">
-            Build memories that last a lifetime at the ultimate LEGO® theme park experience
-        </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="#explore" class="bg-red-600 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-red-700 transition brick-shadow lego-hover">
-                EXPLORE THE PARK
-            </a>
-            <a href="#visit" class="bg-yellow-400 text-gray-900 px-10 py-5 rounded-full font-bold text-xl hover:bg-yellow-500 transition brick-shadow lego-hover">
-                PLAN YOUR VISIT
-            </a>
-        </div>
-    </section>
-
-    <section id="explore" class="container mx-auto px-4 py-20">
-        <h2 class="text-5xl font-bold text-center text-white mb-16 drop-shadow-lg">
-            DISCOVER THE MAGIC
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <div class="bg-white rounded-3xl overflow-hidden brick-shadow lego-hover">
-                <div class="h-64 bg-gradient-to-br from-red-500 to-orange-400 flex items-center justify-center">
-                    <div class="text-8xl">🎢</div>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">LEGOLAND Theme Park</h3>
-                    <p class="text-gray-700 text-lg mb-6">
-                        Over 60 rides, shows and attractions for all ages. From thrilling roller coasters to interactive building experiences.
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Dragon Roller Coaster</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Miniland USA</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> LEGO Ninjago World</li>
-                    </ul>
-                    <a href="#visit" class="block text-center bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">
-                        Learn More
-                    </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-[#d4af37] transition">Services</a>
+                    <a href="#portfolio" class="hover:text-[#d4af37] transition">Portfolio</a>
+                    <a href="#contact" class="hover:text-[#d4af37] transition">Contact</a>
                 </div>
             </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden brick-shadow lego-hover">
-                <div class="h-64 bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-                    <div class="text-8xl">💦</div>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">LEGOLAND Water Park</h3>
-                    <p class="text-gray-700 text-lg mb-6">
-                        Splash into fun with water slides, wave pools, and LEGO-themed aquatic adventures for the whole family.
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Build-A-Raft River</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Splash Out Water Playground</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Twin Chasers Racing Slides</li>
-                    </ul>
-                    <a href="#visit" class="block text-center bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden brick-shadow lego-hover">
-                <div class="h-64 bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center">
-                    <div class="text-8xl">🐠</div>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">SEA LIFE Aquarium</h3>
-                    <p class="text-gray-700 text-lg mb-6">
-                        Dive into an underwater world with thousands of sea creatures, interactive touch pools, and ocean-themed LEGO models.
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Ocean Tunnel</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Stingray Touch Pool</li>
-                        <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> LEGO Submarine</li>
-                    </ul>
-                    <a href="#visit" class="block text-center bg-teal-600 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-700 transition">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-
         </div>
-    </section>
+    </nav>
 
-    <section id="visit" class="container mx-auto px-4 py-20">
-        <div class="bg-white rounded-3xl p-12 md:p-16 text-center brick-shadow">
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                VISIT LEGOLAND
-            </h2>
-            <p class="text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
-                Your next family adventure is just a click away. Get your tickets now and experience the magic!
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#d4af37] via-[#f4e5b5] to-[#d4af37] bg-clip-text text-transparent animate-pulse">
+                Elite Web Architecture
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                Crafting high-performance digital experiences that elevate your brand and drive results
             </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a href="#tickets" class="bg-gradient-to-r from-red-600 to-orange-500 text-white px-12 py-6 rounded-full font-bold text-2xl hover:from-red-700 hover:to-orange-600 transition brick-shadow lego-hover">
-                    BUY TICKETS NOW
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-gradient-to-r from-[#d4af37] to-[#f4e5b5] text-[#1a0b2e] px-8 py-4 rounded-full font-semibold hover:scale-105 transition transform">
+                    Start Your Project
                 </a>
-                <a href="#annual" class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-12 py-6 rounded-full font-bold text-2xl hover:from-yellow-500 hover:to-yellow-600 transition brick-shadow lego-hover">
-                    ANNUAL PASSES
+                <a href="#portfolio" class="border-2 border-[#d4af37] text-[#d4af37] px-8 py-4 rounded-full font-semibold hover:bg-[#d4af37] hover:text-[#1a0b2e] transition">
+                    View Our Work
                 </a>
             </div>
-            <p class="text-gray-600 mt-8 text-lg">
-                Open daily from 10AM - 6PM | Special summer hours available
-            </p>
         </div>
     </section>
 
-    <footer class="py-12 px-4 bg-gray-900 bg-opacity-50">
-        <div class="container mx-auto text-center text-white">
-            <div class="flex justify-center gap-8 mb-6 text-3xl">
-                <a href="#" class="hover:text-yellow-400 transition">📘</a>
-                <a href="#" class="hover:text-yellow-400 transition">📷</a>
-                <a href="#" class="hover:text-yellow-400 transition">🎬</a>
-                <a href="#" class="hover:text-yellow-400 transition">🐦</a>
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#d4af37]">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#d4af37] transition transform hover:scale-105">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Web Design</h3>
+                    <p class="text-gray-300">Stunning, responsive designs that capture your brand essence and engage your audience</p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#d4af37] transition transform hover:scale-105">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Performance Optimization</h3>
+                    <p class="text-gray-300">Lightning-fast load times and seamless user experiences across all devices</p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#d4af37] transition transform hover:scale-105">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Digital Strategy</h3>
+                    <p class="text-gray-300">Comprehensive strategies that drive traffic, conversions, and sustainable growth</p>
+                </div>
+
             </div>
-            <p class="text-lg mb-2">© 2024 LEGOLAND. All Rights Reserved.</p>
-            <p class="text-sm text-gray-300">LEGO, the LEGO logo and Miniland are trademarks of the LEGO Group.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#d4af37]">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#d4af37] transition">
+                    <div class="h-64 bg-gradient-to-br from-[#d4af37] to-[#1a0b2e] flex items-center justify-center">
+                        <span class="text-6xl">🏢</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-[#d4af37]">Enterprise Platform</h3>
+                        <p class="text-gray-300">Complete digital transformation for Fortune 500 client</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#d4af37] transition">
+                    <div class="h-64 bg-gradient-to-br from-[#1a0b2e] to-[#d4af37] flex items-center justify-center">
+                        <span class="text-6xl">💼</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-[#d4af37]">Luxury Brand Launch</h3>
+                        <p class="text-gray-300">High-end e-commerce experience with 300% conversion lift</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-[#d4af37]">Let's Build Something Extraordinary</h2>
+            <p class="text-xl text-gray-300 mb-12">Ready to elevate your digital presence? Get in touch with our team today.</p>
+            <a href="mailto:hello@skalatsky.com" class="inline-block bg-gradient-to-r from-[#d4af37] to-[#f4e5b5] text-[#1a0b2e] px-12 py-5 rounded-full font-semibold text-lg hover:scale-105 transition transform">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-white/10 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p>&copy; 2024 Skalatsky & Associates. Elite Web Architecture.</p>
         </div>
     </footer>
 
