@@ -4,90 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skalatsky & Associates | Premium Web Solutions</title>
+    <title>Skalatsky & Associates</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-purple': '#1a0b2e',
+                        'skalatsky-gold': '#d4af37',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 text-white font-sans">
+<body class="bg-deep-purple text-white font-sans">
     
-    <!-- Hero Section with Enhanced Graphic -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
-            <div class="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-        </div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 py-12 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Skalatsky & <span class="text-skalatsky-gold">Associates</span>
+        </h1>
+        <p class="text-lg md:text-xl mb-8 text-gray-300 max-w-2xl">
+            Elite web architecture and digital experiences that convert.
+        </p>
+        <a href="#contact" class="bg-skalatsky-gold text-deep-purple px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-500 transition duration-300">
+            Start Your Project
+        </a>
+    </section>
 
-        <!-- Geometric Grid Overlay -->
-        <div class="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-        </div>
-
-        <!-- Floating Accent Lines -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-30"></div>
-            <div class="absolute top-1/2 right-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-40"></div>
-            <div class="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-20"></div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <!-- Logo Mark -->
-            <div class="mb-8 flex justify-center">
-                <div class="relative">
-                    <div class="w-24 h-24 border-4 border-yellow-400 rotate-45 absolute -top-2 -left-2 opacity-30"></div>
-                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-2xl">
-                        <span class="text-purple-950 font-bold text-3xl">S&A</span>
-                    </div>
+    <!-- Services -->
+    <section class="px-6 py-16 bg-gradient-to-b from-deep-purple to-purple-950">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-skalatsky-gold">What We Build</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-skalatsky-gold/20">
+                    <h3 class="text-xl font-bold mb-3 text-skalatsky-gold">Landing Pages</h3>
+                    <p class="text-gray-300">High-converting, responsive designs that capture attention and drive action.</p>
                 </div>
-            </div>
-
-            <h1 class="text-6xl md:text-8xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 leading-tight">
-                Skalatsky & Associates
-            </h1>
-            
-            <p class="text-xl md:text-3xl text-purple-200 mb-4 font-light tracking-wide">
-                Premium Web Architecture & Design
-            </p>
-            
-            <p class="text-lg text-purple-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Crafting high-performance, luxury digital experiences for discerning clients who demand excellence.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#contact" class="px-10 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-purple-950 font-bold text-lg rounded-none hover:shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105">
-                    Start Your Project
-                </a>
-                <a href="#portfolio" class="px-10 py-4 border-2 border-yellow-400 text-yellow-400 font-bold text-lg rounded-none hover:bg-yellow-400 hover:text-purple-950 transition-all duration-300">
-                    View Portfolio
-                </a>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
+                <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-skalatsky-gold/20">
+                    <h3 class="text-xl font-bold mb-3 text-skalatsky-gold">Web Applications</h3>
+                    <p class="text-gray-300">Scalable, modern applications built with cutting-edge technology.</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-skalatsky-gold/20">
+                    <h3 class="text-xl font-bold mb-3 text-skalatsky-gold">Digital Strategy</h3>
+                    <p class="text-gray-300">Comprehensive solutions aligned with your business objectives.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <style>
-        @keyframes pulse {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.4; }
-        }
-        .animate-pulse { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        .delay-700 { animation-delay: 700ms; }
-        .delay-1000 { animation-delay: 1000ms; }
-    </style>
+    <!-- Contact -->
+    <section id="contact" class="px-6 py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-skalatsky-gold">Let's Build Something Exceptional</h2>
+            <p class="text-gray-300 mb-8 text-lg">Ready to elevate your digital presence?</p>
+            <a href="mailto:contact@skalatsky.com" class="inline-block bg-skalatsky-gold text-deep-purple px-10 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-500 transition duration-300">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-8 border-t border-skalatsky-gold/20 text-center text-gray-400">
+        <p>&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
