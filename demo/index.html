@@ -4,55 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGOLAND Florida Trip | Skalatsky & Associates</title>
+    <title>LEGOLAND® Discovery Center | Build, Play, Explore</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gradient-to-br from-red-500 via-yellow-400 to-blue-500 font-sans antialiased">
+    
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-blue-600 to-red-600 text-white py-24 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Build Your Adventure at LEGOLAND Florida</h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90">Join us for an unforgettable family experience at Florida's most interactive theme park!</p>
-            <p class="text-lg opacity-80">May 15-17, 2025 | Winter Haven, FL</p>
+    <section class="min-h-screen flex items-center justify-center px-6 py-20">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-7xl md:text-9xl font-black text-white drop-shadow-2xl mb-6 tracking-tight">
+                LEGOLAND<sup class="text-4xl">®</sup>
+            </h1>
+            <p class="text-2xl md:text-4xl text-white font-bold mb-12 drop-shadow-lg">
+                Where Imagination Comes to Life
+            </p>
+            <a href="#experiences" class="inline-block bg-white text-red-600 px-12 py-5 rounded-full text-xl font-bold shadow-2xl hover:bg-yellow-300 hover:text-blue-700 transition-all duration-300 transform hover:scale-110">
+                Start Your Adventure
+            </a>
         </div>
     </section>
 
-    <!-- Feature Cards -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div class="text-4xl mb-4">🎢</div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">Thrilling Rides</h3>
-                <p class="text-gray-600">Experience over 50 rides, shows, and attractions designed for families with children ages 2-12.</p>
-            </div>
+    <!-- Experiences Section -->
+    <section id="experiences" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 text-gray-900">
+                Three Amazing Worlds
+            </h2>
             
-            <!-- Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div class="text-4xl mb-4">🏰</div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">LEGO Creativity</h3>
-                <p class="text-gray-600">Explore Miniland USA featuring iconic American landmarks built from 32 million LEGO bricks.</p>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div class="text-4xl mb-4">💦</div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">Water Park Fun</h3>
-                <p class="text-gray-600">Cool off at the LEGOLAND Water Park with slides, wave pools, and a LEGO building area.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Theme Park Card -->
+                <div class="bg-gradient-to-br from-red-400 to-red-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div class="text-6xl mb-4">🎢</div>
+                    <h3 class="text-3xl font-black mb-4">Theme Park</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Over 40 LEGO® themed rides, shows, and attractions. Build, race, and explore in a world made for kids!
+                    </p>
+                    <ul class="space-y-2 text-sm font-semibold">
+                        <li>✓ Roller Coasters</li>
+                        <li>✓ 4D Cinema</li>
+                        <li>✓ Miniland USA</li>
+                        <li>✓ Building Workshops</li>
+                    </ul>
+                </div>
+
+                <!-- Water Park Card -->
+                <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div class="text-6xl mb-4">🌊</div>
+                    <h3 class="text-3xl font-black mb-4">Water Park</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Splash into summer fun with water slides, wave pools, and lazy rivers designed for the whole family.
+                    </p>
+                    <ul class="space-y-2 text-sm font-semibold">
+                        <li>✓ Tube Slides</li>
+                        <li>✓ Wave Pool</li>
+                        <li>✓ Splash Pad</li>
+                        <li>✓ Lazy River</li>
+                    </ul>
+                </div>
+
+                <!-- SEA LIFE Aquarium Card -->
+                <div class="bg-gradient-to-br from-teal-400 to-cyan-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div class="text-6xl mb-4">🐠</div>
+                    <h3 class="text-3xl font-black mb-4">SEA LIFE Aquarium</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Dive into an underwater adventure with thousands of sea creatures, interactive exhibits, and touch pools.
+                    </p>
+                    <ul class="space-y-2 text-sm font-semibold">
+                        <li>✓ Ocean Tunnel</li>
+                        <li>✓ Touch Pools</li>
+                        <li>✓ Shark Reef</li>
+                        <li>✓ Jellyfish Discovery</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-yellow-400 py-16 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-900 mb-6">Reserve Your Spot Today</h2>
-            <p class="text-xl text-gray-800 mb-8">Limited spaces available. Early bird pricing ends March 31st!</p>
-            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all">
-                Register Now
-            </button>
+    <section class="py-20 px-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow-lg">
+                Ready to Build Memories?
+            </h2>
+            <p class="text-xl md:text-2xl text-white mb-10 font-semibold">
+                Get your tickets today and experience the ultimate LEGO® adventure!
+            </p>
+            <a href="#tickets" class="inline-block bg-white text-red-600 px-16 py-6 rounded-full text-2xl font-black shadow-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                VISIT LEGOLAND
+            </a>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 text-center">
+        <p class="text-sm">&copy; 2025 LEGOLAND® Discovery Center. All Rights Reserved.</p>
+        <p class="text-xs mt-2 text-gray-400">LEGO, the LEGO logo, and the Brick and Knob configurations are trademarks of the LEGO Group.</p>
+    </footer>
+
 </body>
 </html>
 ```
