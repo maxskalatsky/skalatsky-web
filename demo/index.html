@@ -4,107 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarah Chen - CTO & AI Infrastructure Leader | Skalatsky & Associates</title>
+    <title>Marcus Johnson | VP Enterprise Sales | Salesforce</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        purple: '#1a0b2e',
-                        gold: '#d4af37',
+                        'deep-purple': '#1a0b2e',
+                        'skalatsky-gold': '#d4af37',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-purple text-white font-sans antialiased">
+<body class="bg-deep-purple text-white font-sans antialiased">
     
-    <header class="fixed w-full top-0 z-50 bg-purple/95 backdrop-blur-sm border-b border-gold/20">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-gold font-bold text-xl tracking-wider">SKALATSKY & ASSOCIATES</div>
-            <a href="#contact" class="bg-gold text-purple px-6 py-2 rounded-full font-semibold hover:bg-gold/90 transition">Book Sarah</a>
-        </nav>
-    </header>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-deep-purple via-purple-900 to-deep-purple">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="mb-8">
+                <span class="inline-block px-6 py-2 bg-skalatsky-gold/10 border border-skalatsky-gold/30 rounded-full text-skalatsky-gold text-sm font-semibold tracking-wide uppercase">
+                    Enterprise Sales Leadership
+                </span>
+            </div>
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                Marcus <span class="text-skalatsky-gold">Johnson</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-8 font-light">
+                VP of Enterprise Sales | Salesforce
+            </p>
+            <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Driving transformational revenue growth through AI-powered CRM solutions for Fortune 500 enterprises
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-4 bg-skalatsky-gold text-deep-purple font-bold rounded-lg hover:bg-yellow-500 transition-all transform hover:scale-105 shadow-2xl">
+                    Schedule a Consultation
+                </a>
+                <a href="#expertise" class="px-8 py-4 bg-transparent border-2 border-skalatsky-gold text-skalatsky-gold font-bold rounded-lg hover:bg-skalatsky-gold hover:text-deep-purple transition-all">
+                    Explore Solutions
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <section class="pt-32 pb-20 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="text-gold text-sm font-semibold tracking-widest mb-4">KEYNOTE SPEAKER</div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Sarah Chen</h1>
-                    <p class="text-2xl text-gold mb-6">CTO at TechVentures</p>
-                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">Leading AI infrastructure innovation and building high-performing engineering organizations at scale. 15+ years driving technical transformation for Fortune 500 companies and hypergrowth startups.</p>
-                    <div class="flex gap-4">
-                        <a href="#contact" class="bg-gold text-purple px-8 py-3 rounded-full font-semibold hover:bg-gold/90 transition">Request Availability</a>
-                        <a href="#expertise" class="border border-gold text-gold px-8 py-3 rounded-full font-semibold hover:bg-gold/10 transition">View Topics</a>
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 px-6 bg-deep-purple">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                Enterprise <span class="text-skalatsky-gold">Excellence</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-purple-900/30 border border-skalatsky-gold/20 rounded-xl p-8 hover:border-skalatsky-gold/60 transition-all">
+                    <div class="w-16 h-16 bg-skalatsky-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-skalatsky-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4 text-skalatsky-gold">Fortune 500 Accounts</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Strategic account management and executive engagement with the world's largest enterprises
+                    </p>
                 </div>
-                <div class="relative">
-                    <div class="aspect-square bg-gradient-to-br from-gold/20 to-purple rounded-2xl"></div>
-                    <div class="absolute inset-0 border-2 border-gold/30 rounded-2xl transform translate-x-4 translate-y-4"></div>
+                <div class="bg-purple-900/30 border border-skalatsky-gold/20 rounded-xl p-8 hover:border-skalatsky-gold/60 transition-all">
+                    <div class="w-16 h-16 bg-skalatsky-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-skalatsky-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-skalatsky-gold">AI-Powered CRM</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Leveraging Einstein AI and predictive analytics to transform customer relationships
+                    </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="expertise" class="py-20 px-6 bg-black/30">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl font-bold text-center mb-16">Keynote Topics</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-purple/50 border border-gold/20 p-8 rounded-xl hover:border-gold/50 transition">
-                    <div class="text-gold text-3xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold mb-4">AI Infrastructure at Scale</h3>
-                    <p class="text-gray-300">Building resilient systems that power next-generation AI applications and machine learning pipelines.</p>
-                </div>
-                <div class="bg-purple/50 border border-gold/20 p-8 rounded-xl hover:border-gold/50 transition">
-                    <div class="text-gold text-3xl mb-4">👥</div>
-                    <h3 class="text-xl font-bold mb-4">Scaling Engineering Teams</h3>
-                    <p class="text-gray-300">Proven frameworks for growing engineering organizations from 10 to 500+ while maintaining velocity and culture.</p>
-                </div>
-                <div class="bg-purple/50 border border-gold/20 p-8 rounded-xl hover:border-gold/50 transition">
-                    <div class="text-gold text-3xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-4">Technical Leadership</h3>
-                    <p class="text-gray-300">Strategic approaches to driving innovation, managing technical debt, and delivering business outcomes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <div class="text-gold text-sm font-semibold tracking-widest mb-4">IMPACT</div>
-            <h2 class="text-4xl font-bold mb-12">By The Numbers</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <div class="text-5xl font-bold text-gold mb-2">15+</div>
-                    <div class="text-gray-300">Years Leadership</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold text-gold mb-2">500+</div>
-                    <div class="text-gray-300">Engineers Managed</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold text-gold mb-2">$2B+</div>
-                    <div class="text-gray-300">Infrastructure Value</div>
+                <div class="bg-purple-900/30 border border-skalatsky-gold/20 rounded-xl p-8 hover:border-skalatsky-gold/60 transition-all">
+                    <div class="w-16 h-16 bg-skalatsky-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-skalatsky-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-skalatsky-gold">Revenue Growth</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Proven track record of scaling enterprise revenue through strategic solution selling
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 bg-gold text-purple">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-4xl font-bold mb-6">Book Sarah Chen</h2>
-            <p class="text-xl mb-8">Transform your next conference with actionable insights on AI infrastructure and engineering leadership.</p>
-            <a href="mailto:bookings@skalatsky.com" class="inline-block bg-purple text-gold px-10 py-4 rounded-full font-semibold text-lg hover:bg-purple/90 transition">bookings@skalatsky.com</a>
+    <!-- Stats Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-purple-900/50 to-deep-purple">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 text-center">
+                <div>
+                    <div class="text-6xl font-bold text-skalatsky-gold mb-4">500+</div>
+                    <div class="text-xl text-gray-300">Fortune 500 Engagements</div>
+                </div>
+                <div>
+                    <div class="text-6xl font-bold text-skalatsky-gold mb-4">$2B+</div>
+                    <div class="text-xl text-gray-300">Enterprise Pipeline Generated</div>
+                </div>
+                <div>
+                    <div class="text-6xl font-bold text-skalatsky-gold mb-4">98%</div>
+                    <div class="text-xl text-gray-300">Client Satisfaction Rate</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="py-8 px-6 border-t border-gold/20">
-        <div class="container mx-auto text-center text-gray-400 text-sm">
-            <p>&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-deep-purple">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                Ready to Transform Your <span class="text-skalatsky-gold">Enterprise CRM?</span>
+            </h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                Connect with Marcus to explore how AI-powered Salesforce solutions can accelerate your enterprise growth
+            </p>
+            <a href="mailto:marcus.johnson@salesforce.com" class="inline-block px-12 py-5 bg-skalatsky-gold text-deep-purple font-bold text-lg rounded-lg hover:bg-yellow-500 transition-all transform hover:scale-105 shadow-2xl">
+                Get in Touch
+            </a>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-black/50 text-center text-gray-500">
+        <p>&copy; 2024 Marcus Johnson | Salesforce Enterprise Sales | Built by Skalatsky & Associates</p>
     </footer>
 
 </body>
