@@ -1,8 +1,94 @@
-I'm ready to pass information to Alex, but I don't see any specific information attached to your message. 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skalatsky & Associates | Premium Web Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 text-white font-sans">
+    
+    <!-- Hero Section with Enhanced Graphic -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
+            <div class="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+        </div>
 
-Could you please provide:
-- The content/information you'd like on the webpage
-- The purpose of the page (e.g., event landing page, speaker showcase, service offering)
-- Any specific elements you want included (contact forms, image galleries, testimonials, etc.)
+        <!-- Geometric Grid Overlay -->
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
 
-Once you share those details, I'll have Alex create the webpage for you according to the technical specifications.
+        <!-- Floating Accent Lines -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-30"></div>
+            <div class="absolute top-1/2 right-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-40"></div>
+            <div class="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-20"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <!-- Logo Mark -->
+            <div class="mb-8 flex justify-center">
+                <div class="relative">
+                    <div class="w-24 h-24 border-4 border-yellow-400 rotate-45 absolute -top-2 -left-2 opacity-30"></div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-2xl">
+                        <span class="text-purple-950 font-bold text-3xl">S&A</span>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 leading-tight">
+                Skalatsky & Associates
+            </h1>
+            
+            <p class="text-xl md:text-3xl text-purple-200 mb-4 font-light tracking-wide">
+                Premium Web Architecture & Design
+            </p>
+            
+            <p class="text-lg text-purple-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Crafting high-performance, luxury digital experiences for discerning clients who demand excellence.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="px-10 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-purple-950 font-bold text-lg rounded-none hover:shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105">
+                    Start Your Project
+                </a>
+                <a href="#portfolio" class="px-10 py-4 border-2 border-yellow-400 text-yellow-400 font-bold text-lg rounded-none hover:bg-yellow-400 hover:text-purple-950 transition-all duration-300">
+                    View Portfolio
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+        .animate-pulse { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-1000 { animation-delay: 1000ms; }
+    </style>
+
+</body>
+</html>
+```
