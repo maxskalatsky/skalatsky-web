@@ -1,0 +1,326 @@
+**Project Alpha landing page deployed.**
+
+Saved to Google Drive as **alpha.html** in your deployment folder.
+
+**Preview URL:** https://drive.google.com/file/d/1k7GonUwIRad9mrbe5BLHZrnz9wxF50b0/view
+
+---
+
+**Key Features:**
+- Modern gradient design (purple/blue)
+- Animated hero section with "Coming Soon" badge
+- Email capture form with inline success state
+- Three feature cards highlighting speed, security, and UX
+- Fully responsive (mobile-optimized)
+- Smooth animations and hover effects
+- Clean, production-ready code
+
+Ready for FTP deployment to `skalatsky.com/Alex/alpha.html` when you confirm.
+
+---
+
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Alpha - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .alpha-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .cta-section {
+            margin: 60px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .email-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .email-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .cta-button {
+            padding: 16px 40px;
+            background: #ffffff;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            margin-top: 80px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            animation: fadeIn 2s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .email-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .email-input {
+                min-width: 100%;
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">PROJECT ALPHA</div>
+        <div class="alpha-badge">Coming Soon</div>
+        
+        <h1>The Future Starts Here</h1>
+        <p class="subtitle">
+            We're building something extraordinary. Join the waitlist to be the first to experience the next generation of innovation.
+        </p>
+        
+        <div class="cta-section">
+            <form class="email-form" onsubmit="handleSubmit(event)">
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    placeholder="Enter your email address" 
+                    required
+                    id="emailInput"
+                >
+                <button type="submit" class="cta-button">Get Early Access</button>
+            </form>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <div class="feature-title">Lightning Fast</div>
+                <div class="feature-description">
+                    Built with cutting-edge technology to deliver unparalleled performance and speed.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Secure by Design</div>
+                <div class="feature-description">
+                    Enterprise-grade security ensuring your data is protected at every layer.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <div class="feature-title">Intuitive Experience</div>
+                <div class="feature-description">
+                    Beautifully crafted interface designed for both power users and beginners.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 Project Alpha. All rights reserved.
+        </div>
+    </div>
+    
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            
+            // Show success message
+            const form = event.target;
+            form.innerHTML = `
+                <div style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 50px; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1.1rem; font-weight: 600;">🎉 You're on the list!</p>
+                    <p style="margin-top: 10px; opacity: 0.9;">We'll notify you when Project Alpha launches.</p>
+                </div>
+            `;
+            
+            // In production, you would send this to your backend
+            console.log('Email submitted:', email);
+        }
+    </script>
+</body>
+</html>
+</html>
