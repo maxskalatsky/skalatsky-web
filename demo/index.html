@@ -3,69 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Write Smarter. Work Faster.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #111111;
+            background: #ffffff;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: #555555;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111111;
+        }
+        .feature-card p {
+            color: #555555;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .feature-card:nth-child(1) h3::before {
+            content: '✎';
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-card:nth-child(2) h3::before {
+            content: '⚡';
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-card:nth-child(3) h3::before {
+            content: '⚙';
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+            }
+            .features {
+                padding: 3rem 1.5rem;
+            }
+            .features-grid {
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-900">
-    <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Moodboard%20multipalet.png" style="width:100%; display:block;" alt="Banner">
-    
-    <header class="bg-white border-b border-gray-200">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-900">Brand</div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-600 hover:text-gray-900">Features</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">Pricing</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
-            </nav>
-            <button class="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition">Get Started</button>
-        </div>
-    </header>
-
-    <section class="container mx-auto px-6 py-20 text-center">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">Build Something Amazing</h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">A clean, modern landing page template built with Tailwind CSS. Ready to deploy and customize for your next project.</p>
-        <div class="flex gap-4 justify-center">
-            <button class="bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition text-lg">Get Started</button>
-            <button class="bg-white text-gray-900 border-2 border-gray-900 px-8 py-3 rounded-lg hover:bg-gray-50 transition text-lg">Learn More</button>
-        </div>
+<body>
+    <section class="hero">
+        <h1>Write Smarter. Work Faster.</h1>
+        <p>AI-powered tools that refine, automate, and format your content — effortlessly.</p>
+        <a href="#" class="cta-button">Get Started</a>
     </section>
 
-    <section class="bg-gray-50 py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Key Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-2xl font-bold mb-3">Fast Performance</h3>
-                    <p class="text-gray-600">Optimized for speed and efficiency. Load times that keep users engaged.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-4xl mb-4">📱</div>
-                    <h3 class="text-2xl font-bold mb-3">Responsive Design</h3>
-                    <p class="text-gray-600">Looks perfect on any device. Mobile-first approach for all screen sizes.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-4xl mb-4">🎨</div>
-                    <h3 class="text-2xl font-bold mb-3">Customizable</h3>
-                    <p class="text-gray-600">Easy to modify with Tailwind CSS. Make it yours in minutes.</p>
-                </div>
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Context-Aware Editing</h3>
+                <p>Refine, expand, or rephrase existing text to improve tone and impact.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Streamlined Workflows</h3>
+                <p>Accelerate productivity by automating brainstorming, outlining, and content drafting.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Versatile Formatting</h3>
+                <p>Convert paragraphs into organized, structured lists designed for landing pages, blogs, or emails.</p>
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto px-6 py-20">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p class="text-xl text-gray-600 mb-8">Join thousands of users building their next project with our platform.</p>
-            <button class="bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition text-lg">Start Building Today</button>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">© 2024 Brand. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2025 All rights reserved.</p>
     </footer>
 </body>
 </html>
