@@ -3,144 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Solutions | Skalatsky & Associates</title>
+    <title>Skalatsky & Associates – Strategy, Operations, and Technology Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%); }
+        .gold-text { color: #d4af37; }
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-8px); }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white font-sans">
-    
-    <header class="container mx-auto px-6 py-8">
-        <nav class="flex justify-between items-center">
-            <div class="text-2xl font-bold text-yellow-400">Skalatsky & Associates</div>
-            <div class="space-x-6 hidden md:flex">
-                <a href="#services" class="hover:text-yellow-400 transition">Services</a>
-                <a href="#features" class="hover:text-yellow-400 transition">Features</a>
-                <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
-            </div>
-        </nav>
-    </header>
+<body class="bg-gray-50 text-gray-900">
 
-    <section class="container mx-auto px-6 py-20 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Transform Content with <span class="text-yellow-400">AI Intelligence</span>
-        </h1>
-        <p class="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto">
-            Leverage advanced AI to create, summarize, and optimize content at unprecedented speed and scale.
-        </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="#contact" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-500 transition transform hover:scale-105">
-                Get Started
-            </a>
-            <a href="#features" class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 hover:text-gray-900 transition transform hover:scale-105">
-                Learn More
-            </a>
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white py-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold gold-text">Skalatsky & Associates</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-yellow-300 transition">Services</a>
+                <a href="#about" class="hover:text-yellow-300 transition">About</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 gold-text">Transform Your Business with Strategic Excellence</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Skalatsky & Associates delivers world-class consulting in strategy, operations, and technology—empowering Fortune 500 companies and high-growth startups to achieve breakthrough results.</p>
+            <a href="#contact" class="inline-block bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition shadow-lg">Schedule a Consultation</a>
         </div>
     </section>
 
-    <section id="services" class="container mx-auto px-6 py-20">
-        <h2 class="text-4xl font-bold text-center mb-16 text-yellow-400">Our AI-Powered Services</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition transform hover:scale-105">
-                <div class="text-yellow-400 text-5xl mb-4">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Automated Content Creation</h3>
-                <p class="text-gray-300">
-                    Generate high-quality, tailored content in seconds using advanced AI models. Perfect for marketing, documentation, and communication.
-                </p>
-            </div>
-
-            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition transform hover:scale-105">
-                <div class="text-yellow-400 text-5xl mb-4">
-                    <i class="fas fa-file-lines"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Intelligent Summarization</h3>
-                <p class="text-gray-300">
-                    Condense long-form text or meetings into clear, actionable, and concise key points. Save time and enhance understanding.
-                </p>
-            </div>
-
-            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition transform hover:scale-105">
-                <div class="text-yellow-400 text-5xl mb-4">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Optimized Performance</h3>
-                <p class="text-gray-300">
-                    Boost SEO by providing structured, easily digestible data for AI crawlers and human readers. Maximize visibility and engagement.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="features" class="bg-gradient-to-r from-purple-800 to-purple-900 py-20">
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-yellow-400">Why Choose Us</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <ul class="space-y-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-yellow-400 text-2xl mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2">Enterprise-Grade AI</h4>
-                                <p class="text-gray-300">Powered by the latest language models for precision and speed.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-yellow-400 text-2xl mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2">Scalable Solutions</h4>
-                                <p class="text-gray-300">From startups to Fortune 500, we scale with your needs.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-yellow-400 text-2xl mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2">Custom Integration</h4>
-                                <p class="text-gray-300">Seamless deployment into your existing workflows and systems.</p>
-                            </div>
-                        </li>
+            <h2 class="text-4xl font-bold text-center mb-12 text-purple-900">Our Core Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Strategy Consulting -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
+                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-chess-knight"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Strategy Consulting</h3>
+                    <p class="text-gray-700 mb-4">We craft data-driven strategies that align with your business vision, optimize market positioning, and drive sustainable competitive advantage.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Market Entry & Expansion</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Corporate Strategy Development</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>M&A Advisory & Due Diligence</li>
                     </ul>
                 </div>
-                <div class="text-center">
-                    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-12">
-                        <i class="fas fa-lightbulb text-yellow-400 text-8xl mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-4">Ready to Innovate?</h3>
-                        <p class="text-gray-300 mb-6">Let's build the future of content together.</p>
-                        <a href="#contact" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-500 transition inline-block">
-                            Schedule a Demo
-                        </a>
-                    </div>
+
+                <!-- Operations Consulting -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
+                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-cogs"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Operations Consulting</h3>
+                    <p class="text-gray-700 mb-4">Streamline operations, reduce costs, and enhance efficiency through proven methodologies and cutting-edge process optimization.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Supply Chain Optimization</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Lean & Six Sigma Implementation</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Performance Management Systems</li>
+                    </ul>
+                </div>
+
+                <!-- Technology Consulting -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
+                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Technology Consulting</h3>
+                    <p class="text-gray-700 mb-4">Leverage digital transformation, AI, and cloud solutions to future-proof your business and unlock new revenue streams.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Digital Transformation Strategy</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>AI & Machine Learning Integration</li>
+                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Cloud Architecture & Migration</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-purple-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6 gold-text">Why Skalatsky & Associates?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">With over two decades of expertise, we've partnered with leading organizations to solve their toughest challenges. Our approach combines deep industry knowledge, analytical rigor, and hands-on execution.</p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div>
+                    <div class="text-5xl font-bold gold-text mb-2">500+</div>
+                    <p class="text-lg">Projects Delivered</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold gold-text mb-2">98%</div>
+                    <p class="text-lg">Client Satisfaction</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold gold-text mb-2">$2B+</div>
+                    <p class="text-lg">Value Created</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="container mx-auto px-6 py-20">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8 text-yellow-400">Get In Touch</h2>
-            <p class="text-xl text-gray-300 mb-10">
-                Ready to transform your content workflow? Contact us for a personalized consultation.
-            </p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h2 class="text-4xl font-bold text-center mb-8 text-purple-900">Let's Build Something Great Together</h2>
+            <p class="text-center text-gray-600 mb-12">Reach out to discuss how Skalatsky & Associates can accelerate your business growth.</p>
             <form class="space-y-6">
-                <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-lg bg-white/10 backdrop-blur-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-white placeholder-gray-400">
-                <input type="email" placeholder="Your Email" class="w-full px-6 py-4 rounded-lg bg-white/10 backdrop-blur-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-white placeholder-gray-400">
-                <textarea placeholder="Tell us about your project" rows="5" class="w-full px-6 py-4 rounded-lg bg-white/10 backdrop-blur-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-white placeholder-gray-400"></textarea>
-                <button type="submit" class="w-full bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-500 transition transform hover:scale-105">
-                    Send Message
-                </button>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="john@company.com">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Company</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="Acme Corp">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                    <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-purple-700 text-white py-4 rounded-lg font-semibold hover:bg-purple-800 transition shadow-lg">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-gray-900 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 Skalatsky & Associates. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg gold-text font-semibold mb-2">Skalatsky & Associates</p>
+            <p class="text-sm">&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
             <div class="mt-4 space-x-6">
-                <a href="#" class="hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-yellow-400 transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-yellow-400 transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-facebook text-2xl"></i></a>
             </div>
         </div>
     </footer>
