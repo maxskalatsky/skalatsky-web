@@ -1,73 +1,241 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Demo - Write Smarter. Work Faster.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AI-Powered Landing Pages</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #fafbfc;
+            color: #0f172a;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #ffffff, #f7f9fb);
+            padding: 120px 24px 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero button {
+            background: linear-gradient(to right, #6366F1, #4F46E5);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            cursor: pointer;
+            transition: all 0.25s ease-out;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero button:hover {
+            background: linear-gradient(to right, #4F46E5, #4338CA);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .hero button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+        }
+
+        .hero button:focus {
+            outline: 3px solid rgba(79, 70, 229, 0.4);
+            outline-offset: 2px;
+        }
+
+        .features {
+            padding: 80px 24px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:nth-child(1) {
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .feature-card:nth-child(2) {
+            animation: fadeInUp 0.6s ease-out 0.45s backwards;
+        }
+
+        .feature-card:nth-child(3) {
+            animation: fadeInUp 0.6s ease-out 0.6s backwards;
+        }
+
+        .feature-card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.65;
+            color: #64748b;
+        }
+
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #64748b;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 24px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .features {
+                padding: 60px 24px 60px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .feature-card {
+                padding: 32px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9375rem;
+            }
+
+            footer {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
-<body class="bg-white text-gray-900">
-    <nav class="border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="text-xl font-semibold text-gray-900">AI Demo</div>
-            </div>
-        </div>
-    </nav>
-
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Write Smarter. Work Faster.
-            </h1>
-            <p class="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed">
-                AI-powered tools that help you create, refine, and format content with ease.
-            </p>
-            <a href="#" class="inline-block bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-indigo-700 transition-colors duration-200 shadow-md hover:shadow-lg">
-                Get Started
-            </a>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Landing Pages</h1>
+            <p>Generate beautiful, high-converting landing pages in seconds using advanced AI technology. No coding required.</p>
+            <button>Get Started Free</button>
         </div>
     </section>
 
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Context-Aware Editing</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Refine, expand, or rephrase existing text to improve tone and impact.
-                    </p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Streamlined Workflows</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Accelerate productivity by automating brainstorming, outlining, and content drafting.
-                    </p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Versatile Formatting</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Convert paragraphs into organized, structured lists designed for landing pages, blogs, or emails.
-                    </p>
-                </div>
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Lightning Fast</h3>
+                <p>Deploy production-ready pages in under 60 seconds. Our AI handles all the heavy lifting so you can focus on what matters.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fully Responsive</h3>
+                <p>Every page is optimized for mobile, tablet, and desktop. Beautiful design across all devices, guaranteed.</p>
+            </div>
+            <div class="feature-card">
+                <h3>SEO Optimized</h3>
+                <p>Built-in best practices ensure your pages rank well. Clean code, fast load times, and semantic HTML out of the box.</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-gray-600">© 2025 AI Demo. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 AI Landing Pages. All rights reserved.</p>
     </footer>
 </body>
 </html>
+```
