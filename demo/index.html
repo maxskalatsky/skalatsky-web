@@ -3,94 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo - Modern Solutions</title>
+    <title>AI-Powered Landing Page Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-    
-    <header class="border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="text-2xl font-bold text-gray-900">Demo</div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
-                <a href="#features" class="hover:text-gray-900 transition">Features</a>
-                <a href="#cta" class="hover:text-gray-900 transition">Get Started</a>
-            </nav>
-        </div>
-    </header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
-    <section class="max-w-6xl mx-auto px-6 py-24 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-            Build Smarter, Work Faster
-        </h1>
-        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Experience context-aware editing, streamlined workflows, and versatile formatting designed for modern teams.
-        </p>
-        <a href="#cta" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition">
-            Get Started
-        </a>
+        body {
+            background-color: #fafbfc;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #ffffff, #f7f9fb);
+            padding: 120px 1.5rem 100px;
+        }
+
+        .hero-content {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out;
+            background: linear-gradient(to right, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #64748b;
+            line-height: 1.6;
+            letter-spacing: 0;
+            margin-top: 20px;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero button,
+        .hero .cta-button {
+            margin-top: 32px;
+            background: linear-gradient(to right, #6366F1, #4F46E5);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+            transition: all 0.25s ease-out;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero button:hover,
+        .hero .cta-button:hover {
+            background: linear-gradient(to right, #4F46E5, #4338CA);
+            box-shadow: 0 6px 20px rgba(79,70,229,0.4);
+            transform: translateY(-2px);
+        }
+
+        .hero button:active,
+        .hero .cta-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+        }
+
+        .hero button:focus,
+        .hero .cta-button:focus {
+            outline: 3px solid rgba(79,70,229,0.4);
+            outline-offset: 2px;
+        }
+
+        .features-section {
+            padding: 80px 1.5rem 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:nth-child(1) {
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .feature-card:nth-child(2) {
+            animation: fadeInUp 0.6s ease-out 0.45s backwards;
+        }
+
+        .feature-card:nth-child(3) {
+            animation: fadeInUp 0.6s ease-out 0.6s backwards;
+        }
+
+        .feature-card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748b;
+            letter-spacing: 0;
+            line-height: 1.65;
+        }
+
+        footer {
+            padding: 40px 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #64748b;
+            line-height: 1.5;
+            letter-spacing: 0;
+        }
+
+        footer a {
+            color: #64748b;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #4F46E5;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 1.5rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .features-section {
+                padding: 60px 1.5rem 60px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .feature-card {
+                padding: 32px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9375rem;
+            }
+
+            footer {
+                padding: 32px 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Build Beautiful Landing Pages with AI</h1>
+            <p>Transform your ideas into stunning, responsive web pages in seconds. Powered by advanced AI technology and modern design principles.</p>
+            <button class="cta-button">Get Started Free</button>
+        </div>
     </section>
 
-    <section id="features" class="bg-gray-50 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Key Features</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Context-Aware Editing</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Intelligent suggestions and real-time context understanding to accelerate your creative process.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Streamlined Workflows</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Automate repetitive tasks and integrate seamlessly with your existing tools and processes.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Versatile Formatting</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Export and adapt your work across multiple formats and platforms without losing quality.
-                    </p>
-                </div>
-
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Lightning Fast</h3>
+                <p>Generate production-ready landing pages in under 30 seconds. No coding required, no design skills needed.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fully Responsive</h3>
+                <p>Every page looks perfect on desktop, tablet, and mobile. Built with modern CSS and optimized for all screen sizes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Enterprise Ready</h3>
+                <p>Deploy directly to GitHub, integrate with your existing workflow, and scale with confidence.</p>
             </div>
         </div>
     </section>
 
-    <section id="cta" class="max-w-6xl mx-auto px-6 py-24 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Ready to Transform Your Workflow?</h2>
-        <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto">
-            Join thousands of teams already using our platform to build better, faster.
-        </p>
-        <a href="#" class="inline-block bg-gray-900 text-white px-10 py-5 rounded-lg text-lg font-semibold hover:bg-gray-800 transition shadow-lg">
-            Get Started
-        </a>
-    </section>
-
-    <footer class="bg-gray-50 border-t border-gray-200 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-600">
-            <p>&copy; 2025 Demo. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2025 A-Team AI System. Built by <a href="#">Max Skalatsky</a>.</p>
     </footer>
-
 </body>
 </html>
