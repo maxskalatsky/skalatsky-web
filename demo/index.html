@@ -3,149 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skalatsky & Associates – Strategy, Operations, and Technology Consulting</title>
+    <title>Skalatsky & Associates | Strategic Business Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%); }
-        .gold-text { color: #d4af37; }
-        .hover-lift { transition: transform 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-8px); }
-    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-purple': '#1a0b2e',
+                        'gold': '#d4af37',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
-
+<body class="bg-deep-purple text-white font-sans">
+    
     <!-- Navigation -->
-    <nav class="gradient-bg text-white py-4 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold gold-text">Skalatsky & Associates</div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#services" class="hover:text-yellow-300 transition">Services</a>
-                <a href="#about" class="hover:text-yellow-300 transition">About</a>
-                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+    <nav class="fixed w-full bg-deep-purple/95 backdrop-blur-sm z-50 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-gold">S&A</span>
+                    <span class="ml-2 text-sm font-light">Skalatsky & Associates</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-gold transition">Services</a>
+                    <a href="#about" class="hover:text-gold transition">About</a>
+                    <a href="#contact" class="hover:text-gold transition">Contact</a>
+                </div>
             </div>
-            <button class="md:hidden text-white">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-24">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 gold-text">Transform Your Business with Strategic Excellence</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Skalatsky & Associates delivers world-class consulting in strategy, operations, and technology—empowering Fortune 500 companies and high-growth startups to achieve breakthrough results.</p>
-            <a href="#contact" class="inline-block bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition shadow-lg">Schedule a Consultation</a>
+    <section class="pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Strategic Solutions for
+                    <span class="text-gold">Modern Business</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                    Transform complexity into clarity. We architect solutions that scale with your ambition.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-gold text-deep-purple px-8 py-4 rounded-lg font-semibold hover:bg-gold/90 transition text-lg">
+                        Start Your Project
+                    </a>
+                    <a href="#services" class="border-2 border-gold text-gold px-8 py-4 rounded-lg font-semibold hover:bg-gold/10 transition text-lg">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 text-purple-900">Our Core Services</h2>
+    <section id="services" class="py-20 px-4 bg-gradient-to-b from-deep-purple to-purple-950">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                Our <span class="text-gold">Expertise</span>
+            </h2>
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-gold/20 rounded-xl p-8 hover:border-gold/50 transition">
+                    <div class="text-gold text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4">Digital Transformation</h3>
+                    <p class="text-gray-300">
+                        Modernize operations with cutting-edge technology. From legacy systems to cloud-native architectures.
+                    </p>
+                </div>
                 
-                <!-- Strategy Consulting -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
-                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-chess-knight"></i></div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Strategy Consulting</h3>
-                    <p class="text-gray-700 mb-4">We craft data-driven strategies that align with your business vision, optimize market positioning, and drive sustainable competitive advantage.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Market Entry & Expansion</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Corporate Strategy Development</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>M&A Advisory & Due Diligence</li>
-                    </ul>
+                <!-- Service Card 2 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-gold/20 rounded-xl p-8 hover:border-gold/50 transition">
+                    <div class="text-gold text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">Strategic Consulting</h3>
+                    <p class="text-gray-300">
+                        Navigate market complexity with data-driven insights and executive-level strategic planning.
+                    </p>
                 </div>
-
-                <!-- Operations Consulting -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
-                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-cogs"></i></div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Operations Consulting</h3>
-                    <p class="text-gray-700 mb-4">Streamline operations, reduce costs, and enhance efficiency through proven methodologies and cutting-edge process optimization.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Supply Chain Optimization</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Lean & Six Sigma Implementation</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Performance Management Systems</li>
-                    </ul>
+                
+                <!-- Service Card 3 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-gold/20 rounded-xl p-8 hover:border-gold/50 transition">
+                    <div class="text-gold text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-4">Growth Engineering</h3>
+                    <p class="text-gray-300">
+                        Build scalable systems designed for exponential growth. Process optimization that delivers.
+                    </p>
                 </div>
-
-                <!-- Technology Consulting -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift border-t-4 border-purple-700">
-                    <div class="text-4xl mb-4 gold-text"><i class="fas fa-laptop-code"></i></div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Technology Consulting</h3>
-                    <p class="text-gray-700 mb-4">Leverage digital transformation, AI, and cloud solutions to future-proof your business and unlock new revenue streams.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Digital Transformation Strategy</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>AI & Machine Learning Integration</li>
-                        <li><i class="fas fa-check-circle gold-text mr-2"></i>Cloud Architecture & Migration</li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-purple-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6 gold-text">Why Skalatsky & Associates?</h2>
-            <p class="text-xl max-w-3xl mx-auto mb-8">With over two decades of expertise, we've partnered with leading organizations to solve their toughest challenges. Our approach combines deep industry knowledge, analytical rigor, and hands-on execution.</p>
-            <div class="grid md:grid-cols-3 gap-8 mt-12">
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="text-5xl font-bold gold-text mb-2">500+</div>
-                    <p class="text-lg">Projects Delivered</p>
+                    <h2 class="text-4xl font-bold mb-6">
+                        Built on <span class="text-gold">Excellence</span>
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        For over two decades, Skalatsky & Associates has partnered with visionary leaders to solve their most complex challenges.
+                    </p>
+                    <p class="text-gray-300 text-lg">
+                        We don't just consult—we build, we execute, and we deliver measurable results that transform businesses.
+                    </p>
                 </div>
-                <div>
-                    <div class="text-5xl font-bold gold-text mb-2">98%</div>
-                    <p class="text-lg">Client Satisfaction</p>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold gold-text mb-2">$2B+</div>
-                    <p class="text-lg">Value Created</p>
+                <div class="bg-gradient-to-br from-gold/20 to-purple-900/20 rounded-2xl p-8 border border-gold/30">
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-5xl font-bold text-gold">500+</div>
+                            <div class="text-gray-300">Projects Delivered</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold text-gold">98%</div>
+                            <div class="text-gray-300">Client Satisfaction</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold text-gold">20+</div>
+                            <div class="text-gray-300">Years of Excellence</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-2xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-purple-900">Let's Build Something Great Together</h2>
-            <p class="text-center text-gray-600 mb-12">Reach out to discuss how Skalatsky & Associates can accelerate your business growth.</p>
-            <form class="space-y-6">
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
-                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="john@company.com">
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Company</label>
-                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="Acme Corp">
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Message</label>
-                    <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-700" placeholder="Tell us about your project..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-purple-700 text-white py-4 rounded-lg font-semibold hover:bg-purple-800 transition shadow-lg">Send Message</button>
-            </form>
+    <section id="contact" class="py-20 px-4 bg-gradient-to-b from-deep-purple to-black">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Ready to <span class="text-gold">Transform?</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-12">
+                Let's discuss how we can architect your success.
+            </p>
+            <div class="bg-white/5 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <form class="space-y-6">
+                    <input type="text" placeholder="Your Name" class="w-full bg-white/10 border border-gold/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gold">
+                    <input type="email" placeholder="Email Address" class="w-full bg-white/10 border border-gold/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gold">
+                    <textarea placeholder="Tell us about your project" rows="4" class="w-full bg-white/10 border border-gold/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gold"></textarea>
+                    <button type="submit" class="w-full bg-gold text-deep-purple px-8 py-4 rounded-lg font-semibold hover:bg-gold/90 transition text-lg">
+                        Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-lg gold-text font-semibold mb-2">Skalatsky & Associates</p>
-            <p class="text-sm">&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
-            <div class="mt-4 space-x-6">
-                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-facebook text-2xl"></i></a>
-            </div>
+    <footer class="bg-black py-8 px-4 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p>&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
         </div>
     </footer>
 
