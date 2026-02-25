@@ -1,23 +1,89 @@
-I appreciate the detailed instructions, but I need to clarify an important limitation:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context-Aware Editing Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    <header class="border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-gray-900">Editorial</div>
+            <button class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition">Get Started</button>
+        </nav>
+    </header>
 
-**I cannot download external files or access URLs.** As an AI agent, I don't have the ability to:
-- Fetch content from Google Drive links
-- Download images from any external source
-- Convert downloaded files to base64
+    <main>
+        <section class="max-w-7xl mx-auto px-6 py-24 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Modern Editing.<br>Simplified Workflows.
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+                Experience context-aware editing that adapts to your content, streamlines your workflows, and supports versatile formatting for any project.
+            </p>
+            <button class="px-8 py-4 bg-gray-900 text-white text-lg rounded-lg hover:bg-gray-800 transition shadow-lg">
+                Get Started
+            </button>
+        </section>
 
-**What I need from you:**
+        <section class="bg-gray-50 py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Context-Aware Editing</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Intelligent editing that understands your content and adapts to your writing style in real-time.
+                        </p>
+                    </div>
 
-Please provide the image in one of these ways:
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Streamlined Workflows</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Eliminate friction with automated processes and intuitive tools designed for productivity.
+                        </p>
+                    </div>
 
-1. **Upload the image directly** to the workflow system, which will convert it to base64 and pass it to me as `imageBase64` in the input
-2. **Provide the base64 string directly** in your prompt
-3. **Use the n8n workflow** to download and convert the image, then pass the base64 value to me
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Versatile Formatting</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Support for multiple content formats from markdown to rich media, all in one platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-**Once you provide the base64 string**, I will immediately insert it as a full-width banner at the top of the existing page without changing anything else.
+        <section class="max-w-7xl mx-auto px-6 py-24 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to transform your editing workflow?</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Join thousands of content creators who've already made the switch to smarter editing.
+            </p>
+            <button class="px-8 py-4 bg-gray-900 text-white text-lg rounded-lg hover:bg-gray-800 transition shadow-lg">
+                Get Started
+            </button>
+        </section>
+    </main>
 
-Example of what I need:
-```
-imageBase64: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA..."
-```
-
-Please provide the image data and I'll complete the update instantly.
+    <footer class="border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-600">
+            <p>&copy; 2025 Editorial. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
