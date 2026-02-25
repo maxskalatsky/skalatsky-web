@@ -3,68 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Landing Page</title>
+    <title>AI Demo - Write Smarter. Work Faster.</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-900">
-    <header class="bg-gray-100 py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="text-2xl font-bold">Demo</div>
-            <nav class="space-x-6">
-                <a href="#features" class="hover:text-gray-600">Features</a>
-                <a href="#about" class="hover:text-gray-600">About</a>
-                <a href="#contact" class="hover:text-gray-600">Contact</a>
-            </nav>
+    <nav class="border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-semibold text-gray-900">AI Demo</div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="relative flex items-center justify-center text-white" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Streamline%20Workflow.png'); background-size: cover; background-position: center; min-height: 400px;">
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-5xl font-bold mb-4">Welcome to Our Demo</h1>
-            <p class="text-xl mb-6">Experience the future of web solutions</p>
-            <a href="#contact" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Get Started</a>
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Write Smarter. Work Faster.
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed">
+                AI-powered tools that help you create, refine, and format content with ease.
+            </p>
+            <a href="#" class="inline-block bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-indigo-700 transition-colors duration-200 shadow-md hover:shadow-lg">
+                Get Started
+            </a>
         </div>
     </section>
 
-    <section id="features" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-3">Fast Performance</h3>
-                    <p class="text-gray-600">Built with modern technologies for optimal speed and efficiency.</p>
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Context-Aware Editing</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Refine, expand, or rephrase existing text to improve tone and impact.
+                    </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-3">Responsive Design</h3>
-                    <p class="text-gray-600">Looks great on all devices, from mobile to desktop.</p>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Streamlined Workflows</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Accelerate productivity by automating brainstorming, outlining, and content drafting.
+                    </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-3">Easy Integration</h3>
-                    <p class="text-gray-600">Seamlessly integrates with your existing workflow.</p>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Versatile Formatting</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Convert paragraphs into organized, structured lists designed for landing pages, blogs, or emails.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">About Us</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">We are dedicated to delivering high-quality web solutions that meet your business needs. Our team combines creativity with technical expertise to bring your vision to life.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
-            <p class="text-lg text-gray-600 mb-8">Ready to start your project? Contact us today.</p>
-            <a href="mailto:contact@demo.com" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Contact Us</a>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Demo. All rights reserved.</p>
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-600">© 2025 AI Demo. All rights reserved.</p>
         </div>
     </footer>
 </body>
