@@ -3,76 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Check - Skalatsky & Associates</title>
+    <title>Skalatsky & Associates - Premier Web Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-    </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-2xl w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20">
-        <div class="text-center mb-8">
-            <div class="inline-block p-4 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full mb-4 pulse-glow">
-                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-            </div>
-            <h1 class="text-4xl font-bold text-white mb-2">System Status</h1>
-            <p class="text-purple-200">Alex - Lead Web Architect</p>
-        </div>
-
-        <div class="space-y-4">
-            <div class="bg-white/5 rounded-lg p-4 border border-green-500/50">
-                <div class="flex items-center justify-between">
-                    <span class="text-white font-semibold">Pipeline Connection</span>
-                    <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">Active</span>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-xl text-gray-900">
+                    Skalatsky & Associates
                 </div>
-            </div>
-
-            <div class="bg-white/5 rounded-lg p-4 border border-green-500/50">
-                <div class="flex items-center justify-between">
-                    <span class="text-white font-semibold">AI Agent Status</span>
-                    <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">Online</span>
-                </div>
-            </div>
-
-            <div class="bg-white/5 rounded-lg p-4 border border-green-500/50">
-                <div class="flex items-center justify-between">
-                    <span class="text-white font-semibold">GitHub Integration</span>
-                    <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">Connected</span>
-                </div>
-            </div>
-
-            <div class="bg-white/5 rounded-lg p-4 border border-blue-500/50">
-                <div class="flex items-center justify-between">
-                    <span class="text-white font-semibold">Output Path</span>
-                    <span class="text-purple-200 text-sm font-mono">/demo/index.html</span>
-                </div>
-            </div>
-
-            <div class="bg-white/5 rounded-lg p-4 border border-yellow-500/50">
-                <div class="flex items-center justify-between">
-                    <span class="text-white font-semibold">Token Budget</span>
-                    <span class="text-purple-200 text-sm">200,000 available</span>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-gray-900">Services</a>
+                    <a href="#work" class="text-gray-700 hover:text-gray-900">Work</a>
+                    <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
                 </div>
             </div>
         </div>
+    </nav>
 
-        <div class="mt-8 p-4 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 rounded-lg border border-purple-500/30">
-            <p class="text-white text-center">
-                ✓ All systems operational. Ready to generate production-ready HTML.
-            </p>
+    <!-- Hero Section with Image -->
+    <section class="pt-16 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Technology Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/90"></div>
         </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div>
+                    <h1 class="text-5xl font-bold text-gray-900 leading-tight mb-6">
+                        Build Your Digital Future
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Enterprise-grade web solutions that scale with your ambition. We architect experiences that drive results.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
+                            Start Your Project
+                        </a>
+                        <a href="#work" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition text-center">
+                            View Our Work
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Web Development Dashboard" class="rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="mt-6 text-center">
-            <p class="text-purple-300 text-sm">
-                Awaiting your next command...
-            </p>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600">Full-stack solutions for modern businesses</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-3">Web Development</h3>
+                    <p class="text-gray-600">Custom web applications built with cutting-edge technologies and best practices.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-3">Responsive Design</h3>
+                    <p class="text-gray-600">Mobile-first designs that look stunning on every device and screen size.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-3">Performance</h3>
+                    <p class="text-gray-600">Lightning-fast websites optimized for speed, SEO, and conversion.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Recent Projects</h2>
+                <p class="text-xl text-gray-600">Delivering excellence across industries</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project Dashboard" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise SaaS Platform</h3>
+                        <p class="text-gray-600 mb-4">Complete redesign and rebuild of a B2B analytics dashboard serving 10,000+ users.</p>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">React</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold ml-2">Node.js</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">High-conversion online store with real-time inventory and payment processing.</p>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Shopify</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold ml-2">Custom API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Let's Build Something Great</h2>
+            <p class="text-xl text-gray-600 mb-8">Ready to transform your digital presence? Get in touch today.</p>
+            <a href="mailto:hello@skalatsky.com" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-4">Skalatsky & Associates</h3>
+                    <p class="text-gray-400">Building the web, one pixel at a time.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#work" class="hover:text-white transition">Work</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Skalatsky & Associates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
