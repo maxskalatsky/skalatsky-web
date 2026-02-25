@@ -1,158 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write Smarter. Work Faster.</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #111111;
-            background: #ffffff;
-        }
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: #f5f5f5;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        .hero p {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-            color: #555555;
-            max-width: 700px;
-            margin-bottom: 2.5rem;
-            line-height: 1.5;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: #111111;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.125rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .cta-button:hover {
-            background: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .features {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .feature-card {
-            background: #ffffff;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #111111;
-        }
-        .feature-card p {
-            color: #555555;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        .feature-card:nth-child(1) h3::before {
-            content: '✎';
-            display: block;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .feature-card:nth-child(2) h3::before {
-            content: '⚡';
-            display: block;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .feature-card:nth-child(3) h3::before {
-            content: '⚙';
-            display: block;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #f5f5f5;
-            color: #666666;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 80vh;
-            }
-            .features {
-                padding: 3rem 1.5rem;
-            }
-            .features-grid {
-                gap: 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="hero">
-        <h1>Write Smarter. Work Faster.</h1>
-        <p>AI-powered tools that refine, automate, and format your content — effortlessly.</p>
-        <a href="#" class="cta-button">Get Started</a>
-    </section>
+I need to first read the current demo/index.html file to see its structure before making any changes.
 
-    <section class="features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Context-Aware Editing</h3>
-                <p>Refine, expand, or rephrase existing text to improve tone and impact.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Streamlined Workflows</h3>
-                <p>Accelerate productivity by automating brainstorming, outlining, and content drafting.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Versatile Formatting</h3>
-                <p>Convert paragraphs into organized, structured lists designed for landing pages, blogs, or emails.</p>
-            </div>
-        </div>
-    </section>
+Since I don't have access to file system operations or the ability to download and convert images to base64 in this context, I cannot complete this task as specified. 
 
-    <footer>
-        <p>&copy; 2025 All rights reserved.</p>
-    </footer>
-</body>
-</html>
+However, I can provide you with the approach:
+
+**What needs to happen:**
+1. Read current `demo/index.html` 
+2. Download the image from the provided Azure blob URL
+3. Convert it to base64 format
+4. Locate the hero/banner section in the HTML
+5. Replace or insert the image as base64 inline data
+
+**Technical note:** The image URL provided appears to be a temporary signed URL from Azure blob storage with expiration parameters. You would need to:
+
+```bash
+# Download the image
+curl -o hero-image.png "https://oaidalleapiprodscus.blob.core.windows.net/private/..."
+
+# Convert to base64
+base64 hero-image.png > hero-image-base64.txt
+```
+
+Then embed as:
+```html
+<img src="data:image/png;base64,iVBORw0KGgoAAAANS..." style="width:100%; display:block;">
+```
+
+**I cannot execute these operations** because:
+- I don't have access to the current `demo/index.html` content
+- I cannot download external files
+- I cannot perform base64 conversion
+
+You would need to either:
+1. Provide the current HTML content directly
+2. Use a workflow tool that can download/convert the image
+3. Manually download and convert the image, then provide me with the base64 string to embed
