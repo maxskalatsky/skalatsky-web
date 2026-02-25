@@ -1,100 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo - Modern Web Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-    
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-gray-900">
-                Build Smarter, Ship Faster
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed">
-                Powerful tools designed for modern teams. Context-aware editing, streamlined workflows, and versatile formatting at your fingertips.
-            </p>
-            <a href="#features" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-            </a>
-        </div>
-    </section>
+I appreciate the detailed instructions, but I need to clarify an important limitation:
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">
-                Everything You Need
-            </h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                
-                <!-- Feature 1 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-900">Context-Aware Editing</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Intelligent editing that understands your content. Make precise changes without losing context or structure.
-                    </p>
-                </div>
+**I cannot download external files or access URLs.** As an AI agent, I don't have the ability to:
+- Fetch content from Google Drive links
+- Download images from any external source
+- Convert downloaded files to base64
 
-                <!-- Feature 2 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-900">Streamlined Workflows</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Eliminate friction. Build, test, and deploy with workflows designed for speed and efficiency.
-                    </p>
-                </div>
+**What I need from you:**
 
-                <!-- Feature 3 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gray-900 rounded-lg mx-auto mb-6 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-900">Versatile Formatting</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Adapt to any format. From markdown to HTML, handle diverse content with ease and precision.
-                    </p>
-                </div>
+Please provide the image in one of these ways:
 
-            </div>
-        </div>
-    </section>
+1. **Upload the image directly** to the workflow system, which will convert it to base64 and pass it to me as `imageBase64` in the input
+2. **Provide the base64 string directly** in your prompt
+3. **Use the n8n workflow** to download and convert the image, then pass the base64 value to me
 
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">
-                Ready to Transform Your Workflow?
-            </h2>
-            <p class="text-xl text-gray-600 mb-10">
-                Join teams building better products faster.
-            </p>
-            <a href="#" class="inline-block bg-gray-900 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-            </a>
-        </div>
-    </section>
+**Once you provide the base64 string**, I will immediately insert it as a full-width banner at the top of the existing page without changing anything else.
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-white border-t border-gray-200">
-        <div class="max-w-6xl mx-auto text-center text-gray-600">
-            <p>&copy; 2025 Demo. All rights reserved.</p>
-        </div>
-    </footer>
+Example of what I need:
+```
+imageBase64: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA..."
+```
 
-</body>
-</html>
+Please provide the image data and I'll complete the update instantly.
