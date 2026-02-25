@@ -1,17 +1,75 @@
-I need to see the current content of demo/index.html first, but based on the instructions provided, I notice the current page content shows "No existing page. Build fresh."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Modern Workflow Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    
+    <header class="border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-gray-900">Platform</div>
+            <a href="#cta" class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition">Get Started</a>
+        </nav>
+    </header>
 
-However, you've explicitly instructed me to make targeted changes only and not overwrite. This creates a contradiction - I cannot add to a page that doesn't exist without building it fresh.
+    <section class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">Modern Workflow<br>Made Simple</h1>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Powerful tools designed to enhance productivity with context-aware editing, streamlined workflows, and versatile formatting.</p>
+        <a href="#cta" class="inline-block px-8 py-4 bg-gray-900 text-white text-lg font-semibold rounded-lg hover:bg-gray-800 transition shadow-lg">Get Started</a>
+    </section>
 
-Since my role requires strict adherence to the UPDATE RULE and you've said "do not overwrite, make targeted changes only," but there's no existing page to modify, I need clarification:
+    <section class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10">
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="w-14 h-14 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Context-Aware Editing</h3>
+                    <p class="text-gray-600 leading-relaxed">Intelligent editing that understands your content and adapts to your needs in real-time.</p>
+                </div>
 
-**The current page content variable shows:** `'No existing page. Build fresh.'`
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="w-14 h-14 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Streamlined Workflows</h3>
+                    <p class="text-gray-600 leading-relaxed">Eliminate bottlenecks with automated processes designed for maximum efficiency.</p>
+                </div>
 
-**Your instruction says:** "Update demo/index.html — do not overwrite, make targeted changes only."
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="w-14 h-14 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Versatile Formatting</h3>
+                    <p class="text-gray-600 leading-relaxed">Flexible formatting options that adapt to any document type or output requirement.</p>
+                </div>
 
-These are incompatible directives. I cannot perform a targeted update on a non-existent page.
+            </div>
+        </div>
+    </section>
 
-Please either:
-1. Provide the actual current HTML content of demo/index.html, OR
-2. Confirm you want me to create a new page with the banner image
+    <section id="cta" class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Join thousands of teams already transforming their workflows.</p>
+        <a href="#" class="inline-block px-10 py-4 bg-gray-900 text-white text-lg font-semibold rounded-lg hover:bg-gray-800 transition shadow-lg">Get Started</a>
+    </section>
 
-I am unable to proceed with the current instructions as written due to this logical conflict.
+    <footer class="border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-600 text-sm">
+            <p>&copy; 2025 Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
