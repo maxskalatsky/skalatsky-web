@@ -3,152 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Landing Pages</title>
+    <title>Demo Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-gray-900">
-    <header class="bg-white shadow-sm">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-gray-900">A-Team AI</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-gray-900">Features</a>
-                    <a href="#how-it-works" class="text-gray-700 hover:text-gray-900">How It Works</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-gray-900">Pricing</a>
-                </div>
-                <button class="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition">Get Started</button>
-            </div>
-        </nav>
+    <header class="bg-gray-100 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">Demo</div>
+            <nav class="space-x-6">
+                <a href="#features" class="hover:text-gray-600">Features</a>
+                <a href="#about" class="hover:text-gray-600">About</a>
+                <a href="#contact" class="hover:text-gray-600">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <section class="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20" style="background-size: cover; background-position: center; min-height: 400px;">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Build Landing Pages in Seconds</h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto">AI-powered web development that turns your ideas into production-ready pages instantly</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button class="bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition">Start Building</button>
-                <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-gray-900 hover:bg-gray-50 transition">Watch Demo</button>
-            </div>
+    <section class="relative flex items-center justify-center text-white" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Streamline%20Workflow.png'); background-size: cover; background-position: center; min-height: 400px;">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl font-bold mb-4">Welcome to Our Demo</h1>
+            <p class="text-xl mb-6">Experience the future of web solutions</p>
+            <a href="#contact" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Get Started</a>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Why Choose A-Team AI</h2>
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Lightning Fast</h3>
-                    <p class="text-gray-700">Generate complete landing pages in under 10 seconds with AI-powered architecture</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-3">Fast Performance</h3>
+                    <p class="text-gray-600">Built with modern technologies for optimal speed and efficiency.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Production Ready</h3>
-                    <p class="text-gray-700">Code goes straight to GitHub, fully responsive and optimized for all devices</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-3">Responsive Design</h3>
+                    <p class="text-gray-600">Looks great on all devices, from mobile to desktop.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Smart Updates</h3>
-                    <p class="text-gray-700">Make targeted changes without rebuilding—AI understands your existing pages</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-3">Easy Integration</h3>
+                    <p class="text-gray-600">Seamlessly integrates with your existing workflow.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">How It Works</h2>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <div class="flex items-start gap-6">
-                    <div class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">1</div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900">Describe Your Page</h3>
-                        <p class="text-gray-700">Tell Alex what you want to build—hero sections, features, pricing, anything</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-6">
-                    <div class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">2</div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900">AI Generates Code</h3>
-                        <p class="text-gray-700">Get a complete, responsive HTML document with Tailwind CSS in seconds</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-6">
-                    <div class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">3</div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900">Deploy to Production</h3>
-                        <p class="text-gray-700">Code goes directly to your GitHub repo, ready to ship</p>
-                    </div>
-                </div>
-            </div>
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">About Us</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">We are dedicated to delivering high-quality web solutions that meet your business needs. Our team combines creativity with technical expertise to bring your vision to life.</p>
         </div>
     </section>
 
-    <section id="pricing" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Simple Pricing</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="border-2 border-gray-200 rounded-xl p-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Starter</h3>
-                    <p class="text-4xl font-bold mb-6 text-gray-900">$29<span class="text-lg font-normal text-gray-700">/month</span></p>
-                    <ul class="space-y-3 mb-8 text-gray-700">
-                        <li>✓ 50 page generations</li>
-                        <li>✓ Unlimited updates</li>
-                        <li>✓ GitHub integration</li>
-                        <li>✓ Email support</li>
-                    </ul>
-                    <button class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800 transition">Get Started</button>
-                </div>
-                <div class="border-2 border-gray-900 rounded-xl p-8 relative">
-                    <div class="absolute top-0 right-0 bg-gray-900 text-white px-4 py-1 text-sm font-semibold rounded-bl-lg rounded-tr-lg">Popular</div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Pro</h3>
-                    <p class="text-4xl font-bold mb-6 text-gray-900">$99<span class="text-lg font-normal text-gray-700">/month</span></p>
-                    <ul class="space-y-3 mb-8 text-gray-700">
-                        <li>✓ Unlimited generations</li>
-                        <li>✓ Unlimited updates</li>
-                        <li>✓ Priority support</li>
-                        <li>✓ Custom themes</li>
-                    </ul>
-                    <button class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800 transition">Get Started</button>
-                </div>
-            </div>
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+            <p class="text-lg text-gray-600 mb-8">Ready to start your project? Contact us today.</p>
+            <a href="mailto:contact@demo.com" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Contact Us</a>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-xl font-bold mb-4">A-Team AI</h4>
-                    <p class="text-gray-400">AI-powered web development for modern teams</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white">Features</a></li>
-                        <li><a href="#" class="hover:text-white">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white">Documentation</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white">About</a></li>
-                        <li><a href="#" class="hover:text-white">Blog</a></li>
-                        <li><a href="#" class="hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white">Privacy</a></li>
-                        <li><a href="#" class="hover:text-white">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 A-Team AI. All rights reserved.</p>
-            </div>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Demo. All rights reserved.</p>
         </div>
     </footer>
 </body>
