@@ -1,47 +1,57 @@
-I need to follow the steps you've outlined, but I must clarify my limitations:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Modern Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <header class="border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-gray-900">Demo</div>
+            <button class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">Get Started</button>
+        </nav>
+    </header>
 
-**I cannot directly:**
-1. Read files from a filesystem or GitHub repository
-2. Download images from URLs (including Google Drive)
-3. Convert images to base64
+    <section class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Transform Your Workflow</h1>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Experience intelligent editing, seamless processes, and flexible formatting designed for modern teams.</p>
+        <button class="px-8 py-4 bg-gray-900 text-white text-lg rounded-lg hover:bg-gray-800 transition-colors shadow-lg">Get Started</button>
+    </section>
 
-**However, I can provide you with the solution approach:**
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
+                <h3 class="text-2xl font-bold mb-4">Context-Aware Editing</h3>
+                <p class="text-gray-600 leading-relaxed">Smart tools that understand your content and adapt to your needs in real-time.</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
+                <h3 class="text-2xl font-bold mb-4">Streamlined Workflows</h3>
+                <p class="text-gray-600 leading-relaxed">Eliminate friction with intuitive processes designed to accelerate your productivity.</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6"></div>
+                <h3 class="text-2xl font-bold mb-4">Versatile Formatting</h3>
+                <p class="text-gray-600 leading-relaxed">Flexible options that adapt to any project, platform, or presentation style.</p>
+            </div>
+        </div>
+    </section>
 
-Since you mentioned this is part of an n8n workflow with a "Code in JavaScript" node that provides `currentPageContent` and `imageBase64`, the workflow should:
+    <section class="bg-gray-50 border-t border-gray-200 py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to get started?</h2>
+            <p class="text-xl text-gray-600 mb-8">Join teams who trust our platform to deliver exceptional results.</p>
+            <button class="px-8 py-4 bg-gray-900 text-white text-lg rounded-lg hover:bg-gray-800 transition-colors shadow-lg">Get Started</button>
+        </div>
+    </section>
 
-1. **Fetch the current HTML** from demo/index.html
-2. **Download the image** from the Google Drive URL
-3. **Convert it to base64** 
-4. **Pass both** to me as input
-
----
-
-**If you provide me with:**
-- The current HTML content of demo/index.html (as `currentPageContent`)
-- The base64-encoded image string (as `imageBase64`)
-
-**I will output:** The complete updated HTML with the banner inserted as the first element in `<body>`.
-
----
-
-**For your n8n workflow**, add this JavaScript code node before calling me:
-
-```javascript
-// Fetch current page
-const currentPageContent = ... // read from GitHub/filesystem
-
-// Download and convert image
-const imageUrl = 'https://drive.google.com/uc?export=view&id=1Z1Z6CNQHmDr-93YPOJefxoNcMPQpQV9C';
-const response = await fetch(imageUrl);
-const buffer = await response.arrayBuffer();
-const base64 = Buffer.from(buffer).toString('base64');
-const mimeType = response.headers.get('content-type') || 'image/png';
-const imageBase64 = `data:${mimeType};base64,${base64}`;
-
-return {
-  currentPageContent,
-  imageBase64
-};
-```
-
-Then pass both values to me, and I'll insert the banner correctly.
+    <footer class="border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Demo. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
