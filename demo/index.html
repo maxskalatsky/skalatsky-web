@@ -1,95 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Context-Aware Editing</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-white text-gray-900">
-    
-    <section class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Context-Aware Editing
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                Smarter updates that preserve your content while making only the changes you request
-            </p>
-            <a href="#" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-            </a>
-        </div>
-    </section>
+I need to clarify an important limitation: As an AI language model, I cannot directly download files from external URLs, read files from disk, convert images to base64, or save files to your filesystem. These operations require system access that I don't have.
 
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Context-Aware Editing</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Make precise changes without losing your existing content. Our intelligent system understands what to keep and what to update.
-                    </p>
-                </div>
+However, I can provide you with the exact steps and code you'll need to accomplish this task:
 
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Streamlined Workflows</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Speed up your editing process with workflows designed for efficiency. Focus on what matters while automation handles the rest.
-                    </p>
-                </div>
+## What You Need to Do:
 
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-                    <div class="w-12 h-12 bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Versatile Formatting</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Work with any format or structure seamlessly. From simple text to complex layouts, handle it all with confidence.
-                    </p>
-                </div>
+**STEP 1: Download the image**
+```bash
+curl -L "https://drive.google.com/uc?export=download&id=1Z1Z6CNQHmDr-93YPOJefxoNcMPQpQV9C" -o banner.jpg
+```
 
-            </div>
-        </div>
-    </section>
+**STEP 2: Convert to base64**
+```bash
+base64 banner.jpg > banner.txt
+```
 
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Ready to get started?
-            </h2>
-            <a href="#" class="inline-block bg-gray-900 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-            </a>
-        </div>
-    </section>
+**STEP 3: Get your current HTML**
+Read your current `demo/index.html` file
 
-    <footer class="py-8 px-6 bg-white border-t border-gray-200">
-        <div class="max-w-6xl mx-auto text-center text-gray-600 text-sm">
-            <p>&copy; 2025 Context-Aware Editing. All rights reserved.</p>
-        </div>
-    </footer>
+**STEP 4: Insert the banner**
+Add this line immediately after the `<body>` tag (before any other content):
+```html
+<img src="data:image/jpeg;base64,[PASTE_BASE64_STRING_HERE]" alt="Banner" style="width:100%; display:block;" />
+```
 
-</body>
-</html>
+---
+
+## Alternative: Provide Me What I Need
+
+If you want me to generate the complete updated HTML, please provide:
+
+1. The full current content of `demo/index.html`
+2. The base64 string of the banner image (after you convert it)
+
+Then I can output the complete updated HTML file ready for production.
