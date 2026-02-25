@@ -3,344 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Web Development | Max Skalatsky's A-Team</title>
+    <title>AI Content Assistant</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        body {
-            background-color: #FAFBFC;
-        }
-
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(91, 79, 255, 0.15);
-        }
-
-        .gradient-btn {
-            background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);
-            transition: all 0.3s ease;
-        }
-
-        .gradient-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 32px rgba(91, 79, 255, 0.3);
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .scroll-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h1, h2, h3, h4 {
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        p, li {
-            line-height: 1.75;
-        }
-    </style>
 </head>
-<body class="antialiased">
+<body class="bg-white text-gray-900 font-sans antialiased">
     
-    <header class="py-6 px-4 border-b border-gray-200" style="background-color: #FAFBFC;">
-        <div class="max-w-7xl mx-auto flex items-center justify-between fade-in stagger-1">
-            <div class="text-2xl font-bold" style="color: #5B4FFF;">Max Skalatsky</div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#features" class="text-gray-700 hover:text-gray-900 font-medium transition">Features</a>
-                <a href="#how-it-works" class="text-gray-700 hover:text-gray-900 font-medium transition">How It Works</a>
-                <a href="#pricing" class="text-gray-700 hover:text-gray-900 font-medium transition">Pricing</a>
-                <a href="#contact" class="text-gray-700 hover:text-gray-900 font-medium transition">Contact</a>
-            </nav>
-            <button class="gradient-btn text-white px-6 py-2.5 rounded-lg font-semibold fade-in stagger-2">
-                Get Started
-            </button>
-        </div>
-    </header>
+    <!-- Hero Section -->
+    <section class="px-6 py-20 md:py-32 max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            Intelligent Content Creation
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Enhance your writing with AI-powered tools that understand context, accelerate workflows, and format content for any platform.
+        </p>
+    </section>
 
-    <section class="py-24 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-6xl md:text-7xl font-bold mb-6 fade-in stagger-2" style="color: #111111;">
-                AI-Powered Web<br/>Development A-Team
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto fade-in stagger-3">
-                Deploy production-ready landing pages in minutes. Our AI agents handle design, code, and deployment — so you can focus on growth.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in stagger-4">
-                <button class="gradient-btn text-white px-8 py-4 rounded-lg text-lg font-semibold">
-                    Start Building Free
-                </button>
-                <button class="bg-white text-gray-900 border-2 border-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:border-gray-400 transition">
-                    Watch Demo
-                </button>
+    <!-- Features Section -->
+    <section class="px-6 py-16 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Feature 1 -->
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-semibold mb-4">Context-Aware Editing</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Refine, expand, or rephrase existing text to improve tone and impact.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 scroll-fade" style="color: #111111;">
-                Why Choose Our A-Team
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8" style="gap: 32px;">
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover scroll-fade" style="border-radius: 16px;">
-                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: #111111;">Lightning Fast</h3>
-                    <p class="text-gray-600">
-                        From brief to live site in under 10 minutes. No meetings, no back-and-forth. Just results.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover scroll-fade" style="border-radius: 16px;">
-                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: #111111;">Production Ready</h3>
-                    <p class="text-gray-600">
-                        Every page is optimized, responsive, and connected to your GitHub repo. Deploy with confidence.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover scroll-fade" style="border-radius: 16px;">
-                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: #111111;">Infinite Iterations</h3>
-                    <p class="text-gray-600">
-                        Update colors, copy, or layouts with a single message. Alex adapts in real-time.
-                    </p>
-                </div>
+            <!-- Feature 2 -->
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-semibold mb-4">Streamlined Workflows</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Accelerate productivity by automating brainstorming, outlining, and content drafting.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <section id="how-it-works" class="py-20 px-4" style="background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 scroll-fade">
-                How It Works
-            </h2>
-            <p class="text-xl text-white/90 mb-16 scroll-fade">
-                Three simple steps. No design skills required.
-            </p>
-            <div class="grid md:grid-cols-3 gap-8" style="gap: 32px;">
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-white scroll-fade" style="border-radius: 16px;">
-                    <div class="text-5xl font-bold mb-4" style="color: #FF6B6B;">01</div>
-                    <h3 class="text-2xl font-bold mb-3">Describe Your Page</h3>
-                    <p class="text-white/90">
-                        Tell Alex what you need. Include brand colors, goals, and target audience.
-                    </p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-white scroll-fade" style="border-radius: 16px;">
-                    <div class="text-5xl font-bold mb-4" style="color: #FF6B6B;">02</div>
-                    <h3 class="text-2xl font-bold mb-3">Review & Refine</h3>
-                    <p class="text-white/90">
-                        Alex generates a full HTML page. Request changes instantly via chat.
-                    </p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-white scroll-fade" style="border-radius: 16px;">
-                    <div class="text-5xl font-bold mb-4" style="color: #FF6B6B;">03</div>
-                    <h3 class="text-2xl font-bold mb-3">Deploy to GitHub</h3>
-                    <p class="text-white/90">
-                        Push live in one click. Your page is versioned, tracked, and production-ready.
-                    </p>
-                </div>
+            <!-- Feature 3 -->
+            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-semibold mb-4">Versatile Formatting</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Convert paragraphs into organized, structured lists designed for landing pages, blogs, or emails.
+                </p>
             </div>
+
         </div>
     </section>
 
-    <section id="pricing" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 scroll-fade" style="color: #111111;">
-                Simple, Transparent Pricing
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8" style="gap: 32px;">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-2 border-gray-200 card-hover scroll-fade" style="border-radius: 16px;">
-                    <h3 class="text-2xl font-bold mb-2" style="color: #111111;">Starter</h3>
-                    <div class="text-4xl font-bold mb-6" style="color: #5B4FFF;">$49<span class="text-lg text-gray-500 font-normal">/mo</span></div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">5 pages per month</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">GitHub integration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Unlimited revisions</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
-                        Get Started
-                    </button>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-lg border-4 card-hover scroll-fade" style="border-color: #5B4FFF; border-radius: 16px; position: relative;">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-sm font-bold text-white" style="background: linear-gradient(135deg, #5B4FFF 0%, #FF6B6B 100%);">
-                        MOST POPULAR
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2" style="color: #111111;">Pro</h3>
-                    <div class="text-4xl font-bold mb-6" style="color: #5B4FFF;">$149<span class="text-lg text-gray-500 font-normal">/mo</span></div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">20 pages per month</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Priority support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Custom domains</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Advanced analytics</span>
-                        </li>
-                    </ul>
-                    <button class="w-full gradient-btn text-white py-3 rounded-lg font-semibold">
-                        Get Started
-                    </button>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-2 border-gray-200 card-hover scroll-fade" style="border-radius: 16px;">
-                    <h3 class="text-2xl font-bold mb-2" style="color: #111111;">Enterprise</h3>
-                    <div class="text-4xl font-bold mb-6" style="color: #5B4FFF;">Custom</div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Unlimited pages</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">Dedicated agent</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">SLA guarantees</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 flex-shrink-0" style="color: #5B4FFF;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-gray-600">White-label options</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
-                        Contact Sales
-                    </button>
-                </div>
-            </div>
-        </div>
+    <!-- CTA Section -->
+    <section class="px-6 py-16 text-center">
+        <a href="#" class="inline-block bg-gray-900 text-white font-semibold px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors">
+            Get Started
+        </a>
     </section>
 
-    <section id="contact" class="py-24 px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 scroll-fade" style="color: #111111;">
-                Ready to Build?
-            </h2>
-            <p class="text-xl text-gray-600 mb-10 scroll-fade">
-                Join hundreds of teams shipping landing pages 10x faster with AI.
-            </p>
-            <button class="gradient-btn text-white px-10 py-4 rounded-lg text-lg font-semibold scroll-fade">
-                Start Your Free Trial
-            </button>
-        </div>
-    </section>
-
-    <footer class="py-12 px-4 border-t border-gray-200" style="background-color: #FAFBFC;">
-        <div class="max-w-7xl mx-auto text-center text-gray-600">
-            <p>&copy; 2024 Max Skalatsky. All rights reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="px-6 py-12 border-t border-gray-200 text-center text-sm text-gray-500">
+        <p>&copy; 2024. All rights reserved.</p>
     </footer>
-
-    <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-fade').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 
 </body>
 </html>
