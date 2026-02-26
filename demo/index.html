@@ -1,265 +1,66 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Landing Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #fafbfc;
-            color: #64748b;
-            line-height: 1.65;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero {
-            background: linear-gradient(to bottom, #ffffff, #f7f9fb);
-            padding: 120px 20px 100px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero p {
-            font-size: 20px;
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: #64748b;
-            line-height: 1.6;
-            margin-top: 20px;
-            animation: fadeInUp 0.8s ease-out 0.1s backwards;
-        }
-
-        .hero button,
-        .hero .cta {
-            margin-top: 32px;
-            background: linear-gradient(to bottom, #6366F1, #4F46E5);
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 14px 32px;
-            border-radius: 8px;
-            border: none;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-            cursor: pointer;
-            transition: all 0.25s ease-out;
-            display: inline-block;
-            text-decoration: none;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero button:hover,
-        .hero .cta:hover {
-            background: linear-gradient(to bottom, #4F46E5, #4338CA);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .hero button:active,
-        .hero .cta:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
-        }
-
-        .hero button:focus,
-        .hero .cta:focus {
-            outline: 3px solid rgba(79, 70, 229, 0.4);
-            outline-offset: 2px;
-        }
-
-        .features {
-            padding: 80px 20px 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .feature-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .feature-card:nth-child(1) {
-            animation: fadeInUp 0.6s ease-out 0.3s backwards;
-        }
-
-        .feature-card:nth-child(2) {
-            animation: fadeInUp 0.6s ease-out 0.45s backwards;
-        }
-
-        .feature-card:nth-child(3) {
-            animation: fadeInUp 0.6s ease-out 0.6s backwards;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            font-size: 1.375rem;
-            font-weight: 600;
-            color: #0f172a;
-            line-height: 1.3;
-            letter-spacing: -0.01em;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            font-size: 16px;
-            font-size: 1rem;
-            font-weight: 400;
-            color: #64748b;
-            line-height: 1.65;
-        }
-
-        footer {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 14px;
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: #475569;
-            line-height: 1.5;
-        }
-
-        footer a {
-            color: #475569;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover {
-            color: #4F46E5;
-        }
-
-        @media (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px 60px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-                font-size: 2.25rem;
-            }
-
-            .hero p {
-                font-size: 18px;
-                font-size: 1.125rem;
-            }
-
-            .features {
-                padding: 60px 20px 60px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .feature-card {
-                padding: 32px;
-            }
-
-            .feature-card h3 {
-                font-size: 20px;
-                font-size: 1.25rem;
-            }
-
-            .feature-card p {
-                font-size: 15px;
-                font-size: 0.9375rem;
-            }
-
-            footer {
-                padding: 32px 20px;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Our Demo</h1>
-            <p>Experience the power of modern web design with clean typography, smooth animations, and responsive layouts.</p>
-            <button>Get Started</button>
+<body class="bg-white text-gray-900">
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-900">Demo</div>
+            <div class="space-x-6">
+                <a href="#features" class="text-gray-700 hover:text-gray-900">Features</a>
+                <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="relative" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Streamline%20Workflow.png'); background-size: cover; background-position: center; min-height: 500px;">
+        <div class="absolute inset-0 bg-black bg-opacity-45"></div>
+        <div class="relative container mx-auto px-6 py-32 text-center">
+            <h1 class="text-5xl font-bold mb-6 text-white">Welcome to Your Demo</h1>
+            <p class="text-xl mb-8 text-gray-100 max-w-2xl mx-auto">Experience modern web design with responsive layouts and clean aesthetics.</p>
+            <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Get Started</a>
         </div>
     </section>
 
-    <section class="features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Fast Performance</h3>
-                <p>Lightning-fast load times and optimized code ensure your users have the best experience possible.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Responsive Design</h3>
-                <p>Seamlessly adapt to any screen size, from mobile phones to large desktop displays.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Modern Aesthetic</h3>
-                <p>Clean, contemporary design that feels fresh and professional across all touchpoints.</p>
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Key Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-3">Fast Performance</h3>
+                    <p class="text-gray-600">Optimized for speed and efficiency across all devices.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="text-3xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-3">Responsive Design</h3>
+                    <p class="text-gray-600">Perfect display on mobile, tablet, and desktop screens.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="text-3xl mb-4">🎨</div>
+                    <h3 class="text-xl font-semibold mb-3">Modern Aesthetic</h3>
+                    <p class="text-gray-600">Clean, professional design with attention to detail.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Demo Landing Page. All rights reserved.</p>
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Ready to start your project? Contact us today.</p>
+            <a href="mailto:hello@demo.com" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Demo. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
-```
