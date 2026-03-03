@@ -3,70 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Related Ross — Residences at the Top</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="bg-white text-gray-900 font-sans">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="eyebrow">São Paulo · Itaim Bibi</p>
-      <h1>Live Above the City. Live Without Compromise.</h1>
-      <p>Ultra-prime residences for those who have already arrived. Related Ross brings the standard of New York's finest addresses to the skyline of São Paulo.</p>
-      <a href="#contact" class="btn-primary">Request Private Preview</a>
-    </div>
-  </section>
-
-  <!-- THE LIFE -->
-  <section class="section-life">
-    <div class="section-inner">
-      <p class="intro-copy">This is not simply real estate. It is a decision about how you intend to live — and who you intend to become in the years ahead.</p>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-label">Residences</p>
-          <h3>Curated Interiors</h3>
-          <p>Every detail resolved before you arrive. Stone, light, and proportion — selected by designers who understand what restraint actually costs.</p>
-        </div>
-        <div class="card">
-          <p class="card-label">Amenities</p>
-          <h3>Private Club Floor</h3>
-          <p>A dedicated floor for residents only. Wine library, screening room, and concierge services available around the clock.</p>
-        </div>
-        <div class="card">
-          <p class="card-label">Location</p>
-          <h3>Itaim Bibi</h3>
-          <p>São Paulo's most consequential address. Minutes from the city's premier restaurants, galleries, and financial institutions.</p>
-        </div>
+  <!-- Hero Section -->
+  <section
+    style="
+      background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Sao%20Paulo%20Rooftop.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    "
+    class="flex items-center justify-center"
+  >
+    <div class="bg-black bg-opacity-40 w-full h-full flex items-center justify-center" style="min-height:400px;">
+      <div class="text-center text-white px-6">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome</h1>
+        <p class="text-lg md:text-xl mb-8 max-w-xl mx-auto">A clean, high-performance landing page.</p>
+        <a href="#" class="bg-white text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">Get Started</a>
       </div>
     </div>
   </section>
 
-  <!-- THE ADDRESS -->
-  <section class="section-address">
-    <div class="section-inner">
-      <h2>The Standard Has Changed.</h2>
-      <p class="body-copy">Related Ross has delivered landmark buildings on the most competitive blocks in the world. This São Paulo address continues that legacy — with a level of finish and service that has no local precedent.</p>
-      <blockquote>
-        <p>"We do not build for the market. We build for the moment when a buyer walks in and understands, without being told, that nothing else will do."</p>
-        <cite>— Related Ross Development Philosophy</cite>
-      </blockquote>
-      <a href="#contact" class="btn-secondary">Schedule a Private Consultation</a>
+  <!-- Cards Section -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl shadow p-8 text-center">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="text-xl font-semibold mb-2">Fast</h3>
+        <p class="text-gray-500 text-sm">Optimized for performance and speed across all devices.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow p-8 text-center">
+        <div class="text-3xl mb-4">🎨</div>
+        <h3 class="text-xl font-semibold mb-2">Clean Design</h3>
+        <p class="text-gray-500 text-sm">Minimal, modern aesthetics that keep focus on content.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow p-8 text-center">
+        <div class="text-3xl mb-4">📱</div>
+        <h3 class="text-xl font-semibold mb-2">Responsive</h3>
+        <p class="text-gray-500 text-sm">Looks great on every screen size, from mobile to desktop.</p>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-brand">Related Ross</span>
-      <span class="footer-tagline">Residences · São Paulo</span>
-      <span class="footer-copy">&copy; 2025 Related Ross. All rights reserved.</span>
-    </div>
-  </footer>
+  <!-- CTA Section -->
+  <section class="py-16 px-6 bg-white text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+    <p class="text-gray-500 mb-8 max-w-md mx-auto">Join today and experience the difference.</p>
+    <a href="#" class="bg-gray-900 text-white font-semibold px-10 py-3 rounded-full hover:bg-gray-700 transition">Contact Us</a>
+  </section>
 
 </body>
 </html>
