@@ -3,58 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+  <title>São Paulo Rooftop Experience</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body>
 
-  <!-- Hero Section -->
-  <section
-    style="
-      background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Sao%20Paulo%20Rooftop.png');
-      background-size: cover;
-      background-position: center;
-      min-height: 400px;
-    "
-    class="flex items-center justify-center"
-  >
-    <div class="bg-black bg-opacity-40 w-full h-full flex items-center justify-center" style="min-height:400px;">
-      <div class="text-center text-white px-6">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome</h1>
-        <p class="text-lg md:text-xl mb-8 max-w-xl mx-auto">A clean, high-performance landing page.</p>
-        <a href="#" class="bg-white text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">Get Started</a>
+  <!-- Hero -->
+  <section class="hero" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Sao%20Paulo%20Rooftop.png'); background-size: cover; background-position: center;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">São Paulo, Brazil</p>
+      <h1 class="hero-headline">Above the City.<br/>Below the Stars.</h1>
+      <p class="hero-sub">An exclusive rooftop experience curated for those who move differently.</p>
+      <a href="#reserve" class="hero-cta">Reserve Your Table</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features-section">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌆</div>
+        <h3>Panoramic Views</h3>
+        <p>360° skyline vistas from the highest open-air terrace in the Jardins district.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍹</div>
+        <h3>Craft Cocktails</h3>
+        <p>Seasonal menus crafted by award-winning mixologists using local botanicals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎶</div>
+        <h3>Live Sets</h3>
+        <p>Curated live music every Friday and Saturday from 8 PM to 2 AM.</p>
       </div>
     </div>
   </section>
 
-  <!-- Cards Section -->
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-2xl shadow p-8 text-center">
-        <div class="text-3xl mb-4">⚡</div>
-        <h3 class="text-xl font-semibold mb-2">Fast</h3>
-        <p class="text-gray-500 text-sm">Optimized for performance and speed across all devices.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow p-8 text-center">
-        <div class="text-3xl mb-4">🎨</div>
-        <h3 class="text-xl font-semibold mb-2">Clean Design</h3>
-        <p class="text-gray-500 text-sm">Minimal, modern aesthetics that keep focus on content.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow p-8 text-center">
-        <div class="text-3xl mb-4">📱</div>
-        <h3 class="text-xl font-semibold mb-2">Responsive</h3>
-        <p class="text-gray-500 text-sm">Looks great on every screen size, from mobile to desktop.</p>
-      </div>
+  <!-- Reserve -->
+  <section id="reserve" class="reserve-section">
+    <div class="reserve-inner">
+      <h2>Secure Your Spot</h2>
+      <p>Limited capacity. Reservations recommended.</p>
+      <form class="reserve-form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="date" required />
+        <button type="submit">Request Reservation</button>
+      </form>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 px-6 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
-    <p class="text-gray-500 mb-8 max-w-md mx-auto">Join today and experience the difference.</p>
-    <a href="#" class="bg-gray-900 text-white font-semibold px-10 py-3 rounded-full hover:bg-gray-700 transition">Contact Us</a>
-  </section>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 São Paulo Rooftop. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
