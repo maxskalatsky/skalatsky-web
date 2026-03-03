@@ -1,0 +1,1 @@
+[18-Apr-2025 19:47:54 UTC] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home/justinvaldengo/public_html/api/phpmailer/PHPMailerAutoload.php on line 45
