@@ -1,66 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Related Ross — A Brilliant Life, Not Just a Beautiful One</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        charcoal: '#1a1a1a',
+        offwhite: '#f7f5f2',
+        gold: '#b8972e',
+        goldlight: '#d4af55',
+        muted: '#6b6560',
+        border: '#e2ddd8'
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'serif'],
+        body: ['Inter', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
 </head>
-<body class="bg-white text-gray-900">
-    <header class="bg-white shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-900">Demo</div>
-            <div class="space-x-6">
-                <a href="#features" class="text-gray-700 hover:text-gray-900">Features</a>
-                <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
-            </div>
-        </nav>
-    </header>
+<body class="bg-offwhite text-charcoal font-body antialiased">
 
-    <section class="relative" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Streamline%20Workflow.png'); background-size: cover; background-position: center; min-height: 500px;">
-        <div class="absolute inset-0 bg-black bg-opacity-45"></div>
-        <div class="relative container mx-auto px-6 py-32 text-center">
-            <h1 class="text-5xl font-bold mb-6 text-white">Welcome to Your Demo</h1>
-            <p class="text-xl mb-8 text-gray-100 max-w-2xl mx-auto">Experience modern web design with responsive layouts and clean aesthetics.</p>
-            <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Get Started</a>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-24 bg-offwhite relative">
+  <div class="max-w-3xl mx-auto">
+    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-6">West Palm Beach · South Flagler House</p>
+    <h1 class="font-display text-5xl md:text-7xl font-semibold text-charcoal leading-tight mb-6">
+      A Brilliant Life,<br class="hidden md:block" /> Not Just a Beautiful One.
+    </h1>
+    <p class="font-body text-base md:text-lg text-muted font-light max-w-xl mx-auto mb-10 leading-relaxed">
+      Curated living for those who demand more than a beautiful home — they demand a beautiful world around it.
+    </p>
+    <a href="#life" class="inline-block bg-gold hover:bg-goldlight text-white font-body text-sm font-medium tracking-widest uppercase px-10 py-4 transition-colors duration-300">
+      Explore the Collection
+    </a>
+  </div>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+    <div class="w-px h-10 bg-charcoal"></div>
+  </div>
+</section>
 
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Key Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-3xl mb-4">⚡</div>
-                    <h3 class="text-xl font-semibold mb-3">Fast Performance</h3>
-                    <p class="text-gray-600">Optimized for speed and efficiency across all devices.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-3xl mb-4">📱</div>
-                    <h3 class="text-xl font-semibold mb-3">Responsive Design</h3>
-                    <p class="text-gray-600">Perfect display on mobile, tablet, and desktop screens.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="text-3xl mb-4">🎨</div>
-                    <h3 class="text-xl font-semibold mb-3">Modern Aesthetic</h3>
-                    <p class="text-gray-600">Clean, professional design with attention to detail.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- THE LIFE -->
+<section id="life" class="bg-white py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-4">The Life</p>
+    <p class="font-display text-xl md:text-2xl font-light text-charcoal leading-relaxed max-w-3xl mb-16">
+      Imagine your morning begins not with a commute, but with espresso at a French café below your residence. Your afternoon is a walk along the Intracoastal. Your evening — a table at estiatorio Milos, where Costas Spiliadis brings the flavors of Greece to the West Palm waterfront. This is not a home purchase. It is a life upgrade.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
+        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Dining</p>
+        <h3 class="font-display text-2xl font-semibold text-charcoal">World-Class at Your Door</h3>
+        <p class="font-body text-sm text-muted leading-relaxed font-light">Eataly, estiatorio Milos, Maman, Ela Curry &amp; Cocktails — world-class dining curated into your neighborhood, not just nearby.</p>
+      </div>
+      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
+        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Culture</p>
+        <h3 class="font-display text-2xl font-semibold text-charcoal">Built to Last</h3>
+        <p class="font-body text-sm text-muted leading-relaxed font-light">Art, architecture, and community woven into every block. LEED Gold. Robert A.M. Stern. A city being built to last.</p>
+      </div>
+      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
+        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Residence</p>
+        <h3 class="font-display text-2xl font-semibold text-charcoal">108 Remarkable Homes</h3>
+        <p class="font-body text-sm text-muted leading-relaxed font-light">108 beautifully appointed homes. Timeless interiors by Pembrooke &amp; Ives. Unobstructed Intracoastal and Atlantic views. Designed by Robert A.M. Stern Architects.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
-            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Ready to start your project? Contact us today.</p>
-            <a href="mailto:hello@demo.com" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Contact Us</a>
-        </div>
-    </section>
+<!-- THE ADDRESS -->
+<section id="address" class="bg-offwhite py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-4">The Address</p>
+    <h2 class="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-8 leading-tight">
+      South Flagler House.<br class="hidden md:block" /> West Palm Beach.
+    </h2>
+    <p class="font-body text-base text-muted font-light leading-relaxed max-w-2xl mb-14">
+      The first luxury high-rise in South Florida developed by Related and designed by Robert A.M. Stern Architects. Rising from the waterfront, only steps from downtown. 108 residences. Two- to five-bedroom homes. A new standard for what South Florida living can be — backed by nearly $10 billion in transformative investment by Related Ross.
+    </p>
+    <blockquote class="border-l-4 border-gold pl-8 mb-14">
+      <p class="font-display text-xl md:text-2xl italic text-charcoal leading-relaxed mb-4">
+        "We see Palm Beach County, with West Palm Beach at its center, as the most dynamic place in the country."
+      </p>
+      <cite class="font-body text-xs tracking-[0.15em] uppercase text-muted not-italic">— Stephen M. Ross, CEO &amp; Chairman, Related Ross</cite>
+    </blockquote>
+    <a href="#" class="inline-block border border-charcoal hover:border-gold hover:text-gold text-charcoal font-body text-sm font-medium tracking-widest uppercase px-10 py-4 transition-colors duration-300">
+      Request Residence Information
+    </a>
+  </div>
+</section>
 
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Demo. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- FOOTER -->
+<footer class="bg-charcoal py-10 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <span class="font-display text-lg text-white font-light tracking-wide">Related Ross</span>
+    <span class="font-body text-xs tracking-[0.25em] uppercase text-gold">West Palm Brilliant.</span>
+    <span class="font-body text-xs text-white/40 tracking-wide">© 2026 Related Ross</span>
+  </div>
+</footer>
+
 </body>
 </html>
