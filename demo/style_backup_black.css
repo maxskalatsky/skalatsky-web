@@ -1,0 +1,131 @@
+body {
+  background-color: #0D0D0D;
+  color: #E8E0D0;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
+  color: #E8E0D0;
+  margin-top: 0;
+  letter-spacing: 0.02em;
+}
+a {
+  color: #D4A843;
+  text-decoration: none;
+}
+a:hover {
+  color: #F0C060;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 60px 80px;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #b0a898;
+  max-width: 520px;
+}
+.cta-button {
+  background-color: transparent;
+  color: #D4A843;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 12px 28px;
+  border: 1px solid #D4A843;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cta-button:hover {
+  background-color: #D4A843;
+  color: #0D0D0D;
+}
+section {
+  padding: 100px 20px;
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.card {
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 2px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: #D4A843;
+  letter-spacing: 0.05em;
+}
+.card p {
+  color: #a09888;
+  line-height: 1.8;
+  margin: 0;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 80px;
+  max-width: 100%;
+}
+nav a {
+  color: #E8E0D0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 32px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+nav a:hover {
+  color: #D4A843;
+}
+.nav-wrapper {
+  background-color: rgba(13, 13, 13, 0.92);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+footer {
+  border-top: 1px solid rgba(212, 168, 67, 0.1);
+  padding: 48px 20px;
+  text-align: center;
+  color: #666666;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.accent {
+  color: #D4A843;
+}
+.text-muted {
+  color: #888880;
+}
