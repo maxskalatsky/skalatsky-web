@@ -1,153 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Related Ross — West Palm Brilliant</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
-  body { font-family: 'Inter', sans-serif; background: #faf9f7; color: #111; }
-  .serif { font-family: 'Cormorant Garamond', serif; }
-  .hero-bg {
-    background: linear-gradient(to bottom, rgba(10,20,30,0.52) 0%, rgba(10,20,30,0.38) 60%, rgba(250,249,247,1) 100%),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=80');
-    background-size: cover; background-position: center; min-height: 96vh;
-  }
-  .fade-in { animation: fadeUp .9s ease both; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(28px);} to { opacity:1; transform:translateY(0);} }
-  .card-hover { transition: transform .35s ease, box-shadow .35s ease; }
-  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.10); }
-  .gold { color: #b89a5e; }
-  .gold-border { border-color: #b89a5e; }
-  .gold-bg { background: #b89a5e; }
-</style>
-</head>
-<body>
+body {
+  background-color: #0A1628;
+  color: #F0F0F0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5" style="background:transparent;">
-  <span class="serif text-white text-xl tracking-widest font-light">RELATED ROSS</span>
-  <a href="#collection" class="text-white text-xs tracking-[.18em] uppercase border border-white/40 px-5 py-2 hover:bg-white hover:text-black transition-all duration-300">Explore</a>
-</nav>
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
-<!-- HERO -->
-<section class="hero-bg flex flex-col justify-end pb-24 px-8 md:px-20 relative">
-  <div class="max-w-3xl fade-in" style="animation-delay:.1s">
-    <p class="gold text-xs tracking-[.3em] uppercase mb-5">West Palm Brilliant</p>
-    <h1 class="serif text-white text-5xl md:text-7xl font-light leading-tight mb-6">A Brilliant Life,<br/><em>Not Just a Beautiful One.</em></h1>
-    <p class="text-white/75 text-base md:text-lg font-light max-w-xl leading-relaxed mb-10">Eataly downstairs. Intracoastal views from your terrace. The finest architecture in America outside your door. West Palm Beach — curated, at last.</p>
-    <a href="#collection" class="inline-block gold-bg text-white text-xs tracking-[.22em] uppercase px-9 py-4 hover:opacity-90 transition-opacity duration-300">Explore the Collection</a>
-  </div>
-</section>
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
+  color: #F0F0F0;
+  margin-top: 0;
+}
 
-<!-- INTRO STATEMENT -->
-<section class="max-w-4xl mx-auto px-8 py-24 text-center fade-in">
-  <p class="gold text-xs tracking-[.28em] uppercase mb-6">The City Builders</p>
-  <h2 class="serif text-4xl md:text-5xl font-light leading-snug text-[#111] mb-7">We didn't build a development.<br/><em>We built a city.</em></h2>
-  <p class="text-[#555] font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto">Over $10 billion invested. 72 acres transformed. Related Ross has reimagined West Palm Beach as the most dynamic address in the country — drawing the world's most discerning residents, the most respected financial institutions, and a cultural energy unlike anything else in the South.</p>
-</section>
+a {
+  color: #C9A84C;
+  text-decoration: none;
+}
 
-<!-- DAY IN THE LIFE -->
-<section class="bg-[#111] py-24 px-8 md:px-20">
-  <div class="max-w-6xl mx-auto">
-    <p class="gold text-xs tracking-[.28em] uppercase mb-4 text-center">Your Day Here</p>
-    <h2 class="serif text-white text-4xl md:text-5xl font-light text-center mb-16 leading-snug">Morning to midnight,<br/><em>every detail considered.</em></h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="border border-white/10 p-8 card-hover">
-        <div class="gold text-3xl serif mb-4">01</div>
-        <h3 class="text-white serif text-xl font-light mb-3">Morning</h3>
-        <p class="text-white/55 font-light text-sm leading-relaxed">Coffee from your terrace overlooking the Intracoastal. Eataly just downstairs. The gym, the pool, the quiet hum of a city waking up around architecture designed to endure for centuries.</p>
-      </div>
-      <div class="border border-white/10 p-8 card-hover">
-        <div class="gold text-3xl serif mb-4">02</div>
-        <h3 class="text-white serif text-xl font-light mb-3">Afternoon</h3>
-        <p class="text-white/55 font-light text-sm leading-relaxed">Walk to your office in a LEED Gold building. Lunch at estiatorio Milos. Browse Perigold for the piece that finishes the study. Culture, commerce, and calm — all within steps.</p>
-      </div>
-      <div class="border border-white/10 p-8 card-hover">
-        <div class="gold text-3xl serif mb-4">03</div>
-        <h3 class="text-white serif text-xl font-light mb-3">Evening</h3>
-        <p class="text-white/55 font-light text-sm leading-relaxed">Dinner with people who matter. A neighborhood alive with art, music, and intention. Return home — not to a residence, but to a life you built, in the city that built itself around you.</p>
-      </div>
-    </div>
-  </div>
-</section>
+a:hover {
+  color: #e0c070;
+}
 
-<!-- RESIDENCES COLLECTION -->
-<section id="collection" class="py-24 px-8 md:px-20 max-w-6xl mx-auto">
-  <p class="gold text-xs tracking-[.28em] uppercase mb-4 text-center">The Collection</p>
-  <h2 class="serif text-4xl md:text-5xl font-light text-center mb-16 text-[#111] leading-snug">Three addresses.<br/><em>One extraordinary neighborhood.</em></h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
 
-    <div class="bg-white card-hover shadow-sm">
-      <div class="h-56 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="p-8">
-        <p class="gold text-xs tracking-[.22em] uppercase mb-2">Ultra-Luxury Condominiums</p>
-        <h3 class="serif text-2xl font-light mb-3">South Flagler House</h3>
-        <p class="text-[#666] text-sm font-light leading-relaxed mb-5">108 waterfront residences designed by Robert A.M. Stern Architects. Starting above $40M. Where Palm Beach's most storied address meets the ambition of the city's future.</p>
-        <a href="#" class="text-xs tracking-[.18em] uppercase gold border-b gold-border pb-[2px] hover:opacity-70 transition-opacity">Discover Residences →</a>
-      </div>
-    </div>
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 
-    <div class="bg-white card-hover shadow-sm">
-      <div class="h-56 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="p-8">
-        <p class="gold text-xs tracking-[.22em] uppercase mb-2">Luxury Condominiums</p>
-        <h3 class="serif text-2xl font-light mb-3">Shorecrest</h3>
-        <p class="text-[#666] text-sm font-light leading-relaxed mb-5">On North Flagler Drive. Architecture by Roger Ferris + Partners, interiors by Rottet Studio. A rooftop oasis above the water, curated for those who refuse to compromise.</p>
-        <a href="#" class="text-xs tracking-[.18em] uppercase gold border-b gold-border pb-[2px] hover:opacity-70 transition-opacity">Discover Residences →</a>
-      </div>
-    </div>
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #cccccc;
+}
 
-    <div class="bg-white card-hover shadow-sm">
-      <div class="h-56 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="p-8">
-        <p class="gold text-xs tracking-[.22em] uppercase mb-2">Luxury Rentals</p>
-        <h3 class="serif text-2xl font-light mb-3">The Laurel</h3>
-        <p class="text-[#666] text-sm font-light leading-relaxed mb-5">At CityPlace. 38,000 SF of amenities. Intracoastal views. Powered by the Related Life platform — a resident experience unlike anything the rental market has offered before.</p>
-        <a href="#" class="text-xs tracking-[.18em] uppercase gold border-b gold-border pb-[2px] hover:opacity-70 transition-opacity">Discover Residences →</a>
-      </div>
-    </div>
+.cta-button {
+  background-color: #C9A84C;
+  color: #0A1628;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
 
-  </div>
-</section>
+.cta-button:hover {
+  filter: brightness(1.15);
+  color: #0A1628;
+}
 
-<!-- DIFFERENTIATORS STRIP -->
-<section class="bg-[#f5f2ed] py-20 px-8 md:px-20">
-  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-    <div>
-      <p class="gold serif text-4xl font-light mb-2">$10B+</p>
-      <p class="text-[#777] text-xs tracking-[.18em] uppercase font-light">Invested in West Palm</p>
-    </div>
-    <div>
-      <p class="gold serif text-4xl font-light mb-2">72</p>
-      <p class="text-[#777] text-xs tracking-[.18em] uppercase font-light">Acres Transformed</p>
-    </div>
-    <div>
-      <p class="gold serif text-4xl font-light mb-2">LEED</p>
-      <p class="text-[#777] text-xs tracking-[.18em] uppercase font-light">Gold Neighborhoods</p>
-    </div>
-    <div>
-      <p class="gold serif text-4xl font-light mb-2">108</p>
-      <p class="text-[#777] text-xs tracking-[.18em] uppercase font-light">Ultra-Luxury Residences</p>
-    </div>
-  </div>
-</section>
+section {
+  padding: 80px 20px;
+}
 
-<!-- ECOSYSTEM -->
-<section class="py-24 px-8 md:px-20 max-w-5xl mx-auto text-center">
-  <p class="gold text-xs tracking-[.28em] uppercase mb-4">The Ecosystem</p>
-  <h2 class="serif text-4xl md:text-5xl font-light mb-6 text-[#111] leading-snug">The neighborhood<br/><em>does the living for you.</em></h2>
-  <p class="text-[#666] font-light max-w-xl mx-auto mb-14 text-base leading-relaxed">Eataly. Estiatorio Milos. Perigold. Wells Fargo's wealth headquarters. Robert A.M. Stern architecture. Roger Ferris design. The Related Life platform. Every layer of a full life — within a single, walkable neighborhood in West Palm Beach.</p>
-  <a href="#collection" class="inline-block gold-bg text-white text-xs tracking-[.22em] uppercase px-10 py-4 hover:opacity-90 transition-opacity duration-300">Explore the Collection</a>
-</section>
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-<!-- FOOTER -->
-<footer class="bg-[#111] py-12 px-8 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6">
-  <span class="serif text-white text-lg tracking-widest font-light">RELATED ROSS</span>
-  <p class="text-white/35 text-xs font-light tracking-wide text-center">West Palm Beach, Florida &nbsp;·&nbsp; West Palm Brilliant</p>
-  <a href="#collection" class="text-white/50 text-xs tracking-[.18em] uppercase hover:text-white transition-colors duration-300">Explore the Collection →</a>
-</footer>
+.card {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 8px;
+  padding: 32px;
+  background-color: rgba(255, 255, 255, 0.03);
+}
 
-</body>
-</html>
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #C9A84C;
+}
+
+.card p {
+  color: #cccccc;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+nav a {
+  color: #F0F0F0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 32px;
+}
+
+nav a:hover {
+  color: #C9A84C;
+}
+
+.nav-wrapper {
+  background-color: #0A1628;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+footer {
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 40px 20px;
+  text-align: center;
+  color: #888888;
+  font-size: 0.875rem;
+}
+
+.accent {
+  color: #C9A84C;
+}
+
+.text-muted {
+  color: #aaaaaa;
+}
