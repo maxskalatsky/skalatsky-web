@@ -1,112 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Related Ross — A Brilliant Life, Not Just a Beautiful One</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        charcoal: '#1a1a1a',
-        offwhite: '#f7f5f2',
-        gold: '#b8972e',
-        goldlight: '#d4af55',
-        muted: '#6b6560',
-        border: '#e2ddd8'
-      },
-      fontFamily: {
-        display: ['"Cormorant Garamond"', 'serif'],
-        body: ['Inter', 'sans-serif']
-      }
-    }
-  }
-}
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Related Ross — Residences at the Top</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-offwhite text-charcoal font-body antialiased">
+<body>
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-24 bg-offwhite relative">
-  <div class="max-w-3xl mx-auto">
-    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-6">West Palm Beach · South Flagler House</p>
-    <h1 class="font-display text-5xl md:text-7xl font-semibold text-charcoal leading-tight mb-6">
-      A Brilliant Life,<br class="hidden md:block" /> Not Just a Beautiful One.
-    </h1>
-    <p class="font-body text-base md:text-lg text-muted font-light max-w-xl mx-auto mb-10 leading-relaxed">
-      Curated living for those who demand more than a beautiful home — they demand a beautiful world around it.
-    </p>
-    <a href="#life" class="inline-block bg-gold hover:bg-goldlight text-white font-body text-sm font-medium tracking-widest uppercase px-10 py-4 transition-colors duration-300">
-      Explore the Collection
-    </a>
-  </div>
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-    <div class="w-px h-10 bg-charcoal"></div>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">São Paulo · Itaim Bibi</p>
+      <h1>Live Above the City. Live Without Compromise.</h1>
+      <p>Ultra-prime residences for those who have already arrived. Related Ross brings the standard of New York's finest addresses to the skyline of São Paulo.</p>
+      <a href="#contact" class="btn-primary">Request Private Preview</a>
+    </div>
+  </section>
 
-<!-- THE LIFE -->
-<section id="life" class="bg-white py-24 px-6">
-  <div class="max-w-5xl mx-auto">
-    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-4">The Life</p>
-    <p class="font-display text-xl md:text-2xl font-light text-charcoal leading-relaxed max-w-3xl mb-16">
-      Imagine your morning begins not with a commute, but with espresso at a French café below your residence. Your afternoon is a walk along the Intracoastal. Your evening — a table at estiatorio Milos, where Costas Spiliadis brings the flavors of Greece to the West Palm waterfront. This is not a home purchase. It is a life upgrade.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
-        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Dining</p>
-        <h3 class="font-display text-2xl font-semibold text-charcoal">World-Class at Your Door</h3>
-        <p class="font-body text-sm text-muted leading-relaxed font-light">Eataly, estiatorio Milos, Maman, Ela Curry &amp; Cocktails — world-class dining curated into your neighborhood, not just nearby.</p>
-      </div>
-      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
-        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Culture</p>
-        <h3 class="font-display text-2xl font-semibold text-charcoal">Built to Last</h3>
-        <p class="font-body text-sm text-muted leading-relaxed font-light">Art, architecture, and community woven into every block. LEED Gold. Robert A.M. Stern. A city being built to last.</p>
-      </div>
-      <div class="border border-border p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-300">
-        <p class="font-body text-xs tracking-[0.2em] uppercase text-gold">Residence</p>
-        <h3 class="font-display text-2xl font-semibold text-charcoal">108 Remarkable Homes</h3>
-        <p class="font-body text-sm text-muted leading-relaxed font-light">108 beautifully appointed homes. Timeless interiors by Pembrooke &amp; Ives. Unobstructed Intracoastal and Atlantic views. Designed by Robert A.M. Stern Architects.</p>
+  <!-- THE LIFE -->
+  <section class="section-life">
+    <div class="section-inner">
+      <p class="intro-copy">This is not simply real estate. It is a decision about how you intend to live — and who you intend to become in the years ahead.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <p class="card-label">Residences</p>
+          <h3>Curated Interiors</h3>
+          <p>Every detail resolved before you arrive. Stone, light, and proportion — selected by designers who understand what restraint actually costs.</p>
+        </div>
+        <div class="card">
+          <p class="card-label">Amenities</p>
+          <h3>Private Club Floor</h3>
+          <p>A dedicated floor for residents only. Wine library, screening room, and concierge services available around the clock.</p>
+        </div>
+        <div class="card">
+          <p class="card-label">Location</p>
+          <h3>Itaim Bibi</h3>
+          <p>São Paulo's most consequential address. Minutes from the city's premier restaurants, galleries, and financial institutions.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- THE ADDRESS -->
-<section id="address" class="bg-offwhite py-24 px-6">
-  <div class="max-w-4xl mx-auto">
-    <p class="font-body text-xs tracking-[0.25em] uppercase text-gold mb-4">The Address</p>
-    <h2 class="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-8 leading-tight">
-      South Flagler House.<br class="hidden md:block" /> West Palm Beach.
-    </h2>
-    <p class="font-body text-base text-muted font-light leading-relaxed max-w-2xl mb-14">
-      The first luxury high-rise in South Florida developed by Related and designed by Robert A.M. Stern Architects. Rising from the waterfront, only steps from downtown. 108 residences. Two- to five-bedroom homes. A new standard for what South Florida living can be — backed by nearly $10 billion in transformative investment by Related Ross.
-    </p>
-    <blockquote class="border-l-4 border-gold pl-8 mb-14">
-      <p class="font-display text-xl md:text-2xl italic text-charcoal leading-relaxed mb-4">
-        "We see Palm Beach County, with West Palm Beach at its center, as the most dynamic place in the country."
-      </p>
-      <cite class="font-body text-xs tracking-[0.15em] uppercase text-muted not-italic">— Stephen M. Ross, CEO &amp; Chairman, Related Ross</cite>
-    </blockquote>
-    <a href="#" class="inline-block border border-charcoal hover:border-gold hover:text-gold text-charcoal font-body text-sm font-medium tracking-widest uppercase px-10 py-4 transition-colors duration-300">
-      Request Residence Information
-    </a>
-  </div>
-</section>
+  <!-- THE ADDRESS -->
+  <section class="section-address">
+    <div class="section-inner">
+      <h2>The Standard Has Changed.</h2>
+      <p class="body-copy">Related Ross has delivered landmark buildings on the most competitive blocks in the world. This São Paulo address continues that legacy — with a level of finish and service that has no local precedent.</p>
+      <blockquote>
+        <p>"We do not build for the market. We build for the moment when a buyer walks in and understands, without being told, that nothing else will do."</p>
+        <cite>— Related Ross Development Philosophy</cite>
+      </blockquote>
+      <a href="#contact" class="btn-secondary">Schedule a Private Consultation</a>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer class="bg-charcoal py-10 px-6">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-    <span class="font-display text-lg text-white font-light tracking-wide">Related Ross</span>
-    <span class="font-body text-xs tracking-[0.25em] uppercase text-gold">West Palm Brilliant.</span>
-    <span class="font-body text-xs text-white/40 tracking-wide">© 2026 Related Ross</span>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">Related Ross</span>
+      <span class="footer-tagline">Residences · São Paulo</span>
+      <span class="footer-copy">&copy; 2025 Related Ross. All rights reserved.</span>
+    </div>
+  </footer>
 
 </body>
 </html>
