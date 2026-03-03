@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Related Ross — West Palm Brilliant</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-900">
-<section class="flex flex-col items-center justify-center min-h-screen px-6 text-center">
-<h1 class="text-4xl font-bold mb-4">Welcome</h1>
-<p class="text-lg text-gray-600 max-w-xl">This page is under construction. Check back soon.</p>
-</section>
+<body>
+
+  <!-- NAV -->
+  <div class="nav-wrapper">
+    <nav>
+      <span class="accent" style="font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">Related Ross</span>
+      <a href="#address" class="cta-button" style="padding:10px 24px;font-size:0.8rem;">Explore</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Two%20Buildings.png'); background-size: cover; background-position: center;">
+    <div style="background:rgba(10,22,40,0.65);position:absolute;inset:0;"></div>
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">West Palm Brilliant</p>
+      <h1 style="font-size:3.5rem;line-height:1.15;margin-bottom:1.5rem;">A Brilliant Life,<br><em>Not Just a Beautiful One.</em></h1>
+      <p style="max-width:560px;margin:0 auto 2.5rem;color:#cccccc;font-size:1.1rem;">Eataly downstairs. Intracoastal views from your terrace. The finest architecture in America outside your door. West Palm Beach — curated, at last.</p>
+      <a href="#collection" class="cta-button">Explore the Collection</a>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — THE CITY BUILDERS -->
+  <section id="collection">
+    <div class="section-inner" style="text-align:center;">
+      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">The City Builders</p>
+      <h2 style="font-size:2.5rem;line-height:1.2;margin-bottom:1.5rem;">We didn't build a development.<br><em>We built a city.</em></h2>
+      <p style="max-width:700px;margin:0 auto;color:#cccccc;font-size:1.05rem;line-height:1.8;">Over $10 billion invested. 72 acres transformed. Related Ross has reimagined West Palm Beach as the most dynamic address in the country — drawing the world's most discerning residents, the most respected financial institutions, and a cultural energy unlike anything else in the South.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — YOUR DAY HERE -->
+  <section style="background-color:#060F1C;">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Your Day Here</p>
+        <h2 style="font-size:2.5rem;line-height:1.2;">Morning to midnight,<br><em>every detail considered.</em></h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">01</p>
+          <h3>Morning</h3>
+          <p>Coffee from your terrace overlooking the Intracoastal. Eataly just downstairs. The gym, the pool, the quiet hum of a city waking up around architecture designed to endure for centuries.</p>
+        </div>
+        <div class="card">
+          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">02</p>
+          <h3>Afternoon</h3>
+          <p>Walk to your office in a LEED Gold building. Lunch at estiatorio Milos. Browse Perigold for the piece that finishes the study. Culture, commerce, and calm — all within steps.</p>
+        </div>
+        <div class="card">
+          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">03</p>
+          <h3>Evening</h3>
+          <p>Dinner with people who matter. A neighborhood alive with art, music, and intention. Return home — not to a residence, but to a life you built, in the city that built itself around you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — THE ADDRESS -->
+  <section id="address">
+    <div class="section-inner">
+      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">The Address</p>
+      <h2 style="font-size:2.5rem;line-height:1.2;margin-bottom:1.5rem;">South Flagler House.<br>West Palm Beach.</h2>
+      <p style="max-width:700px;color:#cccccc;font-size:1.05rem;line-height:1.8;margin-bottom:2rem;">Rising from the waterfront, South Flagler House presents 108 beautifully appointed residences — the first luxury high-rise in South Florida developed by Related and designed to endure. Unobstructed water views. Timeless interiors. Architecture by Robert A.M. Stern.</p>
+      <blockquote style="border-left:3px solid #C9A84C;padding-left:1.5rem;margin:2rem 0;color:#cccccc;font-style:italic;max-width:700px;">
+        "We see Palm Beach County, with West Palm Beach at its center, as the most dynamic place in the country to foster inclusive growth and create meaningful opportunity."
+        <br><br>
+        <span style="font-style:normal;font-size:0.85rem;color:#C9A84C;">— Stephen M. Ross, CEO and Chairman, Related Ross</span>
+      </blockquote>
+      <a href="#" class="cta-button">Request Private Residence Information</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
+      <span style="color:#C9A84C;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Related Ross</span>
+      <span>West Palm Brilliant.</span>
+      <span>© 2026 Related Ross. All rights reserved.</span>
+    </div>
+  </footer>
+
 </body>
 </html>
