@@ -1,92 +1,135 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Related Ross — West Palm Brilliant</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Flagler House — Inner Circle</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #1a1a1a; background: #f5f0eb; }
+  h1, h2, h3, .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+  /* HERO */
+  .hero { background: #1a1a1a; color: #f5f0eb; padding: 120px 24px 100px; text-align: center; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a96e; margin-bottom: 28px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: normal; line-height: 1.2; max-width: 760px; margin: 0 auto 28px; }
+  .hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: #a89880; max-width: 580px; margin: 0 auto 48px; line-height: 1.7; }
+  .btn-gold { display: inline-block; background: #c9a96e; color: #1a1a1a; padding: 16px 40px; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+  .btn-gold:hover { background: #b8935a; }
+  .hero-link { display: block; margin-top: 20px; color: #c9a96e; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; }
+  .hero-link:hover { color: #f5f0eb; }
+
+  /* PRESS BAR */
+  .press-bar { background: #f5f0eb; border-top: 1px solid #ddd5c8; border-bottom: 1px solid #ddd5c8; padding: 22px 24px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 0; }
+  .press-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; margin-right: 28px; }
+  .press-logos { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+  .press-logo { font-family: Georgia, serif; font-size: 0.78rem; color: #4a4a4a; padding: 0 20px; letter-spacing: 0.04em; white-space: nowrap; }
+  .press-logo + .press-logo { border-left: 1px solid #c9a96e; }
+
+  /* STATS */
+  .stats { background: #ffffff; padding: 80px 24px; }
+  .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+  .stat-num { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); color: #1a1a1a; font-weight: normal; margin-bottom: 12px; }
+  .stat-label { font-size: 0.82rem; color: #4a4a4a; line-height: 1.6; letter-spacing: 0.02em; }
+  .stat + .stat { border-left: 1px solid #ddd5c8; }
+
+  /* PRESTIGE */
+  .prestige { background: #1a1a1a; padding: 100px 24px; }
+  .prestige-inner { max-width: 960px; margin: 0 auto; }
+  .prestige h2 { font-family: Georgia, serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); color: #f5f0eb; font-weight: normal; text-align: center; margin-bottom: 60px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: #242424; border: 1px solid #333; padding: 40px 28px; }
+  .card-title { font-family: Georgia, serif; font-size: 1.05rem; color: #c9a96e; margin-bottom: 16px; font-weight: normal; line-height: 1.4; }
+  .card-body { font-size: 0.85rem; color: #8a7d6e; line-height: 1.7; }
+
+  /* CTA CLOSE */
+  .cta-close { background: #f5f0eb; padding: 100px 24px; text-align: center; }
+  .cta-close h2 { font-family: Georgia, serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: normal; color: #1a1a1a; margin-bottom: 24px; }
+  .cta-body { font-size: 1rem; color: #4a4a4a; max-width: 500px; margin: 0 auto 40px; line-height: 1.75; }
+  .btn-dark { display: inline-block; background: #1a1a1a; color: #f5f0eb; padding: 16px 44px; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+  .btn-dark:hover { background: #333; }
+  .cta-note { margin-top: 20px; font-size: 0.75rem; color: #8a7d6e; letter-spacing: 0.08em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .stats-inner { grid-template-columns: 1fr; }
+    .stat + .stat { border-left: none; border-top: 1px solid #ddd5c8; padding-top: 36px; }
+    .cards { grid-template-columns: 1fr; }
+    .press-bar { flex-direction: column; gap: 10px; }
+    .press-label { margin-right: 0; }
+    .press-logo + .press-logo { border-left: none; border-top: none; padding: 4px 12px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <div class="nav-wrapper">
-    <nav>
-      <span class="accent" style="font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">Related Ross</span>
-      <a href="#address" class="cta-button" style="padding:10px 24px;font-size:0.8rem;">Explore</a>
-    </nav>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">West Palm Beach · South Florida</p>
+  <h1>108 Residences. One Address Everyone Is Talking About.</h1>
+  <p class="hero-sub">South Flagler House presents the first luxury high-rise in South Florida developed by Related and designed by Robert A.M. Stern Architects.</p>
+  <a href="#" class="btn-gold">Explore the Collection</a>
+  <a href="#" class="hero-link">Request Access →</a>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar">
+  <span class="press-label">As Seen In</span>
+  <div class="press-logos">
+    <span class="press-logo">The Wall Street Journal</span>
+    <span class="press-logo">Bloomberg</span>
+    <span class="press-logo">The Real Deal</span>
+    <span class="press-logo">Palm Beach Illustrated</span>
+    <span class="press-logo">South Florida Business Journal</span>
   </div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero" style="background-image: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Two%20Buildings.png'); background-size: cover; background-position: center;">
-    <div style="background:rgba(10,22,40,0.65);position:absolute;inset:0;"></div>
-    <div class="section-inner" style="position:relative;z-index:1;">
-      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">West Palm Brilliant</p>
-      <h1 style="font-size:3.5rem;line-height:1.15;margin-bottom:1.5rem;">A Brilliant Life,<br><em>Not Just a Beautiful One.</em></h1>
-      <p style="max-width:560px;margin:0 auto 2.5rem;color:#cccccc;font-size:1.1rem;">Eataly downstairs. Intracoastal views from your terrace. The finest architecture in America outside your door. West Palm Beach — curated, at last.</p>
-      <a href="#collection" class="cta-button">Explore the Collection</a>
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">$10 Billion</div>
+      <div class="stat-label">Invested in transforming West Palm Beach</div>
     </div>
-  </section>
-
-  <!-- SECTION 2 — THE CITY BUILDERS -->
-  <section id="collection">
-    <div class="section-inner" style="text-align:center;">
-      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">The City Builders</p>
-      <h2 style="font-size:2.5rem;line-height:1.2;margin-bottom:1.5rem;">We didn't build a development.<br><em>We built a city.</em></h2>
-      <p style="max-width:700px;margin:0 auto;color:#cccccc;font-size:1.05rem;line-height:1.8;">Over $10 billion invested. 72 acres transformed. Related Ross has reimagined West Palm Beach as the most dynamic address in the country — drawing the world's most discerning residents, the most respected financial institutions, and a cultural energy unlike anything else in the South.</p>
+    <div class="stat">
+      <div class="stat-num">108 Residences</div>
+      <div class="stat-label">Two- to five-bedroom waterfront homes</div>
     </div>
-  </section>
+    <div class="stat">
+      <div class="stat-num">$40M</div>
+      <div class="stat-label">Record sale. Former Apple CEO among buyers.</div>
+    </div>
+  </div>
+</section>
 
-  <!-- SECTION 3 — YOUR DAY HERE -->
-  <section style="background-color:#060F1C;">
-    <div class="section-inner">
-      <div style="text-align:center;margin-bottom:3rem;">
-        <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Your Day Here</p>
-        <h2 style="font-size:2.5rem;line-height:1.2;">Morning to midnight,<br><em>every detail considered.</em></h2>
+<!-- PRESTIGE -->
+<section class="prestige">
+  <div class="prestige-inner">
+    <h2>The Address the World Is Watching</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Robert A.M. Stern Architects</div>
+        <div class="card-body">Timeless architecture. Permanent waterfront views.</div>
       </div>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">01</p>
-          <h3>Morning</h3>
-          <p>Coffee from your terrace overlooking the Intracoastal. Eataly just downstairs. The gym, the pool, the quiet hum of a city waking up around architecture designed to endure for centuries.</p>
-        </div>
-        <div class="card">
-          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">02</p>
-          <h3>Afternoon</h3>
-          <p>Walk to your office in a LEED Gold building. Lunch at estiatorio Milos. Browse Perigold for the piece that finishes the study. Culture, commerce, and calm — all within steps.</p>
-        </div>
-        <div class="card">
-          <p class="accent" style="font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.75rem;">03</p>
-          <h3>Evening</h3>
-          <p>Dinner with people who matter. A neighborhood alive with art, music, and intention. Return home — not to a residence, but to a life you built, in the city that built itself around you.</p>
-        </div>
+      <div class="card">
+        <div class="card-title">Wells Fargo Relocating Wealth HQ to West Palm Beach</div>
+        <div class="card-body">The financial world has already decided.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">LEED Gold Certified Neighborhood</div>
+        <div class="card-body">The first in Palm Beach County.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SECTION 4 — THE ADDRESS -->
-  <section id="address">
-    <div class="section-inner">
-      <p class="accent" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">The Address</p>
-      <h2 style="font-size:2.5rem;line-height:1.2;margin-bottom:1.5rem;">South Flagler House.<br>West Palm Beach.</h2>
-      <p style="max-width:700px;color:#cccccc;font-size:1.05rem;line-height:1.8;margin-bottom:2rem;">Rising from the waterfront, South Flagler House presents 108 beautifully appointed residences — the first luxury high-rise in South Florida developed by Related and designed to endure. Unobstructed water views. Timeless interiors. Architecture by Robert A.M. Stern.</p>
-      <blockquote style="border-left:3px solid #C9A84C;padding-left:1.5rem;margin:2rem 0;color:#cccccc;font-style:italic;max-width:700px;">
-        "We see Palm Beach County, with West Palm Beach at its center, as the most dynamic place in the country to foster inclusive growth and create meaningful opportunity."
-        <br><br>
-        <span style="font-style:normal;font-size:0.85rem;color:#C9A84C;">— Stephen M. Ross, CEO and Chairman, Related Ross</span>
-      </blockquote>
-      <a href="#" class="cta-button">Request Private Residence Information</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <span style="color:#C9A84C;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Related Ross</span>
-      <span>West Palm Brilliant.</span>
-      <span>© 2026 Related Ross. All rights reserved.</span>
-    </div>
-  </footer>
+<!-- CTA CLOSE -->
+<section class="cta-close">
+  <h2>Access Is Limited. Interest Is Not.</h2>
+  <p class="cta-body">108 residences. Waterfront location. Designed for those who don't follow — they arrive first.</p>
+  <a href="#" class="btn-dark">Request Access</a>
+  <p class="cta-note">Private previews available by appointment.</p>
+</section>
 
 </body>
 </html>
