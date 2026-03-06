@@ -413,6 +413,7 @@
           <div class="row">
             <div class="alert alert-success js-contact-alert js-contact-success" role="alert" style="display: none">Email has been sent!</div>
             <div class="alert alert-danger js-contact-alert js-contact-error" role="alert" style="display: none">Error sending your email. Please try again later.</div>
+            <input type="hidden" name="source" value="website">
             <div class="col-md-12 col-sm-12">
               <div class="form-group bottom45"><input class="form-control" name="name" placeholder="your name" required="" type="text" /></div>
             </div>
@@ -421,10 +422,13 @@
             </div>
             <div style="position: absolute; left: -9999px"><input autocomplete="off" name="email" tabindex="-1" type="email" /></div>
             <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><input class="form-control" name="company" placeholder="company" type="text" /></div>
+              <div class="form-group bottom45"><input class="form-control" name="phone" placeholder="phone (optional)" type="tel" /></div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><textarea class="form-control" name="message" placeholder="a brief message" required="required"></textarea></div>
+              <div class="form-group bottom45"><input class="form-control" name="company" placeholder="company (optional)" type="text" /></div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><textarea class="form-control" name="message" placeholder="tell us what you need" required="required"></textarea></div>
             </div>
             <div class="col-sm-12"><button class="button defaulthole" type="submit">submit request</button></div>
           </div>
@@ -461,5 +465,34 @@
 <script src="../js/parallaxie.js"></script>
 <script src="../js/wow.min.js"></script>
 <script src="../js/functions.js"></script>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Contact Form Handler -->
+<script>
+  emailjs.init("VBwHf55XzsFa3rpDe");
+  document.querySelector('.js-contact').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var params = {
+      from_name:  this.querySelector('[name="name"]').value,
+      from_email: this.querySelector('[name="user"]').value,
+      phone:      this.querySelector('[name="phone"]').value,
+      company:    this.querySelector('[name="company"]').value,
+      source:     this.querySelector('[name="source"]').value,
+      message:    this.querySelector('[name="message"]').value
+    };
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+      .then(function() {
+        document.querySelector('.js-contact-success').style.display = 'block';
+        document.querySelector('.js-contact-error').style.display = 'none';
+      }, function() {
+        document.querySelector('.js-contact-error').style.display = 'block';
+        document.querySelector('.js-contact-success').style.display = 'none';
+      });
+  });
+</script>
+<!-- Contact Form Handler Ends -->
+
 </body>
 </html>
