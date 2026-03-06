@@ -1,320 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Skalatsky & Associates | AI-Powered Execution</title>
-<link rel="stylesheet" href="../css/site.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/typo4.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0642a3"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Skalatsky &amp; Associates | AI-Powered Execution</title>
+  <link href="../css/site.css" rel="stylesheet" />
+  <link href="../css/style.css" rel="stylesheet" />
+  <link href="../css/typo4.css" rel="stylesheet" />
+  <link href="../images/favicon.png" rel="icon" />
+  <style>
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .agent-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .agent-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px auto;
+      display: block;
+      border: 4px solid #0642a3;
+    }
+    @media (max-width: 768px) {
+      .agent-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+    @media (max-width: 480px) {
+      .agent-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
-<body>
+<body data-offset="50" data-spy="scroll" data-target=".scrolly">
+<div class="wrapper">
 
-<header class="navbar-fixed-top" id="home">
-  <div class="container-fluid">
-    <nav class="navbar navbar-default">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html">
-          <img src="../images/logo.png" alt="logo" class="logo-default">
-          <img src="../images/logo-scrolled.png" alt="logo" class="logo-scrolled">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#ateam">The A-Team</a></li>
-          <li><a href="#approach">Approach</a></li>
-          <li><a href="#team">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="fullscreen-banner banner parallaxie" style="background: url('../images/hero-bg.jpg') no-repeat center center;" data-overlay="6" id="home-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center whitecolor">
-        <!-- CHANGE 1: "Almost no one" → "No one" -->
-        <h2 class="font-xlight wow fadeInUp" data-wow-delay="0.3s">Anyone has access to AI.<br>No one can turn it into<br>the execution arm of a CMO.</h2>
-        <a href="#services" class="btn btn-color btn-radius wow fadeInUp" data-wow-delay="0.6s">See What's Possible</a>
+<!-- Main Navigation -->
+<header id="main-navigation">
+  <div id="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="top-right text-right"><li></li></ul>
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button aria-expanded="true" class="navbar-toggle collapsed" data-target="#fixed-collapse-navbar" data-toggle="collapse" type="button"></button>
+              <a class="navbar-brand" href="../index.html">
+                <img alt="logo" class="logo" src="../images/logo.png" />
+                <img alt="logo" class="scrolled-logo" src="../images/logo-scrolled.png" />
+              </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right scrolly" id="fixed-collapse-navbar">
+              <ul class="nav navbar-nav">
+                <li><a class="scrollings" href="#home">Home</a></li>
+                <li><a class="scrollings" href="#services">Services</a></li>
+                <li><a class="scrollings" href="#ateam">The A-Team</a></li>
+                <li><a class="scrollings" href="#approach">Approach</a></li>
+                <li><a class="scrollings" href="#team">About</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</header>
+<!-- Main Navigation ends -->
 
-<!-- BLUE STRIP -->
+<!-- Hero -->
+<section class="full-screen large-sized center-block parallaxie" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-1"></div>
+      <div class="col-md-8 col-sm-10">
+        <div class="large-caption text-center">
+          <div class="center-item">
+            <h2 class="whitecolor bottom60">Anyone has access to AI.<br>No one can turn it into<br>the execution arm of a CMO.</h2>
+            <a class="button default scrollings wow fadeInLeft" href="#services">See What's Possible</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-1"></div>
+    </div>
+  </div>
+</section>
+<!-- Hero ends -->
+
+<!-- Stats -->
 <section class="padding_top padding_bottom_half bgdefault">
   <div class="container">
     <div class="row">
+
       <div class="col-md-6 col-sm-6 padding_bottom_half">
-        <!-- CHANGE 5: vertical-align fix for "One Conversation" -->
-        <div class="floated-counter whitecolor wow fadeInLeft" style="align-items: flex-start;">
+        <div class="floated-counter whitecolor wow fadeInLeft">
           <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-5" style="display:flex; align-items:flex-start;">
-              <h2 style="margin-top:0;">One<br>Conversation</h2>
+            <div class="col-md-5 col-sm-6 col-xs-5">
+              <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">One<br>Conversation</h2>
             </div>
             <div class="col-md-7 col-sm-6 col-xs-7">
               <h3>That's All It Takes</h3>
-              <!-- CHANGE 4: "Tell Max" → "Tell us" -->
-              <p>No kickoff meeting. No project brief. No timeline. Tell us what you need — the A-Team handles execution from there.</p>
+              <p class="top20">No kickoff meeting. No project brief. No timeline. Tell us what you need — the A-Team handles execution from there.</p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-6 col-sm-6 padding_bottom_half">
-        <!-- CHANGE 5: vertical-align fix for "Zero Waiting" -->
-        <div class="floated-counter whitecolor wow fadeInRight" style="align-items: flex-start;">
+        <div class="floated-counter whitecolor wow fadeInRight">
           <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-5" style="display:flex; align-items:flex-start;">
-              <h2 style="margin-top:0;">Zero<br>Waiting</h2>
+            <div class="col-md-5 col-sm-6 col-xs-5">
+              <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">Zero<br>Waiting</h2>
             </div>
             <div class="col-md-7 col-sm-6 col-xs-7">
               <h3>From Idea to Reality</h3>
-              <p>Websites. Campaigns. App specs. Brand assets. All of it on demand — without an agency, an ops team, or a six-week roadmap.</p>
+              <p class="top20">Websites. Campaigns. App specs. Brand assets. All of it on demand — without an agency, an ops team, or a six-week roadmap.</p>
             </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Stats ends -->
+
+<!-- Services -->
+<section class="padding" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="intro-text center">
+          <span class="heading-title bottom25">Skalatsky &amp; Associates</span>
+          <h2 class="darkcolor bottom45">We turn marketing ideas into real assets — fast, without the friction.</h2>
+          <p>Strategy, creative, and execution all in one place. No handoffs, no queues, no agency timelines. Just outcomes.</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <div class="icon_box equalheight top30">
+          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Strategic Design</a></h4>
+          <hr />
+          <p class="no_bottom">Brand positioning, go-to-market architecture, product specs, competitive briefs — built in a single session and delivered before the conversation ends. No quarter-long engagement required.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="icon_box equalheight top30">
+          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Demand Generation</a></h4>
+          <hr />
+          <p class="no_bottom">Email sequences, social campaigns, landing pages, and CRM pipeline intelligence — built and launched in a single session. No agency, no ops dependency, no delay between idea and execution.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="icon_box equalheight top30">
+          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Web &amp; App Launch</a></h4>
+          <hr />
+          <p class="no_bottom">Live websites and app prototypes — designed, built, and deployed without a dev shop, a ticket queue, or a four-week timeline. A real, live asset from a single conversation.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- Services ends -->
 
-<!-- SERVICES -->
-<section class="padding_top padding_bottom" id="services">
+<!-- A-Team Section -->
+<section class="padding" id="ateam">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="lead font-normal darkcolor wow fadeInUp"><span class="defaultcolor">Skalatsky &amp; Associates</span></p>
-        <h3 class="darkcolor bold wow fadeInUp">We turn marketing ideas into real assets &mdash;<br>fast, without the friction.</h3>
-        <p class="wow fadeInUp">Strategy, creative, and execution all in one place. No handoffs, no queues, no agency timelines. Just outcomes.</p>
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="intro-text center wow fadeInUp">
+          <span class="heading-title bottom25">Meet the A-Team</span>
+          <h2 class="darkcolor bottom45">Six AI agents. One operating model.</h2>
+          <p>The A-Team is S&amp;A's execution engine — not a platform, not a product, not a promise. It's a group of agents, each with a defined role and a real scope of work. Andrew takes the brief. He figures out who's best suited to handle it and gets it done. Sometimes that's one agent. Sometimes it's three working in parallel. The output is always the same — a real, tangible asset, delivered fast.</p>
+        </div>
       </div>
     </div>
-    <div class="row mt-60">
-      <div class="col-md-4 col-sm-4 text-center wow fadeInLeft">
-        <h4><a href="javascript:void(0)">Strategic Design</a></h4>
-        <hr class="defaultbg">
-        <p>Brand positioning, go-to-market architecture, product specs, competitive briefs — built in a single session and delivered before the conversation ends. No quarter-long engagement required.</p>
+
+    <div class="agent-grid">
+
+      <!-- Andrew -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-andrew.jpg" alt="Andrew" />
+        <h3 class="darkcolor">Andrew</h3>
+        <span class="accupation">Chief of Staff</span>
+        <p class="top20">Andrew is the entry point to everything. He thinks, plans, coordinates, and delivers — handling virtually any task from research and email to calendar management and client follow-up. Think of him as a real chief of staff who never clocks out.</p>
       </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-        <h4><a href="javascript:void(0)">Demand Generation</a></h4>
-        <hr class="defaultbg">
-        <p>Email sequences, social campaigns, landing pages, and CRM pipeline intelligence — built and launched in a single session. No agency, no ops dependency, no delay between idea and execution.</p>
+
+      <!-- Anna -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-anna.jpg" alt="Anna" />
+        <h3 class="darkcolor">Anna</h3>
+        <span class="accupation">Creative</span>
+        <p class="top20">Production-ready visuals, brand assets, presentation decks, and campaign imagery — from brief to polished output without a photographer, designer, or agency in the loop.</p>
       </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInRight">
-        <h4><a href="javascript:void(0)">Web &amp; App Launch</a></h4>
-        <hr class="defaultbg">
-        <p>Live websites and app prototypes — designed, built, and deployed without a dev shop, a ticket queue, or a four-week timeline. A real, live asset from a single conversation.</p>
+
+      <!-- Alex -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-alex.jpg" alt="Alex" />
+        <h3 class="darkcolor">Alex</h3>
+        <span class="accupation">Dev &amp; Solutions Architect</span>
+        <p class="top20">Alex is both architect and builder. He designs the structure and ships the product — websites, landing pages, app prototypes, and full builds. From a single conversation to a live, deployed asset. No dev shop, no ticket queue, no waiting.</p>
       </div>
+
+      <!-- Arina -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-arina.jpg" alt="Arina" />
+        <h3 class="darkcolor">Arina</h3>
+        <span class="accupation">BD &amp; Sales</span>
+        <p class="top20">Lead qualification, pipeline intelligence, meeting prep, and follow-up — all automated via CRM. Arina keeps the revenue engine running between every client conversation.</p>
+      </div>
+
+      <!-- Adele -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-adele.jpg" alt="Adele" />
+        <h3 class="darkcolor">Adele</h3>
+        <span class="accupation">Product</span>
+        <p class="top20">Roadmaps, competitive analysis, and strategic briefs — generated on demand. Adele turns a dinner conversation into a packaged product strategy before the check arrives.</p>
+      </div>
+
+      <!-- Anya -->
+      <div class="agent-card">
+        <img class="agent-avatar" src="agent-anya.jpg" alt="Anya" />
+        <h3 class="darkcolor">Anya</h3>
+        <span class="accupation">Digital</span>
+        <p class="top20">Full social media campaigns from brief to scheduled posts. Demand gen sequences built and launched same session. Anya owns the digital surface — end to end.</p>
+      </div>
+
     </div>
   </div>
 </section>
+<!-- A-Team ends -->
 
-<!-- A-TEAM -->
-<section class="padding_top padding_bottom bglight" id="ateam">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="lead font-normal defaultcolor wow fadeInUp">Meet the A-Team</p>
-        <!-- CHANGE 6: "something real, delivered fast" → "a real, tangible asset, delivered fast" -->
-        <h3 class="darkcolor bold wow fadeInUp">Six AI agents. One operating model.</h3>
-        <p class="wow fadeInUp">The A-Team is S&amp;A's execution engine — not a platform, not a product, not a promise. It's a group of agents, each with a defined role and a real scope of work. Andrew takes the brief. He figures out who's best suited to handle it and gets it done. Sometimes that's one agent. Sometimes it's three working in parallel. The output is always the same — a real, tangible asset, delivered fast.</p>
+<!-- Approach -->
+<section id="approach">
+  <div class="container-fluid">
+    <div class="row box-info-wrap">
+
+      <div class="col-md-6 col-sm-6 nopadding">
+        <div class="container-padding padding_half bgdefault equalheight wow fadeInLeft">
+          <div class="intro-text">
+            <span class="heading-title whitecolor bottom25">Our Approach</span>
+            <h2 class="whitecolor bottom45">SHIP FAST. GET SIGNAL. ITERATE.</h2>
+            <p class="whitecolor">We don't spend months working toward a perceived version of perfect that may never land. We launch a working version and get actual signal back from the market.</p>
+            <p class="whitecolor">Our approach is simple — take anything from a marketing brief and turn it into a real, tangible asset fast. No back-and-forth emails. No documents sent for review. No waiting on processes that exist in your org but don't serve your speed. One conversation. One output. Done.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row mt-60">
-      <div class="col-md-4 col-sm-4 text-center wow fadeInLeft">
-        <img src="agent-andrew.jpg" alt="Andrew" class="img-circle agent-avatar">
-        <h4 class="mt-20">Andrew</h4>
-        <p class="font-small">Chief of Staff</p>
-        <p>Andrew is the entry point to everything. He thinks, plans, coordinates, and delivers — handling virtually any task from research and email to calendar management and client follow-up. Think of him as a real chief of staff who never clocks out.</p>
+
+      <div class="col-md-6 col-sm-6 nopadding">
+        <div class="box-info">
+          <div class="image"><img alt="image" class="equalheight" src="../images/interview.jpg" /></div>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-        <img src="agent-anna.jpg" alt="Anna" class="img-circle agent-avatar">
-        <h4 class="mt-20">Anna</h4>
-        <p class="font-small">Creative</p>
-        <p>Production-ready visuals, brand assets, presentation decks, and campaign imagery — from brief to polished output without a photographer, designer, or agency in the loop.</p>
+
+      <div class="col-md-6 col-sm-6 nopadding">
+        <div class="box-info">
+          <div class="image"><img alt="image" class="equalheight" src="../images/man-window2.jpg" /></div>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInRight">
-        <img src="agent-alex.jpg" alt="Alex" class="img-circle agent-avatar">
-        <h4 class="mt-20">Alex</h4>
-        <p class="font-small">Dev &amp; Solutions Architect</p>
-        <p>Alex is both architect and builder. He designs the structure and ships the product — websites, landing pages, app prototypes, and full builds. From a single conversation to a live, deployed asset. No dev shop, no ticket queue, no waiting.</p>
+
+      <div class="col-md-6 col-sm-6 nopadding">
+        <div class="container-padding padding_half bgdefault equalheight wow fadeInRight">
+          <div class="intro-text">
+            <span class="heading-title whitecolor bottom25">Our Advantage</span>
+            <h2 class="whitecolor bottom45">BUILT FROM THE INSIDE OUT</h2>
+            <p class="whitecolor">The difference is experience. Not theory, not a framework — real time spent in the seat, navigating every scenario this firm is designed to solve. S&amp;A was built by someone who lived the problem, not someone who observed it. We move at your pace, work without constraints, and deliver without the friction that slows everyone else down.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row mt-40">
-      <div class="col-md-4 col-sm-4 text-center wow fadeInLeft">
-        <img src="agent-arina.jpg" alt="Arina" class="img-circle agent-avatar">
-        <h4 class="mt-20">Arina</h4>
-        <p class="font-small">BD &amp; Sales</p>
-        <p>Lead qualification, pipeline intelligence, meeting prep, and follow-up — all automated via CRM. Arina keeps the revenue engine running between every client conversation.</p>
-      </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-        <img src="agent-adele.jpg" alt="Adele" class="img-circle agent-avatar">
-        <h4 class="mt-20">Adele</h4>
-        <p class="font-small">Product</p>
-        <p>Roadmaps, competitive analysis, and strategic briefs — generated on demand. Adele turns a dinner conversation into a packaged product strategy before the check arrives.</p>
-      </div>
-      <div class="col-md-4 col-sm-4 text-center wow fadeInRight">
-        <img src="agent-anya.jpg" alt="Anya" class="img-circle agent-avatar">
-        <h4 class="mt-20">Anya</h4>
-        <p class="font-small">Digital</p>
-        <p>Full social media campaigns from brief to scheduled posts. Demand gen sequences built and launched same session. Anya owns the digital surface — end to end.</p>
-      </div>
+
     </div>
   </div>
 </section>
+<!-- Approach ends -->
 
-<!-- APPROACH -->
-<section class="padding_top padding_bottom" id="approach">
+<!-- Team -->
+<section class="padding_top" id="team">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-sm-6 wow fadeInLeft">
-        <p class="lead font-normal defaultcolor">Our Approach</p>
-        <h3 class="darkcolor bold">SHIP FAST. GET SIGNAL. ITERATE.</h3>
-        <!-- CHANGE 7: "a working something" → "a working version" -->
-        <p>We don't spend months working toward a perceived version of perfect that may never land. We launch a working version and get actual signal back from the market.</p>
-        <p>Our approach is simple — take anything from a marketing brief and turn it into a real, tangible asset fast. No back-and-forth emails. No documents sent for review. No waiting on processes that exist in your org but don't serve your speed. One conversation. One output. Done.</p>
-      </div>
-      <div class="col-md-6 col-sm-6 wow fadeInRight">
-        <img src="../images/interview.jpg" alt="image" class="img-responsive">
+      <div class="col-md-12">
+        <div class="intro-text center wow fadeInUp">
+          <span class="heading-title bottom25">Leadership &amp; Advisors</span>
+          <h2 class="darkcolor text-capitalize heading_space">Skalatsky &amp; Associates Team</h2>
+        </div>
       </div>
     </div>
-    <div class="row mt-60">
-      <div class="col-md-6 col-sm-6 wow fadeInLeft">
-        <img src="../images/man-window2.jpg" alt="image" class="img-responsive">
-      </div>
-      <div class="col-md-6 col-sm-6 wow fadeInRight">
-        <p class="lead font-normal defaultcolor">Our Advantage</p>
-        <h3 class="darkcolor bold">BUILT FROM THE INSIDE OUT</h3>
-        <!-- CHANGE 8: "This team moves" → "We move" -->
-        <p>The difference is experience. Not theory, not a framework — real time spent in the seat, navigating every scenario this firm is designed to solve. S&amp;A was built by someone who lived the problem, not someone who observed it. We move at your pace, works without constraints, and delivers without the friction that slows everyone else down.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- TEAM / ABOUT -->
-<section class="padding_top padding_bottom bglight" id="team">
-  <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="lead font-normal defaultcolor wow fadeInUp">Leadership &amp; Advisors</p>
-        <h3 class="darkcolor bold wow fadeInUp">Skalatsky &amp; Associates Team</h3>
+      <div class="col-md-12 col-sm-12">
+        <div class="teambox large text-center">
+          <div class="teamimg"><img alt="image" src="../images/team-max.jpg" />
+            <div class="teamoverlay"></div>
+          </div>
+          <h3 class="darkcolor">Max Skalatsky</h3>
+          <span class="accupation">Founder &amp; Managing Partner</span>
+          <div class="teambox text-left">
+            <p class="top20">Max Skalatsky spent years building human intelligence networks as an FBI Special Agent — recruiting, running, and managing assets across multiple continents. The skill set was simple: identify the right people, understand their motivations, and get them to perform.</p>
+            <p>He never stopped doing that. He just changed who the agents are.</p>
+            <p>After the FBI, Max built a career spanning strategy, operations, and technology — working across consulting, product, and executive leadership, and culminating in three years as a Global VP at one of the world's premier enterprise technology companies.</p>
+            <p>That experience gave him something most AI consultants don't have: a ground-level understanding of what execution actually costs inside large organizations — the cycles, the handoffs, the gap between a great idea and a live result. He built S&amp;A to eliminate that gap. And the A-Team — Andrew, Anna, Alex, Arina, Adele, Anya — is how he does it.</p>
+            <p>Max holds a Master of Business Administration (MBA) from Duke University's Fuqua School of Business and a Bachelor of Science (BS) in Management Information Systems from the University of Maryland, College Park.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Max -->
-    <div class="row mt-60">
-      <div class="col-md-12 text-center wow fadeInUp">
-        <img src="../images/team-max.jpg" alt="image" class="img-circle team-avatar">
-        <h4 class="mt-20">Max Skalatsky</h4>
-        <p class="font-small">Founder &amp; Managing Partner</p>
+    <div class="row">
+
+      <div class="col-md-6 col-sm-6">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30"><img alt="image" src="../images/team-lachance.jpg" />
+            <div class="teamoverlay"></div>
+          </div>
+          <h3 class="darkcolor">Eric Lachance</h3>
+          <span class="accupation">Advisor</span>
+          <p class="top20 bottom35">Eric is a Senior Operations Executive at Huntington Ingalls Industries, the largest military shipbuilding company in the United States. He has over 30 years of experience in organizational structure and leadership development spanning military, civilian, and private organizations. He served in the US Army for 20 years, where he taught at West Point and managed advanced research and development programs in US Special Operations Command. Eric holds an MBA from Duke University's Fuqua School of Business, an MS in Engineering from Stanford University and a BS in Engineering from Arizona State University.</p>
+        </div>
       </div>
-    </div>
-    <div class="row mt-20">
-      <div class="col-md-10 col-md-offset-1 wow fadeInUp">
-        <p>Max Skalatsky spent years building human intelligence networks as an FBI Special Agent — recruiting, running, and managing assets across multiple continents. The skill set was simple: identify the right people, understand their motivations, and get them to perform.</p>
-        <p>He never stopped doing that. He just changed who the agents are.</p>
-        <p>After the FBI, Max built a career spanning strategy, operations, and technology — working across consulting, product, and executive leadership, and culminating in three years as a Global VP at one of the world's premier enterprise technology companies.</p>
-        <p>That experience gave him something most AI consultants don't have: a ground-level understanding of what execution actually costs inside large organizations — the cycles, the handoffs, the gap between a great idea and a live result. He built S&amp;A to eliminate that gap. And the A-Team — Andrew, Anna, Alex, Arina, Adele, Anya — is how he does it.</p>
-        <p>Max holds a Master of Business Administration (MBA) from Duke University's Fuqua School of Business and a Bachelor of Science (BS) in Management Information Systems from the University of Maryland, College Park.</p>
+      </div>
+
+      <div class="col-md-6 col-sm-6">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30"><img alt="image" src="../images/team-lange.jpg" />
+            <div class="teamoverlay"></div>
+          </div>
+          <h3 class="darkcolor">Randy Lange</h3>
+          <span class="accupation">Advisor</span>
+          <p class="top20 bottom35">Randy Lange is a Senior Executive at Moody's Analytics, where he leads global partnerships for the Federal sector. He has three decades of experience in team-building and leadership within the US Government and has built a reputation in the industry as a trusted advisor to decision makers within the public- and private sector ecosystem. Randy holds an MS in Public Policy Analysis from American University and a BA in Communication &amp; Broadcasting from University of Washington.</p>
+        </div>
       </div>
     </div>
 
-    <!-- CHANGE 3: Advisors reduced to 4, 2x2 grid. Madra Britt and Maura Lachowski removed. -->
-    <div class="row mt-60">
-      <!-- Row 1: Eric + Randy -->
-      <div class="col-md-6 col-sm-6 text-center wow fadeInLeft">
-        <img src="../images/team-lachance.jpg" alt="image" class="img-circle team-avatar">
-        <h4 class="mt-20">Eric Lachance</h4>
-        <p class="font-small">Advisor</p>
-        <!-- CHANGE 9: Eric updated bio -->
-        <p>Eric is a Senior Operations Executive at Huntington Ingalls Industries, the largest military shipbuilding company in the United States. He has over 30 years of experience in organizational structure and leadership development spanning military, civilian, and private organizations. He served in the US Army for 20 years, where he taught at West Point and managed advanced research and development programs in US Special Operations Command. Eric holds an MBA from Duke University's Fuqua School of Business, an MS in Engineering from Stanford University and a BS in Engineering from Arizona State University.</p>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30"><img alt="image" src="../images/team-jordan.jpg" />
+            <div class="teamoverlay"></div>
+          </div>
+          <h3 class="darkcolor">Harry Jordan</h3>
+          <span class="accupation">Advisor</span>
+          <p class="top20 bottom35">Harry Jordan is the President at Simplify Healthcare, a company that provides SaaS solutions to the Health Insurance industry to improve efficiency and compliance. He served in a variety of leadership roles at LexisNexis Risk Solutions (LNRS), a division of Reed Elsevier, where he founded and led the LNRS Health Care business through its first few years of high growth, focusing data and analytics solutions for payers. Harry holds an MBA from MIT's Sloan School of Management and a BA in Economics from Yale University.</p>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-6 text-center wow fadeInRight">
-        <img src="../images/team-lange.jpg" alt="image" class="img-circle team-avatar">
-        <h4 class="mt-20">Randy Lange</h4>
-        <p class="font-small">Advisor</p>
-        <!-- CHANGE 10: Randy updated bio -->
-        <p>Randy Lange is a Senior Executive at Moody's Analytics, where he leads global partnerships for the Federal sector. He has three decades of experience in team-building and leadership within the US Government and has built a reputation in the industry as a trusted advisor to decision makers within the public- and private sector ecosystem. Randy holds an MS in Public Policy Analysis from American University and a BA in Communication &amp; Broadcasting from University of Washington.</p>
-      </div>
-    </div>
-    <div class="row mt-40">
-      <!-- Row 2: Harry + Jeremy -->
-      <div class="col-md-6 col-sm-6 text-center wow fadeInLeft">
-        <img src="../images/team-jordan.jpg" alt="image" class="img-circle team-avatar">
-        <h4 class="mt-20">Harry Jordan</h4>
-        <p class="font-small">Advisor</p>
-        <!-- CHANGE 11: Harry updated bio -->
-        <p>Harry Jordan is the President at Simplify Healthcare, a company that provides SaaS solutions to the Health Insurance industry to improve efficiency and compliance. He served in a variety of leadership roles at LexisNexis Risk Solutions (LNRS), a division of Reed Elsevier, where he founded and led the LNRS Health Care business through its first few years of high growth, focusing data and analytics solutions for payers. Harry holds an MBA from MIT's Sloan School of Management and a BA in Economics from Yale University.</p>
-      </div>
-      <div class="col-md-6 col-sm-6 text-center wow fadeInRight">
-        <img src="../images/team-petrenka.jpg" alt="image" class="img-circle team-avatar">
-        <h4 class="mt-20">Jeremy Petranka</h4>
-        <p class="font-small">Advisor</p>
-        <!-- CHANGE 12: Jeremy unchanged -->
-        <p>Dr. Jeremy Petranka is Assistant Dean of the MQM/MMS programs and Associate Professor of the Practice at Duke University's Fuqua School of Business. Prior to his career in academia, Jeremy worked as a management consultant with multiple Fortune 100 companies, focusing heavily on the role of data within organizations. Jeremy holds a PhD in Economics from University of North Carolina at Chapel Hill and a BS in Engineering from Virginia Polytechnic Institute and State University.</p>
+
+      <div class="col-md-6 col-sm-6">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30"><img alt="image" src="../images/team-petrenka.jpg" />
+            <div class="teamoverlay"></div>
+          </div>
+          <h3 class="darkcolor">Jeremy Petranka</h3>
+          <span class="accupation">Advisor</span>
+          <p class="top20 bottom35">Dr. Jeremy Petranka is Assistant Dean of the MQM/MMS programs and Associate Professor of the Practice at Duke University's Fuqua School of Business. Prior to his career in academia, Jeremy worked as a management consultant with multiple Fortune 100 companies, focusing heavily on the role of data within organizations. Jeremy holds a PhD in Economics from University of North Carolina at Chapel Hill and a BS in Engineering from Virginia Polytechnic Institute and State University.</p>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+<!-- Team ends -->
 
-<!-- CONTACT -->
-<section class="padding_top padding_bottom" id="contact">
-  <div class="container">
+<!-- Contact -->
+<section class="padding" id="contact">
+  <div class="container text-center">
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h3 class="darkcolor bold wow fadeInUp">get in touch with <span class="defaultcolor">Skalatsky &amp; Associates</span></h3>
-        <p class="wow fadeInUp">Ready to see what the A-Team can do for your business? One conversation is all it takes to go from idea to execution.</p>
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 wow fadeInUp">
+        <h3 class="darkcolor text-uppercase bottom35">get in touch with <span class="defaultcolor">Skalatsky &amp; Associates</span></h3>
+        <p class="heading_space">Ready to see what the A-Team can do for your business? One conversation is all it takes to go from idea to execution.</p>
       </div>
     </div>
-    <div class="row mt-40">
-      <div class="col-md-8 col-md-offset-2 wow fadeInUp">
-        <form class="js-contact">
-          <div class="alert alert-success js-contact-success" style="display:none;">Email has been sent!</div>
-          <div class="alert alert-danger js-contact-error" style="display:none;">Error sending your email. Please try again later.</div>
-          <input type="hidden" name="source" value="website">
-          <input type="text" name="name" placeholder="your name" class="form-control input-lg mb-20">
-          <input type="email" name="user" placeholder="email" class="form-control input-lg mb-20">
-          <input type="email" style="display:none;">
-          <input type="tel" name="phone" placeholder="phone (optional)" class="form-control input-lg mb-20">
-          <input type="text" name="company" placeholder="company (optional)" class="form-control input-lg mb-20">
-          <textarea name="message" placeholder="tell us what you need" class="form-control input-lg mb-20" rows="5"></textarea>
-          <div class="text-center">
-            <button type="submit" class="btn btn-outline-default btn-radius">submit request</button>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <form class="contactus wow fadeInUp js-contact">
+          <div class="row">
+            <div class="alert alert-success js-contact-alert js-contact-success" role="alert" style="display: none">Email has been sent!</div>
+            <div class="alert alert-danger js-contact-alert js-contact-error" role="alert" style="display: none">Error sending your email. Please try again later.</div>
+            <input type="hidden" name="source" value="website">
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><input class="form-control" name="name" placeholder="your name" required="" type="text" /></div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><input class="form-control" name="user" placeholder="email" required="" type="email" /></div>
+            </div>
+            <div style="position: absolute; left: -9999px"><input autocomplete="off" name="email" tabindex="-1" type="email" /></div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><input class="form-control" name="phone" placeholder="phone (optional)" type="tel" /></div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><input class="form-control" name="company" placeholder="company (optional)" type="text" /></div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group bottom45"><textarea class="form-control" name="message" placeholder="tell us what you need" required="required"></textarea></div>
+            </div>
+            <div class="col-sm-12"><button class="button defaulthole" type="submit">submit request</button></div>
           </div>
         </form>
       </div>
     </div>
   </div>
 </section>
+<!-- Contact ends -->
 
-<!-- FOOTER -->
-<footer class="bgdefault padding_top padding_bottom whitecolor text-center">
+<!-- Footer -->
+<footer class="bgdefault padding_half">
   <div class="container">
-    <img src="../images/SKA-Just-brand-icon-Inverse.png" alt="Skalatsky Logo" class="footer-logo mb-20">
-    <!-- CHANGE 1: "AI-Powered Execution" → "The Modern Marketing Agency" -->
-    <h2>The Modern Marketing Agency</h2>
-    <!-- CHANGE 2: "Idea to Reality | On Demand | No Waiting" → "Design | Build | Launch" -->
-    <h3>Design | Build | Launch</h3>
-    <p class="mt-20"><small>Copyright &copy; 2026 Skalatsky &amp; Associates LLC. All rights reserved.</small></p>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 text-center">
+        <img alt="Skalatsky Logo" height="79" src="../images/SKA-Just-brand-icon-Inverse.png" width="100" />
+        <p></p>
+        <h3 style="color: #ffffff; font-size: 22px; font-weight: 400; letter-spacing: 1px;">The Modern Marketing Agency</h3>
+        <h2 class="wow fadeInUp" style="color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: 2px;">Design | Build | Launch</h2>
+        <p class="whitecolor top30 wow fadeInUp" style="font-size: 8pt">Copyright &copy; 2026&nbsp;Skalatsky &amp; Associates LLC. All rights reserved.</p>
+      </div>
+    </div>
   </div>
 </footer>
+<!-- Footer ends -->
 
-<!-- Back to top -->
-<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.appear.js"></script>
@@ -325,7 +445,11 @@
 <script src="../js/parallaxie.js"></script>
 <script src="../js/wow.min.js"></script>
 <script src="../js/functions.js"></script>
+
+<!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Contact Form Handler -->
 <script>
   emailjs.init("VBwHf55XzsFa3rpDe");
 
@@ -344,12 +468,12 @@
   document.querySelector('.js-contact').addEventListener('submit', function(e) {
     e.preventDefault();
     var params = {
-      from_name: this.querySelector('[name="name"]').value,
+      from_name:  this.querySelector('[name="name"]').value,
       from_email: this.querySelector('[name="user"]').value,
-      phone: this.querySelector('[name="phone"]').value,
-      company: this.querySelector('[name="company"]').value,
-      source: this.querySelector('[name="source"]').value,
-      message: this.querySelector('[name="message"]').value
+      phone:      this.querySelector('[name="phone"]').value,
+      company:    this.querySelector('[name="company"]').value,
+      source:     this.querySelector('[name="source"]').value,
+      message:    this.querySelector('[name="message"]').value
     };
     emailjs.send("service_dmztf2b", "template_vdjx2mw", params)
       .then(function() {
@@ -362,6 +486,6 @@
       });
   });
 </script>
-
+<!-- Contact Form Handler Ends -->
 </body>
 </html>
