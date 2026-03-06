@@ -472,6 +472,19 @@
 <!-- Contact Form Handler -->
 <script>
   emailjs.init("VBwHf55XzsFa3rpDe");
+
+  // Phone number formatter
+  document.querySelector('[name="phone"]').addEventListener('input', function(e) {
+    var x = e.target.value.replace(/\D/g, '').substring(0, 10);
+    var p1 = x.substring(0, 3);
+    var p2 = x.substring(3, 6);
+    var p3 = x.substring(6, 10);
+    if (x.length > 6) e.target.value = '(' + p1 + ') ' + p2 + ' - ' + p3;
+    else if (x.length > 3) e.target.value = '(' + p1 + ') ' + p2;
+    else if (x.length > 0) e.target.value = '(' + p1;
+  });
+
+  // Form submit handler
   document.querySelector('.js-contact').addEventListener('submit', function(e) {
     e.preventDefault();
     var params = {
@@ -493,6 +506,5 @@
   });
 </script>
 <!-- Contact Form Handler Ends -->
-
 </body>
 </html>
