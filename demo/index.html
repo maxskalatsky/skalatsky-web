@@ -1,488 +1,1255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#0642a3"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Skalatsky &amp; Associates | AI-Powered Execution</title>
-  <link href="../css/site.css" rel="stylesheet" />
-  <link href="../css/style.css" rel="stylesheet" />
-  <link href="../css/typo4.css" rel="stylesheet" />
-  <link href="../images/favicon.png" rel="icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NO TEES TOUR™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    .agent-grid {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --green: #1a5c38;
+      --green-bright: #25a05a;
+      --green-light: #2ecc71;
+      --white: #f0ede6;
+      --gray: #888;
+      --gray-dark: #1a1a1a;
+      --gray-mid: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--green-bright); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--green-bright);
+      color: var(--black) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-light) !important; color: var(--black) !important; }
+
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2.5rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.2) 100%),
+        linear-gradient(135deg, #0a1f14 0%, #0d2b1a 30%, #071510 60%, #0a0a0a 100%);
+      z-index: 0;
+    }
+
+    /* Grass texture overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 60% 30%, rgba(26,92,56,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 60%, rgba(37,160,90,0.08) 0%, transparent 60%);
+    }
+
+    /* Animated grain */
+    .hero-grain {
+      position: absolute;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      animation: grain 0.5s steps(1) infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes grain {
+      0%,100% { transform: translate(0,0); }
+      10% { transform: translate(-2%,-3%); }
+      20% { transform: translate(3%,1%); }
+      30% { transform: translate(-1%,4%); }
+      40% { transform: translate(2%,-2%); }
+      50% { transform: translate(-3%,2%); }
+      60% { transform: translate(1%,-1%); }
+      70% { transform: translate(-2%,3%); }
+      80% { transform: translate(3%,-3%); }
+      90% { transform: translate(-1%,2%); }
+    }
+
+    /* Diagonal green accent line */
+    .hero-accent {
+      position: absolute;
+      top: 0; right: 15%;
+      width: 1px;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, var(--green-bright), transparent);
+      opacity: 0.4;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 12vw, 9rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--green-bright);
+    }
+
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.6);
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-sub span {
+      color: rgba(240,237,230,0.3);
+      margin: 0 0.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--green-bright);
+      color: var(--black);
+      border: none;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(240,237,230,0.3);
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, transform 0.1s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); transform: translateY(-1px); }
+
+    /* scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: 2.5rem;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .hero-scroll span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.4);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--green-bright), transparent);
+      animation: scrollPulse 1.5s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 6rem 2.5rem; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--green-bright);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── WHAT IS NTT ── */
+    .what {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .what-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
-    .agent-card {
+
+    .what-text p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(240,237,230,0.75);
+      margin-bottom: 1.25rem;
+    }
+
+    .what-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .stat-box {
+      background: var(--black);
+      padding: 2rem;
       text-align: center;
-      padding: 20px;
     }
-    .agent-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px auto;
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--green-bright);
+      line-height: 1;
       display: block;
-      border: 4px solid #0642a3;
     }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.5);
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    /* ── PLAYERS ── */
+    .players { background: var(--black); }
+    .players-inner { max-width: 1200px; margin: 0 auto; }
+
+    .players-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .player-card {
+      background: var(--gray-dark);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .player-card-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a3a25, #0d1f14);
+      transition: transform 0.4s ease;
+    }
+
+    .player-card:hover .player-card-bg { transform: scale(1.04); }
+
+    /* jersey number watermark */
+    .player-card-bg::before {
+      content: attr(data-num);
+      position: absolute;
+      bottom: -10px;
+      right: -5px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 7rem;
+      color: rgba(37,160,90,0.08);
+      line-height: 1;
+    }
+
+    .player-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 50%, transparent 100%);
+    }
+
+    .player-card-info {
+      position: relative;
+      z-index: 2;
+      padding: 1.25rem;
+    }
+
+    .player-rank {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.3rem;
+    }
+
+    .player-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .player-city {
+      font-size: 0.8rem;
+      color: rgba(240,237,230,0.5);
+      margin-top: 0.25rem;
+    }
+
+    .player-card-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(37,160,90,0.15);
+      border: 1px solid rgba(37,160,90,0.3);
+      color: var(--green-bright);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ── EPISODE ── */
+    .episode {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .episode-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .episode-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .episode-meta p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(240,237,230,0.65);
+    }
+
+    .episode-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .episode-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── PARTNERS ── */
+    .partners { background: var(--black); }
+    .partners-inner { max-width: 1200px; margin: 0 auto; }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+      margin-top: 3rem;
+    }
+
+    .partner-box {
+      background: var(--gray-dark);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: background 0.2s;
+      cursor: pointer;
+      min-height: 120px;
+    }
+
+    .partner-box:hover { background: #222; }
+
+    .partner-placeholder {
+      width: 80px;
+      height: 24px;
+      background: rgba(240,237,230,0.1);
+      border-radius: 2px;
+    }
+
+    .partner-tier {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.25);
+    }
+
+    .partner-box.title .partner-placeholder {
+      width: 100px;
+      height: 30px;
+      background: rgba(37,160,90,0.2);
+    }
+
+    .partner-box.title .partner-tier { color: var(--green-bright); }
+
+    /* ── APP DOWNLOAD ── */
+    .app-section {
+      background: var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(37,160,90,0.15);
+      pointer-events: none;
+    }
+
+    .app-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-text .section-title { color: var(--white); }
+    .app-text .section-label { color: rgba(240,237,230,0.6); }
+
+    .app-features {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .app-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.85);
+    }
+
+    .app-features li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .app-mockup {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .phone-frame {
+      width: 140px;
+      height: 240px;
+      background: var(--black);
+      border-radius: 16px;
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-frame:first-child { transform: rotate(-4deg) translateY(16px); }
+    .phone-frame:last-child { transform: rotate(4deg) translateY(16px); }
+
+    .phone-screen {
+      flex: 1;
+      background: var(--gray-dark);
+      display: flex;
+      flex-direction: column;
+      padding: 0.6rem;
+      gap: 0.4rem;
+    }
+
+    .phone-bar {
+      height: 6px;
+      border-radius: 2px;
+      background: rgba(37,160,90,0.4);
+    }
+
+    .phone-bar.bright { background: var(--green-bright); width: 60%; }
+    .phone-bar.short { width: 40%; }
+    .phone-bar.med { width: 75%; }
+
+    .phone-bracket-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .bracket-mini-cell {
+      height: 14px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 1px;
+      border-left: 2px solid rgba(37,160,90,0.4);
+    }
+
+    /* ── APPLY ── */
+    .apply {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .apply-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .apply-inner .section-title { margin-bottom: 0.5rem; }
+
+    .apply-sub {
+      font-size: 1rem;
+      color: rgba(240,237,230,0.6);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .apply-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.5);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 0.8rem 1rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-group select option { background: #1a1a1a; }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-bright);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit .btn-primary {
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    .form-note {
+      grid-column: 1 / -1;
+      font-size: 0.75rem;
+      color: rgba(240,237,230,0.3);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: var(--green-bright); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(240,237,230,0.25);
+    }
+
+    /* ── FORM SUCCESS ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      border: 1px solid rgba(37,160,90,0.3);
+      background: rgba(37,160,90,0.05);
+    }
+
+    .form-success h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p { color: rgba(240,237,230,0.6); }
+
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .agent-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 0 1.5rem 4rem; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .what-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .what-stats { grid-template-columns: 1fr 1fr; }
+
+      .players-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .players-grid { grid-template-columns: 1fr 1fr; }
+
+      .episode-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .episode-embed { order: -1; }
+
+      .partners-grid { grid-template-columns: 1fr 1fr; }
+
+      .app-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .app-mockup { display: none; }
+
+      .apply-form { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     }
+
     @media (max-width: 480px) {
-      .agent-grid {
-        grid-template-columns: 1fr;
-      }
+      .players-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
-<body data-offset="50" data-spy="scroll" data-target=".scrolly">
-<div class="wrapper">
+<body>
 
-<!-- Main Navigation -->
-<header id="main-navigation">
-  <div id="navigation">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="top-right text-right"><li></li></ul>
-          <nav class="navbar navbar-default">
-            <div class="navbar-header">
-              <button aria-expanded="true" class="navbar-toggle collapsed" data-target="#fixed-collapse-navbar" data-toggle="collapse" type="button"></button>
-              <a class="navbar-brand" href="../index.html">
-                <img alt="logo" class="logo" src="../images/logo.png" />
-                <img alt="logo" class="scrolled-logo" src="../images/logo-scrolled.png" />
-              </a>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">NO TEES<span>™</span></a>
+    <ul class="nav-links">
+      <li><a href="#what">The Tour</a></li>
+      <li><a href="#players">Players</a></li>
+      <li><a href="#episode">Watch</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#apply">Apply</a></li>
+      <li><a href="#app" class="nav-cta">Download App</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Created by Will Lowery &nbsp;·&nbsp; Crosshand Productions</p>
+      <h1 class="hero-title">Golf<br>Without<br><em>Tees™</em></h1>
+      <p class="hero-sub">Competition <span>·</span> Culture <span>·</span> Community</p>
+      <div class="hero-actions">
+        <a href="#app" class="btn-primary">Download the App</a>
+        <a href="#episode" class="btn-outline">Watch The Tour</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- WHAT IS NTT -->
+  <section class="what" id="what">
+    <div class="what-inner">
+      <div class="what-text">
+        <p class="section-label">The Tour</p>
+        <h2 class="section-title">A New Kind<br>of Golf</h2>
+        <div class="divider"></div>
+        <p>No Tees Tour™ is a competitive short-game golf tour built at the intersection of sport and culture. Fast-paced. 1v1. Single elimination. No tee shots required.</p>
+        <p>Think March Madness meets a block party — on a Par-3 course. Every match is a bracket. Every bracket builds a champion. Every stop builds a movement.</p>
+        <a href="#apply" class="btn-primary" style="margin-top:1rem;">Apply to Play</a>
+      </div>
+      <div class="what-stats">
+        <div class="stat-box">
+          <span class="stat-num">32</span>
+          <span class="stat-label">Players Per Event</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">1v1</span>
+          <span class="stat-label">Match Format</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">6–8</span>
+          <span class="stat-label">Tour Stops / Year</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">30yd</span>
+          <span class="stat-label">Radius of Play</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYERS -->
+  <section class="players" id="players">
+    <div class="players-inner">
+      <div class="players-header">
+        <div>
+          <p class="section-label">On The Green</p>
+          <h2 class="section-title">The Players</h2>
+        </div>
+        <a href="#apply" class="btn-outline">Apply to Play →</a>
+      </div>
+      <div class="players-grid">
+        <div class="player-card">
+          <div class="player-card-bg" data-num="01"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #1</p>
+            <h3 class="player-name">Player 01</h3>
+            <p class="player-city">Atlanta, GA</p>
+            <span class="player-card-tag">Creator</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="02" style="background: linear-gradient(135deg,#1a2e3a,#0d1520);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #2</p>
+            <h3 class="player-name">Player 02</h3>
+            <p class="player-city">Houston, TX</p>
+            <span class="player-card-tag">Athlete</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="03" style="background: linear-gradient(135deg,#2a1a0d,#1a0d05);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #3</p>
+            <h3 class="player-name">Player 03</h3>
+            <p class="player-city">Miami, FL</p>
+            <span class="player-card-tag">Local Hero</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="04" style="background: linear-gradient(135deg,#1a1a2e,#0d0d20);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #4</p>
+            <h3 class="player-name">Player 04</h3>
+            <p class="player-city">Los Angeles, CA</p>
+            <span class="player-card-tag">Entertainer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE -->
+  <section class="episode" id="episode">
+    <div class="episode-inner">
+      <div class="episode-meta">
+        <p class="section-label">Latest Episode</p>
+        <h2 class="section-title">Watch<br>The Tour</h2>
+        <div class="divider"></div>
+        <p>Follow the competition from the latest tour stop. Every chip. Every putt. Every elimination. Unscripted and unforgettable.</p>
+        <a href="https://www.youtube.com/@crosshandproductions" target="_blank" class="btn-outline" style="margin-top:0.5rem;">All Episodes →</a>
+      </div>
+      <div class="episode-embed">
+        <iframe
+          src="https://www.youtube.com/embed/0ggEwy-E1mY"
+          title="No Tees Tour Episode"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners" id="partners">
+    <div class="partners-inner">
+      <p class="section-label">Sponsors & Partners</p>
+      <h2 class="section-title">Our Partners</h2>
+      <div class="partners-grid">
+        <div class="partner-box title">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Title Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Official Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Equipment Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Content Partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP DOWNLOAD -->
+  <section class="app-section" id="app">
+    <div class="app-inner">
+      <div class="app-text">
+        <p class="section-label">Fan Experience</p>
+        <h2 class="section-title">The Tournament<br>Lives in<br>the App</h2>
+        <ul class="app-features">
+          <li>Build your bracket before tip-off</li>
+          <li>Track every match live</li>
+          <li>Compete on the fan leaderboard</li>
+          <li>Follow your players hole by hole</li>
+          <li>Be there for the winner reveal</li>
+        </ul>
+        <a href="#" class="btn-primary" style="background:#0a0a0a;color:#f0ede6;">Download on the App Store</a>
+      </div>
+      <div class="app-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-bar bright"></div>
+            <div class="phone-bar short"></div>
+            <div class="phone-bracket-mini">
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
             </div>
-            <div class="navbar-collapse collapse navbar-right scrolly" id="fixed-collapse-navbar">
-              <ul class="nav navbar-nav">
-                <li><a class="scrollings" href="#home">Home</a></li>
-                <li><a class="scrollings" href="#services">Services</a></li>
-                <li><a class="scrollings" href="#ateam">The A-Team</a></li>
-                <li><a class="scrollings" href="#approach">Approach</a></li>
-                <li><a class="scrollings" href="#team">About</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- Main Navigation ends -->
-
-<!-- Hero -->
-<section class="full-screen large-sized center-block parallaxie" id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2 col-sm-1"></div>
-      <div class="col-md-8 col-sm-10">
-        <div class="large-caption text-center">
-          <div class="center-item">
-            <h2 class="whitecolor bottom60">Anyone has access to AI.<br>No one can turn it into<br>the execution arm of a CMO.</h2>
-            <a class="button default scrollings wow fadeInLeft" href="#services">See What's Possible</a>
+            <div class="phone-bar med" style="margin-top:6px;"></div>
+            <div class="phone-bar short"></div>
           </div>
         </div>
-      </div>
-      <div class="col-md-2 col-sm-1"></div>
-    </div>
-  </div>
-</section>
-<!-- Hero ends -->
-
-<!-- Stats -->
-<section class="padding_top padding_bottom_half bgdefault">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-6 col-sm-6 padding_bottom_half">
-        <div class="floated-counter whitecolor wow fadeInLeft">
-          <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-5">
-              <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">One<br>Conversation</h2>
-            </div>
-            <div class="col-md-7 col-sm-6 col-xs-7">
-              <h3>That's All It Takes</h3>
-              <p class="top20">No kickoff meeting. No project brief. No timeline. Tell us what you need — the A-Team handles execution from there.</p>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-bar bright"></div>
+            <div class="phone-bar med"></div>
+            <div style="margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+              <div style="height:18px;background:rgba(37,160,90,0.2);border-radius:2px;display:flex;align-items:center;padding:0 4px;">
+                <div style="width:50%;height:4px;background:var(--green-bright);border-radius:1px;"></div>
+              </div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-md-6 col-sm-6 padding_bottom_half">
-        <div class="floated-counter whitecolor wow fadeInRight">
-          <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-5">
-              <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">Zero<br>Waiting</h2>
-            </div>
-            <div class="col-md-7 col-sm-6 col-xs-7">
-              <h3>From Idea to Reality</h3>
-              <p class="top20">Websites. Campaigns. App specs. Brand assets. All of it on demand — without an agency, an ops team, or a six-week roadmap.</p>
-            </div>
+  <!-- APPLY TO PLAY -->
+  <section class="apply" id="apply">
+    <div class="apply-inner">
+      <p class="section-label">Join The Tour</p>
+      <h2 class="section-title">Apply to Play</h2>
+      <p class="apply-sub">Competitive golfer? Multi-sport athlete? Weekend warrior with a short game that goes different? This is your invite. 32 spots per event.</p>
+
+      <div id="applyForm">
+        <form class="apply-form" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="fname">Full Name *</label>
+            <input type="text" id="fname" name="Name" placeholder="Your name" required>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- Stats ends -->
-
-<!-- Services -->
-<section class="padding" id="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-        <div class="intro-text center">
-          <span class="heading-title bottom25">Skalatsky &amp; Associates</span>
-          <h2 class="darkcolor bottom45">We turn marketing ideas into real assets — fast, without the friction.</h2>
-          <p>Strategy, creative, and execution all in one place. No handoffs, no queues, no agency timelines. Just outcomes.</p>
-        </div>
-      </div>
-      <div class="col-md-2 col-sm-2"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="icon_box equalheight top30">
-          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Strategic Design</a></h4>
-          <hr />
-          <p class="no_bottom">Brand positioning, go-to-market architecture, product specs, competitive briefs — built in a single session and delivered before the conversation ends. No quarter-long engagement required.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="icon_box equalheight top30">
-          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Demand Generation</a></h4>
-          <hr />
-          <p class="no_bottom">Email sequences, social campaigns, landing pages, and CRM pipeline intelligence — built and launched in a single session. No agency, no ops dependency, no delay between idea and execution.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="icon_box equalheight top30">
-          <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Web &amp; App Launch</a></h4>
-          <hr />
-          <p class="no_bottom">Live websites and app prototypes — designed, built, and deployed without a dev shop, a ticket queue, or a four-week timeline. A real, live asset from a single conversation.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Services ends -->
-
-<!-- A-Team Section -->
-<section class="padding" id="ateam">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-        <div class="intro-text center wow fadeInUp">
-          <span class="heading-title bottom25">Meet the A-Team</span>
-          <h2 class="darkcolor bottom45">Six AI agents. One operating model.</h2>
-          <p>The A-Team is S&amp;A's execution engine — not a platform, not a product, not a promise. It's a group of agents, each with a defined role and a real scope of work. Andrew takes the brief. He figures out who's best suited to handle it and gets it done. Sometimes that's one agent. Sometimes it's three working in parallel. The output is always the same — a real, tangible asset, delivered fast.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="agent-grid">
-
-      <!-- Andrew -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-andrew.jpg" alt="Andrew" />
-        <h3 class="darkcolor">Andrew</h3>
-        <span class="accupation">Chief of Staff</span>
-        <p class="top20">Andrew is the entry point to everything. He thinks, plans, coordinates, and delivers — handling virtually any task from research and email to calendar management and client follow-up. Think of him as a real chief of staff who never clocks out.</p>
-      </div>
-
-      <!-- Anna -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-anna.jpg" alt="Anna" />
-        <h3 class="darkcolor">Anna</h3>
-        <span class="accupation">Creative</span>
-        <p class="top20">Production-ready visuals, brand assets, presentation decks, and campaign imagery — from brief to polished output without a photographer, designer, or agency in the loop.</p>
-      </div>
-
-      <!-- Alex -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-alex.jpg" alt="Alex" />
-        <h3 class="darkcolor">Alex</h3>
-        <span class="accupation">Dev &amp; Solutions Architect</span>
-        <p class="top20">Alex is both architect and builder. He designs the structure and ships the product — websites, landing pages, app prototypes, and full builds. From a single conversation to a live, deployed asset. No dev shop, no ticket queue, no waiting.</p>
-      </div>
-
-      <!-- Arina -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-arina.jpg" alt="Arina" />
-        <h3 class="darkcolor">Arina</h3>
-        <span class="accupation">BD &amp; Sales</span>
-        <p class="top20">Lead qualification, pipeline intelligence, meeting prep, and follow-up — all automated via CRM. Arina keeps the revenue engine running between every client conversation.</p>
-      </div>
-
-      <!-- Adele -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-adele.jpg" alt="Adele" />
-        <h3 class="darkcolor">Adele</h3>
-        <span class="accupation">Product</span>
-        <p class="top20">Roadmaps, competitive analysis, and strategic briefs — generated on demand. Adele turns a dinner conversation into a packaged product strategy before the check arrives.</p>
-      </div>
-
-      <!-- Anya -->
-      <div class="agent-card">
-        <img class="agent-avatar" src="agent-anya.jpg" alt="Anya" />
-        <h3 class="darkcolor">Anya</h3>
-        <span class="accupation">Digital</span>
-        <p class="top20">Full social media campaigns from brief to scheduled posts. Demand gen sequences built and launched same session. Anya owns the digital surface — end to end.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- A-Team ends -->
-
-<!-- Approach -->
-<section id="approach">
-  <div class="container-fluid">
-    <div class="row box-info-wrap">
-
-      <div class="col-md-6 col-sm-6 nopadding">
-        <div class="container-padding padding_half bgdefault equalheight wow fadeInLeft">
-          <div class="intro-text">
-            <span class="heading-title whitecolor bottom25">Our Approach</span>
-            <h2 class="whitecolor bottom45">SHIP FAST. GET SIGNAL. ITERATE.</h2>
-            <p class="whitecolor">We don't spend months working toward a perceived version of perfect that may never land. We launch a working version and get actual signal back from the market.</p>
-            <p class="whitecolor">Our approach is simple — take anything from a marketing brief and turn it into a real, tangible asset fast. No back-and-forth emails. No documents sent for review. No waiting on processes that exist in your org but don't serve your speed. One conversation. One output. Done.</p>
+          <div class="form-group">
+            <label for="fage">Age *</label>
+            <input type="number" id="fage" name="Age" placeholder="Must be 18+" min="18" required>
           </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6 nopadding">
-        <div class="box-info">
-          <div class="image"><img alt="image" class="equalheight" src="../images/interview.jpg" /></div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6 nopadding">
-        <div class="box-info">
-          <div class="image"><img alt="image" class="equalheight" src="../images/man-window2.jpg" /></div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6 nopadding">
-        <div class="container-padding padding_half bgdefault equalheight wow fadeInRight">
-          <div class="intro-text">
-            <span class="heading-title whitecolor bottom25">Our Advantage</span>
-            <h2 class="whitecolor bottom45">BUILT FROM THE INSIDE OUT</h2>
-            <p class="whitecolor">The difference is experience. Not theory, not a framework — real time spent in the seat, navigating every scenario this firm is designed to solve. S&amp;A was built by someone who lived the problem, not someone who observed it. We move at your pace, work without constraints, and deliver without the friction that slows everyone else down.</p>
+          <div class="form-group">
+            <label for="femail">Email *</label>
+            <input type="email" id="femail" name="Email" placeholder="your@email.com" required>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- Approach ends -->
-
-<!-- Team -->
-<section class="padding_top" id="team">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="intro-text center wow fadeInUp">
-          <span class="heading-title bottom25">Leadership &amp; Advisors</span>
-          <h2 class="darkcolor text-capitalize heading_space">Skalatsky &amp; Associates Team</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div class="teambox large text-center">
-          <div class="teamimg"><img alt="image" src="../images/team-max.jpg" />
-            <div class="teamoverlay"></div>
+          <div class="form-group">
+            <label for="fphone">Phone</label>
+            <input type="tel" id="fphone" name="Phone" placeholder="(000) 000-0000">
           </div>
-          <h3 class="darkcolor">Max Skalatsky</h3>
-          <span class="accupation">Founder &amp; Managing Partner</span>
-          <div class="teambox text-left">
-            <p class="top20">Max Skalatsky spent years building human intelligence networks as an FBI Special Agent — recruiting, running, and managing assets across multiple continents. The skill set was simple: identify the right people, understand their motivations, and get them to perform.</p>
-            <p>He never stopped doing that. He just changed who the agents are.</p>
-            <p>After the FBI, Max built a career spanning strategy, operations, and technology — working across consulting, product, and executive leadership, and culminating in three years as a Global VP at one of the world's premier enterprise technology companies.</p>
-            <p>That experience gave him something most AI consultants don't have: a ground-level understanding of what execution actually costs inside large organizations — the cycles, the handoffs, the gap between a great idea and a live result. He built S&amp;A to eliminate that gap. And the A-Team — Andrew, Anna, Alex, Arina, Adele, Anya — is how he does it.</p>
-            <p>Max holds a Master of Business Administration (MBA) from Duke University's Fuqua School of Business and a Bachelor of Science (BS) in Management Information Systems from the University of Maryland, College Park.</p>
+          <div class="form-group">
+            <label for="fcity">City *</label>
+            <input type="text" id="fcity" name="City" placeholder="City, State" required>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Advisors-->
-<div class="row">
-      <div class="col-md-6 col-sm-6">
-        <div class="teambox text-center">
-          <div class="teamimg bottom30"><img alt="image" src="../images/team-lachance.jpg" />
-            <div class="teamoverlay"></div>
+          <div class="form-group">
+            <label for="fhandicap">Handicap</label>
+            <input type="text" id="fhandicap" name="Handicap" placeholder="e.g. 8 or Scratch">
           </div>
-          <h3 class="darkcolor">Eric Lachance</h3>
-          <span class="accupation">Advisor</span>
-          <p class="top20 bottom35">Eric is a Senior Operations Executive at Huntington Ingalls Industries, the largest military shipbuilding company in the United States. He has over 30 years of experience in organizational structure and leadership development spanning military, civilian, and private organizations. He served in the US Army for 20 years, where he taught at West Point and managed advanced research and development programs in US Special Operations Command. Eric holds an MBA from Duke University's Fuqua School of Business, an MS in Engineering from Stanford University and a BS in Engineering from Arizona State University.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6">
-        <div class="teambox text-center">
-          <div class="teamimg bottom30"><img alt="image" src="../images/team-lange.jpg" />
-            <div class="teamoverlay"></div>
+          <div class="form-group">
+            <label for="fsocial">Social Media Handle *</label>
+            <input type="text" id="fsocial" name="Social" placeholder="@handle (IG or TikTok)" required>
           </div>
-          <h3 class="darkcolor">Randy Lange</h3>
-          <span class="accupation">Advisor</span>
-          <p class="top20 bottom35">Randy Lange is a Senior Executive at Moody's Analytics, where he leads global partnerships for the Federal sector. He has three decades of experience in team-building and leadership within the US Government and has built a reputation in the industry as a trusted advisor to decision makers within the public- and private sector ecosystem. Randy holds an MS in Public Policy Analysis from American University and a BA in Communication &amp; Broadcasting from University of Washington.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <div class="teambox text-center">
-          <div class="teamimg bottom30"><img alt="image" src="../images/team-jordan.jpg" />
-            <div class="teamoverlay"></div>
+          <div class="form-group">
+            <label for="fvideo">Video Submission URL</label>
+            <input type="url" id="fvideo" name="Video" placeholder="YouTube, IG, or TikTok link">
           </div>
-          <h3 class="darkcolor">Harry Jordan</h3>
-          <span class="accupation">Advisor</span>
-          <p class="top20 bottom35">Harry Jordan is the President at Simplify Healthcare, a company that provides SaaS solutions to the Health Insurance industry to improve efficiency and compliance. He served in a variety of leadership roles at LexisNexis Risk Solutions (LNRS), a division of Reed Elsevier, where he founded and led the LNRS Health Care business through its first few years of high growth, focusing data and analytics solutions for payers. Harry holds an MBA from MIT's Sloan School of Management and a BA in Economics from Yale University.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6">
-        <div class="teambox text-center">
-          <div class="teamimg bottom30"><img alt="image" src="../images/team-petrenka.jpg" />
-            <div class="teamoverlay"></div>
+          <div class="form-group full">
+            <label for="fnotes">Anything else we should know?</label>
+            <textarea id="fnotes" name="Notes" placeholder="Tell us about your game, background, or why you belong on the tour..."></textarea>
           </div>
-          <h3 class="darkcolor">Jeremy Petranka</h3>
-          <span class="accupation">Advisor</span>
-          <p class="top20 bottom35">Dr. Jeremy Petranka is Assistant Dean of the MQM/MMS programs and Associate Professor of the Practice at Duke University's Fuqua School of Business. Prior to his career in academia, Jeremy worked as a management consultant with multiple Fortune 100 companies, focusing heavily on the role of data within organizations. Jeremy holds a PhD in Economics from University of North Carolina at Chapel Hill and a BS in Engineering from Virginia Polytechnic Institute and State University.</p>
-        </div>
-      </div>
-    </div>
-<!-- Advisors Ends-->
-  </div>
-</section>
-<!-- Team ends -->
-
-<!-- Contact -->
-<section class="padding" id="contact">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 wow fadeInUp">
-        <h3 class="darkcolor text-uppercase bottom35">get in touch with <span class="defaultcolor">Skalatsky &amp; Associates</span></h3>
-        <p class="heading_space">Ready to see what the A-Team can do for your business? One conversation is all it takes to go from idea to execution.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-        <form class="contactus wow fadeInUp js-contact">
-          <div class="row">
-            <div class="alert alert-success js-contact-alert js-contact-success" role="alert" style="display: none">Email has been sent!</div>
-            <div class="alert alert-danger js-contact-alert js-contact-error" role="alert" style="display: none">Error sending your email. Please try again later.</div>
-            <input type="hidden" name="source" value="website">
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><input class="form-control" name="name" placeholder="your name" required="" type="text" /></div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><input class="form-control" name="user" placeholder="email" required="" type="email" /></div>
-            </div>
-            <div style="position: absolute; left: -9999px"><input autocomplete="off" name="email" tabindex="-1" type="email" /></div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><input class="form-control" name="phone" placeholder="phone (optional)" type="tel" /></div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><input class="form-control" name="company" placeholder="company (optional)" type="text" /></div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group bottom45"><textarea class="form-control" name="message" placeholder="tell us what you need" required="required"></textarea></div>
-            </div>
-            <div class="col-sm-12"><button class="button defaulthole" type="submit">submit request</button></div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Submit My Application</button>
           </div>
+          <p class="form-note">Applications are reviewed by the NTT team. Must be 18+. Selected players will be contacted directly.</p>
         </form>
       </div>
-    </div>
-  </div>
-</section>
-<!-- Contact ends -->
 
-<!-- Footer -->
-<footer class="bgdefault padding_half">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 text-center">
-        <img alt="Skalatsky Logo" height="79" src="../images/SKA-Just-brand-icon-Inverse.png" width="100" />
-        <p></p>
-       <h3 style="color: #ffffff; font-weight: 700; letter-spacing: 2px;">The Modern Marketing Agency</h3>
-        <h3 style="color: #aaaaaa; font-weight: 400; letter-spacing: 1px;">Design | Build | Launch</h3>
-        <p class="whitecolor top30 wow fadeInUp" style="font-size: 8pt">Copyright &copy; 2026&nbsp;Skalatsky &amp; Associates LLC. All rights reserved.</p>
+      <div class="form-success" id="formSuccess">
+        <h3>Application Received</h3>
+        <p>The NTT team will review your application and be in touch. Stay ready.</p>
       </div>
     </div>
-  </div>
-</footer>
-<!-- Footer ends -->
+  </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.appear.js"></script>
-<script src="../js/swiper.jquery.min.js"></script>
-<script src="../js/owl.carousel.min.js"></script>
-<script src="../js/jquery-countTo.js"></script>
-<script src="../js/jquery.matchHeight-min.js"></script>
-<script src="../js/parallaxie.js"></script>
-<script src="../js/wow.min.js"></script>
-<script src="../js/functions.js"></script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">NO TEES<span>™</span> TOUR</div>
+      <ul class="footer-links">
+        <li><a href="#what">The Tour</a></li>
+        <li><a href="#players">Players</a></li>
+        <li><a href="#episode">Watch</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#apply">Apply</a></li>
+        <li><a href="#app">Download</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Crosshand Productions. All rights reserved.</p>
+    </div>
+  </footer>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Mobile nav toggle
+    function toggleMenu(el) {
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'fixed';
+      links.style.top = '60px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(10,10,10,0.98)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      links.style.zIndex = '99';
+      if (open) links.style.display = 'none';
+    }
 
-<!-- Contact Form Handler -->
-<script>
-  emailjs.init("VBwHf55XzsFa3rpDe");
-
-  // Phone number formatter
-  document.querySelector('[name="phone"]').addEventListener('input', function(e) {
-    var x = e.target.value.replace(/\D/g, '').substring(0, 10);
-    var p1 = x.substring(0, 3);
-    var p2 = x.substring(3, 6);
-    var p3 = x.substring(6, 10);
-    if (x.length > 6) e.target.value = '(' + p1 + ') ' + p2 + ' - ' + p3;
-    else if (x.length > 3) e.target.value = '(' + p1 + ') ' + p2;
-    else if (x.length > 0) e.target.value = '(' + p1;
-  });
-
-  // Form submit handler
-  document.querySelector('.js-contact').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var params = {
-      from_name:  this.querySelector('[name="name"]').value,
-      from_email: this.querySelector('[name="user"]').value,
-      phone:      this.querySelector('[name="phone"]').value,
-      company:    this.querySelector('[name="company"]').value,
-      source:     this.querySelector('[name="source"]').value,
-      message:    this.querySelector('[name="message"]').value
-    };
-    emailjs.send("service_dmztf2b", "template_vdjx2mw", params)
-      .then(function() {
-        document.querySelector('.js-contact-success').style.display = 'block';
-        document.querySelector('.js-contact-error').style.display = 'none';
-      }, function() {
-        document.querySelector('.js-contact-error').style.display = 'block';
-        document.querySelector('.js-contact-success').style.display = 'none';
-        document.querySelector('.js-contact').reset();
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        const links = document.querySelector('.nav-links');
+        if (window.innerWidth <= 768) links.style.display = 'none';
       });
-  });
-</script>
-<!-- Contact Form Handler Ends -->
+    });
+
+    // Form submit — posts to webhook placeholder
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const payload = {
+        Name: data.get('Name'),
+        Type: 'Inbound',
+        Agent: 'Arina',
+        Email: data.get('Email'),
+        Phone: data.get('Phone') || '',
+        Source: 'NTT_Apply',
+        Status: 'New',
+        Stage: 'Lead',
+        Notes: `Age: ${data.get('Age')} | City: ${data.get('City')} | Handicap: ${data.get('Handicap')} | Social: ${data.get('Social')} | Video: ${data.get('Video')} | Notes: ${data.get('Notes')}`,
+      };
+
+      // POST to your n8n webhook — replace URL when ready
+      const WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+
+      try {
+        if (WEBHOOK_URL !== 'YOUR_N8N_WEBHOOK_URL_HERE') {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+        document.getElementById('applyForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch(err) {
+        // Still show success to user; log error
+        document.getElementById('applyForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        console.error('Webhook error:', err);
+      }
+    }
+
+    // Subtle nav background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 80
+        ? 'rgba(10,10,10,0.97)'
+        : 'linear-gradient(to bottom, rgba(10,10,10,0.95), transparent)';
+    });
+  </script>
 </body>
 </html>
