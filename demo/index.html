@@ -106,7 +106,6 @@
       z-index: 0;
     }
 
-    /* Grass texture overlay */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -116,7 +115,6 @@
         radial-gradient(ellipse 40% 60% at 80% 60%, rgba(37,160,90,0.08) 0%, transparent 60%);
     }
 
-    /* Animated grain */
     .hero-grain {
       position: absolute;
       inset: -50%;
@@ -142,7 +140,6 @@
       90% { transform: translate(-1%,2%); }
     }
 
-    /* Diagonal green accent line */
     .hero-accent {
       position: absolute;
       top: 0; right: 15%;
@@ -254,7 +251,6 @@
 
     .btn-outline:hover { border-color: var(--white); transform: translateY(-1px); }
 
-    /* scroll indicator */
     .hero-scroll {
       position: absolute;
       bottom: 2rem;
@@ -342,6 +338,21 @@
       margin-bottom: 1.25rem;
     }
 
+    /* ShortGameCulture badge */
+    .sgc-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      border: 1px solid rgba(37,160,90,0.4);
+      background: rgba(37,160,90,0.07);
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
     .what-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -413,7 +424,6 @@
 
     .player-card:hover .player-card-bg { transform: scale(1.04); }
 
-    /* jersey number watermark */
     .player-card-bg::before {
       content: attr(data-num);
       position: absolute;
@@ -709,6 +719,42 @@
       margin-bottom: 2.5rem;
     }
 
+    /* Invite-only notice */
+    .invite-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(37,160,90,0.06);
+      border: 1px solid rgba(37,160,90,0.25);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .invite-notice-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .invite-notice-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(240,237,230,0.7);
+      line-height: 1.5;
+    }
+
+    .invite-notice-text strong {
+      color: var(--green-bright);
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
     .apply-form {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -886,7 +932,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">NO TEES<span>™</span></a>
+    <a href="#" class="nav-logo">NO TEES TOUR<span>™</span></a>
     <ul class="nav-links">
       <li><a href="#what">The Tour</a></li>
       <li><a href="#players">Players</a></li>
@@ -907,7 +953,7 @@
     <div class="hero-accent"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Created by Will Lowery &nbsp;·&nbsp; Crosshand Productions</p>
-      <h1 class="hero-title">Golf<br>Without<br><em>Tees™</em></h1>
+      <h1 class="hero-title">Golf<br>with<br><em>NOTEES™</em></h1>
       <p class="hero-sub">Competition <span>·</span> Culture <span>·</span> Community</p>
       <div class="hero-actions">
         <a href="#app" class="btn-primary">Download the App</a>
@@ -927,9 +973,12 @@
         <p class="section-label">The Tour</p>
         <h2 class="section-title">A New Kind<br>of Golf</h2>
         <div class="divider"></div>
+        <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.35rem; letter-spacing:0.02em; color:var(--white); margin-bottom:0.5rem;">Your driver can't save you.</p>
+        <p style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--green-bright); margin-bottom:1.25rem;">We focus on the short game, where champions are made.</p>
         <p>No Tees Tour™ is a competitive short-game golf tour built at the intersection of sport and culture. Fast-paced. 1v1. Single elimination. No tee shots required.</p>
         <p>Think March Madness meets a block party — on a Par-3 course. Every match is a bracket. Every bracket builds a champion. Every stop builds a movement.</p>
-        <a href="#apply" class="btn-primary" style="margin-top:1rem;">Apply to Play</a>
+        <span class="sgc-badge">ShortGameCulture™</span>
+        <a href="#apply" class="btn-primary" style="display:block; margin-top:0.5rem;">Apply to Play</a>
       </div>
       <div class="what-stats">
         <div class="stat-box">
@@ -1020,7 +1069,7 @@
       <div class="episode-embed">
         <iframe
           src="https://www.youtube.com/embed/0ggEwy-E1mY"
-          title="No Tees Tour Episode"
+          title="No Tees Tour™ Episode"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -1111,6 +1160,14 @@
       <h2 class="section-title">Apply to Play</h2>
       <p class="apply-sub">Competitive golfer? Multi-sport athlete? Weekend warrior with a short game that goes different? This is your invite. 32 spots per event.</p>
 
+      <div class="invite-notice">
+        <div class="invite-notice-icon">⚡</div>
+        <div class="invite-notice-text">
+          <strong>Year One — Invite Only</strong>
+          Year one of No Tees Tour™ is invite-driven. Submit your application and our team will reach out if you're selected. We're building the right field — not just a full one.
+        </div>
+      </div>
+
       <div id="applyForm">
         <form class="apply-form" onsubmit="submitForm(event)">
           <div class="form-group">
@@ -1152,13 +1209,13 @@
           <div class="form-submit">
             <button type="submit" class="btn-primary">Submit My Application</button>
           </div>
-          <p class="form-note">Applications are reviewed by the NTT team. Must be 18+. Selected players will be contacted directly.</p>
+          <p class="form-note">Applications are reviewed by the No Tees Tour™ team. Must be 18+. Selected players will be contacted directly.</p>
         </form>
       </div>
 
       <div class="form-success" id="formSuccess">
         <h3>Application Received</h3>
-        <p>The NTT team will review your application and be in touch. Stay ready.</p>
+        <p>The No Tees Tour™ team will review your application and be in touch. Stay ready.</p>
       </div>
     </div>
   </section>
@@ -1166,7 +1223,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">NO TEES<span>™</span> TOUR</div>
+      <div class="footer-logo">NO TEES TOUR<span>™</span></div>
       <ul class="footer-links">
         <li><a href="#what">The Tour</a></li>
         <li><a href="#players">Players</a></li>
@@ -1180,7 +1237,6 @@
   </footer>
 
   <script>
-    // Mobile nav toggle
     function toggleMenu(el) {
       const links = document.querySelector('.nav-links');
       const open = links.style.display === 'flex';
@@ -1197,7 +1253,6 @@
       if (open) links.style.display = 'none';
     }
 
-    // Close mobile nav on link click
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => {
         const links = document.querySelector('.nav-links');
@@ -1205,7 +1260,6 @@
       });
     });
 
-    // Form submit — posts to webhook placeholder
     async function submitForm(e) {
       e.preventDefault();
       const form = e.target;
@@ -1222,7 +1276,6 @@
         Notes: `Age: ${data.get('Age')} | City: ${data.get('City')} | Handicap: ${data.get('Handicap')} | Social: ${data.get('Social')} | Video: ${data.get('Video')} | Notes: ${data.get('Notes')}`,
       };
 
-      // POST to your n8n webhook — replace URL when ready
       const WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
 
       try {
@@ -1236,14 +1289,12 @@
         document.getElementById('applyForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
       } catch(err) {
-        // Still show success to user; log error
         document.getElementById('applyForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
         console.error('Webhook error:', err);
       }
     }
 
-    // Subtle nav background on scroll
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       nav.style.background = window.scrollY > 80
