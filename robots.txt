@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skalatsky.com/sitemap.xml
