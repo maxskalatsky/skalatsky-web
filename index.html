@@ -90,38 +90,41 @@
   <link href="css/typo4.css" rel="stylesheet" />
   <link href="images/favicon.png" rel="icon" />
 
-  <style>
+ <style>
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .agent-card {
+    text-align: center;
+    padding: 20px;
+  }
+  .agent-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    margin: 0 auto 20px auto;
+    display: block;
+    border: 4px solid #0642a3;
+    background-color: #0d2d6b;
+    box-shadow: 0 0 0 6px #e8eef8;
+  }
+  @media (max-width: 768px) {
     .agent-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    .agent-card {
-      text-align: center;
-      padding: 20px;
+  }
+  @media (max-width: 480px) {
+    .agent-grid {
+      grid-template-columns: 1fr;
     }
-    .agent-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px auto;
-      display: block;
-      border: 4px solid #0642a3;
-    }
-    @media (max-width: 768px) {
-      .agent-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-    }
-    @media (max-width: 480px) {
-      .agent-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  }
+</style>
 
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
