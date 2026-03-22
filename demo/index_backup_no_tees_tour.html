@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NO TEES TOUR™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --green: #1a5c38;
+      --green-bright: #25a05a;
+      --green-light: #2ecc71;
+      --white: #f0ede6;
+      --gray: #888;
+      --gray-dark: #1a1a1a;
+      --gray-mid: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--green-bright); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--green-bright);
+      color: var(--black) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-light) !important; color: var(--black) !important; }
+
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2.5rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.2) 100%),
+        linear-gradient(135deg, #0a1f14 0%, #0d2b1a 30%, #071510 60%, #0a0a0a 100%);
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 60% 30%, rgba(26,92,56,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 60%, rgba(37,160,90,0.08) 0%, transparent 60%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      animation: grain 0.5s steps(1) infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes grain {
+      0%,100% { transform: translate(0,0); }
+      10% { transform: translate(-2%,-3%); }
+      20% { transform: translate(3%,1%); }
+      30% { transform: translate(-1%,4%); }
+      40% { transform: translate(2%,-2%); }
+      50% { transform: translate(-3%,2%); }
+      60% { transform: translate(1%,-1%); }
+      70% { transform: translate(-2%,3%); }
+      80% { transform: translate(3%,-3%); }
+      90% { transform: translate(-1%,2%); }
+    }
+
+    .hero-accent {
+      position: absolute;
+      top: 0; right: 15%;
+      width: 1px;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, var(--green-bright), transparent);
+      opacity: 0.4;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 12vw, 9rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--green-bright);
+    }
+
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.6);
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-sub span {
+      color: rgba(240,237,230,0.3);
+      margin: 0 0.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--green-bright);
+      color: var(--black);
+      border: none;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(240,237,230,0.3);
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, transform 0.1s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: 2.5rem;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .hero-scroll span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.4);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--green-bright), transparent);
+      animation: scrollPulse 1.5s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 6rem 2.5rem; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--green-bright);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── WHAT IS NTT ── */
+    .what {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .what-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .what-text p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(240,237,230,0.75);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ShortGameCulture badge */
+    .sgc-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      border: 1px solid rgba(37,160,90,0.4);
+      background: rgba(37,160,90,0.07);
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .what-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .stat-box {
+      background: var(--black);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--green-bright);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.5);
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    /* ── PLAYERS ── */
+    .players { background: var(--black); }
+    .players-inner { max-width: 1200px; margin: 0 auto; }
+
+    .players-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .player-card {
+      background: var(--gray-dark);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .player-card-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a3a25, #0d1f14);
+      transition: transform 0.4s ease;
+    }
+
+    .player-card:hover .player-card-bg { transform: scale(1.04); }
+
+    .player-card-bg::before {
+      content: attr(data-num);
+      position: absolute;
+      bottom: -10px;
+      right: -5px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 7rem;
+      color: rgba(37,160,90,0.08);
+      line-height: 1;
+    }
+
+    .player-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 50%, transparent 100%);
+    }
+
+    .player-card-info {
+      position: relative;
+      z-index: 2;
+      padding: 1.25rem;
+    }
+
+    .player-rank {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.3rem;
+    }
+
+    .player-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .player-city {
+      font-size: 0.8rem;
+      color: rgba(240,237,230,0.5);
+      margin-top: 0.25rem;
+    }
+
+    .player-card-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(37,160,90,0.15);
+      border: 1px solid rgba(37,160,90,0.3);
+      color: var(--green-bright);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ── EPISODE ── */
+    .episode {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .episode-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .episode-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .episode-meta p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(240,237,230,0.65);
+    }
+
+    .episode-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .episode-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── PARTNERS ── */
+    .partners { background: var(--black); }
+    .partners-inner { max-width: 1200px; margin: 0 auto; }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+      margin-top: 3rem;
+    }
+
+    .partner-box {
+      background: var(--gray-dark);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: background 0.2s;
+      cursor: pointer;
+      min-height: 120px;
+    }
+
+    .partner-box:hover { background: #222; }
+
+    .partner-placeholder {
+      width: 80px;
+      height: 24px;
+      background: rgba(240,237,230,0.1);
+      border-radius: 2px;
+    }
+
+    .partner-tier {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.25);
+    }
+
+    .partner-box.title .partner-placeholder {
+      width: 100px;
+      height: 30px;
+      background: rgba(37,160,90,0.2);
+    }
+
+    .partner-box.title .partner-tier { color: var(--green-bright); }
+
+    /* ── APP DOWNLOAD ── */
+    .app-section {
+      background: var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(37,160,90,0.15);
+      pointer-events: none;
+    }
+
+    .app-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-text .section-title { color: var(--white); }
+    .app-text .section-label { color: rgba(240,237,230,0.6); }
+
+    .app-features {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .app-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.85);
+    }
+
+    .app-features li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .app-mockup {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .phone-frame {
+      width: 140px;
+      height: 240px;
+      background: var(--black);
+      border-radius: 16px;
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-frame:first-child { transform: rotate(-4deg) translateY(16px); }
+    .phone-frame:last-child { transform: rotate(4deg) translateY(16px); }
+
+    .phone-screen {
+      flex: 1;
+      background: var(--gray-dark);
+      display: flex;
+      flex-direction: column;
+      padding: 0.6rem;
+      gap: 0.4rem;
+    }
+
+    .phone-bar {
+      height: 6px;
+      border-radius: 2px;
+      background: rgba(37,160,90,0.4);
+    }
+
+    .phone-bar.bright { background: var(--green-bright); width: 60%; }
+    .phone-bar.short { width: 40%; }
+    .phone-bar.med { width: 75%; }
+
+    .phone-bracket-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .bracket-mini-cell {
+      height: 14px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 1px;
+      border-left: 2px solid rgba(37,160,90,0.4);
+    }
+
+    /* ── APPLY ── */
+    .apply {
+      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .apply-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .apply-inner .section-title { margin-bottom: 0.5rem; }
+
+    .apply-sub {
+      font-size: 1rem;
+      color: rgba(240,237,230,0.6);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Invite-only notice */
+    .invite-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(37,160,90,0.06);
+      border: 1px solid rgba(37,160,90,0.25);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .invite-notice-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .invite-notice-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(240,237,230,0.7);
+      line-height: 1.5;
+    }
+
+    .invite-notice-text strong {
+      color: var(--green-bright);
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .apply-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.5);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 0.8rem 1rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-group select option { background: #1a1a1a; }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-bright);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit .btn-primary {
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    .form-note {
+      grid-column: 1 / -1;
+      font-size: 0.75rem;
+      color: rgba(240,237,230,0.3);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: var(--green-bright); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(240,237,230,0.25);
+    }
+
+    /* ── FORM SUCCESS ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      border: 1px solid rgba(37,160,90,0.3);
+      background: rgba(37,160,90,0.05);
+    }
+
+    .form-success h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p { color: rgba(240,237,230,0.6); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 0 1.5rem 4rem; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .what-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .what-stats { grid-template-columns: 1fr 1fr; }
+
+      .players-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .players-grid { grid-template-columns: 1fr 1fr; }
+
+      .episode-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .episode-embed { order: -1; }
+
+      .partners-grid { grid-template-columns: 1fr 1fr; }
+
+      .app-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .app-mockup { display: none; }
+
+      .apply-form { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .players-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">NO TEES TOUR<span>™</span></a>
+    <ul class="nav-links">
+      <li><a href="#what">The Tour</a></li>
+      <li><a href="#players">Players</a></li>
+      <li><a href="#episode">Watch</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#apply">Apply</a></li>
+      <li><a href="#app" class="nav-cta">Download App</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Created by Will Lowery &nbsp;·&nbsp; Crosshand Productions</p>
+      <h1 class="hero-title">Golf<br>with<br><em>NOTEES™</em></h1>
+      <p class="hero-sub">Competition <span>·</span> Culture <span>·</span> Community</p>
+      <div class="hero-actions">
+        <a href="#app" class="btn-primary">Download the App</a>
+        <a href="#episode" class="btn-outline">Watch The Tour</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- WHAT IS NTT -->
+  <section class="what" id="what">
+    <div class="what-inner">
+      <div class="what-text">
+        <p class="section-label">The Tour</p>
+        <h2 class="section-title">A New Kind<br>of Golf</h2>
+        <div class="divider"></div>
+        <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.35rem; letter-spacing:0.02em; color:var(--white); margin-bottom:0.5rem;">Your driver can't save you.</p>
+        <p style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--green-bright); margin-bottom:1.25rem;">We focus on the short game, where champions are made.</p>
+        <p>No Tees Tour™ is a competitive short-game golf tour built at the intersection of sport and culture. Fast-paced. 1v1. Single elimination. No tee shots required.</p>
+        <p>Think March Madness meets a block party — on a Par-3 course. Every match is a bracket. Every bracket builds a champion. Every stop builds a movement.</p>
+        <span class="sgc-badge">ShortGameCulture™</span>
+        <a href="#apply" class="btn-primary" style="display:block; margin-top:0.5rem;">Apply to Play</a>
+      </div>
+      <div class="what-stats">
+        <div class="stat-box">
+          <span class="stat-num">32</span>
+          <span class="stat-label">Players Per Event</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">1v1</span>
+          <span class="stat-label">Match Format</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">6–8</span>
+          <span class="stat-label">Tour Stops / Year</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">30yd</span>
+          <span class="stat-label">Radius of Play</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYERS -->
+  <section class="players" id="players">
+    <div class="players-inner">
+      <div class="players-header">
+        <div>
+          <p class="section-label">On The Green</p>
+          <h2 class="section-title">The Players</h2>
+        </div>
+        <a href="#apply" class="btn-outline">Apply to Play →</a>
+      </div>
+      <div class="players-grid">
+        <div class="player-card">
+          <div class="player-card-bg" data-num="01"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #1</p>
+            <h3 class="player-name">Player 01</h3>
+            <p class="player-city">Atlanta, GA</p>
+            <span class="player-card-tag">Creator</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="02" style="background: linear-gradient(135deg,#1a2e3a,#0d1520);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #2</p>
+            <h3 class="player-name">Player 02</h3>
+            <p class="player-city">Houston, TX</p>
+            <span class="player-card-tag">Athlete</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="03" style="background: linear-gradient(135deg,#2a1a0d,#1a0d05);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #3</p>
+            <h3 class="player-name">Player 03</h3>
+            <p class="player-city">Miami, FL</p>
+            <span class="player-card-tag">Local Hero</span>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-card-bg" data-num="04" style="background: linear-gradient(135deg,#1a1a2e,#0d0d20);"></div>
+          <div class="player-card-overlay"></div>
+          <div class="player-card-info">
+            <p class="player-rank">Rank #4</p>
+            <h3 class="player-name">Player 04</h3>
+            <p class="player-city">Los Angeles, CA</p>
+            <span class="player-card-tag">Entertainer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE -->
+  <section class="episode" id="episode">
+    <div class="episode-inner">
+      <div class="episode-meta">
+        <p class="section-label">Latest Episode</p>
+        <h2 class="section-title">Watch<br>The Tour</h2>
+        <div class="divider"></div>
+        <p>Follow the competition from the latest tour stop. Every chip. Every putt. Every elimination. Unscripted and unforgettable.</p>
+        <a href="https://www.youtube.com/@crosshandproductions" target="_blank" class="btn-outline" style="margin-top:0.5rem;">All Episodes →</a>
+      </div>
+      <div class="episode-embed">
+        <iframe
+          src="https://www.youtube.com/embed/0ggEwy-E1mY"
+          title="No Tees Tour™ Episode"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners" id="partners">
+    <div class="partners-inner">
+      <p class="section-label">Sponsors & Partners</p>
+      <h2 class="section-title">Our Partners</h2>
+      <div class="partners-grid">
+        <div class="partner-box title">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Title Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Official Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Equipment Partner</span>
+        </div>
+        <div class="partner-box">
+          <div class="partner-placeholder"></div>
+          <span class="partner-tier">Content Partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP DOWNLOAD -->
+  <section class="app-section" id="app">
+    <div class="app-inner">
+      <div class="app-text">
+        <p class="section-label">Fan Experience</p>
+        <h2 class="section-title">The Tournament<br>Lives in<br>the App</h2>
+        <ul class="app-features">
+          <li>Build your bracket before tip-off</li>
+          <li>Track every match live</li>
+          <li>Compete on the fan leaderboard</li>
+          <li>Follow your players hole by hole</li>
+          <li>Be there for the winner reveal</li>
+        </ul>
+        <a href="#" class="btn-primary" style="background:#0a0a0a;color:#f0ede6;">Download on the App Store</a>
+      </div>
+      <div class="app-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-bar bright"></div>
+            <div class="phone-bar short"></div>
+            <div class="phone-bracket-mini">
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+              <div class="bracket-mini-cell"></div>
+            </div>
+            <div class="phone-bar med" style="margin-top:6px;"></div>
+            <div class="phone-bar short"></div>
+          </div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-bar bright"></div>
+            <div class="phone-bar med"></div>
+            <div style="margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+              <div style="height:18px;background:rgba(37,160,90,0.2);border-radius:2px;display:flex;align-items:center;padding:0 4px;">
+                <div style="width:50%;height:4px;background:var(--green-bright);border-radius:1px;"></div>
+              </div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
+              <div style="height:18px;background:rgba(255,255,255,0.04);border-radius:2px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY TO PLAY -->
+  <section class="apply" id="apply">
+    <div class="apply-inner">
+      <p class="section-label">Join The Tour</p>
+      <h2 class="section-title">Apply to Play</h2>
+      <p class="apply-sub">Competitive golfer? Multi-sport athlete? Weekend warrior with a short game that goes different? This is your invite. 32 spots per event.</p>
+
+      <div class="invite-notice">
+        <div class="invite-notice-icon">⚡</div>
+        <div class="invite-notice-text">
+          <strong>Year One — Invite Only</strong>
+          Year one of No Tees Tour™ is invite-driven. Submit your application and our team will reach out if you're selected. We're building the right field — not just a full one.
+        </div>
+      </div>
+
+      <div id="applyForm">
+        <form class="apply-form" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="fname">Full Name *</label>
+            <input type="text" id="fname" name="Name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="fage">Age *</label>
+            <input type="number" id="fage" name="Age" placeholder="Must be 18+" min="18" required>
+          </div>
+          <div class="form-group">
+            <label for="femail">Email *</label>
+            <input type="email" id="femail" name="Email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone</label>
+            <input type="tel" id="fphone" name="Phone" placeholder="(000) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="fcity">City *</label>
+            <input type="text" id="fcity" name="City" placeholder="City, State" required>
+          </div>
+          <div class="form-group">
+            <label for="fhandicap">Handicap</label>
+            <input type="text" id="fhandicap" name="Handicap" placeholder="e.g. 8 or Scratch">
+          </div>
+          <div class="form-group">
+            <label for="fsocial">Social Media Handle *</label>
+            <input type="text" id="fsocial" name="Social" placeholder="@handle (IG or TikTok)" required>
+          </div>
+          <div class="form-group">
+            <label for="fvideo">Video Submission URL</label>
+            <input type="url" id="fvideo" name="Video" placeholder="YouTube, IG, or TikTok link">
+          </div>
+          <div class="form-group full">
+            <label for="fnotes">Anything else we should know?</label>
+            <textarea id="fnotes" name="Notes" placeholder="Tell us about your game, background, or why you belong on the tour..."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Submit My Application</button>
+          </div>
+          <p class="form-note">Applications are reviewed by the No Tees Tour™ team. Must be 18+. Selected players will be contacted directly.</p>
+        </form>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <h3>Application Received</h3>
+        <p>The No Tees Tour™ team will review your application and be in touch. Stay ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">NO TEES TOUR<span>™</span></div>
+      <ul class="footer-links">
+        <li><a href="#what">The Tour</a></li>
+        <li><a href="#players">Players</a></li>
+        <li><a href="#episode">Watch</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#apply">Apply</a></li>
+        <li><a href="#app">Download</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Crosshand Productions. All rights reserved.<br>Site by <a href="https://skalatsky.com" target="_blank" style="color:rgba(240,237,230,0.4);text-decoration:none;" onmouseover="this.style.color='#25a05a'" onmouseout="this.style.color='rgba(240,237,230,0.4)'">Skalatsky & Associates</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(el) {
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'fixed';
+      links.style.top = '60px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(10,10,10,0.98)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      links.style.zIndex = '99';
+      if (open) links.style.display = 'none';
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        const links = document.querySelector('.nav-links');
+        if (window.innerWidth <= 768) links.style.display = 'none';
+      });
+    });
+
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const payload = {
+        Name: data.get('Name'),
+        Type: 'Inbound',
+        Agent: 'Arina',
+        Email: data.get('Email'),
+        Phone: data.get('Phone') || '',
+        Source: 'NTT_Apply',
+        Status: 'New',
+        Stage: 'Lead',
+        Notes: `Age: ${data.get('Age')} | City: ${data.get('City')} | Handicap: ${data.get('Handicap')} | Social: ${data.get('Social')} | Video: ${data.get('Video')} | Notes: ${data.get('Notes')}`,
+      };
+
+      const WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+
+      try {
+        if (WEBHOOK_URL !== 'YOUR_N8N_WEBHOOK_URL_HERE') {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+        document.getElementById('applyForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch(err) {
+        document.getElementById('applyForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        console.error('Webhook error:', err);
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 80
+        ? 'rgba(10,10,10,0.97)'
+        : 'linear-gradient(to bottom, rgba(10,10,10,0.95), transparent)';
+    });
+  </script>
+</body>
+</html>
