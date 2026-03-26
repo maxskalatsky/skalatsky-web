@@ -150,11 +150,15 @@
       z-index: 2;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 900px;
-    }
+   .hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+}
 
     .hero-eyebrow {
       font-family: 'Barlow Condensed', sans-serif;
@@ -946,20 +950,23 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grain"></div>
-    <div class="hero-accent"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Created by Will Lowery &nbsp;·&nbsp; Crosshand Productions</p>
-      <h1 class="hero-title">Golf<br>with<br><em>NOTEES™</em></h1>
-      <p class="hero-sub">Competition <span>·</span> Culture <span>·</span> Community</p>
-      <div class="hero-actions">
-        <a href="#app" class="btn-primary">Download the App</a>
-        <a href="#episode" class="btn-outline">Watch The Tour</a>
-      </div>
+<div class="hero-content">
+  <div>
+    <p class="hero-eyebrow">Created by Will Lowery &nbsp;·&nbsp; Crosshand Productions</p>
+    <h1 class="hero-title">Golf<br>with<br><em>NOTEES™</em></h1>
+    <p class="hero-sub">Competition <span>·</span> Culture <span>·</span> Community</p>
+    <div class="hero-actions">
+      <a href="#app" class="btn-primary">Download the App</a>
+      <a href="#episode" class="btn-outline">Watch The Tour</a>
     </div>
+  </div>
+  <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding-bottom:0.5rem;">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:rgba(240,237,230,0.35);">Official Energy Partner</span>
+    <img src="YOUR_IMAGE_PATH" alt="Red Bull" style="width:180px;height:auto;" />
+  </div>
+</div>
+
+</div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <span>Scroll</span>
