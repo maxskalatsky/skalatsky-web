@@ -5,359 +5,622 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catalyst Capital | Commercial Mortgage Banking</title>
   <meta name="description" content="Catalyst Capital is a national commercial mortgage banking firm specializing in all CRE asset classes. Bridge, permanent, construction, CMBS, and SBA financing." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0d1f3c;
-      --navy-mid: #1a3260;
-      --gold: #b8960c;
-      --gold-light: #d4a90e;
+      --navy: #0a1628;
+      --navy-mid: #132240;
+      --navy-light: #1e3460;
+      --gold: #c9a84c;
+      --gold-light: #e0bc6a;
+      --gold-pale: #f5e8c8;
       --white: #ffffff;
-      --off-white: #f7f7f5;
-      --gray-light: #e8e8e4;
-      --gray: #6b7280;
-      --gray-dark: #374151;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
+      --off-white: #f8f7f4;
+      --gray-light: #e8e6e0;
+      --gray: #7a7a72;
+      --gray-dark: #3a3a36;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
     }
-    body {
-      font-family: var(--font-sans);
-      color: var(--navy);
-      background: var(--white);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); color: var(--navy); background: var(--white); font-size: 16px; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; }
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    /* ── Nav ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      padding: 0 40px;
-      height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
+    /* TICKER */
+    .ticker-bar { background: var(--navy); color: rgba(255,255,255,0.6); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; padding: 8px 0; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .ticker-track { display: flex; animation: ticker 40s linear infinite; white-space: nowrap; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 6px; padding: 0 40px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .ticker-label { color: var(--gold); text-transform: uppercase; }
+    .ticker-value { color: rgba(255,255,255,0.85); }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-light); padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--navy); }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 36px; align-items: center; }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--gray-dark);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-dark); letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
-    .nav-cta {
-      background: var(--navy);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      font-size: 0.8rem !important;
-      letter-spacing: 0.08em !important;
-      border-radius: 2px;
-    }
-    .nav-cta:hover { background: var(--navy-mid) !important; }
+    .nav-cta { background: var(--navy) !important; color: var(--white) !important; padding: 10px 24px; border-radius: 1px; }
+    .nav-cta:hover { background: var(--navy-light) !important; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: var(--navy); display: block; }
 
-    /* ── Hero ── */
-    .hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 120px 40px 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #0d1f3c 0%, #1a3260 60%, #0d1f3c 100%);
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(184,150,12,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,150,12,0.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-content { position: relative; max-width: 860px; margin: 0 auto; }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
-    .hero h1 em { font-style: normal; color: var(--gold-light); }
-    .hero-sub {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 580px;
-      margin-bottom: 48px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
+    /* HERO */
+    .hero { background: var(--navy); color: var(--white); padding: 100px 48px 90px; position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0a1628 0%, #132240 50%, #0a1628 100%); }
+    .hero-image { position: absolute; inset: 0; background-image: url('images/hero.jpg'); background-size: cover; background-position: center; opacity: 0.18; }
+    .hero-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 80px 80px; }
+    .hero-content { position: relative; max-width: 820px; margin: 0 auto; width: 100%; }
+    .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .hero h1 { font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 700; line-height: 1.05; margin-bottom: 28px; color: var(--white); }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 560px; margin-bottom: 52px; font-weight: 300; line-height: 1.8; }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      padding: 16px 36px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 2px;
-    }
+    .btn-primary { background: var(--gold); color: var(--navy); padding: 15px 36px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 1px; border: none; cursor: pointer; font-family: var(--font-sans); display: inline-block; }
     .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      padding: 16px 36px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-outline:hover { border-color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); padding: 15px 36px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 1px; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; font-family: var(--font-sans); display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── Value Props ── */
-    .value-props {
-      padding: 80px 40px;
-      background: var(--off-white);
-    }
-    .section-label {
-      text-align: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--navy);
-      margin-bottom: 56px;
-    }
-    .three-col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .value-card {
-      background: var(--white);
-      padding: 40px 32px;
-      border-top: 3px solid var(--gold);
-    }
-    .value-icon { font-size: 2rem; margin-bottom: 20px; }
-    .value-card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--navy); }
-    .value-card p { font-size: 0.925rem; color: var(--gray); line-height: 1.7; }
+    /* STATS BAR */
+    .stats-bar { background: var(--gold); padding: 28px 48px; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { text-align: center; padding: 0 24px; border-right: 1px solid rgba(10,22,40,0.15); }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,22,40,0.6); }
 
-    /* ── Asset Classes ── */
-    .asset-classes {
-      padding: 80px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .asset-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2px;
-      margin-top: 48px;
-      background: var(--gray-light);
-    }
-    .asset-tile {
-      background: var(--white);
-      padding: 32px 24px;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .asset-tile:hover { background: var(--navy); }
-    .asset-tile:hover .asset-label { color: var(--white); }
-    .asset-tile:hover .asset-icon { color: var(--gold-light); }
-    .asset-icon { font-size: 1.8rem; margin-bottom: 12px; color: var(--gold); display: block; }
-    .asset-label { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; color: var(--navy); text-transform: uppercase; }
+    /* SHARED SECTION STYLES */
+    .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+    .section-title { font-size: clamp(1.9rem, 3vw, 2.8rem); color: var(--navy); margin-bottom: 16px; }
+    .section-subtitle { font-size: 1rem; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 52px; font-weight: 300; }
+    .inner { max-width: 1140px; margin: 0 auto; }
 
-    /* ── CTA Band ── */
-    .cta-band {
-      background: var(--navy);
-      color: var(--white);
-      padding: 72px 40px;
-      text-align: center;
-    }
-    .cta-band h2 { font-size: 2rem; margin-bottom: 16px; }
-    .cta-band p { color: rgba(255,255,255,0.7); margin-bottom: 36px; font-size: 1.05rem; }
+    /* VALUE PROPS */
+    .value-props { padding: 90px 48px; background: var(--off-white); }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--gray-light); }
+    .value-card { background: var(--white); padding: 44px 36px; position: relative; }
+    .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+    .value-icon { font-size: 1.8rem; margin-bottom: 20px; }
+    .value-card h3 { font-size: 1.3rem; margin-bottom: 14px; color: var(--navy); }
+    .value-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.75; }
 
-    /* ── Footer ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 48px 40px 32px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 28px;
-    }
-    .footer-brand .nav-logo { font-size: 1.2rem; margin-bottom: 12px; color: var(--white); display: block; }
-    .footer-brand p { font-size: 0.825rem; line-height: 1.7; }
-    .footer-nav h4 { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
-    .footer-nav a { display: block; font-size: 0.85rem; margin-bottom: 8px; transition: color 0.2s; }
+    /* ASSET CLASSES */
+    .asset-section { padding: 90px 48px; }
+    .asset-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: var(--gray-light); margin-top: 48px; }
+    .asset-tile { background: var(--white); text-align: center; overflow: hidden; }
+    .asset-tile-image { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .asset-tile-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; }
+    .asset-tile-label { padding: 14px 8px 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; color: var(--navy); text-transform: uppercase; }
+
+    /* LENDER RELATIONSHIPS */
+    .lender-section { background: var(--navy); padding: 90px 48px; }
+    .lender-section .section-label { color: var(--gold); }
+    .lender-section .section-title { color: var(--white); margin-bottom: 48px; }
+    .lender-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); }
+    .lender-type { padding: 32px 28px; background: rgba(255,255,255,0.03); border-left: 2px solid rgba(201,168,76,0.3); }
+    .lender-type h4 { font-family: var(--font-serif); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 10px; }
+    .lender-type p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* TRANSACTIONS */
+    .transactions-section { padding: 90px 48px; background: var(--off-white); }
+    .transactions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--gray-light); margin-top: 48px; }
+    .transaction-card { background: var(--white); padding: 32px 28px; border-top: 2px solid transparent; }
+    .transaction-card:hover { border-top-color: var(--gold); }
+    .tx-type { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .tx-amount { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 10px; }
+    .tx-asset { font-size: 0.85rem; font-weight: 500; color: var(--gray-dark); margin-bottom: 6px; }
+    .tx-location { font-size: 0.8rem; color: var(--gray); }
+    .tx-program { display: inline-block; margin-top: 16px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); background: var(--gold-pale); padding: 4px 10px; }
+
+    /* TESTIMONIALS */
+    .testimonials-section { padding: 90px 48px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .testimonial-card { padding: 36px 32px; border: 1px solid var(--gray-light); }
+    .testimonial-quote { font-family: var(--font-serif); font-size: 3rem; color: var(--gold-pale); line-height: 1; margin-bottom: 16px; }
+    .testimonial-text { font-size: 0.925rem; color: var(--gray-dark); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { font-size: 0.8rem; font-weight: 600; color: var(--navy); }
+    .testimonial-role { font-size: 0.75rem; color: var(--gray); margin-top: 3px; }
+
+    /* AFFILIATIONS */
+    .affiliations-section { background: var(--off-white); padding: 52px 48px; border-top: 1px solid var(--gray-light); }
+    .affiliations-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); text-align: center; margin-bottom: 32px; }
+    .affiliations-row { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .affiliation-badge { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--gray); letter-spacing: 0.05em; padding: 10px 20px; border: 1px solid var(--gray-light); }
+
+    /* LOAN PROGRAMS */
+    .programs-section { padding: 90px 48px; }
+    .program-card { border: 1px solid var(--gray-light); margin-bottom: 24px; overflow: hidden; }
+    .program-header { background: var(--navy); color: var(--white); padding: 26px 36px; display: flex; justify-content: space-between; align-items: center; }
+    .program-header h3 { font-size: 1.35rem; }
+    .program-badge { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,0.4); padding: 5px 12px; }
+    .program-body { padding: 36px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .program-desc { grid-column: 1 / -1; font-size: 0.95rem; color: var(--gray-dark); line-height: 1.75; padding-bottom: 24px; border-bottom: 1px solid var(--gray-light); }
+    .program-stat label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .program-stat span { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); }
+    .disclaimer-box { background: var(--off-white); border: 1px solid var(--gray-light); border-left: 3px solid var(--gold); padding: 20px 24px; font-size: 0.78rem; color: var(--gray); line-height: 1.7; margin-top: 48px; }
+
+    /* CONTACT */
+    .contact-section { padding: 90px 48px; background: var(--off-white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; }
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid var(--gray-light); border-radius: 1px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--navy); background: var(--white); outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-info { padding: 40px; background: var(--navy); color: var(--white); align-self: start; }
+    .contact-info h3 { font-size: 1.5rem; margin-bottom: 28px; }
+    .contact-detail { display: flex; gap: 16px; margin-bottom: 24px; }
+    .contact-detail-icon { font-size: 1.1rem; color: var(--gold); padding-top: 2px; }
+    .contact-detail-text label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+    .contact-detail-text span { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .calendly-placeholder { margin-top: 36px; border: 1px solid rgba(255,255,255,0.1); padding: 24px; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+    /* CTA BAND */
+    .cta-band { background: var(--navy); color: var(--white); padding: 80px 48px; text-align: center; }
+    .cta-band h2 { font-size: 2.4rem; margin-bottom: 16px; }
+    .cta-band p { color: rgba(255,255,255,0.6); margin-bottom: 40px; font-size: 1rem; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 56px 48px 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-brand .nav-logo { font-size: 1.3rem; margin-bottom: 14px; color: var(--white); }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.8; max-width: 260px; }
+    .footer-nav h4, .footer-compliance h4 { font-family: var(--font-sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-nav a { display: block; font-size: 0.83rem; margin-bottom: 10px; transition: color 0.2s; }
     .footer-nav a:hover { color: var(--white); }
-    .footer-compliance h4 { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
     .footer-compliance p { font-size: 0.78rem; line-height: 1.7; margin-bottom: 8px; }
-    .equal-housing { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
-    .equal-housing-icon {
-      width: 32px; height: 32px;
-      border: 2px solid rgba(255,255,255,0.4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 700; text-align: center; line-height: 1.1;
-      color: rgba(255,255,255,0.6); flex-shrink: 0;
-    }
-    .footer-bottom { font-size: 0.78rem; text-align: center; line-height: 1.6; }
+    .equal-housing { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+    .equal-housing-icon { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 700; color: rgba(255,255,255,0.5); flex-shrink: 0; }
+    .footer-bottom { font-size: 0.75rem; text-align: center; line-height: 1.7; }
 
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .three-col { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .asset-grid { grid-template-columns: repeat(4, 1fr); }
+      .transactions-grid { grid-template-columns: repeat(2, 1fr); }
+      .lender-types { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
       nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .hero, .value-props, .asset-classes, .cta-band { padding-left: 20px; padding-right: 20px; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--gray-light); gap: 20px; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .hero, .value-props, .asset-section, .lender-section, .transactions-section, .testimonials-section, .affiliations-section, .programs-section, .contact-section, .cta-band { padding-left: 20px; padding-right: 20px; }
+      .three-col, .lender-types, .testimonials-grid, .transactions-grid { grid-template-columns: 1fr; }
+      .asset-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
       footer { padding: 40px 20px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .stats-bar { padding: 24px 20px; grid-template-columns: repeat(2, 1fr); }
+      .program-body { padding: 24px 20px; grid-template-columns: 1fr; }
+      .program-header { padding: 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
     }
   </style>
 </head>
 <body>
 
-<nav>
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
   <div class="nav-logo">Catalyst<span>Capital</span></div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="about.html">About</a>
-    <a href="loan-programs.html">Loan Programs</a>
-    <a href="contact.html" class="nav-cta">Submit Inquiry</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#programs">Loan Programs</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Submit Inquiry</a>
+  </div>
+  <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-grid"></div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-image"></div>
+  <div class="hero-lines"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">National Commercial Mortgage Banking</div>
     <h1>Capital That Moves<br>as Fast as <em>Your Deal</em></h1>
     <p class="hero-sub">Catalyst Capital provides sophisticated financing solutions across all commercial real estate asset classes — from coast to coast, at every stage of the capital stack.</p>
     <div class="hero-actions">
-      <a href="contact.html" class="btn-primary">Submit a Loan Inquiry</a>
-      <a href="loan-programs.html" class="btn-outline">View Loan Programs</a>
+      <a href="#contact" class="btn-primary">Submit a Loan Inquiry</a>
+      <a href="#programs" class="btn-outline">View Loan Programs</a>
     </div>
   </div>
 </section>
 
-<!-- Value Props -->
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-number">$2B+</div><div class="stat-label">Transactions Closed</div></div>
+  <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Capital Sources</div></div>
+  <div class="stat-item"><div class="stat-number">All 50</div><div class="stat-label">States Active</div></div>
+  <div class="stat-item"><div class="stat-number">7</div><div class="stat-label">Asset Classes</div></div>
+</div>
+
+<!-- VALUE PROPS -->
 <section class="value-props">
-  <div class="section-label">Why Catalyst Capital</div>
-  <h2 class="section-title">Built for Serious Borrowers</h2>
-  <div class="three-col">
-    <div class="value-card">
-      <div class="value-icon">⚡</div>
-      <h3>Speed of Execution</h3>
-      <p>We understand that timing is everything in commercial real estate. Our streamlined process and decisive decision-making get you to the closing table without unnecessary delays.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🌐</div>
-      <h3>National Reach</h3>
-      <p>Active in markets across the country, Catalyst Capital brings deep relationships with capital sources and regional expertise no matter where your deal is located.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🏛</div>
-      <h3>Institutional Expertise</h3>
-      <p>With experience across every major CRE asset class and capital structure, our team delivers solutions tailored to the complexity of your transaction — not a one-size-fits-all product.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Asset Classes -->
-<section class="asset-classes">
-  <div class="section-label">Coverage</div>
-  <h2 class="section-title">All Commercial Real Estate Asset Classes</h2>
-  <div class="asset-grid">
-    <div class="asset-tile">
-      <span class="asset-icon">🏢</span>
-      <div class="asset-label">Multifamily</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏬</span>
-      <div class="asset-label">Office</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏭</span>
-      <div class="asset-label">Industrial</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🛍</span>
-      <div class="asset-label">Retail</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏗</span>
-      <div class="asset-label">Mixed-Use</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏨</span>
-      <div class="asset-label">Hospitality</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🌿</span>
-      <div class="asset-label">Land</div>
+  <div class="inner">
+    <div class="section-label">Why Catalyst Capital</div>
+    <h2 class="section-title">Built for Serious Borrowers</h2>
+    <div class="three-col">
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>Speed of Execution</h3>
+        <p>We understand that timing is everything in commercial real estate. Our streamlined process and decisive decision-making get you to the closing table without unnecessary delays.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌐</div>
+        <h3>National Reach</h3>
+        <p>Active in markets across the country, Catalyst Capital brings deep relationships with capital sources and regional expertise no matter where your deal is located.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏛</div>
+        <h3>Institutional Expertise</h3>
+        <p>With experience across every major CRE asset class and capital structure, our team delivers solutions tailored to the complexity of your transaction — not a one-size-fits-all product.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Band -->
+<!-- ASSET CLASSES -->
+<section class="asset-section">
+  <div class="inner">
+    <div class="section-label">Coverage</div>
+    <h2 class="section-title">All Commercial Real Estate Asset Classes</h2>
+    <p class="section-subtitle">From stabilized multifamily to ground-up construction, we structure financing across every major property type — coast to coast.</p>
+    <div class="asset-grid">
+      <div class="asset-tile">
+        <img src="images/multifamily.jpg" alt="Multifamily" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🏢</div>
+        <div class="asset-tile-label">Multifamily</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/office.jpg" alt="Office" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🏬</div>
+        <div class="asset-tile-label">Office</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/industrial.jpg" alt="Industrial" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🏭</div>
+        <div class="asset-tile-label">Industrial</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/retail.jpg" alt="Retail" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🛍</div>
+        <div class="asset-tile-label">Retail</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/mixed-use.jpg" alt="Mixed-Use" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🏗</div>
+        <div class="asset-tile-label">Mixed-Use</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/hospitality.jpg" alt="Hospitality" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🏨</div>
+        <div class="asset-tile-label">Hospitality</div>
+      </div>
+      <div class="asset-tile">
+        <img src="images/land.jpg" alt="Land" class="asset-tile-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="asset-tile-placeholder" style="display:none">🌿</div>
+        <div class="asset-tile-label">Land</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LENDER RELATIONSHIPS -->
+<section class="lender-section">
+  <div class="inner">
+    <div class="section-label">Capital Sources</div>
+    <h2 class="section-title">Access Across the Entire Capital Stack</h2>
+    <div class="lender-types">
+      <div class="lender-type">
+        <h4>Life Insurance Companies</h4>
+        <p>Long-term, fixed-rate permanent financing with competitive spreads for stabilized, high-quality assets. Ideal for core and core-plus investments.</p>
+      </div>
+      <div class="lender-type">
+        <h4>Agency Lenders</h4>
+        <p>Fannie Mae, Freddie Mac, and FHA/HUD programs for multifamily and healthcare assets with maximum leverage and favorable terms.</p>
+      </div>
+      <div class="lender-type">
+        <h4>CMBS / Conduit</h4>
+        <p>Non-recourse, fixed-rate securitized debt for larger assets and portfolios where interest-only periods and maximum proceeds are priorities.</p>
+      </div>
+      <div class="lender-type">
+        <h4>Debt Funds & Bridge Lenders</h4>
+        <p>Fast-moving capital for transitional assets, value-add plays, and situations requiring certainty of execution above all else.</p>
+      </div>
+      <div class="lender-type">
+        <h4>Banks & Credit Unions</h4>
+        <p>Balance sheet lenders for construction, recourse permanent, and relationship-driven transactions requiring flexibility in structure.</p>
+      </div>
+      <div class="lender-type">
+        <h4>SBA Programs</h4>
+        <p>7(a) and 504 financing for owner-occupied commercial real estate with below-market rates and high leverage for qualifying businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED TRANSACTIONS -->
+<section class="transactions-section">
+  <div class="inner">
+    <div class="section-label">Closed Transactions</div>
+    <h2 class="section-title">Recent Financings</h2>
+    <p class="section-subtitle">A sample of transactions recently arranged by Catalyst Capital across asset classes and markets.</p>
+    <div class="transactions-grid">
+      <div class="transaction-card">
+        <div class="tx-type">Multifamily</div>
+        <div class="tx-amount">$24,500,000</div>
+        <div class="tx-asset">312-Unit Garden Apartment Complex</div>
+        <div class="tx-location">📍 Phoenix, AZ</div>
+        <div class="tx-program">Agency — Freddie Mac</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Industrial</div>
+        <div class="tx-amount">$18,200,000</div>
+        <div class="tx-asset">±380,000 SF Distribution Facility</div>
+        <div class="tx-location">📍 Dallas, TX</div>
+        <div class="tx-program">Life Company — Permanent</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Mixed-Use</div>
+        <div class="tx-amount">$11,750,000</div>
+        <div class="tx-asset">Ground-Up Construction — Retail + Residential</div>
+        <div class="tx-location">📍 Nashville, TN</div>
+        <div class="tx-program">Bank — Construction Loan</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Hospitality</div>
+        <div class="tx-amount">$32,000,000</div>
+        <div class="tx-asset">224-Key Select Service Hotel</div>
+        <div class="tx-location">📍 Miami, FL</div>
+        <div class="tx-program">CMBS — Non-Recourse</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Office</div>
+        <div class="tx-amount">$9,400,000</div>
+        <div class="tx-asset">±65,000 SF Suburban Office Park</div>
+        <div class="tx-location">📍 Atlanta, GA</div>
+        <div class="tx-program">Bridge — Debt Fund</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Retail</div>
+        <div class="tx-amount">$14,800,000</div>
+        <div class="tx-asset">Anchored Community Shopping Center</div>
+        <div class="tx-location">📍 Denver, CO</div>
+        <div class="tx-program">Life Company — Permanent</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Owner-Occupied</div>
+        <div class="tx-amount">$4,200,000</div>
+        <div class="tx-asset">Medical Office — Owner Occupied</div>
+        <div class="tx-location">📍 Tampa, FL</div>
+        <div class="tx-program">SBA 504</div>
+      </div>
+      <div class="transaction-card">
+        <div class="tx-type">Multifamily</div>
+        <div class="tx-amount">$47,000,000</div>
+        <div class="tx-asset">Class A High-Rise — 280 Units</div>
+        <div class="tx-location">📍 Seattle, WA</div>
+        <div class="tx-program">Agency — Fannie Mae</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--gray);margin-top:20px;text-align:center;">All transactions are representative examples. Actual terms vary. Past performance does not guarantee future results.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="inner">
+    <div class="section-label">Client Feedback</div>
+    <h2 class="section-title">What Borrowers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Catalyst Capital closed our bridge loan in 19 days — start to finish. In this market, that kind of execution is the difference between winning a deal and losing it.</p>
+        <div class="testimonial-author">Managing Partner</div>
+        <div class="testimonial-role">Private Equity Real Estate Firm — Dallas, TX</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">We came to them with a complicated mixed-use construction deal that two other brokers had already passed on. They found a creative structure and got it to the finish line.</p>
+        <div class="testimonial-author">Principal Developer</div>
+        <div class="testimonial-role">Residential & Commercial Developer — Nashville, TN</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">The difference is access. They know the right lenders for every deal type and they know how to present a deal so it gets approved. That is the value.</p>
+        <div class="testimonial-author">Chief Investment Officer</div>
+        <div class="testimonial-role">Family Office — Miami, FL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATIONS -->
+<section class="affiliations-section">
+  <div class="inner">
+    <div class="affiliations-label">Industry Affiliations & Memberships</div>
+    <div class="affiliations-row">
+      <div class="affiliation-badge">MBA</div>
+      <div class="affiliation-badge">CREFC</div>
+      <div class="affiliation-badge">NAIOP</div>
+      <div class="affiliation-badge">ULI</div>
+      <div class="affiliation-badge">ICSC</div>
+      <div class="affiliation-badge">CCIM</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOAN PROGRAMS -->
+<section class="programs-section" id="programs">
+  <div class="inner">
+    <div class="section-label">Financing Solutions</div>
+    <h2 class="section-title">Loan Programs</h2>
+    <br>
+    <div class="program-card">
+      <div class="program-header"><h3>Bridge Loans</h3><div class="program-badge">Short-Term</div></div>
+      <div class="program-body">
+        <p class="program-desc">Short-term, transitional financing for commercial properties undergoing lease-up, renovation, or repositioning. Ideal for sponsors who need to move quickly before placing permanent debt.</p>
+        <div class="program-stat"><label>Loan Size</label><span>TBD – TBD</span></div>
+        <div class="program-stat"><label>Max LTV</label><span>Up to 75%</span></div>
+        <div class="program-stat"><label>Term</label><span>12 – 36 Months</span></div>
+      </div>
+    </div>
+    <div class="program-card">
+      <div class="program-header"><h3>Permanent Financing</h3><div class="program-badge">Long-Term</div></div>
+      <div class="program-body">
+        <p class="program-desc">Long-term, stabilized debt for income-producing commercial real estate. We access agency, life company, bank, and debt fund capital to find the most competitive permanent financing structure for your asset.</p>
+        <div class="program-stat"><label>Loan Size</label><span>TBD – TBD</span></div>
+        <div class="program-stat"><label>Max LTV</label><span>Up to 80%</span></div>
+        <div class="program-stat"><label>Term</label><span>5 – 30 Years</span></div>
+      </div>
+    </div>
+    <div class="program-card">
+      <div class="program-header"><h3>Construction Loans</h3><div class="program-badge">Ground-Up</div></div>
+      <div class="program-body">
+        <p class="program-desc">Ground-up construction financing for developers building multifamily, mixed-use, industrial, and other commercial projects. We structure facilities that cover land, hard costs, soft costs, and carry.</p>
+        <div class="program-stat"><label>Loan Size</label><span>TBD – TBD</span></div>
+        <div class="program-stat"><label>Max LTC</label><span>Up to 75%</span></div>
+        <div class="program-stat"><label>Term</label><span>18 – 36 Months</span></div>
+      </div>
+    </div>
+    <div class="program-card">
+      <div class="program-header"><h3>CMBS</h3><div class="program-badge">Securitized</div></div>
+      <div class="program-body">
+        <p class="program-desc">Non-recourse, fixed-rate securitized debt for stabilized commercial properties. Particularly well-suited for larger assets or portfolios where interest-only periods and maximum proceeds are priorities.</p>
+        <div class="program-stat"><label>Loan Size</label><span>TBD – TBD</span></div>
+        <div class="program-stat"><label>Max LTV</label><span>Up to 75%</span></div>
+        <div class="program-stat"><label>Term</label><span>5 – 10 Years</span></div>
+      </div>
+    </div>
+    <div class="program-card">
+      <div class="program-header"><h3>SBA Loans</h3><div class="program-badge">Government-Backed</div></div>
+      <div class="program-body">
+        <p class="program-desc">SBA 7(a) and SBA 504 programs for owner-occupied commercial real estate. Ideal for small business owners looking to acquire, build, or improve their own facilities with below-market, long-term financing.</p>
+        <div class="program-stat"><label>Loan Size</label><span>Up to $5M (7a) / $5.5M (504)</span></div>
+        <div class="program-stat"><label>Max LTV</label><span>Up to 90%</span></div>
+        <div class="program-stat"><label>Term</label><span>10 – 25 Years</span></div>
+      </div>
+    </div>
+    <div class="disclaimer-box"><strong>Disclaimer:</strong> All loan terms, rates, LTV limits, and loan sizes shown are subject to change without notice and do not constitute a commitment to lend. Financing is subject to credit approval, satisfactory appraisal, and underwriting review. Contact Catalyst Capital for current program availability. NMLS# [XXXXXXX]. Licensed in [State(s) TBD].</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="padding:90px 48px;background:var(--off-white);" id="about">
+  <div class="inner">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">The Team Behind the Capital</h2>
+    <br>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:64px;align-items:start;margin-bottom:64px;">
+      <div style="background:var(--gray-light);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:0.8rem;text-align:center;padding:20px;border-top:3px solid var(--gold);">[ Headshot Coming Soon ]</div>
+      <div>
+        <h2 style="font-size:1.9rem;margin-bottom:6px;">Horatio [Last Name]</h2>
+        <div style="font-size:0.8rem;font-weight:600;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px;">Founder & Principal | NMLS# [XXXXXXX]</div>
+        <p style="font-size:0.95rem;color:var(--gray-dark);line-height:1.85;margin-bottom:16px;">[Bio copy to be provided by Horatio. This section will speak to his background, experience in commercial real estate finance, and the depth of lender relationships he brings to every transaction.]</p>
+        <p style="font-size:0.95rem;color:var(--gray-dark);line-height:1.85;">[Additional paragraph on philosophy, track record, or notable transaction experience.]</p>
+      </div>
+    </div>
+    <div style="background:var(--navy);color:var(--white);padding:52px;position:relative;border-left:4px solid var(--gold);">
+      <h3 style="font-size:1.6rem;margin-bottom:16px;padding-left:20px;">Our Mission</h3>
+      <p style="font-size:0.975rem;color:rgba(255,255,255,0.7);line-height:1.85;padding-left:20px;">Catalyst Capital was founded on the belief that sophisticated borrowers deserve a financing partner who combines institutional-grade expertise with the responsiveness of a boutique firm. We bring the relationships, the creativity, and the conviction to close deals that others won't touch — across every major commercial real estate asset class, in every major market in the country.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
 <section class="cta-band">
   <h2>Ready to Finance Your Next Deal?</h2>
   <p>Tell us about your project and we'll be in touch within one business day.</p>
-  <a href="contact.html" class="btn-primary">Submit a Loan Inquiry</a>
+  <a href="#contact" class="btn-primary">Submit a Loan Inquiry</a>
 </section>
 
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Submit a Loan Inquiry</h2>
+    <br>
+    <div class="contact-grid">
+      <form onsubmit="this.querySelector('button').textContent='Submitted — We\'ll be in touch.';this.querySelector('button').disabled=true;return false;">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Company</label><input type="text" placeholder="Firm or Company Name" /></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="john@company.com" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(212) 555-0100" /></div>
+          <div class="form-group"><label>Property Type</label>
+            <select><option value="">Select Asset Class</option><option>Multifamily</option><option>Office</option><option>Industrial</option><option>Retail</option><option>Mixed-Use</option><option>Hospitality</option><option>Land</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Loan Amount</label><input type="text" placeholder="$5,000,000" /></div>
+          <div class="form-group"><label>Loan Type</label>
+            <select><option value="">Select Program</option><option>Bridge Loan</option><option>Permanent Financing</option><option>Construction Loan</option><option>CMBS</option><option>SBA</option><option>Not Sure</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Property Location</label><input type="text" placeholder="City, State" /></div>
+        <div class="form-group"><label>Desired Close Timeline</label>
+          <select><option value="">Select Timeline</option><option>ASAP / Under 30 Days</option><option>30 – 60 Days</option><option>60 – 90 Days</option><option>90+ Days</option><option>Exploring Options</option></select>
+        </div>
+        <div class="form-group"><label>Notes / Additional Details</label><textarea placeholder="Tell us about the deal — property description, business plan, sponsor background, anything relevant..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;padding:17px;border:none;">Submit Inquiry</button>
+        <p style="font-size:0.73rem;color:var(--gray);margin-top:12px;line-height:1.6;">By submitting this form you agree to be contacted by Catalyst Capital regarding your financing inquiry. This form does not constitute a loan application or commitment to lend.</p>
+      </form>
+      <div>
+        <div class="contact-info">
+          <h3>Direct Contact</h3>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉</div>
+            <div class="contact-detail-text"><label>Email</label><span>[email@catalystcapital.com]</span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">☎</div>
+            <div class="contact-detail-text"><label>Phone</label><span>[Phone Number TBD]</span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div class="contact-detail-text"><label>Office</label><span>[Address TBD]</span></div>
+          </div>
+          <div class="calendly-placeholder">[ Calendly Scheduling Widget — Coming Soon ]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <span class="nav-logo">Catalyst<span style="color:var(--gold)">Capital</span></span>
-      <p>National commercial mortgage banking firm providing financing solutions across all CRE asset classes.</p>
+      <div class="nav-logo">Catalyst<span style="color:var(--gold)">Capital</span></div>
+      <p>National commercial mortgage banking firm providing sophisticated financing solutions across all CRE asset classes.</p>
     </div>
     <div class="footer-nav">
       <h4>Navigation</h4>
-      <a href="#">Home</a>
-      <a href="about.html">About</a>
-      <a href="loan-programs.html">Loan Programs</a>
-      <a href="contact.html">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#programs">Loan Programs</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="footer-compliance">
       <h4>Compliance</h4>
@@ -365,14 +628,31 @@
       <p>Licensed to conduct business in [State(s) TBD]. All loans subject to credit approval. Terms and conditions apply.</p>
       <div class="equal-housing">
         <div class="equal-housing-icon">EHL</div>
-        <span style="font-size:0.78rem;">Equal Housing Lender</span>
+        <span style="font-size:0.75rem;">Equal Housing Lender</span>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Catalyst Capital. All rights reserved. | This is not a commitment to lend. All financing subject to underwriting approval.</p>
+    <p style="margin-top:8px;">Site by <a href="https://skalatsky.com/index.html" target="_blank" style="color:var(--gold);text-decoration:none;">Skalatsky & Associates</a></p>
   </div>
 </footer>
+
+<script>
+  const rates = [
+    { label: '10 YR TREASURY', value: '4.21%' },
+    { label: '5 YR TREASURY', value: '4.08%' },
+    { label: '30 YR TREASURY', value: '4.67%' },
+    { label: 'SOFR (30 DAY)', value: '5.31%' },
+    { label: 'PRIME RATE', value: '8.50%' },
+    { label: '5 YR SWAP', value: '4.18%' },
+    { label: '10 YR SWAP', value: '4.22%' },
+    { label: 'SOFR (1 MO)', value: '5.33%' },
+  ];
+  const track = document.getElementById('tickerTrack');
+  const html = rates.map(r => `<div class="ticker-item"><span class="ticker-label">${r.label}</span><span class="ticker-value">${r.value}</span></div>`).join('');
+  track.innerHTML = html + html;
+</script>
 
 </body>
 </html>
