@@ -488,28 +488,39 @@
 
     .video-sidebar { display: flex; flex-direction: column; }
 
-    .press-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+   .press-stack {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(184,113,46,0.2);
+  margin-top: 0.5rem;
+}
 
-    .press-item { padding: 1.3rem 0; border-bottom: 1px solid var(--copper-dim); }
-    .press-item:first-child { border-top: 1px solid var(--copper-dim); }
+.press-entry {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(184,113,46,0.15);
+}
 
-    .press-item p {
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--cream-dim);
-      max-width: 100%;
-      line-height: 1.6;
-      margin-bottom: 0.4rem;
-    }
+.press-entry:last-child {
+  border-bottom: none;
+}
 
-    .press-item cite {
-      font-family: var(--font-m);
-      font-size: 0.56rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--copper);
-      font-style: normal;
-    }
+.press-entry p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--cream2);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.press-entry cite {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--copper);
+  font-style: normal;
+}
 
     /* AWARDS */
     #awards { background: var(--black); }
