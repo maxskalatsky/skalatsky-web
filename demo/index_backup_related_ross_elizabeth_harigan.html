@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elizabeth Hartigan | Related Ross | South Flagler House</title>
+  <meta name="description" content="Elizabeth Hartigan is a luxury real estate agent with Related Ross in Palm Beach, Florida, specializing in South Flagler House — the landmark waterfront residence by Robert A.M. Stern Architects." />
+  <meta name="keywords" content="Elizabeth Hartigan, Related Ross, South Flagler House, Palm Beach real estate, West Palm Beach luxury condos, Robert A.M. Stern, Pembrooke Ives, waterfront residences" />
+  <meta name="author" content="Elizabeth Hartigan" />
+  <meta property="og:title" content="Elizabeth Hartigan | Related Ross | South Flagler House" />
+  <meta property="og:description" content="Elizabeth Hartigan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences at 1355 South Flagler Drive, West Palm Beach." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elizabeth Hartigan | Related Ross | South Flagler House" />
+  <meta name="twitter:description" content="Elizabeth Hartigan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences in West Palm Beach." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
@@ -437,12 +448,44 @@
       background: var(--warm-white);
       padding: 44px 36px;
       transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
     }
+
+    .amenity-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 0;
+    }
+
+    .amenity-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20,18,15,0.78);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    .amenity-card:hover::before { opacity: 1; }
+    .amenity-card:hover::after { opacity: 1; }
+
+    .amenity-card > * { position: relative; z-index: 2; }
 
     .amenity-card:hover { background: var(--charcoal); }
     .amenity-card:hover .amenity-icon { color: var(--gold); }
     .amenity-card:hover .amenity-title { color: white; }
-    .amenity-card:hover .amenity-desc { color: rgba(255,255,255,0.55); }
+    .amenity-card:hover .amenity-desc { color: rgba(255,255,255,0.65); }
+
+    .amenity-card[data-img]::before {
+      background-image: var(--card-bg);
+    }
 
     .amenity-icon {
       font-size: 24px;
@@ -837,9 +880,8 @@
   <section class="hero">
     <div class="hero-image-side">
       <img
-        src="https://drive.google.com/thumbnail?id=12uhAcIfwoHO_XISNBvrlQN2FapIyzgOz&sz=w1200"
+        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg"
         alt="Elizabeth Hartigan"
-        onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80'; this.onerror=null;"
       />
       <div class="hero-image-overlay"></div>
     </div>
@@ -918,7 +960,7 @@
 
     <div class="sfh-hero">
       <img
-        src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80"
+        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Capital%20Hero.png"
         alt="South Flagler House, West Palm Beach"
       />
       <div class="sfh-overlay"></div>
@@ -984,42 +1026,42 @@
       <h2 class="section-title">The Art of <em>Living Well</em></h2>
     </div>
     <div class="amenity-grid">
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20INT05_Gym_Stage_E3_8k.jpg')" data-img>
         <div class="amenity-icon">◎</div>
         <h3 class="amenity-title">Sports & Fitness</h3>
         <p class="amenity-desc">Pickleball court and lounge, state-of-the-art fitness center, flexible fitness lounge, Pilates studio, yoga studio, sports simulator, indoor putting green, private training studio, and outdoor recreation lawns.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Pool%20(1).jpg')" data-img>
         <div class="amenity-icon">◈</div>
         <h3 class="amenity-title">Swim & Spa</h3>
         <p class="amenity-desc">25-meter lap pool with extended sun shelf, oversized hot tub, poolside cabanas, men's and women's spas with vitality pool, cold plunge, steam, sauna, spa treatment rooms, and an on-site salon.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20V05_Pool%20Elevation_C7.jpg')" data-img>
         <div class="amenity-icon">◇</div>
         <h3 class="amenity-title">Social & Entertaining</h3>
         <p class="amenity-desc">Residents-only indoor and outdoor restaurant, entertainment lounge with catering kitchen, private dining rooms, wine tasting room with storage lockers, theater, library, and a suite of curated guest suites.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg')" data-img>
         <div class="amenity-icon">◫</div>
         <h3 class="amenity-title">Hospitality & Services</h3>
         <p class="amenity-desc">24-hour lobby attendant and concierge, house car service, 24-hour valet, package and cold storage, secure keyed elevators, dedicated service elevators, emergency generator, and electric vehicle charging.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Private%20Office%20(1).jpg')" data-img>
         <div class="amenity-icon">◻</div>
         <h3 class="amenity-title">Children & Family</h3>
         <p class="amenity-desc">Indoor playroom, children's STEM lounge with kitchenette, craft room, and outdoor garden — thoughtfully designed spaces for young residents to explore, create, and grow.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_210_Coworking%20Space.jpg')" data-img>
         <div class="amenity-icon">◬</div>
         <h3 class="amenity-title">Business & Work</h3>
         <p class="amenity-desc">Business center, private offices, indoor and outdoor conference rooms — a refined environment for productivity and professional connection, all within steps of your residence.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20V05_Pool%20Elevation_C7.jpg')" data-img>
         <div class="amenity-icon">◭</div>
         <h3 class="amenity-title">Motor Court & Arrival</h3>
         <p class="amenity-desc">A canopied allée of trees lines the 360-foot private driveway, leading to a lush circular motor court punctuated by an artful fountain. Upon arrival, residents are greeted by valet and a personal doorman.</p>
       </div>
-      <div class="amenity-card reveal">
+      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Pool%20(1).jpg')" data-img>
         <div class="amenity-icon">◮</div>
         <h3 class="amenity-title">Related Life Programming</h3>
         <p class="amenity-desc">One-of-a-kind events, exclusive experiences, lifestyle services, and curated programming that transforms ownership into an effortlessly extraordinary daily experience — thoughtfully orchestrated, season after season.</p>
@@ -1032,9 +1074,8 @@
     <div class="bio-image-wrap">
       <div class="bio-image-frame">
         <img
-          src="https://drive.google.com/thumbnail?id=12uhAcIfwoHO_XISNBvrlQN2FapIyzgOz&sz=w900"
+          src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg"
           alt="Elizabeth Hartigan"
-          onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80'; this.onerror=null;"
         />
       </div>
       <div class="bio-image-caption">
@@ -1082,8 +1123,8 @@
   <section id="contact" class="contact-section">
     <div class="contact-image">
       <img
-        src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200&q=80"
-        alt="West Palm Beach Waterfront"
+        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg"
+        alt="South Flagler House Spa"
       />
       <div class="contact-image-overlay"></div>
     </div>
