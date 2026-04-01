@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elizabeth Hartigan | Related Ross | South Flagler House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F5F0E8;
+      --warm-white: #FAFAF7;
+      --gold: #B8965A;
+      --gold-light: #D4B483;
+      --charcoal: #1C1C1A;
+      --slate: #4A4A44;
+      --mist: #E8E4DC;
+      --border: rgba(184,150,90,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 52px;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-brand-top {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--charcoal);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 10px 22px;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-image-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-image-side:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 70%, var(--warm-white) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px 80px 56px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 5vw, 76px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 40px;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--slate);
+      max-width: 380px;
+      margin-bottom: 52px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--charcoal);
+      text-decoration: none;
+      padding: 16px 36px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-secondary {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 3px;
+      transition: color 0.3s;
+    }
+
+    .btn-secondary:hover { color: var(--gold); }
+
+    /* ── MARQUEE BAND ── */
+    .marquee-band {
+      background: var(--charcoal);
+      padding: 18px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee-item {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 0 48px;
+    }
+
+    .marquee-dot {
+      color: var(--gold);
+      margin: 0 -16px;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURE LISTING SECTION ── */
+    .listing-section {
+      padding: 120px 0 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      padding: 0 52px;
+      margin-bottom: 72px;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* South Flagler Feature */
+    .sfh-hero {
+      position: relative;
+      height: 680px;
+      overflow: hidden;
+    }
+
+    .sfh-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .sfh-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,28,26,0.88) 0%, rgba(28,28,26,0.2) 60%, transparent 100%);
+    }
+
+    .sfh-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      padding: 60px 80px;
+      align-items: end;
+    }
+
+    .sfh-left .property-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(184,150,90,0.5);
+      padding: 7px 18px;
+      margin-bottom: 24px;
+    }
+
+    .sfh-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 4vw, 64px);
+      font-weight: 300;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .sfh-left h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .sfh-address {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .sfh-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sfh-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 16px;
+    }
+
+    .sfh-detail-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .sfh-detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: white;
+    }
+
+    /* ── AMENITY GRID ── */
+    .amenity-section {
+      background: var(--cream);
+      padding: 96px 80px;
+    }
+
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 64px;
+    }
+
+    .amenity-card {
+      background: var(--warm-white);
+      padding: 44px 36px;
+      transition: background 0.3s;
+    }
+
+    .amenity-card:hover { background: var(--charcoal); }
+    .amenity-card:hover .amenity-icon { color: var(--gold); }
+    .amenity-card:hover .amenity-title { color: white; }
+    .amenity-card:hover .amenity-desc { color: rgba(255,255,255,0.55); }
+
+    .amenity-icon {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--gold);
+      transition: color 0.3s;
+    }
+
+    .amenity-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+
+    .amenity-desc {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--slate);
+      transition: color 0.3s;
+    }
+
+    /* ── BIO SECTION ── */
+    .bio-section {
+      padding: 120px 80px;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .bio-image-wrap {
+      position: sticky;
+      top: 120px;
+    }
+
+    .bio-image-frame {
+      position: relative;
+    }
+
+    .bio-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid var(--gold);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bio-image-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .bio-image-caption {
+      margin-top: 28px;
+      padding-left: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bio-image-caption .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    .bio-image-caption .role {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .bio-content {
+      padding-top: 8px;
+    }
+
+    .bio-content .section-eyebrow { text-align: left; }
+
+    .bio-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3vw, 46px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--charcoal);
+      margin-bottom: 40px;
+    }
+
+    .bio-headline em { font-style: italic; color: var(--gold); }
+
+    .bio-text {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--slate);
+      margin-bottom: 24px;
+    }
+
+    .bio-credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    .credential {
+      background: var(--warm-white);
+      padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .credential-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .credential-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    /* ── PROPERTY OVERVIEW STRIP ── */
+    .overview-strip {
+      background: var(--charcoal);
+      padding: 80px;
+    }
+
+    .overview-strip .section-title {
+      color: white;
+      margin-bottom: 60px;
+    }
+
+    .overview-strip .section-title em { color: var(--gold-light); }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .overview-item {
+      border-top: 1px solid rgba(184,150,90,0.35);
+      padding-top: 28px;
+    }
+
+    .overview-item-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .overview-item-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── CONTACT SECTION ── */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    .contact-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28,28,26,0.3);
+    }
+
+    .contact-content {
+      background: var(--cream);
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-content .section-eyebrow { text-align: left; }
+
+    .contact-content .section-title {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: white;
+      border: 1px solid var(--mist);
+      border-bottom: 1px solid var(--gold);
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--gold);
+    }
+
+    .form-field textarea { resize: none; height: 100px; }
+
+    .form-submit {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--charcoal);
+      border: none;
+      padding: 18px 48px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.3s;
+    }
+
+    .form-submit:hover { background: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 48px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(184,150,90,0.2);
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-center {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-credit {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-credit a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .footer-credit a:hover { opacity: 0.7; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 32px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-image-side { height: 55vh; }
+      .hero-content { padding: 60px 40px; }
+      .sfh-content { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+      .amenity-grid { grid-template-columns: repeat(2, 1fr); }
+      .bio-section { grid-template-columns: 1fr; padding: 80px 40px; gap: 60px; }
+      .bio-image-wrap { position: static; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .contact-section { grid-template-columns: 1fr; }
+      .contact-image { height: 300px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .amenity-section { padding: 80px 40px; }
+      .overview-strip { padding: 80px 40px; }
+      .contact-content { padding: 60px 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-stats { gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+      .bio-credentials { grid-template-columns: 1fr; }
+      .amenity-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <span class="nav-brand-top">Related Ross</span>
+      <span class="nav-brand-name">Elizabeth Hartigan</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#listing">South Flagler House</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Inquire</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-side">
+      <img
+        src="https://drive.google.com/thumbnail?id=12uhAcIfwoHO_XISNBvrlQN2FapIyzgOz&sz=w1200"
+        alt="Elizabeth Hartigan"
+        onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80'; this.onerror=null;"
+      />
+      <div class="hero-image-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Related Ross · West Palm Beach</p>
+      <h1 class="hero-name">Elizabeth<br /><em>Hartigan</em></h1>
+      <p class="hero-title">Real Estate Agent · Palm Beach</p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Palm Beach is not just where I work — it is where my family's story began.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Generations</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">108</span>
+          <span class="stat-label">SFH Residences</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#listing" class="btn-primary">View South Flagler House</a>
+        <a href="#contact" class="btn-secondary">Schedule a Conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span class="marquee-item">South Flagler House</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">1355 South Flagler Drive</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">West Palm Beach</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Robert A.M. Stern Architects</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Pembrooke & Ives Interiors</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">28 Stories</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Intracoastal &amp; Ocean Views</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Related Ross</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <!-- Repeat for seamless loop -->
+      <span class="marquee-item">South Flagler House</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">1355 South Flagler Drive</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">West Palm Beach</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Robert A.M. Stern Architects</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Pembrooke & Ives Interiors</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">28 Stories</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Intracoastal &amp; Ocean Views</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Related Ross</span>
+      <span class="marquee-item marquee-dot">·</span>
+    </div>
+  </div>
+
+  <!-- FEATURE LISTING -->
+  <section id="listing" class="listing-section">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Featured Listing</p>
+      <h2 class="section-title">South Flagler <em>House</em></h2>
+    </div>
+
+    <div class="sfh-hero">
+      <img
+        src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80"
+        alt="South Flagler House, West Palm Beach"
+      />
+      <div class="sfh-overlay"></div>
+      <div class="sfh-content">
+        <div class="sfh-left reveal">
+          <span class="property-badge">Now Presenting · West Palm Beach</span>
+          <h2>South Flagler<br /><em>House</em></h2>
+          <p class="sfh-address">1355 South Flagler Drive, West Palm Beach, FL 33401</p>
+        </div>
+        <div class="sfh-right reveal">
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Residences</span>
+            <span class="sfh-detail-value">108 Homes</span>
+          </div>
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Configuration</span>
+            <span class="sfh-detail-value">2 – 5 Bedrooms + Penthouses</span>
+          </div>
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Architecture</span>
+            <span class="sfh-detail-value">Robert A.M. Stern Architects</span>
+          </div>
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Interiors</span>
+            <span class="sfh-detail-value">Pembrooke & Ives</span>
+          </div>
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Stories</span>
+            <span class="sfh-detail-value">28 · Twin Towers</span>
+          </div>
+          <div class="sfh-detail">
+            <span class="sfh-detail-label">Developer</span>
+            <span class="sfh-detail-value">Related Ross</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY OVERVIEW -->
+  <div class="overview-strip">
+    <h2 class="section-title reveal">A <em>landmark</em> on Florida's<br />Gold Coast</h2>
+    <div class="overview-grid">
+      <div class="overview-item reveal">
+        <p class="overview-item-label">The Vision</p>
+        <p class="overview-item-text">Celebrating a prime waterfront location, Related Ross introduces South Flagler House — a new landmark for West Palm Beach with iconic limestone-clad towers stretching 28 stories into the sky, anchored by a single podium wrapped in stepped gardens and lush landscaping.</p>
+      </div>
+      <div class="overview-item reveal">
+        <p class="overview-item-label">The Residences</p>
+        <p class="overview-item-text">Condominium residences enjoy gracious scale with high ceilings, abundant fenestration, premium interior finishes, and grand outdoor spaces — seamlessly aligning comfort with luxury. Direct views of the Intracoastal Waterway and expansive ocean vistas define each home.</p>
+      </div>
+      <div class="overview-item reveal">
+        <p class="overview-item-label">The Legacy</p>
+        <p class="overview-item-text">For its uncompromising quality and commitment to excellence, its astounding beauty both inside and out, South Flagler House will become a legacy property to be enjoyed for generations. Designed to endure, crafted to delight — a true masterpiece of timeless character.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AMENITIES -->
+  <section id="amenities" class="amenity-section">
+    <div class="section-header reveal" style="text-align:left; padding:0; margin-bottom:0;">
+      <p class="section-eyebrow">50,000 Sq Ft of Private Club Amenities</p>
+      <h2 class="section-title">The Art of <em>Living Well</em></h2>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◎</div>
+        <h3 class="amenity-title">Sports & Fitness</h3>
+        <p class="amenity-desc">Pickleball court and lounge, state-of-the-art fitness center, flexible fitness lounge, Pilates studio, yoga studio, sports simulator, indoor putting green, private training studio, and outdoor recreation lawns.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◈</div>
+        <h3 class="amenity-title">Swim & Spa</h3>
+        <p class="amenity-desc">25-meter lap pool with extended sun shelf, oversized hot tub, poolside cabanas, men's and women's spas with vitality pool, cold plunge, steam, sauna, spa treatment rooms, and an on-site salon.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◇</div>
+        <h3 class="amenity-title">Social & Entertaining</h3>
+        <p class="amenity-desc">Residents-only indoor and outdoor restaurant, entertainment lounge with catering kitchen, private dining rooms, wine tasting room with storage lockers, theater, library, and a suite of curated guest suites.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◫</div>
+        <h3 class="amenity-title">Hospitality & Services</h3>
+        <p class="amenity-desc">24-hour lobby attendant and concierge, house car service, 24-hour valet, package and cold storage, secure keyed elevators, dedicated service elevators, emergency generator, and electric vehicle charging.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◻</div>
+        <h3 class="amenity-title">Children & Family</h3>
+        <p class="amenity-desc">Indoor playroom, children's STEM lounge with kitchenette, craft room, and outdoor garden — thoughtfully designed spaces for young residents to explore, create, and grow.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◬</div>
+        <h3 class="amenity-title">Business & Work</h3>
+        <p class="amenity-desc">Business center, private offices, indoor and outdoor conference rooms — a refined environment for productivity and professional connection, all within steps of your residence.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◭</div>
+        <h3 class="amenity-title">Motor Court & Arrival</h3>
+        <p class="amenity-desc">A canopied allée of trees lines the 360-foot private driveway, leading to a lush circular motor court punctuated by an artful fountain. Upon arrival, residents are greeted by valet and a personal doorman.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">◮</div>
+        <h3 class="amenity-title">Related Life Programming</h3>
+        <p class="amenity-desc">One-of-a-kind events, exclusive experiences, lifestyle services, and curated programming that transforms ownership into an effortlessly extraordinary daily experience — thoughtfully orchestrated, season after season.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section id="about" class="bio-section">
+    <div class="bio-image-wrap">
+      <div class="bio-image-frame">
+        <img
+          src="https://drive.google.com/thumbnail?id=12uhAcIfwoHO_XISNBvrlQN2FapIyzgOz&sz=w900"
+          alt="Elizabeth Hartigan"
+          onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80'; this.onerror=null;"
+        />
+      </div>
+      <div class="bio-image-caption">
+        <span class="name">Elizabeth Hartigan</span>
+        <span class="role">Real Estate Agent · Related Ross</span>
+      </div>
+    </div>
+
+    <div class="bio-content">
+      <p class="section-eyebrow reveal">About Elizabeth</p>
+      <h2 class="bio-headline reveal">A life rooted in<br /><em>Palm Beach.</em></h2>
+
+      <p class="bio-text reveal">Elizabeth Hartigan brings over a decade of experience in home design and styling to every client relationship. Though she has recently returned to Palm Beach, the city has been woven into the fabric of her life from the very beginning. Her family has been an integral part of Palm Beach since the 1950s — her grandparents were the first couple to pass the Florida Bar Exam, and her grandmother was among the first female attorneys in the state. Beloved in the North End of the Island, they built a legacy that Elizabeth carries forward with pride.</p>
+
+      <p class="bio-text reveal">Growing up in New Hampshire, Elizabeth was one of the top tennis players in the state during her teen years, a passion she continues to pursue today. She attended the University of Montana on a Leadership, Achievement, and Service Scholarship — drawn west by her love of the outdoors. She then spent five years in Los Angeles, where she earned a degree in Interior Design from the Interior Designers Institute in Newport Beach, and also pursued acting, achieving union status as a member of SAG-AFTRA.</p>
+
+      <p class="bio-text reveal">Before committing fully to real estate, Elizabeth served as Development Director at Opportunity Early Childhood Education and Family Center — the oldest charity in Palm Beach. Her community involvement deepened her knowledge of the island's neighborhoods and reinforced what she already knew: that Palm Beach was where she was meant to build her career. Within her very first week as an agent with Corcoran, she had a home go under contract.</p>
+
+      <div class="bio-credentials reveal">
+        <div class="credential">
+          <span class="credential-label">Education</span>
+          <span class="credential-value">Interior Design, Interior Designers Institute · Univ. of Montana</span>
+        </div>
+        <div class="credential">
+          <span class="credential-label">Community</span>
+          <span class="credential-value">Junior League Member · Development Director, Opportunity ECEF</span>
+        </div>
+        <div class="credential">
+          <span class="credential-label">Specialty</span>
+          <span class="credential-value">Staging, Styling & Aesthetic Interpretation for Buyers and Sellers</span>
+        </div>
+        <div class="credential">
+          <span class="credential-label">Network</span>
+          <span class="credential-value">Local Palm Beach &amp; Northeast United States</span>
+        </div>
+      </div>
+
+      <p class="bio-text reveal">With an outgoing personality and a network that spans Palm Beach to the Northeast, Elizabeth is a force in the field. Her passion is unwavering — she will stop at nothing to ensure that buyers and sellers alike feel protected, fought for, and ultimately delighted with their decisions. Drawing from her interior design background, she is masterful at staging homes for sellers and interpreting aesthetic vision for buyers. When she is not working, you can find her with her rescue dog Mika, honing her golf game, or immersed in the arts — a trivia lover and collector of fine and vintage fabrics.</p>
+
+      <a href="#contact" class="btn-primary reveal" style="display:inline-block; margin-top: 8px;">Work with Elizabeth</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="contact-image">
+      <img
+        src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200&q=80"
+        alt="West Palm Beach Waterfront"
+      />
+      <div class="contact-image-overlay"></div>
+    </div>
+    <div class="contact-content">
+      <p class="section-eyebrow">South Flagler House</p>
+      <h2 class="section-title" style="font-size:clamp(30px,3vw,44px);">Begin Your <em>Conversation</em></h2>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="First" />
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Last" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@email.com" />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(___) ___-____" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="interest">I am interested in</label>
+          <select id="interest">
+            <option value="">Select one</option>
+            <option>Purchasing a Residence at South Flagler House</option>
+            <option>Learning More About South Flagler House</option>
+            <option>Selling My Current Property</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell Elizabeth about your goals..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Elizabeth Hartigan · Related Ross</span>
+    <span class="footer-center">1355 South Flagler Drive · West Palm Beach, FL 33401</span>
+    <span class="footer-credit">Site by <a href="https://skalatsky.com/index.html">Skalatsky & Associates</a></span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Inquiry Sent — Thank You';
+      btn.style.background = '#B8965A';
+      setTimeout(() => {
+        btn.textContent = 'Send Inquiry';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3500);
+    }
+  </script>
+
+</body>
+</html>
