@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elizabeth Callahan | Related Ross | South Flagler House</title>
-  <meta name="description" content="Elizabeth Callahan is a luxury real estate agent with Related Ross in Palm Beach, Florida, specializing in South Flagler House — the landmark waterfront residence by Robert A.M. Stern Architects." />
-  <meta name="keywords" content="Elizabeth Callahan, Related Ross, South Flagler House, Palm Beach real estate, West Palm Beach luxury condos, Robert A.M. Stern, Pembrooke Ives, waterfront residences" />
-  <meta name="author" content="Elizabeth Callahan" />
-  <meta property="og:title" content="Elizabeth Callahan | Related Ross | South Flagler House" />
-  <meta property="og:description" content="Elizabeth Callahan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences at 1355 South Flagler Drive, West Palm Beach." />
+  <title>Liz Callahan | Related Ross | South Flagler House</title>
+  <meta name="description" content="Liz Callahan is a luxury real estate agent with Related Ross in Palm Beach, Florida, specializing in South Flagler House — the landmark waterfront residence by Robert A.M. Stern Architects." />
+  <meta name="keywords" content="Liz Callahan, Related Ross, South Flagler House, Palm Beach real estate, West Palm Beach luxury condos, Robert A.M. Stern, Pembrooke Ives, waterfront residences" />
+  <meta name="author" content="Liz Callahan" />
+  <meta property="og:title" content="Liz Callahan | Related Ross | South Flagler House" />
+  <meta property="og:description" content="Liz Callahan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences at 1355 South Flagler Drive, West Palm Beach." />
   <meta property="og:image" content="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Elizabeth Callahan | Related Ross | South Flagler House" />
-  <meta name="twitter:description" content="Elizabeth Callahan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences in West Palm Beach." />
+  <meta name="twitter:title" content="Liz Callahan | Related Ross | South Flagler House" />
+  <meta name="twitter:description" content="Liz Callahan is a luxury real estate agent with Related Ross, specializing in South Flagler House — 108 waterfront residences in West Palm Beach." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,22 +24,68 @@
       --warm-white: #FAFAF7;
       --gold: #B8965A;
       --gold-light: #D4B483;
-      --charcoal: #1C1C1A;
+      --navy: #1B2A4A;
+      --navy-deep: #111E35;
       --slate: #4A4A44;
       --mist: #E8E4DC;
       --border: rgba(184,150,90,0.25);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Jost', sans-serif;
       background: var(--warm-white);
-      color: var(--charcoal);
+      color: var(--navy);
       font-weight: 300;
       overflow-x: hidden;
+    }
+
+    /* ── LOGO ── */
+    .lc-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      text-decoration: none;
+    }
+    .lc-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      position: relative;
+    }
+    .lc-monogram::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      margin-top: 2px;
+    }
+    .lc-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .lc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .lc-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
 
     /* ── NAV ── */
@@ -51,68 +97,37 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 52px;
-      background: rgba(250,250,247,0.92);
+      background: rgba(250,250,247,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .nav-brand-top {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .nav-brand-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--charcoal);
-    }
-
     .nav-links {
       display: flex;
       gap: 40px;
       list-style: none;
     }
-
     .nav-links a {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--slate);
+      color: var(--navy);
       text-decoration: none;
       transition: color 0.3s;
     }
-
     .nav-links a:hover { color: var(--gold); }
-
     .nav-cta {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--charcoal);
+      color: var(--navy);
       text-decoration: none;
       border: 1px solid var(--gold);
       padding: 10px 22px;
       transition: all 0.3s;
     }
-
-    .nav-cta:hover {
-      background: var(--gold);
-      color: white;
-    }
+    .nav-cta:hover { background: var(--gold); color: white; }
 
     /* ── HERO ── */
     .hero {
@@ -121,12 +136,10 @@
       grid-template-columns: 1fr 1fr;
       padding-top: 80px;
     }
-
     .hero-image-side {
       position: relative;
       overflow: hidden;
     }
-
     .hero-image-side img {
       width: 100%;
       height: 100%;
@@ -135,26 +148,19 @@
       display: block;
       transition: transform 0.8s ease;
     }
-
-    .hero-image-side:hover img {
-      transform: scale(1.03);
-    }
-
+    .hero-image-side:hover img { transform: scale(1.03); }
     .hero-image-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to right, transparent 70%, var(--warm-white) 100%);
       pointer-events: none;
     }
-
     .hero-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 80px 72px 80px 56px;
-      position: relative;
     }
-
     .hero-eyebrow {
       font-size: 10px;
       font-weight: 400;
@@ -163,22 +169,19 @@
       color: var(--gold);
       margin-bottom: 24px;
     }
-
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(52px, 5vw, 76px);
       font-weight: 300;
       line-height: 1.05;
-      color: var(--charcoal);
+      color: var(--navy);
       margin-bottom: 6px;
     }
-
     .hero-name em {
       font-style: italic;
       font-weight: 300;
       color: var(--gold);
     }
-
     .hero-title {
       font-size: 11px;
       font-weight: 400;
@@ -187,14 +190,12 @@
       color: var(--slate);
       margin-bottom: 40px;
     }
-
     .hero-divider {
       width: 48px;
       height: 1px;
       background: var(--gold);
       margin-bottom: 36px;
     }
-
     .hero-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
@@ -205,27 +206,19 @@
       max-width: 380px;
       margin-bottom: 52px;
     }
-
     .hero-stats {
       display: flex;
       gap: 48px;
       margin-bottom: 52px;
     }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .stat { display: flex; flex-direction: column; gap: 4px; }
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 36px;
       font-weight: 300;
-      color: var(--charcoal);
+      color: var(--navy);
       line-height: 1;
     }
-
     .stat-label {
       font-size: 10px;
       font-weight: 400;
@@ -233,54 +226,43 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
-    .hero-actions {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
+    .hero-actions { display: flex; gap: 20px; align-items: center; }
     .btn-primary {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: white;
-      background: var(--charcoal);
+      background: var(--navy);
       text-decoration: none;
       padding: 16px 36px;
       transition: all 0.3s;
     }
-
     .btn-primary:hover { background: var(--gold); }
-
     .btn-secondary {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--charcoal);
+      color: var(--navy);
       text-decoration: none;
       border-bottom: 1px solid var(--gold);
       padding-bottom: 3px;
       transition: color 0.3s;
     }
-
     .btn-secondary:hover { color: var(--gold); }
 
-    /* ── MARQUEE BAND ── */
+    /* ── MARQUEE ── */
     .marquee-band {
-      background: var(--charcoal);
+      background: var(--navy);
       padding: 18px 0;
       overflow: hidden;
       white-space: nowrap;
     }
-
     .marquee-track {
       display: inline-flex;
-      animation: marquee 28s linear infinite;
+      animation: marquee 32s linear infinite;
     }
-
     .marquee-item {
       font-size: 10px;
       font-weight: 400;
@@ -289,29 +271,13 @@
       color: var(--gold-light);
       padding: 0 48px;
     }
-
-    .marquee-dot {
-      color: var(--gold);
-      margin: 0 -16px;
-    }
-
+    .marquee-dot { color: var(--gold); margin: 0 -16px; }
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    /* ── FEATURE LISTING SECTION ── */
-    .listing-section {
-      padding: 120px 0 0;
-      position: relative;
-    }
-
-    .section-header {
-      text-align: center;
-      padding: 0 52px;
-      margin-bottom: 72px;
-    }
-
+    /* ── SECTION SHARED ── */
     .section-eyebrow {
       font-size: 10px;
       font-weight: 400;
@@ -320,52 +286,49 @@
       color: var(--gold);
       margin-bottom: 20px;
     }
-
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 4vw, 58px);
       font-weight: 300;
       line-height: 1.1;
-      color: var(--charcoal);
+      color: var(--navy);
     }
+    .section-title em { font-style: italic; color: var(--gold); }
 
-    .section-title em {
-      font-style: italic;
-      color: var(--gold);
+    /* ── LISTINGS ── */
+    .listing-section {
+      padding: 120px 0 0;
     }
-
-    /* South Flagler Feature */
+    .section-header {
+      text-align: center;
+      padding: 0 52px;
+      margin-bottom: 72px;
+    }
     .sfh-hero {
       position: relative;
       height: 680px;
       overflow: hidden;
     }
-
     .sfh-hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center 30%;
     }
-
     .sfh-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(28,28,26,0.88) 0%, rgba(28,28,26,0.2) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(17,30,53,0.92) 0%, rgba(17,30,53,0.2) 60%, transparent 100%);
     }
-
     .sfh-content {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       padding: 60px 80px;
       align-items: end;
     }
-
     .sfh-left .property-badge {
       display: inline-block;
       font-size: 9px;
@@ -377,7 +340,6 @@
       padding: 7px 18px;
       margin-bottom: 24px;
     }
-
     .sfh-left h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(42px, 4vw, 64px);
@@ -386,12 +348,7 @@
       line-height: 1.05;
       margin-bottom: 12px;
     }
-
-    .sfh-left h2 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
+    .sfh-left h2 em { font-style: italic; color: var(--gold-light); }
     .sfh-address {
       font-size: 11px;
       font-weight: 300;
@@ -399,13 +356,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.6);
     }
-
-    .sfh-right {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
+    .sfh-right { display: flex; flex-direction: column; gap: 20px; }
     .sfh-detail {
       display: flex;
       justify-content: space-between;
@@ -413,7 +364,6 @@
       border-bottom: 1px solid rgba(255,255,255,0.12);
       padding-bottom: 16px;
     }
-
     .sfh-detail-label {
       font-size: 10px;
       font-weight: 400;
@@ -421,7 +371,6 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.45);
     }
-
     .sfh-detail-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -429,34 +378,24 @@
       color: white;
     }
 
-    /* ── PHOTO GALLERY STRIP ── */
+    /* ── GALLERY ── */
     .gallery-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       height: 340px;
     }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-    }
-
+    .gallery-item { position: relative; overflow: hidden; }
     .gallery-item img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
-
     .gallery-item:hover img { transform: scale(1.08); }
-
     .gallery-label {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       padding: 20px 16px 16px;
-      background: linear-gradient(to top, rgba(28,28,26,0.85) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(17,30,53,0.85) 0%, transparent 100%);
       font-size: 9px;
       font-weight: 400;
       letter-spacing: 0.3em;
@@ -466,18 +405,13 @@
       transform: translateY(8px);
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
+    .gallery-item:hover .gallery-label { opacity: 1; transform: translateY(0); }
 
-    .gallery-item:hover .gallery-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── AMENITY GRID ── */
+    /* ── AMENITIES ── */
     .amenity-section {
       background: var(--cream);
       padding: 96px 80px;
     }
-
     .amenity-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -486,7 +420,6 @@
       border: 1px solid var(--border);
       margin-top: 64px;
     }
-
     .amenity-card {
       background: var(--warm-white);
       padding: 44px 36px;
@@ -494,7 +427,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .amenity-card::before {
       content: '';
       position: absolute;
@@ -505,47 +437,31 @@
       transition: opacity 0.5s ease;
       z-index: 0;
     }
-
     .amenity-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(20,18,15,0.78);
+      background: rgba(17,30,53,0.82);
       opacity: 0;
       transition: opacity 0.5s ease;
       z-index: 1;
     }
-
     .amenity-card:hover::before { opacity: 1; }
     .amenity-card:hover::after { opacity: 1; }
-
     .amenity-card > * { position: relative; z-index: 2; }
-
-    .amenity-card:hover { background: var(--charcoal); }
     .amenity-card:hover .amenity-icon { color: var(--gold); }
     .amenity-card:hover .amenity-title { color: white; }
     .amenity-card:hover .amenity-desc { color: rgba(255,255,255,0.65); }
-
-    .amenity-card[data-img]::before {
-      background-image: var(--card-bg);
-    }
-
-    .amenity-icon {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: var(--gold);
-      transition: color 0.3s;
-    }
-
+    .amenity-card[data-img]::before { background-image: var(--card-bg); }
+    .amenity-icon { font-size: 24px; margin-bottom: 20px; color: var(--gold); transition: color 0.3s; }
     .amenity-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 400;
-      color: var(--charcoal);
+      color: var(--navy);
       margin-bottom: 12px;
       transition: color 0.3s;
     }
-
     .amenity-desc {
       font-size: 12px;
       font-weight: 300;
@@ -554,7 +470,125 @@
       transition: color 0.3s;
     }
 
-    /* ── BIO SECTION ── */
+    /* ── OVERVIEW STRIP ── */
+    .overview-strip {
+      background: var(--navy);
+      padding: 80px;
+    }
+    .overview-strip .section-title { color: white; margin-bottom: 60px; }
+    .overview-strip .section-title em { color: var(--gold-light); }
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+    .overview-item { border-top: 1px solid rgba(184,150,90,0.35); padding-top: 28px; }
+    .overview-item-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .overview-item-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── PRESS ── */
+    .press-section {
+      padding: 100px 80px;
+      background: var(--warm-white);
+    }
+    .press-section .section-header { text-align: left; padding: 0; margin-bottom: 64px; }
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .press-card {
+      background: var(--warm-white);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: background 0.3s;
+    }
+    .press-card:hover { background: var(--cream); }
+    .press-publication {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .press-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--navy);
+    }
+    .press-excerpt {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--slate);
+    }
+    .press-link {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: color 0.3s;
+    }
+    .press-link:hover { color: var(--gold); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonial-section {
+      background: var(--navy);
+      padding: 100px 80px;
+    }
+    .testimonial-section .section-title { color: white; margin-bottom: 64px; }
+    .testimonial-section .section-title em { color: var(--gold-light); }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .testimonial-card {
+      border-top: 1px solid rgba(184,150,90,0.35);
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+    }
+    .testimonial-quote::before { content: '\201C'; color: var(--gold); }
+    .testimonial-quote::after { content: '\201D'; color: var(--gold); }
+    .testimonial-author {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── BIO ── */
     .bio-section {
       padding: 120px 80px;
       display: grid;
@@ -562,28 +596,16 @@
       gap: 100px;
       align-items: start;
     }
-
-    .bio-image-wrap {
-      position: sticky;
-      top: 120px;
-    }
-
-    .bio-image-frame {
-      position: relative;
-    }
-
+    .bio-image-wrap { position: sticky; top: 120px; }
+    .bio-image-frame { position: relative; }
     .bio-image-frame::before {
       content: '';
       position: absolute;
-      top: -16px;
-      left: -16px;
-      right: 16px;
-      bottom: 16px;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
       border: 1px solid var(--gold);
       z-index: 0;
       pointer-events: none;
     }
-
     .bio-image-frame img {
       position: relative;
       z-index: 1;
@@ -593,22 +615,13 @@
       object-position: top center;
       display: block;
     }
-
-    .bio-image-caption {
-      margin-top: 28px;
-      padding-left: 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .bio-image-caption { margin-top: 28px; padding-left: 4px; display: flex; flex-direction: column; gap: 4px; }
     .bio-image-caption .name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
       font-weight: 400;
-      color: var(--charcoal);
+      color: var(--navy);
     }
-
     .bio-image-caption .role {
       font-size: 10px;
       font-weight: 400;
@@ -616,32 +629,18 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
-    .bio-content {
-      padding-top: 8px;
-    }
-
+    .bio-content { padding-top: 8px; }
     .bio-content .section-eyebrow { text-align: left; }
-
     .bio-headline {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(32px, 3vw, 46px);
       font-weight: 300;
       line-height: 1.2;
-      color: var(--charcoal);
+      color: var(--navy);
       margin-bottom: 40px;
     }
-
     .bio-headline em { font-style: italic; color: var(--gold); }
-
-    .bio-text {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--slate);
-      margin-bottom: 24px;
-    }
-
+    .bio-text { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--slate); margin-bottom: 24px; }
     .bio-credentials {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -650,15 +649,7 @@
       border: 1px solid var(--border);
       margin: 48px 0;
     }
-
-    .credential {
-      background: var(--warm-white);
-      padding: 28px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
+    .credential { background: var(--warm-white); padding: 28px; display: flex; flex-direction: column; gap: 6px; }
     .credential-label {
       font-size: 9px;
       font-weight: 400;
@@ -666,80 +657,19 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
     .credential-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px;
       font-weight: 400;
-      color: var(--charcoal);
+      color: var(--navy);
       line-height: 1.4;
     }
 
-    /* ── PROPERTY OVERVIEW STRIP ── */
-    .overview-strip {
-      background: var(--charcoal);
-      padding: 80px;
-    }
-
-    .overview-strip .section-title {
-      color: white;
-      margin-bottom: 60px;
-    }
-
-    .overview-strip .section-title em { color: var(--gold-light); }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-    }
-
-    .overview-item {
-      border-top: 1px solid rgba(184,150,90,0.35);
-      padding-top: 28px;
-    }
-
-    .overview-item-label {
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-
-    .overview-item-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.75);
-    }
-
-    /* ── CONTACT SECTION ── */
-    .contact-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 560px;
-    }
-
-    .contact-image {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .contact-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(28,28,26,0.3);
-    }
-
+    /* ── CONTACT ── */
+    .contact-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+    .contact-image { position: relative; overflow: hidden; }
+    .contact-image img { width: 100%; height: 100%; object-fit: cover; }
+    .contact-image-overlay { position: absolute; inset: 0; background: rgba(17,30,53,0.3); }
     .contact-content {
       background: var(--cream);
       padding: 80px 72px;
@@ -747,32 +677,11 @@
       flex-direction: column;
       justify-content: center;
     }
-
     .contact-content .section-eyebrow { text-align: left; }
-
-    .contact-content .section-title {
-      text-align: left;
-      margin-bottom: 40px;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
+    .contact-content .section-title { text-align: left; margin-bottom: 40px; }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 8px; }
     .form-field label {
       font-size: 9px;
       font-weight: 400;
@@ -780,14 +689,13 @@
       text-transform: uppercase;
       color: var(--slate);
     }
-
     .form-field input,
     .form-field textarea,
     .form-field select {
       font-family: 'Jost', sans-serif;
       font-size: 13px;
       font-weight: 300;
-      color: var(--charcoal);
+      color: var(--navy);
       background: white;
       border: 1px solid var(--mist);
       border-bottom: 1px solid var(--gold);
@@ -795,15 +703,10 @@
       outline: none;
       transition: border-color 0.3s;
     }
-
     .form-field input:focus,
     .form-field textarea:focus,
-    .form-field select:focus {
-      border-color: var(--gold);
-    }
-
+    .form-field select:focus { border-color: var(--gold); }
     .form-field textarea { resize: none; height: 100px; }
-
     .form-submit {
       font-family: 'Jost', sans-serif;
       font-size: 11px;
@@ -811,26 +714,24 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: white;
-      background: var(--charcoal);
+      background: var(--navy);
       border: none;
       padding: 18px 48px;
       cursor: pointer;
       align-self: flex-start;
       transition: background 0.3s;
     }
-
     .form-submit:hover { background: var(--gold); }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--charcoal);
+      background: var(--navy-deep);
       padding: 48px 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid rgba(184,150,90,0.2);
     }
-
     .footer-brand {
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
@@ -838,7 +739,6 @@
       letter-spacing: 0.1em;
       color: rgba(255,255,255,0.45);
     }
-
     .footer-center {
       font-size: 10px;
       font-weight: 300;
@@ -846,37 +746,25 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.3);
     }
-
     .footer-credit {
       font-size: 10px;
       font-weight: 300;
       letter-spacing: 0.15em;
       color: rgba(255,255,255,0.3);
     }
-
-    .footer-credit a {
-      color: var(--gold);
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-
+    .footer-credit a { color: var(--gold); text-decoration: none; transition: opacity 0.3s; }
     .footer-credit a:hover { opacity: 0.7; }
 
-    /* ── SCROLL REVEAL ── */
+    /* ── REVEAL ── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .gallery-strip { grid-template-columns: 1fr; height: auto; }
       nav { padding: 20px 32px; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
@@ -884,17 +772,17 @@
       .hero-content { padding: 60px 40px; }
       .sfh-content { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
       .amenity-grid { grid-template-columns: repeat(2, 1fr); }
+      .press-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
       .bio-section { grid-template-columns: 1fr; padding: 80px 40px; gap: 60px; }
       .bio-image-wrap { position: static; }
       .overview-grid { grid-template-columns: 1fr; }
       .contact-section { grid-template-columns: 1fr; }
       .contact-image { height: 300px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
-      .amenity-section { padding: 80px 40px; }
-      .overview-strip { padding: 80px 40px; }
-      .contact-content { padding: 60px 40px; }
+      .amenity-section, .overview-strip, .contact-content, .press-section, .testimonial-section { padding: 80px 40px; }
+      .gallery-strip { grid-template-columns: 1fr; height: auto; }
     }
-
     @media (max-width: 640px) {
       .hero-stats { gap: 32px; }
       .form-row { grid-template-columns: 1fr; }
@@ -907,14 +795,18 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-brand">
-      <span class="nav-brand-top">Related Ross</span>
-      <span class="nav-brand-name">Elizabeth Callahan</span>
-    </div>
+    <a href="#" class="lc-logo">
+      <span class="lc-monogram">LC</span>
+      <div class="lc-wordmark">
+        <span class="lc-name">Liz Callahan</span>
+        <span class="lc-sub">Real Estate</span>
+      </div>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#listing">South Flagler House</a></li>
-      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#listing">Listings</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Inquire</a>
@@ -923,15 +815,12 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-image-side">
-      <img
-        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg"
-        alt="Elizabeth Callahan"
-      />
+      <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot%201.jpeg" alt="Liz Callahan" />
       <div class="hero-image-overlay"></div>
     </div>
     <div class="hero-content">
       <p class="hero-eyebrow">Related Ross · West Palm Beach</p>
-      <h1 class="hero-name">Elizabeth<br /><em>Callahan</em></h1>
+      <h1 class="hero-name">Liz<br /><em>Callahan</em></h1>
       <p class="hero-title">Real Estate Agent · Palm Beach</p>
       <div class="hero-divider"></div>
       <p class="hero-tagline">Palm Beach is not just where I work — it is where my family's story began.</p>
@@ -959,54 +848,42 @@
   <!-- MARQUEE -->
   <div class="marquee-band">
     <div class="marquee-track">
-      <span class="marquee-item">South Flagler House</span>
+      <span class="marquee-item">As Seen In</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">1355 South Flagler Drive</span>
+      <span class="marquee-item">New York Post</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">West Palm Beach</span>
+      <span class="marquee-item">New York Times</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Robert A.M. Stern Architects</span>
+      <span class="marquee-item">Wall Street Journal</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Pembrooke & Ives Interiors</span>
+      <span class="marquee-item">Palm Beach Daily News</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">28 Stories</span>
-      <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Intracoastal &amp; Ocean Views</span>
-      <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Related Ross</span>
+      <span class="marquee-item">Palm Beach Post</span>
       <span class="marquee-item marquee-dot">·</span>
       <!-- Repeat for seamless loop -->
-      <span class="marquee-item">South Flagler House</span>
+      <span class="marquee-item">As Seen In</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">1355 South Flagler Drive</span>
+      <span class="marquee-item">New York Post</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">West Palm Beach</span>
+      <span class="marquee-item">New York Times</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Robert A.M. Stern Architects</span>
+      <span class="marquee-item">Wall Street Journal</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Pembrooke & Ives Interiors</span>
+      <span class="marquee-item">Palm Beach Daily News</span>
       <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">28 Stories</span>
-      <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Intracoastal &amp; Ocean Views</span>
-      <span class="marquee-item marquee-dot">·</span>
-      <span class="marquee-item">Related Ross</span>
+      <span class="marquee-item">Palm Beach Post</span>
       <span class="marquee-item marquee-dot">·</span>
     </div>
   </div>
 
-  <!-- FEATURE LISTING -->
+  <!-- LISTINGS -->
   <section id="listing" class="listing-section">
     <div class="section-header reveal">
-      <p class="section-eyebrow">Featured Listing</p>
+      <p class="section-eyebrow">Current Listings</p>
       <h2 class="section-title">South Flagler <em>House</em></h2>
     </div>
-
     <div class="sfh-hero">
-      <img
-        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20V05_Pool%20Elevation_C7.jpg"
-        alt="South Flagler House, West Palm Beach"
-      />
+      <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20V05_Pool%20Elevation_C7.jpg" alt="South Flagler House, West Palm Beach" />
       <div class="sfh-overlay"></div>
       <div class="sfh-content">
         <div class="sfh-left reveal">
@@ -1063,7 +940,7 @@
     </div>
   </div>
 
-  <!-- PHOTO GALLERY STRIP -->
+  <!-- GALLERY -->
   <div class="gallery-strip">
     <div class="gallery-item">
       <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Pool%20(1).jpg" alt="South Flagler House Pool" />
@@ -1129,31 +1006,73 @@
     </div>
   </section>
 
+  <!-- PRESS -->
+  <section id="press" class="press-section">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Press & Media</p>
+      <h2 class="section-title">As <em>Seen In</em></h2>
+    </div>
+    <div class="press-grid">
+      <div class="press-card reveal">
+        <span class="press-publication">New York Post</span>
+        <h3 class="press-headline">Placeholder Headline — Article Title Goes Here</h3>
+        <p class="press-excerpt">Placeholder excerpt. A brief summary of the article or quote from the piece will appear here once the press clip is added. This section is designed to showcase Liz's media presence and reinforce credibility with prospective buyers.</p>
+        <a href="#" class="press-link">Read Article</a>
+      </div>
+      <div class="press-card reveal">
+        <span class="press-publication">Wall Street Journal</span>
+        <h3 class="press-headline">Placeholder Headline — Article Title Goes Here</h3>
+        <p class="press-excerpt">Placeholder excerpt. A brief summary of the article or quote from the piece will appear here once the press clip is added. This section is designed to showcase Liz's media presence and reinforce credibility with prospective buyers.</p>
+        <a href="#" class="press-link">Read Article</a>
+      </div>
+      <div class="press-card reveal">
+        <span class="press-publication">Palm Beach Daily News</span>
+        <h3 class="press-headline">Placeholder Headline — Article Title Goes Here</h3>
+        <p class="press-excerpt">Placeholder excerpt. A brief summary of the article or quote from the piece will appear here once the press clip is added. This section is designed to showcase Liz's media presence and reinforce credibility with prospective buyers.</p>
+        <a href="#" class="press-link">Read Article</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonial-section">
+    <div class="section-header reveal" style="text-align:left; padding:0;">
+      <p class="section-eyebrow">Client Testimonials</p>
+      <h2 class="section-title">What Clients <em>Say</em></h2>
+    </div>
+    <div class="testimonial-grid" style="margin-top: 64px;">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">Placeholder testimonial. A genuine client quote will appear here — speaking to Liz's professionalism, market knowledge, and dedication to finding the perfect home.</p>
+        <span class="testimonial-author">Client Name · Location</span>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">Placeholder testimonial. A genuine client quote will appear here — speaking to Liz's professionalism, market knowledge, and dedication to finding the perfect home.</p>
+        <span class="testimonial-author">Client Name · Location</span>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">Placeholder testimonial. A genuine client quote will appear here — speaking to Liz's professionalism, market knowledge, and dedication to finding the perfect home.</p>
+        <span class="testimonial-author">Client Name · Location</span>
+      </div>
+    </div>
+  </section>
+
   <!-- BIO -->
   <section id="about" class="bio-section">
     <div class="bio-image-wrap">
       <div class="bio-image-frame">
-        <img
-          src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot.jpeg"
-          alt="Elizabeth Callahan"
-        />
+        <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/Elizabeth%20Harigan%20-%20Headshot.jpeg" alt="Liz Callahan" />
       </div>
       <div class="bio-image-caption">
-        <span class="name">Elizabeth Callahan</span>
+        <span class="name">Liz Callahan</span>
         <span class="role">Real Estate Agent · Related Ross</span>
       </div>
     </div>
-
     <div class="bio-content">
-      <p class="section-eyebrow reveal">About Elizabeth</p>
+      <p class="section-eyebrow reveal">About Liz</p>
       <h2 class="bio-headline reveal">A life rooted in<br /><em>Palm Beach.</em></h2>
-
-      <p class="bio-text reveal">Elizabeth Callahan brings over a decade of experience in home design and styling to every client relationship. Though she has recently returned to Palm Beach, the city has been woven into the fabric of her life from the very beginning. Her family has been an integral part of Palm Beach since the 1950s — her grandparents were the first couple to pass the Florida Bar Exam, and her grandmother was among the first female attorneys in the state. Beloved in the North End of the Island, they built a legacy that Elizabeth carries forward with pride.</p>
-
-      <p class="bio-text reveal">Growing up in New Hampshire, Elizabeth was one of the top tennis players in the state during her teen years, a passion she continues to pursue today. She attended the University of Montana on a Leadership, Achievement, and Service Scholarship — drawn west by her love of the outdoors. She then spent five years in Los Angeles, where she earned a degree in Interior Design from the Interior Designers Institute in Newport Beach, and also pursued acting, achieving union status as a member of SAG-AFTRA.</p>
-
-      <p class="bio-text reveal">Before committing fully to real estate, Elizabeth served as Development Director at Opportunity Early Childhood Education and Family Center — the oldest charity in Palm Beach. Her community involvement deepened her knowledge of the island's neighborhoods and reinforced what she already knew: that Palm Beach was where she was meant to build her career. Within her very first week as an agent with Corcoran, she had a home go under contract.</p>
-
+      <p class="bio-text reveal">Liz Callahan brings over a decade of experience in home design and styling to every client relationship. Though she has recently returned to Palm Beach, the city has been woven into the fabric of her life from the very beginning. Her family has been an integral part of Palm Beach since the 1950s — her grandparents were the first couple to pass the Florida Bar Exam, and her grandmother was among the first female attorneys in the state. Beloved in the North End of the Island, they built a legacy that Liz carries forward with pride.</p>
+      <p class="bio-text reveal">Growing up in New Hampshire, Liz was one of the top tennis players in the state during her teen years, a passion she continues to pursue today. She attended the University of Montana on a Leadership, Achievement, and Service Scholarship — drawn west by her love of the outdoors. She then spent five years in Los Angeles, where she earned a degree in Interior Design from the Interior Designers Institute in Newport Beach, and also pursued acting, achieving union status as a member of SAG-AFTRA.</p>
+      <p class="bio-text reveal">Before committing fully to real estate, Liz served as Development Director at Opportunity Early Childhood Education and Family Center — the oldest charity in Palm Beach. Her community involvement deepened her knowledge of the island's neighborhoods and reinforced what she already knew: that Palm Beach was where she was meant to build her career. Within her very first week as an agent with Corcoran, she had a home go under contract.</p>
       <div class="bio-credentials reveal">
         <div class="credential">
           <span class="credential-label">Education</span>
@@ -1172,20 +1091,15 @@
           <span class="credential-value">Local Palm Beach &amp; Northeast United States</span>
         </div>
       </div>
-
-      <p class="bio-text reveal">With an outgoing personality and a network that spans Palm Beach to the Northeast, Elizabeth is a force in the field. Her passion is unwavering — she will stop at nothing to ensure that buyers and sellers alike feel protected, fought for, and ultimately delighted with their decisions. Drawing from her interior design background, she is masterful at staging homes for sellers and interpreting aesthetic vision for buyers. When she is not working, you can find her with her rescue dog Mika, honing her golf game, or immersed in the arts — a trivia lover and collector of fine and vintage fabrics.</p>
-
-      <a href="#contact" class="btn-primary reveal" style="display:inline-block; margin-top: 8px;">Work with Elizabeth</a>
+      <p class="bio-text reveal">With an outgoing personality and a network that spans Palm Beach to the Northeast, Liz is a force in the field. Her passion is unwavering — she will stop at nothing to ensure that buyers and sellers alike feel protected, fought for, and ultimately delighted with their decisions. Drawing from her interior design background, she is masterful at staging homes for sellers and interpreting aesthetic vision for buyers. When she is not working, you can find her with her rescue dog Mika, honing her golf game, or immersed in the arts.</p>
+      <a href="#contact" class="btn-primary reveal" style="display:inline-block; margin-top: 8px;">Work with Liz</a>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <div class="contact-image">
-      <img
-        src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg"
-        alt="South Flagler House Spa"
-      />
+      <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg" alt="South Flagler House Spa" />
       <div class="contact-image-overlay"></div>
     </div>
     <div class="contact-content">
@@ -1224,7 +1138,7 @@
         </div>
         <div class="form-field">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell Elizabeth about your goals..."></textarea>
+          <textarea id="message" placeholder="Tell Liz about your goals..."></textarea>
         </div>
         <button type="submit" class="form-submit">Send Inquiry</button>
       </form>
@@ -1233,13 +1147,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-brand">Elizabeth Callahan · Related Ross</span>
+    <span class="footer-brand">Liz Callahan · Related Ross</span>
     <span class="footer-center">1355 South Flagler Drive · West Palm Beach, FL 33401</span>
     <span class="footer-credit">Site by <a href="https://skalatsky.com/index.html">Skalatsky & Associates</a></span>
   </footer>
 
   <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1251,7 +1164,6 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    // Form handler
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
