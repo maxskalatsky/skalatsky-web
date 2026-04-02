@@ -359,14 +359,14 @@
     .gallery-item:hover .gallery-label { opacity: 1; transform: translateY(0); }
 
     .amenity-section { background: var(--cream); padding: 96px 80px; }
-    .amenity-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 64px;
-    }
+.amenity-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1024px) {
+  .amenity-grid {
+    grid-template-columns: 1fr;
+  }
+}
     .amenity-card {
       background: var(--warm-white);
       padding: 44px 36px;
@@ -867,47 +867,23 @@
       <p class="section-eyebrow">50,000 Sq Ft of Private Club Amenities</p>
       <h2 class="section-title">The Art of <em>Living Well</em></h2>
     </div>
-    <div class="amenity-grid">
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20INT05_Gym_Stage_E3_8k.jpg')" data-img>
-        <div class="amenity-icon">◎</div>
-        <h3 class="amenity-title">Sports & Fitness</h3>
-        <p class="amenity-desc">Pickleball court and lounge, state-of-the-art fitness center, flexible fitness lounge, Pilates studio, yoga studio, sports simulator, indoor putting green, private training studio, and outdoor recreation lawns.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Pool%20(1).jpg')" data-img>
-        <div class="amenity-icon">◈</div>
-        <h3 class="amenity-title">Swim & Spa</h3>
-        <p class="amenity-desc">25-meter lap pool with extended sun shelf, oversized hot tub, poolside cabanas, men's and women's spas with vitality pool, cold plunge, steam, sauna, spa treatment rooms, and an on-site salon.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg')" data-img>
-        <div class="amenity-icon">◇</div>
-        <h3 class="amenity-title">Social & Entertaining</h3>
-        <p class="amenity-desc">Residents-only indoor and outdoor restaurant, entertainment lounge with catering kitchen, private dining rooms, wine tasting room with storage lockers, theater, library, and a suite of curated guest suites.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20V05_Pool%20Elevation_C7.jpg')" data-img>
-        <div class="amenity-icon">◫</div>
-        <h3 class="amenity-title">Hospitality & Services</h3>
-        <p class="amenity-desc">24-hour lobby attendant and concierge, house car service, 24-hour valet, package and cold storage, secure keyed elevators, dedicated service elevators, emergency generator, and electric vehicle charging.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_210_Coworking%20Space.jpg')" data-img>
-        <div class="amenity-icon">◻</div>
-        <h3 class="amenity-title">Children & Family</h3>
-        <p class="amenity-desc">Indoor playroom, children's STEM lounge with kitchenette, craft room, and outdoor garden — thoughtfully designed spaces for young residents to explore, create, and grow.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Private%20Office%20(1).jpg')" data-img>
-        <div class="amenity-icon">◬</div>
-        <h3 class="amenity-title">Business & Work</h3>
-        <p class="amenity-desc">Business center, private offices, indoor and outdoor conference rooms — a refined environment for productivity and professional connection, all within steps of your residence.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_Pool%20(1).jpg')" data-img>
-        <div class="amenity-icon">◭</div>
-        <h3 class="amenity-title">Motor Court & Arrival</h3>
-        <p class="amenity-desc">A canopied allée of trees lines the 360-foot private driveway, leading to a lush circular motor court punctuated by an artful fountain. Upon arrival, residents are greeted by valet and a personal doorman.</p>
-      </div>
-      <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20INT05_Gym_Stage_E3_8k.jpg')" data-img>
-        <div class="amenity-icon">◮</div>
-        <h3 class="amenity-title">Curated Life Programming</h3>
-        <p class="amenity-desc">One-of-a-kind events, exclusive experiences, lifestyle services, and curated programming that transforms ownership into an effortlessly extraordinary daily experience — thoughtfully orchestrated, season after season.</p>
-      </div>
+    <div class="amenity-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20INT05_Gym_Stage_E3_8k.jpg')" data-img>
+    <div class="amenity-icon">◎</div>
+    <h3 class="amenity-title">Sports & Fitness</h3>
+    <p class="amenity-desc">Pickleball court and lounge, state-of-the-art fitness center, flexible fitness lounge, Pilates studio, yoga studio, sports simulator, indoor putting green, private training studio, and outdoor recreation lawns.</p>
+  </div>
+  <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20Shot_940_Spa.jpg')" data-img>
+    <div class="amenity-icon">◇</div>
+    <h3 class="amenity-title">Social & Entertaining</h3>
+    <p class="amenity-desc">Residents-only indoor and outdoor restaurant, entertainment lounge with catering kitchen, private dining rooms, wine tasting room with storage lockers, theater, library, and a suite of curated guest suites.</p>
+  </div>
+  <div class="amenity-card reveal" style="--card-bg: url('https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/SFH%20-%20STILL_210_Coworking%20Space.jpg')" data-img>
+    <div class="amenity-icon">◻</div>
+    <h3 class="amenity-title">Children & Family</h3>
+    <p class="amenity-desc">Indoor playroom, children's STEM lounge with kitchenette, craft room, and outdoor garden — thoughtfully designed spaces for young residents to explore, create, and grow.</p>
+  </div>
+</div>
     </div>
   </section>
 
