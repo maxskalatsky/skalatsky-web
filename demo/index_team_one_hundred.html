@@ -4,26 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team One Hundred — Private Investment Advisory</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #001529;
-  --navy-2: #002147;
-  --navy-3: #0A2D52;
-  --navy-4: #12436E;
-  --red: #C41E3A;
-  --red-hover: #E02245;
-  --gold: #C5A96A;
-  --gold-light: #D4BC8A;
-  --white: #FFFFFF;
-  --off-white: #F4F6F9;
-  --card-bg: #F0F3F7;
-  --card-border: #D8E0EA;
-  --gray: #7A8899;
-  --gray-light: #A8B4C0;
-  --text-dark: #1A2B3C;
-  --border: rgba(255,255,255,0.08);
-  --border-gold: rgba(197,169,106,0.2);
+  /* ── T100 Brand Palette ── */
+  --black:       #000000;
+  --black-2:     #0A0A0A;
+  --black-3:     #111111;
+  --black-4:     #1A1A1A;
+  --red:         #ED1C24;
+  --red-hover:   #FF2D35;
+  --white:       #FFFFFF;
+  --off-white:   #F0F0F0;
+  --card-bg:     #0C0C0C;
+  --card-border: #1E1E1E;
+  --gray:        #888888;
+  --gray-light:  #AAAAAA;
+  --text-dark:   #111111;
+  --border:      rgba(255,255,255,0.07);
+  --border-red:  rgba(237,28,36,0.25);
+
+  /* aliases */
+  --navy:       var(--black);
+  --navy-2:     var(--black-2);
+  --navy-3:     var(--black-3);
+  --navy-4:     var(--black-4);
+  --gold:       var(--white);
+  --gold-light: #CCCCCC;
+  --border-gold: rgba(255,255,255,0.15);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -33,16 +41,61 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  background: var(--navy);
+  background: var(--black);
   color: var(--white);
   overflow-x: hidden;
 }
 
+/* ─── T100 LOGO MARK ─── */
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+.logo-icon {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.logo-icon .l1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--red);
+}
+.logo-icon .l0s {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: transparent;
+  -webkit-text-stroke: 1.8px var(--white);
+  letter-spacing: -2px;
+}
+.logo-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+.logo-wordmark {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.35;
+}
+.logo-wordmark em { color: var(--red); font-style: normal; }
+
 /* ─── UTILITY ─── */
 .label {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3.5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--red);
   display: flex;
@@ -52,16 +105,16 @@ body {
 .label::before {
   content: '';
   display: block;
-  width: 32px;
+  width: 28px;
   height: 1px;
   background: var(--red);
   flex-shrink: 0;
 }
 
 .divider {
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
+  width: 40px;
+  height: 2px;
+  background: var(--red);
   margin: 28px 0;
 }
 
@@ -69,35 +122,25 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2.5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 32px;
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 .btn-primary { background: var(--red); color: var(--white); }
 .btn-primary:hover { background: var(--red-hover); transform: translateY(-1px); }
-.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
-.btn-outline:hover { border-color: var(--white); }
-.btn-gold { background: transparent; color: var(--gold); border: 1px solid var(--border-gold); }
-.btn-gold:hover { background: rgba(197,169,106,0.08); border-color: var(--gold); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.04); }
+.btn-gold { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+.btn-gold:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
 
-/* Arrow */
-.arrow {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  position: relative;
-}
-.arrow::before {
-  content: '→';
-  font-size: 14px;
-}
+.arrow::before { content: '→'; font-size: 14px; }
 
 /* ─── NAV ─── */
 nav {
@@ -109,24 +152,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(8,15,29,0.97) 0%, rgba(8,15,29,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0) 100%);
   transition: background 0.4s;
 }
 nav.scrolled {
-  background: rgba(8,15,29,0.98);
-  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.98);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--white);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--red); }
 
 .nav-links {
   display: flex;
@@ -135,9 +167,10 @@ nav.scrolled {
   list-style: none;
 }
 .nav-links a {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--gray);
   text-decoration: none;
@@ -162,25 +195,53 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 75% 40%, rgba(196,30,58,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 15% 70%, rgba(197,169,106,0.05) 0%, transparent 60%),
-    linear-gradient(160deg, #002147 0%, var(--navy) 50%, #000F1F 100%);
+    radial-gradient(ellipse 55% 75% at 80% 40%, rgba(237,28,36,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 30% 50% at 10% 80%, rgba(237,28,36,0.04) 0%, transparent 60%),
+    linear-gradient(160deg, #0D0D0D 0%, #000000 50%, #050505 100%);
 }
-
-/* Subtle grid texture */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 60px,
+    rgba(255,255,255,0.012) 60px,
+    rgba(255,255,255,0.012) 61px
+  );
+}
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
 }
 
+.hero-deco {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 340px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -10px;
+  z-index: 0;
+}
+
 .hero-inner {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 60px;
@@ -205,10 +266,7 @@ nav.scrolled {
   margin-bottom: 28px;
   animation: fadeUp 0.9s 0.12s ease both;
 }
-.hero-h1 em {
-  font-style: italic;
-  color: var(--gold);
-}
+.hero-h1 em { font-style: italic; color: var(--red); }
 
 .hero-sub {
   font-size: 18px;
@@ -227,39 +285,37 @@ nav.scrolled {
   animation: fadeUp 0.9s 0.36s ease both;
 }
 
-.hero-right {
-  animation: fadeUp 0.9s 0.48s ease both;
-}
+.hero-right { animation: fadeUp 0.9s 0.48s ease both; }
 
 .hero-stat-stack {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.07);
 }
-
 .hero-stat {
   padding: 28px 40px;
-  background: rgba(13,25,41,0.6);
+  background: rgba(10,10,10,0.85);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   min-width: 220px;
 }
 .hero-stat:last-child { border-bottom: none; }
 
 .hero-stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
   color: var(--white);
   line-height: 1;
   margin-bottom: 6px;
 }
-.hero-stat-num span { color: var(--gold); }
+.hero-stat-num span { color: var(--red); }
 
 .hero-stat-label {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gray);
@@ -272,7 +328,8 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--gray);
@@ -292,9 +349,7 @@ nav.scrolled {
 /* ─── SECTIONS ─── */
 section { padding: 144px 64px; }
 
-.section-header {
-  margin-bottom: 64px;
-}
+.section-header { margin-bottom: 64px; }
 .section-header h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(40px, 4vw, 60px);
@@ -303,10 +358,7 @@ section { padding: 144px 64px; }
   color: var(--white);
   margin-top: 20px;
 }
-.section-header h2 em {
-  font-style: italic;
-  color: var(--gold);
-}
+.section-header h2 em { font-style: italic; color: var(--red); }
 .section-header p {
   font-size: 18px;
   font-weight: 300;
@@ -318,7 +370,7 @@ section { padding: 144px 64px; }
 
 /* ─── WHAT WE DO ─── */
 .what-we-do {
-  background: var(--navy-2);
+  background: var(--black-2);
   position: relative;
   overflow: hidden;
 }
@@ -328,13 +380,15 @@ section { padding: 144px 64px; }
   right: -40px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 340px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.018);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 320px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.025);
   line-height: 1;
   pointer-events: none;
   user-select: none;
+  letter-spacing: -10px;
 }
 
 .wwd-layout {
@@ -359,23 +413,25 @@ section { padding: 144px 64px; }
   grid-template-columns: 48px 1fr;
   gap: 24px;
   padding: 32px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: padding-left 0.3s;
   cursor: default;
 }
-.pillar:first-child { border-top: 1px solid var(--border); }
+.pillar:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
 .pillar:hover { padding-left: 12px; }
 
 .pillar-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--red);
   padding-top: 3px;
 }
 
 .pillar h3 {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--white);
@@ -389,7 +445,7 @@ section { padding: 144px 64px; }
 }
 
 /* ─── OPPORTUNITIES ─── */
-.opportunities { background: var(--navy); }
+.opportunities { background: var(--black); }
 
 .opps-meta {
   display: flex;
@@ -410,59 +466,59 @@ section { padding: 144px 64px; }
 .opps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  background: transparent;
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
 }
 
 .opp-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: #0C0C0C;
   padding: 40px 36px;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.35s, transform 0.3s;
+  transition: background 0.3s;
   cursor: default;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 .opp-card::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: var(--red);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
 }
-.opp-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); transform: translateY(-2px); }
+.opp-card:hover { background: #131313; }
 .opp-card:hover::after { transform: scaleX(1); }
 
 .opp-status {
   display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 5px 14px;
+  padding: 5px 12px;
   margin-bottom: 24px;
 }
 .opp-status.active {
   color: var(--red);
-  border: 1px solid rgba(196,30,58,0.4);
-  background: rgba(196,30,58,0.07);
+  border: 1px solid rgba(237,28,36,0.35);
+  background: rgba(237,28,36,0.07);
 }
 .opp-status.past {
-  color: #556677;
-  border: 1px solid rgba(85,102,119,0.3);
-  background: rgba(85,102,119,0.07);
+  color: #505050;
+  border: 1px solid rgba(80,80,80,0.3);
+  background: rgba(80,80,80,0.05);
 }
 
 .opp-type {
-  font-size: 10px;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #0A4D8C;
+  color: #505050;
   margin-bottom: 10px;
 }
 
@@ -470,34 +526,32 @@ section { padding: 144px 64px; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--white);
   line-height: 1.2;
   margin-bottom: 14px;
 }
 
 .opp-desc {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.65;
-  color: #3A4F63;
+  color: #888888;
 }
 
 .opp-footer {
   margin-top: 24px;
   padding-top: 18px;
-  border-top: 1px solid var(--card-border);
-  font-size: 11px;
-  font-weight: 500;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #6B7F92;
+  color: #505050;
 }
 
 /* ─── WHO WE WORK WITH ─── */
-.who-we-work {
-  background: var(--navy-2);
-  position: relative;
-}
+.who-we-work { background: var(--black-2); position: relative; }
 
 .wwwith-layout {
   display: grid;
@@ -518,26 +572,27 @@ section { padding: 144px 64px; }
 .audience-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-top: 36px;
 }
 .audience-tag {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--white);
-  border: 1px solid var(--border);
-  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 18px;
   transition: all 0.25s;
   cursor: default;
 }
-.audience-tag:hover { border-color: var(--gold); color: var(--gold); }
+.audience-tag:hover { border-color: var(--red); color: var(--red); }
 
 .quote-panel {
   border-left: 2px solid var(--red);
   padding: 40px 48px;
-  background: rgba(196,30,58,0.04);
+  background: rgba(237,28,36,0.03);
   position: relative;
 }
 .quote-panel::before {
@@ -547,7 +602,7 @@ section { padding: 144px 64px; }
   left: 32px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 120px;
-  color: rgba(196,30,58,0.1);
+  color: rgba(237,28,36,0.12);
   line-height: 1;
 }
 .quote-panel blockquote {
@@ -561,78 +616,130 @@ section { padding: 144px 64px; }
   position: relative;
 }
 .quote-panel cite {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gray);
   font-style: normal;
 }
 
+.stat-panel {
+  margin-top: 32px;
+  padding: 32px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.stat-panel-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+.stat-arrows { display: flex; flex-direction: column; gap: 12px; }
+.stat-arrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--gray-light);
+}
+.stat-arrow-icon { color: var(--red); font-size: 16px; flex-shrink: 0; }
+.stat-panel-cta {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
 /* ─── FOUNDERS ─── */
-.founders { background: var(--navy); }
+.founders { background: var(--black); }
 
 .founders-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 52px;
   margin-top: 64px;
 }
 
-.founder-card { position: relative; }
-
-.founder-photo {
-  width: 100%;
-  aspect-ratio: 4/5;
-  background: var(--navy-3);
-  margin-bottom: 36px;
-  position: relative;
-  overflow: hidden;
+.founder-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
-.founder-photo-inner {
-  width: 100%;
-  height: 100%;
+
+.founder-photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+}
+
+.founder-photo-wrap img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(15%);
+  transition: filter 0.3s ease;
+}
+
+.founder-photo-wrap:hover img {
+  filter: grayscale(0%);
+}
+
+.founder-li-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 119, 181, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-4) 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  text-decoration: none;
 }
-.founder-initials {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 90px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.1);
+
+.founder-photo-wrap:hover .founder-li-overlay { opacity: 1; }
+
+.founder-li-overlay svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
 }
-.founder-photo-badge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 6px 14px;
-}
+
+.founder-info { flex: 1; }
 
 .founder-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  line-height: 1.1;
 }
 .founder-role {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--red);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .founder-bio {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.7;
   color: var(--gray);
@@ -640,23 +747,24 @@ section { padding: 144px 64px; }
 .founder-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
+  gap: 6px;
+  margin-top: 14px;
 }
 .founder-tag {
-  font-size: 9px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--border-gold);
-  padding: 5px 12px;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 10px;
 }
 
-/* ─── EVENTS / CTA ─── */
+/* ─── EVENTS ─── */
 .events-section {
-  background: var(--navy-2);
-  border-top: 1px solid var(--border);
+  background: var(--black-2);
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .events-layout {
@@ -666,10 +774,9 @@ section { padding: 144px 64px; }
   align-items: start;
 }
 
-/* Event card */
 .event-card {
-  background: var(--navy);
-  border: 1px solid var(--border);
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,0.07);
   padding: 52px;
   position: relative;
   overflow: hidden;
@@ -678,8 +785,8 @@ section { padding: 144px 64px; }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--red), var(--gold));
+  height: 2px;
+  background: linear-gradient(to right, var(--red), rgba(237,28,36,0.15));
 }
 
 .event-date-block {
@@ -689,20 +796,21 @@ section { padding: 144px 64px; }
   margin-bottom: 8px;
 }
 .event-day {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 64px;
-  font-weight: 300;
+  font-weight: 900;
   color: var(--white);
   line-height: 1;
 }
 .event-month-year {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--red);
+  padding-bottom: 8px;
 }
-
 .event-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
@@ -712,10 +820,12 @@ section { padding: 144px 64px; }
   margin-bottom: 8px;
 }
 .event-venue {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray);
   margin-bottom: 24px;
 }
 .event-desc {
@@ -726,17 +836,17 @@ section { padding: 144px 64px; }
   margin-bottom: 36px;
 }
 
-/* Forms */
 .forms-stack { display: flex; flex-direction: column; gap: 40px; }
 
 .form-block {
-  background: var(--navy);
-  border: 1px solid var(--border);
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,0.07);
   padding: 40px;
 }
 .form-block-label {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--red);
@@ -757,17 +867,13 @@ section { padding: 144px 64px; }
   line-height: 1.6;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .form-group { margin-bottom: 10px; }
 
 input, textarea, select {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
   color: var(--white);
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
@@ -777,36 +883,21 @@ input, textarea, select {
   transition: border-color 0.25s;
   -webkit-appearance: none;
 }
-input::placeholder, textarea::placeholder { color: rgba(122,136,153,0.6); font-size: 12px; }
-input:focus, textarea:focus, select:focus { border-color: rgba(196,30,58,0.5); }
+input::placeholder, textarea::placeholder { color: rgba(136,136,136,0.5); font-size: 12px; }
+input:focus, textarea:focus, select:focus { border-color: rgba(237,28,36,0.4); }
 select { cursor: pointer; }
-select option { background: var(--navy-2); }
+select option { background: #0A0A0A; }
 textarea { height: 90px; resize: none; }
+.form-submit { width: 100%; margin-top: 4px; justify-content: center; }
 
-.form-submit {
-  width: 100%;
-  margin-top: 4px;
-  justify-content: center;
-}
-
-/* Newsletter inline */
-.newsletter-row {
-  display: flex;
-  gap: 0;
-}
-.newsletter-row input {
-  flex: 1;
-  border-right: none;
-}
-.newsletter-row .btn {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
+.newsletter-row { display: flex; }
+.newsletter-row input { flex: 1; border-right: none; }
+.newsletter-row .btn { flex-shrink: 0; white-space: nowrap; }
 
 /* ─── CONTACT ─── */
 .contact-section {
-  background: var(--navy);
-  border-top: 1px solid var(--border);
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 .contact-layout {
   display: grid;
@@ -822,7 +913,7 @@ textarea { height: 90px; resize: none; }
   color: var(--white);
   margin: 20px 0 24px;
 }
-.contact-info h2 em { font-style: italic; color: var(--gold); }
+.contact-info h2 em { font-style: italic; color: var(--red); }
 .contact-info p {
   font-size: 15px;
   font-weight: 300;
@@ -831,16 +922,12 @@ textarea { height: 90px; resize: none; }
   max-width: 420px;
   margin-bottom: 40px;
 }
-
 .contact-details { display: flex; flex-direction: column; gap: 20px; }
-.contact-detail {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-}
+.contact-detail { display: flex; align-items: baseline; gap: 16px; }
 .contact-detail-label {
-  font-size: 9px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gray);
@@ -853,35 +940,32 @@ textarea { height: 90px; resize: none; }
   text-decoration: none;
   transition: color 0.2s;
 }
-.contact-detail a:hover { color: var(--gold); }
-
+.contact-detail a:hover { color: var(--red); }
 .contact-form {
-  background: var(--navy-2);
-  border: 1px solid var(--border);
+  background: var(--black-2);
+  border: 1px solid rgba(255,255,255,0.07);
   padding: 52px;
+}
+.contact-form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
 }
 
 /* ─── FOOTER ─── */
 footer {
-  background: #050B16;
-  border-top: 1px solid var(--border);
+  background: #030303;
+  border-top: 1px solid rgba(255,255,255,0.05);
   padding: 52px 64px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 40px;
 }
-
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--white);
-  text-decoration: none;
-}
-.footer-logo span { color: var(--red); }
 
 .footer-links {
   display: flex;
@@ -890,8 +974,9 @@ footer {
   justify-content: center;
 }
 .footer-links a {
-  font-size: 10px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gray);
@@ -907,12 +992,13 @@ footer {
   gap: 6px;
 }
 .footer-credit {
-  font-size: 10px;
-  color: rgba(122,136,153,0.4);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: rgba(136,136,136,0.35);
   letter-spacing: 0.5px;
 }
 .footer-credit a {
-  color: rgba(122,136,153,0.5);
+  color: rgba(136,136,136,0.4);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -920,7 +1006,7 @@ footer {
 .footer-disclaimer {
   font-size: 9px;
   font-weight: 300;
-  color: rgba(122,136,153,0.3);
+  color: rgba(136,136,136,0.25);
   max-width: 360px;
   line-height: 1.5;
   margin-top: 4px;
@@ -934,27 +1020,27 @@ footer {
 
 /* ─── MOBILE ─── */
 @media (max-width: 1024px) {
-  nav { padding: 0 32px; }
+  nav { padding: 0 24px; }
   .nav-links { display: none; }
   body { font-size: 16px; }
   section { padding: 80px 24px; }
   .hero { padding: 120px 24px 80px; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { display: none; }
+  .hero-deco { display: none; }
   .wwd-layout, .wwwith-layout, .founders-grid, .events-layout, .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    grid-template-columns: 1fr; gap: 40px;
   }
-  .opps-grid { grid-template-columns: 1fr; }
-  footer { grid-template-columns: 1fr; text-align: center; }
+  .founder-card { flex-direction: column; }
+  .opps-grid { grid-template-columns: 1fr; gap: 1px; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 24px; }
   .footer-right { text-align: center; }
-  .footer-links { justify-content: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 20px; }
   .hero-scroll { display: none; }
   .form-row { grid-template-columns: 1fr; }
   .newsletter-row { flex-direction: column; }
-  .newsletter-row input { border-right: 1px solid rgba(255,255,255,0.09); }
-  .hero-sub { font-size: 16px; }
-  .wwd-intro p, .wwwith-text p, .section-header p { font-size: 16px; }
+  .newsletter-row input { border-right: 1px solid rgba(255,255,255,0.07); }
+  .hero-sub, .wwd-intro p, .wwwith-text p, .section-header p { font-size: 16px; }
   .pillar p { font-size: 15px; }
   .founder-bio { font-size: 15px; }
 }
@@ -964,7 +1050,13 @@ footer {
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">Team <span>One</span> Hundred</a>
+  <a href="#" class="logo-mark">
+    <div class="logo-icon">
+      <span class="l1">1</span><span class="l0s">00</span>
+    </div>
+    <div class="logo-divider"></div>
+    <div class="logo-wordmark">TEAM <em>ONE</em> HUNDRED</div>
+  </a>
   <ul class="nav-links">
     <li><a href="#what-we-do">What We Do</a></li>
     <li><a href="#opportunities">Opportunities</a></li>
@@ -980,6 +1072,7 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-deco">100</div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="label hero-label">Private Investment Advisory</div>
@@ -1002,7 +1095,7 @@ footer {
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num"><span>$50</span>M</div>
-          <div class="hero-stat-label">March EXP I — Food & Health Fund</div>
+          <div class="hero-stat-label">March EXP I — Food &amp; Health Fund</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num">1<span>%</span></div>
@@ -1056,7 +1149,7 @@ footer {
       <div class="pillar">
         <div class="pillar-num">04</div>
         <div>
-          <h3>Education & Guidance</h3>
+          <h3>Education &amp; Guidance</h3>
           <p>We explain every deal in plain language and ensure the right people in your life are part of every decision. You stay in control. We handle everything else.</p>
         </div>
       </div>
@@ -1071,7 +1164,7 @@ footer {
       <div class="label">Deal Flow</div>
       <div style="margin-top:20px">
         <div class="section-header" style="margin-bottom:0">
-          <h2>Current & Featured <em>Opportunities</em></h2>
+          <h2>Current &amp; Featured <em>Opportunities</em></h2>
         </div>
       </div>
     </div>
@@ -1087,10 +1180,10 @@ footer {
     </div>
     <div class="opp-card">
       <div class="opp-status active">Active</div>
-      <div class="opp-type">Venture Capital · Food & Health</div>
+      <div class="opp-type">Venture Capital · Food &amp; Health</div>
       <div class="opp-name">March EXP I</div>
       <div class="opp-desc">A $50M institutional VC fund investing at the intersection of precision nutrition, intelligent health, and food as medicine. Backed by Jacqueline Mars and Stephen Badger of Mars, Inc.</div>
-      <div class="opp-footer">Sector: Food & Health · GP Track Record: 74x (Celsius) · UC Davis Partnership</div>
+      <div class="opp-footer">Sector: Food &amp; Health · GP Track Record: 74x (Celsius) · UC Davis Partnership</div>
     </div>
     <div class="opp-card">
       <div class="opp-status active">Active</div>
@@ -1115,8 +1208,8 @@ footer {
     </div>
     <div class="opp-card">
       <div class="opp-status past">Past</div>
-      <div class="opp-type">Direct Deal · Health & Wellness</div>
-      <div class="opp-name">Health & Wellness Platform</div>
+      <div class="opp-type">Direct Deal · Health &amp; Wellness</div>
+      <div class="opp-name">Health &amp; Wellness Platform</div>
       <div class="opp-desc">Direct investment into a rapidly scaling health and wellness platform backed by professional athletes as both investors and brand ambassadors. Transaction closed Q4 2024.</div>
       <div class="opp-footer">Sector: Health · Stage: Growth · Closed Q4 2024</div>
     </div>
@@ -1128,7 +1221,7 @@ footer {
   <div class="label">Our Members</div>
   <div class="wwwith-layout">
     <div class="wwwith-text">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,3.8vw,56px);font-weight:300;line-height:1.08;color:var(--white);margin-bottom:28px;">Built for those who <em style="font-style:italic;color:var(--gold)">shape culture</em></h2>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,3.8vw,56px);font-weight:300;line-height:1.08;color:var(--white);margin-bottom:28px;">Built for those who <em style="font-style:italic;color:var(--red)">shape culture</em></h2>
       <p>You've earned your position. You've built your name. Now it's time to build something that outlasts the career — a portfolio, a platform, a legacy that reflects who you are and what you stand for.</p>
       <p>Team One Hundred serves active and retired professional athletes, entertainers at the top of their fields, and the business managers, agents, and family office advisors who support them.</p>
       <p>If you're here, you already know that income is not wealth. We help you close that gap.</p>
@@ -1137,7 +1230,7 @@ footer {
         <span class="audience-tag">Retired Athletes</span>
         <span class="audience-tag">Entertainers</span>
         <span class="audience-tag">Business Managers</span>
-        <span class="audience-tag">Agents & Advisors</span>
+        <span class="audience-tag">Agents &amp; Advisors</span>
         <span class="audience-tag">Family Offices</span>
         <span class="audience-tag">Estate Planners</span>
         <span class="audience-tag">Wealth Managers</span>
@@ -1148,27 +1241,15 @@ footer {
         <blockquote>"Income is what you make during the game. Ownership is what you build after the whistle."</blockquote>
         <cite>Christopher Williams — Co-Founder, Team One Hundred</cite>
       </div>
-      <div style="margin-top:32px;padding:32px;background:rgba(255,255,255,0.02);border:1px solid var(--border)">
-        <div style="font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:16px;">The average professional athlete</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:300;color:var(--gray-light);">
-            <span style="color:var(--red);font-size:16px;">→</span>
-            Receives dozens of unfiltered investment pitches per year
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:300;color:var(--gray-light);">
-            <span style="color:var(--red);font-size:16px;">→</span>
-            Operates with a 5–12 year earning window
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:300;color:var(--gray-light);">
-            <span style="color:var(--red);font-size:16px;">→</span>
-            Has no access to institutional-grade opportunities
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:300;color:var(--gray-light);">
-            <span style="color:var(--red);font-size:16px;">→</span>
-            Is surrounded by advisors with conflicting incentives
-          </div>
+      <div class="stat-panel">
+        <div class="stat-panel-label">The average professional athlete</div>
+        <div class="stat-arrows">
+          <div class="stat-arrow"><span class="stat-arrow-icon">→</span> Receives dozens of unfiltered investment pitches per year</div>
+          <div class="stat-arrow"><span class="stat-arrow-icon">→</span> Operates with a 5–12 year earning window</div>
+          <div class="stat-arrow"><span class="stat-arrow-icon">→</span> Has no access to institutional-grade opportunities</div>
+          <div class="stat-arrow"><span class="stat-arrow-icon">→</span> Is surrounded by advisors with conflicting incentives</div>
         </div>
-        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;font-weight:400;color:var(--gold);font-style:italic;">Team 100 closes that gap.</div>
+        <div class="stat-panel-cta">Team 100 closes that gap.</div>
       </div>
     </div>
   </div>
@@ -1177,52 +1258,57 @@ footer {
 <!-- FOUNDERS -->
 <section id="founders" class="founders">
   <div class="label">Leadership</div>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,4vw,60px);font-weight:300;line-height:1.08;color:var(--white);margin-top:20px;">The <em style="font-style:italic;color:var(--gold);">Co-Founders</em></h2>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,4vw,60px);font-weight:300;line-height:1.08;color:var(--white);margin-top:20px;">The <em style="font-style:italic;color:var(--red);">Co-Founders</em></h2>
   <div class="founders-grid">
+
     <div class="founder-card">
-      <div class="founder-photo">
-        <div class="founder-photo-inner">
-          <span class="founder-initials">CW</span>
-        </div>
-        <span class="founder-photo-badge">Photo Pending</span>
+      <div class="founder-photo-wrap">
+        <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/team100-cw.jfif" alt="Christopher Williams">
+        <a href="https://www.linkedin.com/in/christopher-patrick-williams/" target="_blank" rel="noopener" class="founder-li-overlay">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
       </div>
-      <div class="founder-name">Christopher Williams</div>
-      <div class="founder-role">Co-Founder · Managing Partner</div>
-      <p class="founder-bio">Born and raised in New York. Two-time Big East Champion at Villanova. Harvard. Citigroup. Son of the founders of Williams Capital Group — formerly the largest minority-owned investment bank in the United States, now Siebert Williams Shank. Chris has seen elite institutional capital from the inside, and built Team 100 because he watched too many talented people end up on the wrong side of those relationships.</p>
-      <div class="founder-tags">
-        <span class="founder-tag">Harvard</span>
-        <span class="founder-tag">Villanova</span>
-        <span class="founder-tag">Citigroup</span>
-        <span class="founder-tag">D1 Athlete</span>
-        <span class="founder-tag">Wall Street</span>
+      <div class="founder-info">
+        <div class="founder-name">Christopher Williams</div>
+        <div class="founder-role">Co-Founder · Managing Partner</div>
+        <p class="founder-bio">Born and raised in New York. Two-time Big East Champion at Villanova. Harvard. Citigroup. Son of the founders of Williams Capital Group — formerly the largest minority-owned investment bank in the United States, now Siebert Williams Shank. Chris has seen elite institutional capital from the inside, and built Team 100 because he watched too many talented people end up on the wrong side of those relationships.</p>
+        <div class="founder-tags">
+          <span class="founder-tag">Harvard</span>
+          <span class="founder-tag">Villanova</span>
+          <span class="founder-tag">Citigroup</span>
+          <span class="founder-tag">D1 Athlete</span>
+          <span class="founder-tag">Wall Street</span>
+        </div>
       </div>
     </div>
+
     <div class="founder-card">
-      <div class="founder-photo">
-        <div class="founder-photo-inner">
-          <span class="founder-initials">AW</span>
-        </div>
-        <span class="founder-photo-badge">Photo Pending</span>
+      <div class="founder-photo-wrap">
+        <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/team100-aw.jfif" alt="Alvin Williams">
+        <a href="https://www.linkedin.com/in/alvin-williams-15b20115/" target="_blank" rel="noopener" class="founder-li-overlay">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
       </div>
-      <div class="founder-name">Alvin Williams</div>
-      <div class="founder-role">Co-Founder · Head of Member Relations</div>
-      <p class="founder-bio">Eight years in the NBA with the Toronto Raptors. Assistant Coach. NBA Professional Scout. TV Analyst for Sportsnet Canada. Alvin has lived every stage of the athlete journey — the career, the transition, and the years after. He co-founded Team 100 because he knows exactly what athletes need, what they are told, and what they are never given access to.</p>
-      <div class="founder-tags">
-        <span class="founder-tag">NBA · Toronto Raptors</span>
-        <span class="founder-tag">NBA Scout</span>
-        <span class="founder-tag">Coach</span>
-        <span class="founder-tag">TV Analyst</span>
+      <div class="founder-info">
+        <div class="founder-name">Alvin Williams</div>
+        <div class="founder-role">Co-Founder · Head of Member Relations</div>
+        <p class="founder-bio">Eight years in the NBA with the Toronto Raptors. Assistant Coach. NBA Professional Scout. TV Analyst for Sportsnet Canada. Alvin has lived every stage of the athlete journey — the career, the transition, and the years after. He co-founded Team 100 because he knows exactly what athletes need, what they are told, and what they are never given access to.</p>
+        <div class="founder-tags">
+          <span class="founder-tag">NBA · Toronto Raptors</span>
+          <span class="founder-tag">NBA Scout</span>
+          <span class="founder-tag">Coach</span>
+          <span class="founder-tag">TV Analyst</span>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- EVENTS / CTAs -->
+<!-- EVENTS -->
 <section id="events" class="events-section">
-  <div class="label" style="margin-bottom:52px">Events & Access</div>
+  <div class="label" style="margin-bottom:52px">Events &amp; Access</div>
   <div class="events-layout">
-
-    <!-- Event card -->
     <div>
       <div class="event-card">
         <div class="event-date-block">
@@ -1234,19 +1320,14 @@ footer {
         <p class="event-desc">An exclusive gathering of athletes, entertainers, fund managers, and institutional investors at one of the most iconic addresses in global finance. Limited seats. Invitation only.</p>
         <a href="#rsvp-form" class="btn btn-primary">Reserve Your Seat <span class="arrow"></span></a>
       </div>
-
-      <div style="margin-top:24px;padding:32px;background:var(--navy);border:1px solid var(--border);">
-        <div style="font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:16px;">Ongoing</div>
+      <div style="margin-top:24px;padding:32px;background:var(--black);border:1px solid rgba(255,255,255,0.07);">
+        <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:16px;">Ongoing</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--white);margin-bottom:8px;">Private Virtual Sessions</div>
         <p style="font-size:13px;font-weight:300;line-height:1.75;color:var(--gray);margin-bottom:24px;">Monthly virtual briefings on current opportunities, market context, and member introductions. Registration open to qualified prospects.</p>
-        <a href="#rsvp-form" class="btn btn-outline" style="font-size:10px">Register for Next Session</a>
+        <a href="#rsvp-form" class="btn btn-outline" style="font-size:9px">Register for Next Session</a>
       </div>
     </div>
-
-    <!-- Forms -->
     <div class="forms-stack">
-
-      <!-- RSVP -->
       <div id="rsvp-form" class="form-block">
         <div class="form-block-label">Event Registration</div>
         <h3>Reserve Your Seat</h3>
@@ -1270,8 +1351,6 @@ footer {
         </div>
         <button class="btn btn-primary form-submit">Submit RSVP</button>
       </div>
-
-      <!-- Newsletter -->
       <div class="form-block">
         <div class="form-block-label">Newsletter</div>
         <h3>Keepin' It 100</h3>
@@ -1281,7 +1360,6 @@ footer {
           <button class="btn btn-primary">Subscribe</button>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1301,7 +1379,7 @@ footer {
       </div>
     </div>
     <div class="contact-form">
-      <div style="font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px;">Book a Call</div>
+      <div class="contact-form-label">Book a Call</div>
       <div class="form-row">
         <div class="form-group"><input type="text" placeholder="First Name"></div>
         <div class="form-group"><input type="text" placeholder="Last Name"></div>
@@ -1328,7 +1406,13 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo">Team <span>One</span> Hundred</a>
+  <a href="#" class="logo-mark">
+    <div class="logo-icon">
+      <span class="l1">1</span><span class="l0s">00</span>
+    </div>
+    <div class="logo-divider"></div>
+    <div class="logo-wordmark">TEAM <em>ONE</em> HUNDRED</div>
+  </a>
   <ul class="footer-links">
     <li><a href="#what-we-do">What We Do</a></li>
     <li><a href="#opportunities">Opportunities</a></li>
@@ -1337,28 +1421,15 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="footer-right">
-    <div class="footer-credit">Site by <a href="https://skalatsky.com/index.html">Skalatsky & Associates</a></div>
+    <div class="footer-credit">Site by <a href="https://skalatsky.com/index.html">Skalatsky &amp; Associates</a></div>
     <div class="footer-disclaimer">This site does not constitute an offer to sell or solicitation to purchase any security. Team One Hundred acts as a strategic advisor and consultant. All investment decisions remain solely with the individual investor.</div>
   </div>
 </footer>
 
 <script>
-// Nav scroll behavior
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Smooth form feedback
-document.querySelectorAll('.btn-primary[type=undefined], button.btn-primary').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    const form = this.closest('.form-block, .contact-form');
-    if (!form) return;
-    const inputs = form.querySelectorAll('input, textarea, select');
-    let hasValue = false;
-    inputs.forEach(i => { if (i.value.trim()) hasValue = true; });
-    // Just a visual no-op for demo; real forms would submit
-  });
 });
 </script>
 </body>
