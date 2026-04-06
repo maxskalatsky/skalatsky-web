@@ -1,378 +1,49 @@
+Here is a clean, minimal HTML page as requested:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalyst Capital | Commercial Mortgage Banking</title>
-  <meta name="description" content="Catalyst Capital is a national commercial mortgage banking firm specializing in all CRE asset classes. Bridge, permanent, construction, CMBS, and SBA financing." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #0d1f3c;
-      --navy-mid: #1a3260;
-      --gold: #b8960c;
-      --gold-light: #d4a90e;
-      --white: #ffffff;
-      --off-white: #f7f7f5;
-      --gray-light: #e8e8e4;
-      --gray: #6b7280;
-      --gray-dark: #374151;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
-    }
-    body {
-      font-family: var(--font-sans);
-      color: var(--navy);
-      background: var(--white);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; }
-    a { color: inherit; text-decoration: none; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Team One Hundred</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    /* ── Nav ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      padding: 0 40px;
-      height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 36px; align-items: center; }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--gray-dark);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-cta {
-      background: var(--navy);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      font-size: 0.8rem !important;
-      letter-spacing: 0.08em !important;
-      border-radius: 2px;
-    }
-    .nav-cta:hover { background: var(--navy-mid) !important; }
+      body {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
 
-    /* ── Hero ── */
-    .hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 120px 40px 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #0d1f3c 0%, #1a3260 60%, #0d1f3c 100%);
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(184,150,12,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,150,12,0.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-content { position: relative; max-width: 860px; margin: 0 auto; }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
-    .hero h1 em { font-style: normal; color: var(--gold-light); }
-    .hero-sub {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 580px;
-      margin-bottom: 48px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      padding: 16px 36px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 2px;
-    }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      padding: 16px 36px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-outline:hover { border-color: var(--white); }
-
-    /* ── Value Props ── */
-    .value-props {
-      padding: 80px 40px;
-      background: var(--off-white);
-    }
-    .section-label {
-      text-align: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--navy);
-      margin-bottom: 56px;
-    }
-    .three-col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .value-card {
-      background: var(--white);
-      padding: 40px 32px;
-      border-top: 3px solid var(--gold);
-    }
-    .value-icon { font-size: 2rem; margin-bottom: 20px; }
-    .value-card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--navy); }
-    .value-card p { font-size: 0.925rem; color: var(--gray); line-height: 1.7; }
-
-    /* ── Asset Classes ── */
-    .asset-classes {
-      padding: 80px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .asset-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2px;
-      margin-top: 48px;
-      background: var(--gray-light);
-    }
-    .asset-tile {
-      background: var(--white);
-      padding: 32px 24px;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .asset-tile:hover { background: var(--navy); }
-    .asset-tile:hover .asset-label { color: var(--white); }
-    .asset-tile:hover .asset-icon { color: var(--gold-light); }
-    .asset-icon { font-size: 1.8rem; margin-bottom: 12px; color: var(--gold); display: block; }
-    .asset-label { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; color: var(--navy); text-transform: uppercase; }
-
-    /* ── CTA Band ── */
-    .cta-band {
-      background: var(--navy);
-      color: var(--white);
-      padding: 72px 40px;
-      text-align: center;
-    }
-    .cta-band h2 { font-size: 2rem; margin-bottom: 16px; }
-    .cta-band p { color: rgba(255,255,255,0.7); margin-bottom: 36px; font-size: 1.05rem; }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 48px 40px 32px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 28px;
-    }
-    .footer-brand .nav-logo { font-size: 1.2rem; margin-bottom: 12px; color: var(--white); display: block; }
-    .footer-brand p { font-size: 0.825rem; line-height: 1.7; }
-    .footer-nav h4 { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
-    .footer-nav a { display: block; font-size: 0.85rem; margin-bottom: 8px; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--white); }
-    .footer-compliance h4 { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
-    .footer-compliance p { font-size: 0.78rem; line-height: 1.7; margin-bottom: 8px; }
-    .equal-housing { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
-    .equal-housing-icon {
-      width: 32px; height: 32px;
-      border: 2px solid rgba(255,255,255,0.4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 700; text-align: center; line-height: 1.1;
-      color: rgba(255,255,255,0.6); flex-shrink: 0;
-    }
-    .footer-bottom { font-size: 0.78rem; text-align: center; line-height: 1.6; }
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .three-col { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 700px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .hero, .value-props, .asset-classes, .cta-band { padding-left: 20px; padding-right: 20px; }
-      footer { padding: 40px 20px 24px; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo">Catalyst<span>Capital</span></div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="about.html">About</a>
-    <a href="loan-programs.html">Loan Programs</a>
-    <a href="contact.html" class="nav-cta">Submit Inquiry</a>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">National Commercial Mortgage Banking</div>
-    <h1>Capital That Moves<br>as Fast as <em>Your Deal</em></h1>
-    <p class="hero-sub">Catalyst Capital provides sophisticated financing solutions across all commercial real estate asset classes — from coast to coast, at every stage of the capital stack.</p>
-    <div class="hero-actions">
-      <a href="contact.html" class="btn-primary">Submit a Loan Inquiry</a>
-      <a href="loan-programs.html" class="btn-outline">View Loan Programs</a>
-    </div>
-  </div>
-</section>
-
-<!-- Value Props -->
-<section class="value-props">
-  <div class="section-label">Why Catalyst Capital</div>
-  <h2 class="section-title">Built for Serious Borrowers</h2>
-  <div class="three-col">
-    <div class="value-card">
-      <div class="value-icon">⚡</div>
-      <h3>Speed of Execution</h3>
-      <p>We understand that timing is everything in commercial real estate. Our streamlined process and decisive decision-making get you to the closing table without unnecessary delays.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🌐</div>
-      <h3>National Reach</h3>
-      <p>Active in markets across the country, Catalyst Capital brings deep relationships with capital sources and regional expertise no matter where your deal is located.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🏛</div>
-      <h3>Institutional Expertise</h3>
-      <p>With experience across every major CRE asset class and capital structure, our team delivers solutions tailored to the complexity of your transaction — not a one-size-fits-all product.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Asset Classes -->
-<section class="asset-classes">
-  <div class="section-label">Coverage</div>
-  <h2 class="section-title">All Commercial Real Estate Asset Classes</h2>
-  <div class="asset-grid">
-    <div class="asset-tile">
-      <span class="asset-icon">🏢</span>
-      <div class="asset-label">Multifamily</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏬</span>
-      <div class="asset-label">Office</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏭</span>
-      <div class="asset-label">Industrial</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🛍</span>
-      <div class="asset-label">Retail</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏗</span>
-      <div class="asset-label">Mixed-Use</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🏨</span>
-      <div class="asset-label">Hospitality</div>
-    </div>
-    <div class="asset-tile">
-      <span class="asset-icon">🌿</span>
-      <div class="asset-label">Land</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Band -->
-<section class="cta-band">
-  <h2>Ready to Finance Your Next Deal?</h2>
-  <p>Tell us about your project and we'll be in touch within one business day.</p>
-  <a href="contact.html" class="btn-primary">Submit a Loan Inquiry</a>
-</section>
-
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <span class="nav-logo">Catalyst<span style="color:var(--gold)">Capital</span></span>
-      <p>National commercial mortgage banking firm providing financing solutions across all CRE asset classes.</p>
-    </div>
-    <div class="footer-nav">
-      <h4>Navigation</h4>
-      <a href="#">Home</a>
-      <a href="about.html">About</a>
-      <a href="loan-programs.html">Loan Programs</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-compliance">
-      <h4>Compliance</h4>
-      <p>NMLS ID: [XXXXXXX]</p>
-      <p>Licensed to conduct business in [State(s) TBD]. All loans subject to credit approval. Terms and conditions apply.</p>
-      <div class="equal-housing">
-        <div class="equal-housing-icon">EHL</div>
-        <span style="font-size:0.78rem;">Equal Housing Lender</span>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Catalyst Capital. All rights reserved. | This is not a commitment to lend. All financing subject to underwriting approval.</p>
-  </div>
-</footer>
-
-</body>
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        color: #111111;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello Team One Hundred</h1>
+  </body>
 </html>
+```
+
+---
+
+**What's included:**
+
+- ✅ **White background** — pure `#ffffff`
+- ✅ **Perfectly centered** — using flexbox, both horizontally and vertically on the full viewport
+- ✅ **Clean sans-serif font** — `Helvetica Neue` with a system font fallback stack
+- ✅ **Minimal styling** — light font weight (`300`) and subtle letter-spacing for a refined, modern look
+- ✅ **No clutter** — resets on `margin`/`padding`, nothing extra on the page
