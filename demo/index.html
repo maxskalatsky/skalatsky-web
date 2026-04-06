@@ -1,64 +1,80 @@
-Shared Memory loaded. I have the active context including the Footer Rule. Now I need the current `demo/index.html` to use as my base — no current HTML was provided in the brief.
-
-Since no current page HTML was provided, I will build the update applying only the two specified changes — `background-color: #0a0a0a` and heading `color: #f5f0e8` — against a clean, minimal base, preserving the required standard footer from Shared Memory. If you have existing `demo/index.html` content, please paste it and I'll apply the changes surgically. Otherwise, here is the output with the two changes applied to a neutral base:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo</title>
+<title>Hello World</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background-color: #0a0a0a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #ffffff;
     color: #111111;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #f5f0e8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   main {
-    max-width: 960px;
-    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 60px 24px;
   }
 
+  .hero {
+    text-align: center;
+    max-width: 560px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 1.125rem;
+    color: #555555;
+    line-height: 1.6;
+  }
+
   footer {
-    border-top: 1px solid #222222;
     padding: 24px;
     text-align: center;
-    font-size: 0.85rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.875rem;
     color: #888888;
     line-height: 1.8;
   }
 
   footer a {
-    color: #888888;
-    text-decoration: underline;
+    color: #111111;
+    text-decoration: none;
   }
 
   footer a:hover {
-    color: #f5f0e8;
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
 
 <main>
-  <h1>Demo</h1>
+  <div class="hero">
+    <h1>Hello, World.</h1>
+    <p>Clean. Simple. Ready.</p>
+  </div>
 </main>
 
 <footer>
-  <p>This is the first version of the page.</p>
-  <p>Site by <a href="https://skalatsky.com/index.html">Skalatsky &amp; Associates</a></p>
+  This is the first version of the page.<br>
+  <a href="https://skalatsky.com/index.html">Site by Skalatsky &amp; Associates</a>
 </footer>
 
 </body>
 </html>
-
-⚠️ **Note:** No current `demo/index.html` was provided in this request. The output above applies exactly the two requested changes — `background-color: #0a0a0a` on `body` and `color: #f5f0e8` on all headings — to a clean base. **If you have existing page content, paste it and I'll re-apply the changes to that file precisely, preserving all existing structure and copy.**
