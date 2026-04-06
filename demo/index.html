@@ -1,5 +1,3 @@
-Shared Memory loaded. Applying active context — Footer Rule confirmed.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +5,23 @@ Shared Memory loaded. Applying active context — Footer Rule confirmed.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hello Team One Hundred</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+  }
 
   body {
     background-color: #ffffff;
     color: #111111;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
   }
 
   main {
@@ -25,24 +29,23 @@ Shared Memory loaded. Applying active context — Footer Rule confirmed.
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
 
   h1 {
-    font-size: clamp(1.75rem, 5vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     text-align: center;
-    padding: 0 1.5rem;
+    color: #111111;
   }
 
   footer {
-    width: 100%;
+    padding: 24px 16px;
     text-align: center;
-    padding: 1.5rem;
-    font-size: 0.75rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.8rem;
     color: #888888;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   footer a {
@@ -62,8 +65,8 @@ Shared Memory loaded. Applying active context — Footer Rule confirmed.
 </main>
 
 <footer>
-  Investment decisions remain solely with the individual investor.<br>
-  <a href="https://skalatsky.com/index.html">Site by Skalatsky &amp; Associates</a>
+  <p>Investment decisions remain solely with the individual investor.</p>
+  <p><a href="https://skalatsky.com/index.html">Site by Skalatsky &amp; Associates</a></p>
 </footer>
 
 </body>
