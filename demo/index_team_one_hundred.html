@@ -2,11 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), display-capture=(), encrypted-media=(), gyroscope=(), accelerometer=(), usb=(), xr-spatial-tracking=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta name="description" content="Team One Hundred — Private capital consultant connecting athletes and cultural leaders to institutional-grade investment opportunities in venture capital, private equity, and direct deals.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Team One Hundred — Private Capital Consultant for Athletes and Cultural Leaders">
+<meta property="og:description" content="We connect athletes, entertainers, and high-influence individuals to institutional-grade investment opportunities that remain closed to most individuals.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://team100hq.com">
+<meta name="theme-color" content="#ED1C24">
 <title>Team One Hundred — Private Capital Consultant for Athletes and Cultural Leaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left, 0px);
   --black:       #000000;
   --black-soft:  #111111;
   --black-2:     #1A1A1A;
@@ -23,7 +39,22 @@
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* Prevent iOS font scaling on orientation change */
+  text-size-adjust: 100%;
+}
+/* Remove tap highlight on iOS */
+a, button, input, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+/* Tap improvements — removes 300ms delay, enforces minimum touch target */
+button, a {
+  touch-action: manipulation;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -32,6 +63,7 @@ body {
   background: var(--white);
   color: var(--text);
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ─── T100 LOGO MARK ─── */
@@ -59,7 +91,6 @@ body {
   font-size: 24px;
   color: transparent;
   -webkit-text-stroke: 2px var(--black);
-  letter-spacing: -2px;
 }
 .logo-divider {
   width: 1px;
@@ -81,7 +112,50 @@ body {
 .logo-mark.inverse .logo-divider { background: rgba(255,255,255,0.2); }
 .logo-mark.inverse .logo-wordmark { color: var(--white); }
 
-/* ─── UTILITY ─── */
+/* ─── SCREEN READER ONLY ─── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── SKIP LINK (accessibility) ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--red);
+  color: var(--white);
+  padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 16px; }
+
+/* ─── FOCUS STYLES ─── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+input:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 0;
+}
+
+
 .label {
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
@@ -136,7 +210,7 @@ body {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 200;
+  z-index: 1000;
   padding: 0 64px;
   height: 72px;
   display: flex;
@@ -145,6 +219,8 @@ nav {
   background: rgba(255,255,255,0.98);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 nav.scrolled {
   border-bottom: 1px solid var(--border);
@@ -168,10 +244,22 @@ nav.scrolled {
 }
 .nav-links a:hover { color: var(--red); }
 .nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-right .rsvp-btn { display: inline-flex; }
+
+@media (max-width: 1024px) {
+  .nav-right .rsvp-btn { display: none !important; }
+  .hamburger { display: flex !important; }
+}
+
+.page-wrap {
+  overflow-x: hidden;
+  position: relative;
+}
 
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-top: 72px;
@@ -202,6 +290,7 @@ nav.scrolled {
   padding: 100px 64px;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 .hero-right::before {
   content: '100';
@@ -270,7 +359,7 @@ nav.scrolled {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
 }
 .hero-scroll {
   position: absolute;
@@ -298,7 +387,7 @@ nav.scrolled {
 }
 
 /* ─── SECTIONS ─── */
-section { padding: 128px 64px; }
+section { padding: 128px 64px; scroll-margin-top: 72px; }
 .section-header { margin-bottom: 60px; }
 .section-header h2 {
   font-family: 'Cormorant Garamond', serif;
@@ -438,6 +527,7 @@ section { padding: 128px 64px; }
   background: var(--black);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 .what-we-do::after {
   content: '100';
@@ -454,6 +544,7 @@ section { padding: 128px 64px; }
   pointer-events: none;
   user-select: none;
   letter-spacing: -8px;
+  z-index: -1;
 }
 .wwd-layout {
   display: grid;
@@ -482,7 +573,10 @@ section { padding: 128px 64px; }
   cursor: default;
 }
 .pillar:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-.pillar:hover { padding-left: 10px; }
+
+@media (hover: hover) {
+  .pillar:hover { padding-left: 10px; }
+}
 .pillar-num {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -627,6 +721,11 @@ section { padding: 128px 64px; }
   text-align: center;
   transition: box-shadow 0.25s;
 }
+.founder-photo-wrap { order: 1; }
+.founder-name { order: 2; }
+.founder-role { order: 3; }
+.founder-bio { order: 4; }
+.founder-tags { order: 5; }
 .founder-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
 .founder-photo-wrap {
   position: relative;
@@ -636,6 +735,10 @@ section { padding: 128px 64px; }
   overflow: hidden;
   margin-bottom: 24px;
   flex-shrink: 0;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .founder-photo-wrap img {
   width: 140px;
@@ -762,8 +865,36 @@ section { padding: 128px 64px; }
   flex: 1; /* pushes CTA to bottom */
 }
 .newsletter-row { display: flex; }
-.newsletter-row input { flex: 1; border-right: none; }
+.newsletter-row input {
+  flex: 1;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-right: none;
+  background: rgba(255,255,255,0.05);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  padding: 15px 20px;
+  outline: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.newsletter-row input::placeholder { color: rgba(255,255,255,0.35); }
 .newsletter-row .btn { flex-shrink: 0; white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .newsletter-row { flex-direction: column; }
+  .newsletter-row input {
+    width: 100%;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+  .newsletter-row .btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
 
 /* ─── FOOTER ─── */
 footer {
@@ -822,38 +953,211 @@ footer {
 }
 .footer-credit a:hover { color: var(--red); }
 
+.hero-right,
+.who-we-work,
+.what-we-do,
+.opp-card {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── MOBILE ─── */
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── HAMBURGER MENU ─── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px; left: 0; right: 0; bottom: 0;
+  background: var(--white);
+  z-index: 999;
+  flex-direction: column;
+  padding: 48px 32px;
+  gap: 0;
+  overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--red); }
+.mobile-menu .btn {
+  margin-top: 32px;
+  text-align: center;
+  justify-content: center;
+}
+
+/* ─── TABLET ─── */
 @media (max-width: 1024px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   body { font-size: 16px; }
   section { padding: 80px 24px; }
-  .hero { grid-template-columns: 1fr; padding-top: 72px; }
-  .hero-left { padding: 64px 24px; }
-  .hero-left::after { display: none; }
-  .hero-right { display: none; }
-  .wwd-layout, .wwwith-layout, .founders-grid, .events-layout {
-    grid-template-columns: 1fr; gap: 40px;
-  }
-  .opps-grid { grid-template-columns: 1fr; }
+  .opps-grid { grid-template-columns: repeat(2, 1fr); }
   footer { grid-template-columns: 1fr; text-align: center; gap: 20px; }
   .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  section { padding: 64px 20px; scroll-margin-top: 72px; }
+
+  /* Hero — stack vertically, show stats below */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 72px;
+  }
+  .hero-left { padding: 52px 20px 40px; }
+  .hero-left::after { display: none; }
+  .hero-right { display: flex; padding: 40px 20px 52px; }
+  .hero-right::before { font-size: 140px; }
+  .hero-stat-num { font-size: 32px; }
   .hero-scroll { display: none; }
+  .hero-h1 { font-size: clamp(36px, 9vw, 56px); }
+  .hero-sub { font-size: 15px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; text-align: center; }
+
+  /* Labels */
+  .label { font-size: 8px; letter-spacing: 3px; }
+
+  /* Section headers */
+  .section-header h2 { font-size: clamp(30px, 8vw, 48px); }
+
+  /* Layouts — single column */
+  .wwd-layout,
+  .wwwith-layout,
+  .founders-grid,
+  .events-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* What We Do */
+  .wwd-intro p { font-size: 15px; max-width: 100%; }
+
+  /* Opportunities — single column */
+  .opps-grid { grid-template-columns: 1fr; }
+  .opps-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .opp-card { padding: 28px 24px; }
+  .opp-name { font-size: 20px; }
+
+  /* Pillars */
+  .pillar { grid-template-columns: 32px 1fr; gap: 14px; padding: 22px 0; }
+  .pillar h3 { font-size: 9px; }
+  .pillar p { font-size: 14px; }
+
+  /* Events */
+  .event-card { padding: 36px 24px; }
+  .event-name { font-size: 24px; }
   .newsletter-row { flex-direction: column; }
-  .newsletter-row input { border-right: 1px solid var(--mid-gray); }
+  .newsletter-row input {
+    width: 100%;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+  .newsletter-row .btn { width: 100%; justify-content: center; box-sizing: border-box; }
+
+  /* Audience tags */
+  .audience-tags { gap: 6px; }
+  .audience-tag { font-size: 8px; padding: 7px 12px; }
+
+  /* Quote panel */
+  .quote-panel { padding: 28px 24px; }
+  .quote-panel blockquote { font-size: 22px; }
+
+  /* Stat panel */
+  .stat-arrow { font-size: 13px; }
+
+  /* Founders */
+  .founder-card { padding: 36px 24px 28px; }
+  .founder-name { font-size: 22px; }
+  .founder-bio { font-size: 13px; }
+
+  /* Footer */
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 20px 24px;
+  }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 12px; }
+  .footer-disclaimer { font-size: 8px; }
+
+  /* Nav */
+  nav { padding: 0 20px; }
+}
+/* ─── SMALL PHONES (iPhone SE etc) ─── */
+@media (max-width: 390px) {
+  section { padding: 52px 16px; }
+  nav { padding: 0 16px; }
+  .hero-left { padding: 40px 16px 32px; }
+  .hero-right { padding: 32px 16px 40px; }
+  .hero-stat-num { font-size: 28px; }
+  .event-card { padding: 28px 16px; }
+  .opp-card { padding: 24px 16px; }
+  .founder-card { padding: 28px 16px 20px; }
+  footer { padding: 32px 16px 20px; }
+  .mobile-menu { padding: 40px 20px; }
 }
 </style>
 </head>
 <body>
+<a href="#who-we-work-with" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
-<nav id="main-nav">
+<nav id="main-nav" aria-label="Main navigation">
   <a href="#" class="logo-mark">
     <div class="logo-icon">
       <span class="l1">1</span><span class="l0s">00</span>
@@ -869,10 +1173,25 @@ footer {
     <li><a href="#events">Events</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener" class="btn btn-primary">RSVP — IPO Summit</a>
+    <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary rsvp-btn">RSVP — IPO Summit</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
+  <a href="#who-we-work-with" class="mobile-nav-link">Our Members</a>
+  <a href="#what-we-do" class="mobile-nav-link">What We Do</a>
+  <a href="#opportunities" class="mobile-nav-link">Opportunities</a>
+  <a href="#founders" class="mobile-nav-link">Team</a>
+  <a href="#events" class="mobile-nav-link">Events</a>
+  <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary">RSVP — IPO Summit</a>
+</div>
+
+<div class="page-wrap">
+<main id="main-content">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
@@ -880,7 +1199,7 @@ footer {
     <h1 class="hero-h1">Team 100 turns athlete influence into <em>ownership, access, and legacy.</em></h1>
     <p class="hero-sub">We connect athletes, entertainers, and high-influence individuals to institutional-grade investment opportunities — venture capital, private equity, and direct deals — that remain closed to most individuals regardless of wealth or fame.</p>
     <div class="hero-actions">
-      <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener" class="btn btn-primary">Reserve Your Seat — IPO Summit <span class="arrow"></span></a>
+      <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reserve Your Seat — IPO Summit <span class="arrow" aria-hidden="true"></span></a>
       <a href="#opportunities" class="btn btn-outline">View Opportunities</a>
     </div>
     <div class="hero-scroll">
@@ -957,8 +1276,7 @@ footer {
 <section id="what-we-do" class="what-we-do">
   <div class="wwd-layout">
     <div class="wwd-intro">
-      <div class="label muted">The Model</div>
-      <div class="divider"></div>
+      <div class="label" style="margin-bottom:18px;">The Model</div>
       <div class="section-header" style="margin-bottom:0">
         <h2 class="wwd-intro-h2" style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,3.8vw,58px);font-weight:300;line-height:1.08;color:var(--white);margin-top:0;">Where institutional capital meets <em style="font-style:italic;color:var(--red);">exceptional influence</em></h2>
       </div>
@@ -1015,50 +1333,7 @@ footer {
     </div>
     <p>A representative sample of the caliber of opportunities we source and structure for our members. Full terms and diligence materials are shared exclusively with qualified members.</p>
   </div>
-  <div class="opps-grid">
-    <div class="opp-card">
-      <div class="opp-status active">Active</div>
-      <div class="opp-type">Fund of Funds · Venture Capital</div>
-      <div class="opp-name">Redwood Collective II</div>
-      <div class="opp-desc">A $50M fund-of-funds providing access to the top VC firms in Silicon Valley — including those that backed Stripe, Anthropic, Airbnb, and Spotify. Available to Team 100 members only.</div>
-      <div class="opp-footer">Sector: Technology · Min: $500K–$1M · 10-Year Term</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-status active">Active</div>
-      <div class="opp-type">Venture Capital · Food &amp; Health</div>
-      <div class="opp-name">March EXP I</div>
-      <div class="opp-desc">A $50M institutional VC fund investing at the intersection of precision nutrition, intelligent health, and food as medicine. Backed by Jacqueline Mars and Stephen Badger of Mars, Inc.</div>
-      <div class="opp-footer">Sector: Food &amp; Health · GP Track Record: 74x (Celsius) · UC Davis Partnership</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-status past">Past</div>
-      <div class="opp-type">Direct Deal · Consumer</div>
-      <div class="opp-name">Consumer Brand Series B</div>
-      <div class="opp-desc">High-growth consumer brand with deep ties to sports and wellness culture. Structurally designed for athlete co-investors with authentic brand alignment and philanthropic integration.</div>
-      <div class="opp-footer">Sector: Consumer · Stage: Series B</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-status active">Active</div>
-      <div class="opp-type">Venture Capital · Fintech</div>
-      <div class="opp-name">Athlete Fintech Seed Round</div>
-      <div class="opp-desc">Early-stage fintech platform purpose-built for professional athletes — financial planning, contract management, and long-term wealth infrastructure.</div>
-      <div class="opp-footer">Sector: Fintech · Stage: Seed</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-status active">Active</div>
-      <div class="opp-type">Private Equity · Sports</div>
-      <div class="opp-name">Sports Franchise Minority Stake</div>
-      <div class="opp-desc">Structured minority equity position in a professional sports franchise — one of the most exclusive asset classes in the world, historically delivering exceptional returns alongside significant cultural value.</div>
-      <div class="opp-footer">Sector: Sports · Stage: Minority Equity</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-status active">Active</div>
-      <div class="opp-type">Private Equity · Health &amp; Wellness</div>
-      <div class="opp-name">Health &amp; Wellness Platform</div>
-      <div class="opp-desc">Direct investment into a rapidly scaling health and wellness platform backed by professional athletes as both investors and brand ambassadors.</div>
-      <div class="opp-footer">Sector: Health · Stage: Growth</div>
-    </div>
-  </div>
+  <div class="opps-grid" id="opps-grid"></div>
 </section>
 
 <!-- FOUNDERS -->
@@ -1069,8 +1344,8 @@ footer {
 
     <div class="founder-card">
       <div class="founder-photo-wrap">
-        <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/team100-cw.jpg" alt="Christopher Williams">
-        <a href="https://www.linkedin.com/in/christopher-patrick-williams/" target="_blank" rel="noopener" class="founder-li-overlay">
+        <img src="Demo Images/team100-cw.jpg" alt="Christopher Williams" loading="lazy" decoding="async">
+        <a href="https://www.linkedin.com/in/christopher-patrick-williams/" target="_blank" rel="noopener noreferrer" class="founder-li-overlay" aria-label="Christopher Williams on LinkedIn">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
@@ -1086,8 +1361,8 @@ footer {
 
     <div class="founder-card">
       <div class="founder-photo-wrap">
-        <img src="https://raw.githubusercontent.com/maxskalatsky/skalatsky-web/main/demo/Demo%20Images/team100-aw.jpg" alt="Alvin Williams">
-        <a href="https://www.linkedin.com/in/alvin-williams-15b20115/" target="_blank" rel="noopener" class="founder-li-overlay">
+        <img src="Demo Images/team100-aw.jpg" alt="Alvin Williams" loading="lazy" decoding="async">
+        <a href="https://www.linkedin.com/in/alvin-williams-15b20115/" target="_blank" rel="noopener noreferrer" class="founder-li-overlay" aria-label="Alvin Williams on LinkedIn">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
@@ -1116,7 +1391,7 @@ footer {
         <div class="event-name">IPO Summit at Nasdaq MarketSite</div>
         <div class="event-venue">Nasdaq MarketSite · Times Square, New York</div>
         <p class="event-desc">An exclusive gathering of athletes, entertainers, fund managers, and institutional investors at one of the most iconic addresses in global finance. Limited seats. Invitation only.</p>
-        <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener" class="btn btn-primary" style="align-self:flex-start;">Reserve Your Seat <span class="arrow"></span></a>
+        <a href="https://partiful.com/e/ALTnfJqBtsExypyNvzAj?ac=true&rsvped=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="align-self:flex-start;">Reserve Your Seat <span class="arrow" aria-hidden="true"></span></a>
       </div>
     </div>
 
@@ -1127,8 +1402,9 @@ footer {
         <div class="event-venue">Digital · Members &amp; Prospects</div>
         <p class="event-desc">Our monthly briefing on ownership, access, and what athletes miss about building real wealth. Subscribe to stay inside the room.</p>
         <div class="newsletter-row">
-          <input type="email" placeholder="Your email address">
-          <button class="btn btn-primary">Subscribe <span class="arrow"></span></button>
+          <label for="newsletter-email" class="sr-only">Your email address</label>
+          <input type="email" id="newsletter-email" placeholder="Your email address" autocomplete="email">
+          <button class="btn btn-primary" type="button">Subscribe <span class="arrow" aria-hidden="true"></span></button>
         </div>
       </div>
     </div>
@@ -1165,14 +1441,15 @@ footer {
         </select>
       </div>
       <div class="form-group"><textarea placeholder="Tell us a bit about yourself and what you're looking to build."></textarea></div>
-      <button class="btn btn-primary form-submit">Send Message <span class="arrow"></span></button>
+      <button class="btn btn-primary form-submit">Send Message <span class="arrow" aria-hidden="true"></span></button>
     </div>
   </div>
 </section>
 END CONTACT SECTION COMMENT -->
 
+</main>
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <a href="#" class="logo-mark">
     <div class="logo-icon">
       <span class="l1">1</span><span class="l0s">00</span>
@@ -1194,10 +1471,169 @@ END CONTACT SECTION COMMENT -->
   </div>
 </footer>
 
+</div><!-- end page-wrap -->
+
 <script>
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+/* ═══════════════════════════════════════════════════════════
+   OPPORTUNITY DATA — EDIT THIS SECTION TO UPDATE DEAL CARDS
+   ═══════════════════════════════════════════════════════════
+   To add a deal:    copy one block and fill in your values
+   To remove a deal: delete its block
+   To update a deal: change the text inside the quotes
+   Status options:   "active" or "past"
+   Active deals show first automatically, past deals go last
+   ═══════════════════════════════════════════════════════════ */
+const OPPORTUNITIES = [
+  {
+    status: "active",
+    type: "Fund of Funds · Venture Capital",
+    name: "Redwood Collective II",
+    desc: "A $50M fund-of-funds providing access to the top VC firms in Silicon Valley — including those that backed Stripe, Anthropic, Airbnb, and Spotify. Available to Team 100 members only.",
+    footer: "Sector: Technology · Min: $500K–$1M · 10-Year Term"
+  },
+  {
+    status: "active",
+    type: "Venture Capital · Food & Health",
+    name: "March EXP I",
+    desc: "A $50M institutional VC fund investing at the intersection of precision nutrition, intelligent health, and food as medicine. Backed by Jacqueline Mars and Stephen Badger of Mars, Inc.",
+    footer: "Sector: Food & Health · GP Track Record: 74x (Celsius) · UC Davis Partnership"
+  },
+  {
+    status: "active",
+    type: "Venture Capital · Fintech",
+    name: "Athlete Fintech Seed Round",
+    desc: "Early-stage fintech platform purpose-built for professional athletes — financial planning, contract management, and long-term wealth infrastructure.",
+    footer: "Sector: Fintech · Stage: Seed"
+  },
+  {
+    status: "active",
+    type: "Private Equity · Sports",
+    name: "Sports Franchise Minority Stake",
+    desc: "Structured minority equity position in a professional sports franchise — one of the most exclusive asset classes in the world, historically delivering exceptional returns alongside significant cultural value.",
+    footer: "Sector: Sports · Stage: Minority Equity"
+  },
+  {
+    status: "active",
+    type: "Private Equity · Health & Wellness",
+    name: "Health & Wellness Platform",
+    desc: "Direct investment into a rapidly scaling health and wellness platform backed by professional athletes as both investors and brand ambassadors.",
+    footer: "Sector: Health · Stage: Growth"
+  },
+  {
+    status: "past",
+    type: "Direct Deal · Consumer",
+    name: "Consumer Brand Series B",
+    desc: "High-growth consumer brand with deep ties to sports and wellness culture. Structurally designed for athlete co-investors with authentic brand alignment and philanthropic integration.",
+    footer: "Sector: Consumer · Stage: Series B"
+  }
+];
+/* ═══════════════════════════════════════════════════════════
+   END OF OPPORTUNITY DATA — DO NOT EDIT BELOW THIS LINE
+   ═══════════════════════════════════════════════════════════ */
+
+function renderOpportunities() {
+  const grid = document.getElementById('opps-grid');
+  if (!grid) return;
+  const escape = str => str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+  const sorted = [...OPPORTUNITIES].sort((a, b) =>
+    a.status === b.status ? 0 : a.status === 'active' ? -1 : 1
+  );
+  grid.innerHTML = sorted.map(opp => `
+    <div class="opp-card">
+      <div class="opp-status ${escape(opp.status)}">${opp.status === 'active' ? 'Active' : 'Past'}</div>
+      <div class="opp-type">${escape(opp.type)}</div>
+      <div class="opp-name">${escape(opp.name)}</div>
+      <div class="opp-desc">${escape(opp.desc)}</div>
+      <div class="opp-footer">${escape(opp.footer)}</div>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderOpportunities();
+  // Scrolled nav
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger menu with aria-expanded, focus trap, and Escape-to-close
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  const focusableSelectors = 'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])';
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+    // Focus first focusable element in menu
+    const firstFocusable = mobileMenu.querySelectorAll(focusableSelectors)[0];
+    if (firstFocusable) firstFocusable.focus();
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+    hamburger.focus();
+  }
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    // Close on nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Escape key closes menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    // Focus trap — keep Tab/Shift+Tab within mobile menu
+    mobileMenu.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(mobileMenu.querySelectorAll(focusableSelectors));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+  }
+
+  // Founder image fallback — show initials if image fails to load
+  document.querySelectorAll('.founder-photo-wrap img').forEach(img => {
+    img.addEventListener('error', () => {
+      const alt = img.getAttribute('alt') || '';
+      const initials = alt.split(' ').map(n => n[0]).join('').toUpperCase();
+      img.style.display = 'none';
+      const span = document.createElement('span');
+      span.style.cssText = `
+        font-family:'Montserrat',sans-serif;
+        font-size:28px;font-weight:700;
+        color:var(--white);letter-spacing:2px;
+      `;
+      span.textContent = initials;
+      img.closest('.founder-photo-wrap').appendChild(span);
+    });
+  });
 });
 </script>
 </body>
