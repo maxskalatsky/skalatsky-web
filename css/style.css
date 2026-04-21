@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700|PT+Serif:400,400i,700,700i');
+/* Open Sans loaded via <link> in HTML head with display=swap — see index.html */
 
 /*Table Of Contents 
 body
@@ -58,13 +58,20 @@ ol,ul {
     list-style: none;
 }
 
-a, a:hover, a:focus{
+a, a:hover{
 	outline:none;
 	text-decoration:none;
     color: inherit;
 }
-input:focus{
-    outline: none;
+/* Restore focus visibility for keyboard/assistive tech users (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #006699;
+    outline-offset: 2px;
 }
 h1,h2,h3{
     font-family: 'PT Serif', serif;
@@ -1295,7 +1302,6 @@ ul.top-right li a:hover.instagram{
    text-indent: -4700px;
    top: 20px;
    left: 16px;
-   outline: 0;
    z-index: 200;
 }
 #navigation #toggle-slide {
@@ -1530,14 +1536,13 @@ ul.top-right li a:hover.instagram{
    background-attachment: fixed;
     -webkit-background-size: cover;
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     position: relative;
 }
 .large-sized .large-caption h2 {}
 
-/* Landscape */
-@media only screen and (min-device-width: 320px) and (max-device-width: 736px) 
-   and (orientation: landscape) {
+/* Landscape — phones */
+@media screen and (max-width: 736px) and (orientation: landscape) {
    .caption-video .video-btn, .caption-video p{
       display: none;
    }
@@ -2430,12 +2435,12 @@ ul.top-right li a:hover.instagram{
 	height: 100%;
 	border: 5px solid #f8f8f8;
 }
-.teambox .accupation{
+.teambox .occupation{
    position: relative;
    display: inline-table;
    font-size: 14px;
 }
-.teambox .accupation::after {
+.teambox .occupation::after {
 	content: "";
 	height: 1px;
 	background: #414141;
@@ -4115,29 +4120,14 @@ ul.pagination li.active a:focus {
     -o-transform: translateY(75%);
     transform: translateY(75%);
 }
-.contactwith .map-bg #googleMap{
-   -webkit-transform: none;
-   -ms-transform: none;
-   -o-transform: none;
-   transform: none;
-}
-.contactwith .address-bg{
-      -webkit-box-shadow: 0 2px 10px -1px rgba(87, 97, 100, 0.35);
-      box-shadow: 0 2px 10px -1px rgba(87, 97, 100, 0.35);
-      padding: 3rem 1.5rem;
-   }
 #googleMap, #map-dark{
     height: 620px;
     width: 100%;
 }
-.blocklayout #map-dark,
-.contactwith .equalheight> #googleMap{
+.blocklayout #map-dark{
     min-height: 100%;
     width: 100%;
     height: 100%;
-}
-.contactwith #googleMap{
-   height: 410px;
 }
 .address-bg{
     background: #fff;
@@ -4247,9 +4237,6 @@ ul.pagination li.active a:focus {
       box-shadow: 0 2px 10px -1px rgba(87, 97, 100, 0.35);
       padding: 3rem 1.5rem;
    }
-   .contactwith .equalheight> #googleMap{
-      height: 310px;
-   }
 }
 
 /*-------------------------------*/
@@ -4257,94 +4244,7 @@ ul.pagination li.active a:focus {
 /*-------------------------------*/
 
 
-/*-------------------------------*/
-    /* Contact Form 01 */
-/*-------------------------------*/
-
-#contact-form h3{
-    font-weight: bold;
-}
-.contactus .form-control{
-    border: none;
-    border-bottom: 1px solid #d6d5d5;
-    padding: 18px 0;
-}
-.contactus .form-control,
-.getin_form .form-control{
-   background: #fff;
-   -webkit-border-radius: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    height: 40px;
-    color: #414141;
-    font-size: 14px;
-    position: relative;
-    -webkit-transition: border .9s ease;
-    -o-transition: border .9s ease;
-    transition: border .9s ease;
-}
-.getin_form .form-control {
-	border: 2px solid #d6d5d5;
-	padding: 6px 12px;
-    height: 50px;
-}
-textarea {
-    min-height: 175px;
-    resize: none;
-}
-button{
-    border: none;
-}
-.contactus .form-control:focus{
-    border-bottom: 1px solid #414141;
-}
-.getin_form .form-control:focus{
-    border: 2px solid #a3a1a1;
-}
-
-/* Form general- */
-::-webkit-input-placeholder, .form-control::-webkit-input-placeholder{
-   color:#414141;
-}
-:-moz-placeholder, .form-control:-moz-placeholder{ /* Firefox 18- */
-   color:#414141;  
-}
-::-moz-placeholder, .form-control::-moz-placeholder{  /* Firefox 19+ */
-   color:#414141;  
-}
-:-ms-input-placeholder, .form-control:-ms-input-placeholder{  
-   color:#414141;  
-}
-textarea::-webkit-input-placeholder,
-textarea:-moz-placeholder, 
-textarea::-moz-placeholder, 
-textarea:-ms-input-placeholder {
-   color:#414141;
-	opacity:1;
-}
-
-/*Dark layout contact section*/
-.find-us .ourlogo {
-    max-width: 140px;
-}
-.find-us .ourlogo, .find-us .ourlogo > img{
-   display: inline-block;
-}
-.find-us .ourlogo > img{
-   width: 100%;
-}
-.find-us .addr {
-    display: block;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 11px;
-    color: #006699;
-}
-
-/*-------------------------------*/
-    /* Contact Form ends */
-/*-------------------------------*/
+/* Contact form removed — no backend */
 
 
 /*-------------------------------*/
@@ -5804,7 +5704,7 @@ footer p {
       float: none;
     }
    .navbar-default .navbar-nav > li > a {
-      padding: 10px 0;
+      padding: 14px 0; /* min 44px touch target per WCAG 2.5.8 */
    }
    .navbar-default .navbar-nav > li > a::before {
       bottom: 5px;
@@ -5836,7 +5736,7 @@ footer p {
 
 @media screen and (max-width: 767px){
     html {
-        font-size: 12px;
+        font-size: 14px; /* minimum 14px — keeps body text readable on mobile */
     }
     .container-padding {
         padding-left: 15px;
@@ -5867,6 +5767,9 @@ footer p {
 @media screen and (max-width: 480px){
     .heading-title {
         font-size: 10px;
+    }
+    h1 {
+        font-size: 2.2rem; /* prevents oversized hero headline on small phones */
     }
     .full-screen h2 {
         font-size: 2rem;
@@ -5980,3 +5883,55 @@ footer p {
     background: black;
   }
 
+/* Partners Section */
+#partners-logos .col-md-6 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.partner-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  min-height: 75px;
+  width: 240px;
+}
+.partner-logo {
+  width: 195px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+.separator-line {
+  width: 60px;
+  height: 3px;
+  background: #006699;
+  margin: 12px auto 30px;
+  border-radius: 2px;
+}
+
+/* ── Hero full-screen height — CSS-native, no JS needed ── */
+.full-screen {
+  min-height: 100svh;
+  min-height: 100vh; /* fallback for older browsers */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── iOS Safari fix: background-attachment: fixed unsupported on mobile ── */
+@media (max-width: 1024px) {
+  .large-sized,
+  .textfade-bg,
+  .textfade-four,
+  .caption-video,
+  .personal-banner,
+  .parallax-video,
+  .bgintro,
+  .bgnewsletter,
+  #page-banner,
+  #single-parallx,
+  .bg-for-btc {
+    background-attachment: scroll;
+  }
+}

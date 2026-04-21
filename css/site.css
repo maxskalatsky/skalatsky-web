@@ -3,23 +3,8 @@
 @import "bootstrap.min.css";
 @import "font-awesome.min.css";
 @import "animate.min.css";
-@import "swiper.min.css";
-@import "owl.carousel.min.css";
 
-/*Revolution Slider*/
-@import "settings.css";
-
-/*CountDown Timer*/
-@import "dscountdown.css";
-
-/*popup fancybox on images*/
-@import "jquery.fancybox.min.css";
-
-/*galleries grids , filters*/
-@import "cubeportfolio.min.css";
-
-/*custom scrollerbar*/
-@import "simplebar.css";
-
-/*youtube background video*/
-@import "jquery.mb.YTPlayer.min.css";
+/* Removed unused plugin CSS (not present on this page):
+   swiper.min.css, owl.carousel.min.css, settings.css (RevSlider),
+   dscountdown.css, jquery.fancybox.min.css, cubeportfolio.min.css,
+   simplebar.css, jquery.mb.YTPlayer.min.css */

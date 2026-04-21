@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+/* Open Sans loaded via <link> in HTML head with display=swap for performance */
 @font-face {
 	font-family: 'BebasNeueRegular';
 	src: url('../fonts/BebasNeue-webfont.eot');
