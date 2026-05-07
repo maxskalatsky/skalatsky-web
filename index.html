@@ -114,7 +114,8 @@
 ═══════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
 <link rel="preload" as="image" href="images/home-table-large.jpg">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://code.jquery.com">
@@ -190,7 +191,7 @@
 <!-- Skip to main content (accessibility) -->
 <a href="#main-content" style="position:absolute;top:-100px;left:16px;background:#006699;color:#fff;padding:10px 18px;font-size:14px;font-weight:600;z-index:9999;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
 
-<div class="wrapper" id="main-content">
+<div class="wrapper">
 
 <!-- ═══════════════════════════════════════════
      NAVIGATION
@@ -200,14 +201,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <ul class="top-right text-right"><li></li></ul>
-          <nav class="navbar navbar-default" role="navigation" aria-label="Main navigation">
+          <nav class="navbar navbar-default" aria-label="Main navigation">
             <div class="navbar-header">
               <button aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="fixed-collapse-navbar" class="navbar-toggle collapsed" data-target="#fixed-collapse-navbar" data-toggle="collapse" type="button">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
               </button>
               <a class="navbar-brand" href="/" aria-label="Skalatsky &amp; Associates — home">
                 <img alt="Skalatsky &amp; Associates" class="logo" src="images/logo.png" width="200" height="58" />
@@ -230,6 +230,7 @@
   </div>
 </header>
 <!-- Navigation ends -->
+<main id="main-content">
 
 <!-- ═══════════════════════════════════════════
      HERO
@@ -420,7 +421,7 @@
 
       <div class="col-md-6 col-sm-6 nopadding">
         <div class="box-info">
-          <div class="image"><img alt="AI-powered marketing execution in action" class="equalheight" src="images/man-window2.jpg" loading="lazy" decoding="async" /></div>
+          <div class="image"><img alt="AI-powered marketing execution in action" class="equalheight" src="images/man-window2.jpg" width="960" height="435" loading="lazy" decoding="async" /></div>
         </div>
       </div>
 
@@ -455,17 +456,64 @@
           <h3 class="darkcolor">Max Skalatsky</h3>
           <span class="occupation">Founder &amp; Managing Partner</span>
           <div class="teambox text-left">
-            <p class="top20">Max Skalatsky spent years building intelligence networks as an FBI Special Agent: recruiting, running, and managing human and physical assets across multiple continents. The skill set was simple: identify the right people, understand their motivations, and get them to perform.</p>
+            <p class="top20">Max Skalatsky spent years building intelligence networks as an FBI Special Agent: recruiting, running, and managing human and physical assets across multiple continents. The skill set was simple: identify the right people, understand their motivations, and enable their performance.</p>
             <p>He never stopped doing that. He just changed who the agents are.</p>
-            <p>After the FBI, Max built a career spanning strategy, operations, and technology, working across consulting, product, and executive leadership, and culminating in three years as a Global VP at one of the world's premier enterprise technology companies.</p>
-            <p>That experience gave him something most people building AI agents have never had: a ground-level understanding of what marketing strategy and execution actually costs inside large organizations — the cycles, the handoffs, the gap between a great idea and a live result — and he designed and built S&amp;A to eliminate it. The A-Team is how he brings that knowledge to life.</p>
-            <p>Max holds a Master of Business Administration (MBA) from Duke University's Fuqua School of Business and a Bachelor of Science (BS) in Management Information Systems from the University of Maryland, College Park.</p>
+            <p>Following the FBI, Max built a career spanning strategy, operations, and technology, working across consulting, product, and executive leadership, and culminating as a Global VP at one of the world&#39;s premier enterprise technology companies.</p>
+            <p>These experiences gave him something most people building AI agents never develop: a ground-level understanding of the hurdles large organizations face designing and executing marketing strategy. The cycles, the handoffs, the gaps between great ideas and live results. He envisioned and built S&amp;A to eliminate these costs.</p>
+            <p>Max holds an MBA from Duke University&#39;s Fuqua School of Business and a BS in Management Information Systems from the University of Maryland, College Park.</p>
           </div>
         </div>
       </div>
     </div>
 
+
+    <div class="row top30">
+      <div class="col-md-4 col-sm-4">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30">
+            <a href="https://www.linkedin.com/in/haberbrett/" target="_blank" rel="noopener noreferrer" aria-label="Brett Haber on LinkedIn">
+              <img alt="Brett Haber" src="images/team-haber.jpg" width="160" height="160" loading="lazy" decoding="async" />
+              <div class="teamoverlay"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+            </a>
+          </div>
+          <h3 class="darkcolor">Brett Haber</h3>
+          <p class="top20 bottom35">Brett has devoted her career to ensuring the success of C-suite executives and positioning leaders&#39; vast accomplishments. In her first decade as a management consultant, she partnered with boards spanning three continents to ensure organizational growth in the face of enormous change. She then spent two more decades building and branding visionary leaders for entry into the world&#39;s elite business schools. In this capacity she oversaw an industry association, culminating as a two-term president. Brett holds an MBA from the Wharton School of Business at the University of Pennsylvania and a BA in Anthropology from Yale University.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30">
+            <a href="https://www.linkedin.com/in/esteban-garcia-97b88716/" target="_blank" rel="noopener noreferrer" aria-label="Esteban Garcia on LinkedIn">
+              <img alt="Esteban Garcia" src="images/team-garcia.jpg" width="160" height="160" loading="lazy" decoding="async" />
+              <div class="teamoverlay"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+            </a>
+          </div>
+          <h3 class="darkcolor">Esteban Garcia</h3>
+          <p class="top20 bottom35">Esteban is a seasoned professional with over two decades of experience managing and scaling a family-owned enterprise. He has directed all facets of the business, bringing about long-term growth. His business development expertise spans a range of sectors, from food systems to agriculture, and consumer products to commercial real estate. This breadth allows him to integrate operational knowledge with a deep understanding of market trends to drive revenues. With a focus on quality and value creation, Esteban consistently builds organizational sales and sustainable growth across industries. Esteban holds a BS in International Studies, with a concentration in business, from Frostburg State University and a culinary degree from American InterContinental University.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="teambox text-center">
+          <div class="teamimg bottom30">
+            <a href="https://www.linkedin.com/in/maricarmen-saleta/" target="_blank" rel="noopener noreferrer" aria-label="Maricarmen Saleta on LinkedIn">
+              <img alt="Maricarmen Saleta" src="images/team-saleta.jpg" width="160" height="160" loading="lazy" decoding="async" />
+              <div class="teamoverlay"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+            </a>
+          </div>
+          <h3 class="darkcolor">Maricarmen Saleta</h3>
+          <p class="top20 bottom35">Maricarmen Saleta is a bilingual marketing and culture strategist with over 25 years of experience driving brand growth, community impact, and organizational transformation. As a Principal at Skalatsky &amp; Associates, she leads social media marketing and nonprofit strategy, sparking connections and moving people. She is also the founder of The Positive Perspective, a platform through which she delivers high-energy keynotes and workshops, helping teams and organizations build cultures where people and performance flourish. Mari holds a BA in Psychology from Instituto Tecnol&#243;gico de Santo Domingo.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Advisors -->
+    <div class="row top30">
+      <div class="col-md-12 text-center bottom20">
+        <h3 class="darkcolor text-uppercase">Advisors</h3>
+        <div class="separator-line"></div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <div class="teambox text-center">
@@ -536,14 +584,14 @@
       <div class="col-md-6 col-sm-6 text-center bottom30">
         <div class="partner-logo-wrap">
           <a href="https://clutchsolutions.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Clutch Solutions website">
-            <img src="images/partner-clutch.png" alt="Clutch Solutions" class="partner-logo" />
+            <img src="images/partner-clutch.png" alt="Clutch Solutions" class="partner-logo" width="390" height="120" loading="lazy" decoding="async" />
           </a>
         </div>
       </div>
       <div class="col-md-6 col-sm-6 text-center bottom30">
         <div class="partner-logo-wrap">
           <a href="https://www.practical-fusion.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Practical Fusion website">
-            <img src="images/partner-practical-fusion.png" alt="Practical Fusion" class="partner-logo" />
+            <img src="images/partner-practical-fusion.png" alt="Practical Fusion" class="partner-logo" width="390" height="120" loading="lazy" decoding="async" />
           </a>
         </div>
       </div>
@@ -553,6 +601,8 @@
   </div>
 </section>
 <!-- Team ends -->
+
+</main>
 
 <!-- ═══════════════════════════════════════════
      FOOTER
@@ -564,7 +614,7 @@
         <img alt="Skalatsky &amp; Associates brand icon" height="79" src="images/SKA-Just-brand-icon-Inverse.png" width="100" loading="lazy" decoding="async" />
         <p></p>
         <h3 style="color: #ffffff; font-weight: 700; letter-spacing: 2px;">The Modern Marketing Agency</h3>
-        <h3 style="color: #aaaaaa; font-weight: 400; letter-spacing: 1px;">Design | Build | Launch</h3>
+        <h3 style="color: #c8e0ec; font-weight: 400; letter-spacing: 1px;">Design | Build | Launch</h3>
         <p class="whitecolor top30 wow fadeInUp" style="font-size: 11px">Copyright &copy; 2026&nbsp;Skalatsky &amp; Associates LLC. All rights reserved.</p>
       </div>
     </div>
@@ -577,12 +627,27 @@
 <!-- ═══════════════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════════════ -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script defer src="js/bootstrap.min.js"></script>
 <script defer src="js/jquery.matchHeight-min.js"></script>
 <script defer src="js/parallaxie.js"></script>
 <script defer src="js/wow.min.js"></script>
 <script defer src="js/functions.js"></script>
+
+
+<script>
+(function() {
+  var btn = document.querySelector('.navbar-toggle');
+  var menu = document.getElementById('fixed-collapse-navbar');
+  if (!btn || !menu) return;
+  menu.addEventListener('show.bs.collapse', function() {
+    btn.setAttribute('aria-expanded', 'true');
+  });
+  menu.addEventListener('hide.bs.collapse', function() {
+    btn.setAttribute('aria-expanded', 'false');
+  });
+})();
+</script>
 
 </body>
 </html>
