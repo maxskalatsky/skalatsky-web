@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WheELS for Autism 2026 | Every Mile Matters</title>
+  <meta name="description" content="Join us August 30, 2026 for WheELS for Autism — a purpose-driven cycling fundraiser supporting Els for Autism® in Jupiter, FL." />
+  <link rel="icon" type="image/png" href="bike.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700;1,800&family=Open+Sans:wght@400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B2C6E;
+      --blue: #2B6FD4;
+      --blue-light: #EBF2FC;
+      --blue-mid: #4A8BE0;
+      --white: #FFFFFF;
+      --gray-light: #F5F7FA;
+      --gray: #6B7280;
+      --gray-dark: #374151;
+      --border: #D1D5DB;
+      --success: #059669;
+      --error: #DC2626;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(27, 44, 110, 0.97);
+      backdrop-filter: blur(8px);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span { color: var(--blue-mid); }
+
+    .nav-logo-text small {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--blue-mid) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #243580 50%, var(--blue) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-logo-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px 48px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+      max-width: 460px;
+      width: 100%;
+    }
+
+    .hero-logo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* SECTION BASE */
+    section { padding: 80px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 640px;
+    }
+
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--navy); padding: 0; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-num span { color: var(--blue-mid); }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* OUR STORY */
+    .our-story { background: var(--gray-light); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-content .section-sub {
+      max-width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .highlight-box {
+      background: var(--white);
+      border-left: 4px solid var(--blue);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 24px;
+    }
+
+    .highlight-box p {
+      font-size: 1rem;
+      color: var(--gray-dark);
+      font-weight: 600;
+    }
+
+    .highlight-box strong { color: var(--blue); }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .event-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-detail-item:last-child { border-bottom: none; }
+
+    .detail-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .detail-icon svg { width: 20px; height: 20px; color: var(--blue); }
+
+    .detail-text strong {
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .detail-text span {
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+
+    /* WHY WE RIDE */
+    .why-ride { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .why-card {
+      background: var(--gray-light);
+      border-radius: 16px;
+      padding: 32px 28px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(43,111,212,0.12);
+    }
+
+    .why-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--blue-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .why-icon svg { width: 28px; height: 28px; color: var(--blue); }
+
+    .why-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .impact-banner {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--white);
+    }
+
+    .impact-banner svg {
+      width: 48px;
+      height: 48px;
+      color: var(--blue-mid);
+      flex-shrink: 0;
+    }
+
+    .impact-banner p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .impact-banner strong { color: var(--white); }
+
+    /* RIDES */
+    .rides { background: var(--gray-light); }
+
+    .rides-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .script-accent {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      color: var(--blue);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1;
+    }
+
+    .rides-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .ride-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ride-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .ride-card.basic::before { background: var(--blue-mid); }
+    .ride-card.premium::before { background: var(--navy); }
+
+    .ride-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 8px 32px rgba(43,111,212,0.15);
+    }
+
+    .ride-distance {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .ride-distance span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .ride-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin: 8px 0 20px;
+    }
+
+    .ride-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ride-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+
+    .ride-features li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--success);
+      flex-shrink: 0;
+    }
+
+    .pace-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pace-tag {
+      background: var(--blue-light);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    .ride-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+
+    /* JERSEY */
+    .jersey { background: var(--white); }
+
+    .jersey-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .jersey-feature {
+      text-align: center;
+      padding: 28px 16px;
+      border: 1.5px solid var(--blue-light);
+      border-radius: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .jersey-feature:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .jersey-feature-icon {
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .jersey-feature-icon svg { width: 24px; height: 24px; color: var(--blue); }
+
+    .jersey-feature h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .jersey-feature p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .jersey-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 32px;
+      font-style: italic;
+    }
+
+    /* REGISTRATION */
+    .registration { background: var(--gray-light); }
+
+    .reg-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 48px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .reg-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .form-section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 28px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--blue-light);
+    }
+
+    .form-section-title:first-child { margin-top: 0; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+
+    .form-group label span { color: var(--error); margin-left: 2px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--gray-dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(43,111,212,0.12);
+    }
+
+    .donation-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .donation-option { position: relative; }
+
+    .donation-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .donation-option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 12px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      height: 100%;
+    }
+
+    .donation-option input[type="radio"]:checked + label {
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+
+    .donation-option label .don-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .donation-option label .don-desc {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .donation-option label .don-badge {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 50px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .custom-amount-wrap { display: none; margin-bottom: 16px; }
+    .custom-amount-wrap.visible { display: block; }
+
+    .jersey-section {
+      display: none;
+      background: var(--blue-light);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .jersey-section.visible { display: block; }
+
+    .jersey-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .waiver-box {
+      background: var(--gray-light);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      max-height: 180px;
+      overflow-y: auto;
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .waiver-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .waiver-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .waiver-check label {
+      font-size: 0.875rem;
+      color: var(--gray-dark);
+      cursor: pointer;
+    }
+
+    .waiver-check label strong { color: var(--navy); }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .submit-btn:hover {
+      background: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 12px;
+    }
+
+    /* Sidebar */
+    .reg-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .sidebar-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--gray-dark);
+    }
+
+    .checklist li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--success);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .impact-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .impact-text {
+      font-size: 0.875rem;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    .spots-bar {
+      background: var(--gray-light);
+      border-radius: 50px;
+      height: 8px;
+      overflow: hidden;
+      margin: 12px 0 8px;
+    }
+
+    .spots-fill {
+      background: linear-gradient(90deg, var(--blue), var(--navy));
+      height: 100%;
+      width: 30%;
+      border-radius: 50px;
+    }
+
+    .spots-text { font-size: 0.8rem; color: var(--gray); }
+    .spots-text strong { color: var(--navy); }
+
+    /* CLOSING CTA */
+    .closing-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, #243580 60%, var(--blue) 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .closing-cta .container { position: relative; z-index: 1; }
+
+    .closing-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .closing-title em {
+      font-family: 'Dancing Script', cursive;
+      font-style: normal;
+      font-weight: 700;
+      color: var(--blue-mid);
+      font-size: 1.15em;
+    }
+
+    .closing-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 640px;
+      margin: 0 auto 20px;
+    }
+
+    .closing-thanks {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--blue-mid);
+      margin-bottom: 36px;
+    }
+
+    .closing-url {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .closing-url:hover { background: rgba(255,255,255,0.2); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer .footer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    footer .footer-logo-text span { color: var(--blue-mid); }
+
+    footer p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+      margin-bottom: 4px;
+    }
+
+    footer .footer-link {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+
+    footer .footer-link:hover { color: rgba(255,255,255,0.7); }
+
+    /* SUCCESS */
+    .success-message {
+      display: none;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 60px 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #D1FAE5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .success-icon svg { width: 36px; height: 36px; color: var(--success); }
+
+    .success-message h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .success-message p {
+      color: var(--gray);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 36px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .rides-grid { grid-template-columns: 1fr; }
+      .jersey-grid { grid-template-columns: 1fr 1fr; }
+      .reg-layout { grid-template-columns: 1fr; }
+      .reg-sidebar { order: -1; }
+      .impact-banner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      section { padding: 60px 16px; }
+      .form-row { grid-template-columns: 1fr; }
+      .donation-options { grid-template-columns: 1fr; }
+      .jersey-form-grid { grid-template-columns: 1fr; }
+      .jersey-grid { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .stat-item:last-child { border-bottom: none; }
+      .hero-logo-card { padding: 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="bike.png" alt="WheELS for Autism" onerror="this.style.display='none'" />
+    <div class="nav-logo-text">Whe<span>ELS</span> for Autism<small>EVERY MILE MATTERS</small></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#why">Why We Ride</a></li>
+    <li><a href="#rides">Rides</a></li>
+    <li><a href="#jersey">Jersey</a></li>
+    <li><a href="#register" class="nav-cta">Register</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-logo-card">
+    <img src="logo.png" alt="WheELS for Autism — Every Mile Matters" />
+  </div>
+  <p class="hero-tagline">Sunday, August 30, 2026 &middot; Jupiter, FL</p>
+  <h1 class="hero-headline">Every Mile Matters.</h1>
+  <p class="hero-sub">A purpose-driven cycling event supporting Els for Autism® — bringing together community, movement, inclusion, and impact for individuals with autism and their families.</p>
+  <div class="hero-badges">
+    <div class="badge">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      Sunday, August 30, 2026
+    </div>
+    <div class="badge">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      Jupiter, FL
+    </div>
+    <div class="badge">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      Max 50 Riders
+    </div>
+    <div class="badge">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      100% to Els for Autism
+    </div>
+  </div>
+  <div class="hero-btns">
+    <a href="#register" class="btn-primary">Register Now</a>
+    <a href="#story" class="btn-outline">Learn More</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">$<span>25K</span><span style="font-size:1rem">+</span></div>
+      <div class="stat-label">Raised in 2024</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>50</span></div>
+      <div class="stat-label">Max Riders</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>2</span></div>
+      <div class="stat-label">Ride Distances</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>100</span>%</div>
+      <div class="stat-label">Goes to Els for Autism</div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section class="our-story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">It Started with a Group of Friends and One Big Idea.</h2>
+        <p class="section-sub">Max Skalatsky started this ride in 2024 with a group of friends — coming together to support Els for Autism through a meaningful cycling fundraiser. That first ride raised <strong style="color:var(--navy)">over $25,000</strong> for Els for Autism and the life-changing work they do for individuals with autism and their families.</p>
+        <p class="section-sub">Inspired by the incredible impact and support, we've decided to do the ride again in 2026 — growing our community, our impact, and our commitment to changing lives.</p>
+        <div class="highlight-box">
+          <p><strong>100% of donations raised</strong> through this ride will directly support Els for Autism and the life-changing services, programs, education, and resources they provide for individuals with autism and their families.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:8px;">EVENT DETAILS</div>
+        <div class="event-detail-item">
+          <div class="detail-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="detail-text">
+            <strong>Date</strong>
+            <span>Sunday, August 30, 2026</span>
+          </div>
+        </div>
+        <div class="event-detail-item">
+          <div class="detail-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="detail-text">
+            <strong>Schedule</strong>
+            <span>Registration: 6:15 AM &nbsp;|&nbsp; Pedals Up: 7:15 AM</span>
+          </div>
+        </div>
+        <div class="event-detail-item">
+          <div class="detail-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          </div>
+          <div class="detail-text">
+            <strong>Start & Finish</strong>
+            <span>Els for Autism® Campus<br/>18370 Limestone Creek Rd, Jupiter, FL 33458</span>
+          </div>
+        </div>
+        <div class="event-detail-item">
+          <div class="detail-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 4v16M14 4v16"/></svg>
+          </div>
+          <div class="detail-text">
+            <strong>Refreshments</strong>
+            <span>Snacks &amp; coffee by <strong style="color:var(--blue)">Big Easy Cafe by Ernie Els</strong></span>
+          </div>
+        </div>
+        <div class="event-detail-item">
+          <div class="detail-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="detail-text">
+            <strong>Presented By</strong>
+            <span>Skalatsky Associates</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WE RIDE -->
+<section class="why-ride" id="why">
+  <div class="container center">
+    <p class="section-label">Why We Ride</p>
+    <h2 class="section-title">Supporting Els for Autism</h2>
+    <p class="section-sub center">Join us for a meaningful morning of community, movement, and impact as we ride together in support of Els for Autism. This special fundraising ride brings cyclists of different levels together for a safe, inspiring, and purpose-driven experience while supporting the incredible programs and services provided by Els for Autism.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        </div>
+        <h3>Community</h3>
+        <p>Ride alongside cyclists of every level who share a common purpose — supporting individuals with autism and their families.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3>Movement</h3>
+        <p>A safe, inspiring, and supported ride through beautiful Jupiter, Florida — pace groups for every ability level.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3>Impact</h3>
+        <p>Every mile ridden helps create impact. Every dollar raised funds programs, education, and resources at Els for Autism.</p>
+      </div>
+    </div>
+
+    <div class="impact-banner">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      <p style="text-align:left;"><strong>Every mile ridden helps create impact.</strong><br/>100% of donations raised through this ride directly support Els for Autism® and the life-changing services, programs, education, and resources they provide for individuals with autism and their families.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RIDES -->
+<section class="rides" id="rides">
+  <div class="container">
+    <p class="section-label">Ride Options</p>
+    <div class="rides-header">
+      <h2 class="section-title" style="margin-bottom:0">We Will Ride Around</h2>
+      <span class="script-accent">Beautiful Jupiter</span>
+    </div>
+    <p class="section-sub">Whether you're riding 50 or 100 miles, every pedal stroke makes a difference. Routes and details will be provided closer to the event. Spots are limited to 50 riders total — register early.</p>
+    <div class="rides-grid">
+      <!-- 50 Mile -->
+      <div class="ride-card basic">
+        <div class="ride-distance">50 <span>Miles</span></div>
+        <div class="ride-price">$50 Suggested Donation</div>
+        <ul class="ride-features">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Ride entry
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            One rest stop
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Snacks &amp; coffee (Big Easy Cafe by Ernie Els)
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Secure supported ride
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Support van
+          </li>
+        </ul>
+        <div class="pace-tags">
+          <span class="pace-tag">Under 20 MPH Group</span>
+          <span class="pace-tag">20–22 MPH Group</span>
+        </div>
+      </div>
+      <!-- 100 Mile -->
+      <div class="ride-card premium">
+        <div class="ride-badge">Includes Jersey</div>
+        <div class="ride-distance">100 <span>Miles</span></div>
+        <div class="ride-price">$100+ Suggested Donation</div>
+        <ul class="ride-features">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Ride entry
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Two rest stops
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Snacks &amp; coffee (Big Easy Cafe by Ernie Els)
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Secure supported ride
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Support van
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Official event jersey (order by July 1)
+          </li>
+        </ul>
+        <div class="pace-tags">
+          <span class="pace-tag">18–20 MPH Group Only</span>
+        </div>
+        <p style="font-size:0.78rem;color:var(--gray);margin-top:12px;">Riders must be able to hold an 18–20 MPH pace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JERSEY -->
+<section class="jersey" id="jersey">
+  <div class="container center">
+    <p class="section-label">Event Jersey Concept</p>
+    <h2 class="section-title">Ride in the Official WheELS Jersey</h2>
+    <p class="section-sub center">Donations of $100+ include an official WheELS for Autism event jersey, designed for performance and built for every mile. <strong style="color:var(--navy)">Order by July 1, 2026</strong> to guarantee your jersey.</p>
+
+    <div class="jersey-grid">
+      <div class="jersey-feature">
+        <div class="jersey-feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </div>
+        <h4>Lightweight Breathable</h4>
+        <p>Breathable fabric for ultimate comfort on every mile.</p>
+      </div>
+      <div class="jersey-feature">
+        <div class="jersey-feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h2l3-9 4 18 3-9h6"/></svg>
+        </div>
+        <h4>Moisture Wicking</h4>
+        <p>Advanced wicking technology keeps you cool and dry.</p>
+      </div>
+      <div class="jersey-feature">
+        <div class="jersey-feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+        </div>
+        <h4>Performance Fit</h4>
+        <p>Designed for aerodynamics and freedom of movement.</p>
+      </div>
+      <div class="jersey-feature">
+        <div class="jersey-feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </div>
+        <h4>Three Rear Pockets</h4>
+        <p>Convenient storage for all your ride essentials.</p>
+      </div>
+    </div>
+
+    <p class="jersey-disclaimer">Disclaimer: This is not the final jersey version. Design and details are subject to change.</p>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="registration" id="register">
+  <div class="container">
+    <p class="section-label">Join the Ride</p>
+    <h2 class="section-title">Register for WheELS for Autism 2026</h2>
+    <p class="section-sub">Spaces are limited to 50 riders. Don't wait — secure your spot and help make an impact for Els for Autism.</p>
+
+    <div class="reg-layout">
+      <!-- FORM -->
+      <div>
+        <div class="reg-form" id="reg-form-wrap">
+          <form id="registration-form" novalidate>
+
+            <div class="form-section-title">Rider Information</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name <span>*</span></label>
+                <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name <span>*</span></label>
+                <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span>*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-section-title">Emergency Contact</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ec-name">Emergency Contact Name <span>*</span></label>
+                <input type="text" id="ec-name" name="ec_name" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="ec-phone">Emergency Contact Phone <span>*</span></label>
+                <input type="tel" id="ec-phone" name="ec_phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-section-title">Ride Selection</div>
+            <div class="form-group">
+              <label for="ride-distance">Ride Distance <span>*</span></label>
+              <select id="ride-distance" name="ride_distance" required>
+                <option value="">Select your distance</option>
+                <option value="50">50 Miles (Two pace groups — Under 20 MPH and 20–22 MPH)</option>
+                <option value="100">100 Miles (18–20 MPH pace group only)</option>
+              </select>
+            </div>
+
+            <div class="form-section-title">Donation Amount</div>
+            <div class="donation-options">
+              <div class="donation-option">
+                <input type="radio" name="donation" id="don-50" value="50" />
+                <label for="don-50">
+                  <div class="don-amount">$50</div>
+                  <div class="don-desc">Ride Entry</div>
+                </label>
+              </div>
+              <div class="donation-option">
+                <input type="radio" name="donation" id="don-100" value="100" />
+                <label for="don-100">
+                  <div class="don-amount">$100</div>
+                  <div class="don-desc">Ride + Jersey</div>
+                  <div class="don-badge">Includes Jersey</div>
+                </label>
+              </div>
+              <div class="donation-option">
+                <input type="radio" name="donation" id="don-custom" value="custom" />
+                <label for="don-custom">
+                  <div class="don-amount">Custom</div>
+                  <div class="don-desc">Any amount</div>
+                </label>
+              </div>
+            </div>
+
+            <div class="custom-amount-wrap" id="custom-amount-wrap">
+              <div class="form-group" style="margin-bottom:0">
+                <label for="custom-amount">Custom Donation Amount <span>*</span></label>
+                <input type="number" id="custom-amount" name="custom_amount" placeholder="Enter amount in USD" min="1" />
+              </div>
+            </div>
+
+            <div class="jersey-section" id="jersey-section">
+              <p style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:12px;">Jersey Details — Donations of $100+ include an official event jersey. Order by July 1, 2026 to guarantee your jersey.</p>
+              <div class="jersey-form-grid">
+                <div class="form-group" style="margin-bottom:0">
+                  <label for="jersey-gender">Jersey Style <span>*</span></label>
+                  <select id="jersey-gender" name="jersey_gender">
+                    <option value="">Select style</option>
+                    <option value="mens">Men's</option>
+                    <option value="womens">Women's</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label for="jersey-size">Jersey Size <span>*</span></label>
+                  <select id="jersey-size" name="jersey_size">
+                    <option value="">Select size</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                    <option value="3XL">3XL</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section-title">Liability Waiver</div>
+            <div class="waiver-box">
+              <strong>WAIVER AND RELEASE OF LIABILITY</strong><br/><br/>
+              In consideration of being permitted to participate in the WheELS for Autism 2026 cycling event ("Event"), I, the undersigned, hereby acknowledge and agree to the following:<br/><br/>
+              I understand that cycling involves inherent risks of injury, including but not limited to falls, collisions with other cyclists or vehicles, road hazards, and other dangers. I voluntarily assume all such risks, both known and unknown, associated with my participation in the Event.<br/><br/>
+              I hereby release, waive, discharge, and covenant not to sue Skalatsky Associates, Els for Autism, their respective officers, directors, employees, agents, volunteers, sponsors, and representatives (collectively, "Released Parties") from any and all claims, liabilities, damages, losses, or expenses, including attorneys' fees and costs, arising out of or in any way connected with my participation in the Event, whether caused by the negligence of the Released Parties or otherwise.<br/><br/>
+              I certify that I am physically fit and have not been advised by a physician not to participate. I agree to follow all safety guidelines and rules established for the Event. I understand that route details are subject to change and will be communicated closer to the event date.<br/><br/>
+              I grant permission to use photographs, video recordings, and other media taken of me during the Event for promotional purposes without compensation.<br/><br/>
+              This waiver shall be governed by the laws of the State of Florida. If any provision of this waiver is found to be unenforceable, the remaining provisions shall remain in full force and effect.
+            </div>
+            <div class="waiver-check">
+              <input type="checkbox" id="waiver" name="waiver" required />
+              <label for="waiver">I have read and agree to the <strong>Waiver and Release of Liability</strong>. I understand that by checking this box I am electronically signing this waiver and that my participation in the event is contingent upon my agreement to these terms. <span style="color:var(--error)">*</span></label>
+            </div>
+
+            <button type="submit" class="submit-btn">Complete Registration &rarr;</button>
+            <p class="form-note">Payment processing will be confirmed via email after registration. 100% of donations go directly to Els for Autism®.</p>
+          </form>
+        </div>
+
+        <div class="success-message" id="success-message">
+          <div class="success-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h2>You're Registered!</h2>
+          <p>Thank you for joining WheELS for Autism 2026. A confirmation email with event details, rider rules, and safety guidelines has been sent to your inbox. Route details will be shared closer to the event date.</p>
+          <br/>
+          <p style="font-size:0.85rem;"><strong>Sunday, August 30, 2026</strong><br/>Registration opens 6:15 AM &nbsp;|&nbsp; Pedals Up 7:15 AM<br/>Els for Autism® Campus, Jupiter, FL</p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="reg-sidebar">
+        <div class="sidebar-card">
+          <h3>Spots Remaining</h3>
+          <div class="impact-number">50</div>
+          <div class="impact-text">Maximum riders for this event</div>
+          <div class="spots-bar"><div class="spots-fill"></div></div>
+          <p class="spots-text"><strong>Spaces are limited.</strong> Don't wait — register now!</p>
+        </div>
+        <div class="sidebar-card">
+          <h3>What's Included</h3>
+          <ul class="checklist">
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Ride entry (50 or 100 miles)
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Snacks &amp; coffee by Big Easy Cafe by Ernie Els
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Secure supported ride with SAG van
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Official event jersey ($100+)
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Pace groups for all abilities
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Routes through beautiful Jupiter, FL
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-card" style="background:var(--navy);color:var(--white)">
+          <h3 style="color:var(--white)">Your Impact</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.75);line-height:1.6;">Your support fuels life-changing programs, education, resources, and hope at Els for Autism® — for individuals with autism and their families.</p>
+          <br/>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);">In 2024, our riders raised over <strong style="color:var(--white)">$25,000</strong> together.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="closing-cta">
+  <div class="container">
+    <h2 class="closing-title">Together We Ride, <em>Together We Make a Difference.</em></h2>
+    <p class="closing-sub">Your support fuels life-changing programs, education, resources, and hope.</p>
+    <p class="closing-thanks">Thank you for being part of the journey.</p>
+    <a href="https://www.wheelsforautism.com" class="closing-url">www.wheelsforautism.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-text">Whe<span>ELS</span> for Autism</div>
+  <p>Presented by Skalatsky Associates &nbsp;|&nbsp; Supporting Els for Autism®</p>
+  <p>Sunday, August 30, 2026 &nbsp;|&nbsp; Jupiter, Florida</p>
+  <br/>
+  <p><a href="https://elsforautism.org" target="_blank" class="footer-link">elsforautism.org</a> &nbsp;|&nbsp; <a href="https://www.wheelsforautism.com" class="footer-link">wheelsforautism.com</a></p>
+  <br/>
+  <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">&copy; 2026 WheELS for Autism. All rights reserved.</p>
+</footer>
+
+<script>
+  // Show/hide custom amount field
+  document.querySelectorAll('input[name="donation"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const customWrap = document.getElementById('custom-amount-wrap');
+      const jerseySection = document.getElementById('jersey-section');
+      const customInput = document.getElementById('custom-amount');
+
+      customWrap.classList.toggle('visible', this.value === 'custom');
+      customInput.required = this.value === 'custom';
+
+      const showJersey = this.value === '100' || this.value === 'custom';
+      jerseySection.classList.toggle('visible', showJersey);
+
+      const jerseyGender = document.getElementById('jersey-gender');
+      const jerseySize = document.getElementById('jersey-size');
+      jerseyGender.required = showJersey;
+      jerseySize.required = showJersey;
+    });
+  });
+
+  // Also show jersey for custom amounts >= 100
+  document.getElementById('custom-amount').addEventListener('input', function() {
+    const jerseySection = document.getElementById('jersey-section');
+    const val = parseFloat(this.value);
+    jerseySection.classList.toggle('visible', val >= 100);
+  });
+
+  // Phone formatting
+  ['phone', 'ec-phone'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length >= 6) v = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+      else if (v.length >= 3) v = '(' + v.slice(0,3) + ') ' + v.slice(3);
+      e.target.value = v;
+    });
+  });
+
+  // Form submission
+  document.getElementById('registration-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+
+    required.forEach(field => {
+      field.style.borderColor = '';
+      if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+        field.style.borderColor = 'var(--error)';
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      const firstError = this.querySelector('[style*="var(--error)"]');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    document.getElementById('reg-form-wrap').style.display = 'none';
+    document.getElementById('success-message').style.display = 'block';
+    document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Smooth nav highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'white' : '';
+    });
+  });
+</script>
+</body>
+</html>
