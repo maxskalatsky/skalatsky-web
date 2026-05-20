@@ -1092,7 +1092,7 @@
     <li><a href="#why">Why We Ride</a></li>
     <li><a href="#rides">Rides</a></li>
     <li><a href="#jersey">Jersey</a></li>
-    <li><a href="#register" class="nav-cta">Register</a></li>
+    <li><a href="https://www.elsforautism.org/get-involved/affiliate-events/" target="_blank" class="nav-cta">Register</a></li>
   </ul>
 </nav>
 
@@ -1123,7 +1123,7 @@
     </div>
   </div>
   <div class="hero-btns">
-    <a href="#register" class="btn-primary">Register Now</a>
+    <a href="https://www.elsforautism.org/get-involved/affiliate-events/" target="_blank" class="btn-primary">Register Now</a>
     <a href="#story" class="btn-outline">Learn More</a>
   </div>
 </section>
@@ -1351,201 +1351,13 @@
 
 <!-- REGISTRATION -->
 <section class="registration" id="register">
-  <div class="container">
+  <div class="container center">
     <p class="section-label">Join the Ride</p>
     <h2 class="section-title">Register for WheELS for Autism 2026</h2>
-    <p class="section-sub">Spaces are limited to 50 riders. Don't wait — secure your spot and help make an impact for Els for Autism.</p>
-
-    <div class="reg-layout">
-      <!-- FORM -->
-      <div>
-        <div class="reg-form" id="reg-form-wrap">
-          <form id="registration-form" novalidate>
-
-            <div class="form-section-title">Rider Information</div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name <span>*</span></label>
-                <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name <span>*</span></label>
-                <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address <span>*</span></label>
-                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number <span>*</span></label>
-                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
-              </div>
-            </div>
-
-            <div class="form-section-title">Emergency Contact</div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="ec-name">Emergency Contact Name <span>*</span></label>
-                <input type="text" id="ec-name" name="ec_name" placeholder="John Smith" required />
-              </div>
-              <div class="form-group">
-                <label for="ec-phone">Emergency Contact Phone <span>*</span></label>
-                <input type="tel" id="ec-phone" name="ec_phone" placeholder="(555) 000-0000" required />
-              </div>
-            </div>
-
-            <div class="form-section-title">Ride Selection</div>
-            <div class="form-group">
-              <label for="ride-distance">Ride Distance <span>*</span></label>
-              <select id="ride-distance" name="ride_distance" required>
-                <option value="">Select your distance</option>
-                <option value="50">50 Miles (Two pace groups — Under 20 MPH and 20–22 MPH)</option>
-                <option value="100">100 Miles (18–20 MPH pace group only)</option>
-              </select>
-            </div>
-
-            <div class="form-section-title">Donation Amount</div>
-            <div class="donation-options">
-              <div class="donation-option">
-                <input type="radio" name="donation" id="don-50" value="50" />
-                <label for="don-50">
-                  <div class="don-amount">$50</div>
-                  <div class="don-desc">Ride Entry</div>
-                </label>
-              </div>
-              <div class="donation-option">
-                <input type="radio" name="donation" id="don-100" value="100" />
-                <label for="don-100">
-                  <div class="don-amount">$100</div>
-                  <div class="don-desc">Ride + Jersey</div>
-                  <div class="don-badge">Includes Jersey</div>
-                </label>
-              </div>
-              <div class="donation-option">
-                <input type="radio" name="donation" id="don-custom" value="custom" />
-                <label for="don-custom">
-                  <div class="don-amount">Custom</div>
-                  <div class="don-desc">Any amount</div>
-                </label>
-              </div>
-            </div>
-
-            <div class="custom-amount-wrap" id="custom-amount-wrap">
-              <div class="form-group" style="margin-bottom:0">
-                <label for="custom-amount">Custom Donation Amount <span>*</span></label>
-                <input type="number" id="custom-amount" name="custom_amount" placeholder="Enter amount in USD" min="1" />
-              </div>
-            </div>
-
-            <div class="jersey-section" id="jersey-section">
-              <p style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:12px;">Jersey Details — Donations of $100+ include an official event jersey. Order by July 1, 2026 to guarantee your jersey.</p>
-              <div class="jersey-form-grid">
-                <div class="form-group" style="margin-bottom:0">
-                  <label for="jersey-gender">Jersey Style <span>*</span></label>
-                  <select id="jersey-gender" name="jersey_gender">
-                    <option value="">Select style</option>
-                    <option value="mens">Men's</option>
-                    <option value="womens">Women's</option>
-                  </select>
-                </div>
-                <div class="form-group" style="margin-bottom:0">
-                  <label for="jersey-size">Jersey Size <span>*</span></label>
-                  <select id="jersey-size" name="jersey_size">
-                    <option value="">Select size</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="2XL">2XL</option>
-                    <option value="3XL">3XL</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-
-            <!-----
-            <div class="form-section-title">Liability Waiver</div>
-            <div class="waiver-box">
-              <strong>WAIVER AND RELEASE OF LIABILITY</strong><br/><br/>
-              In consideration of being permitted to participate in the WheELS for Autism 2026 cycling event ("Event"), I, the undersigned, hereby acknowledge and agree to the following:<br/><br/>
-              I understand that cycling involves inherent risks of injury, including but not limited to falls, collisions with other cyclists or vehicles, road hazards, and other dangers. I voluntarily assume all such risks, both known and unknown, associated with my participation in the Event.<br/><br/>
-              I hereby release, waive, discharge, and covenant not to sue Skalatsky Associates, Els for Autism, their respective officers, directors, employees, agents, volunteers, sponsors, and representatives (collectively, "Released Parties") from any and all claims, liabilities, damages, losses, or expenses, including attorneys' fees and costs, arising out of or in any way connected with my participation in the Event, whether caused by the negligence of the Released Parties or otherwise.<br/><br/>
-              I certify that I am physically fit and have not been advised by a physician not to participate. I agree to follow all safety guidelines and rules established for the Event. I understand that route details are subject to change and will be communicated closer to the event date.<br/><br/>
-              I grant permission to use photographs, video recordings, and other media taken of me during the Event for promotional purposes without compensation.<br/><br/>
-              This waiver shall be governed by the laws of the State of Florida. If any provision of this waiver is found to be unenforceable, the remaining provisions shall remain in full force and effect.
-            </div>
-            <div class="waiver-check">
-              <input type="checkbox" id="waiver" name="waiver" required />
-              <label for="waiver">I have read and agree to the <strong>Waiver and Release of Liability</strong>. I understand that by checking this box I am electronically signing this waiver and that my participation in the event is contingent upon my agreement to these terms. <span style="color:var(--error)">*</span></label>
-            </div>
-            ---->
-
-            <button type="submit" class="submit-btn">Complete Registration &rarr;</button>
-            <p class="form-note">Payment processing will be confirmed via email after registration. 100% of donations go directly to Els for Autism®.</p>
-          </form>
-        </div>
-
-        <div class="success-message" id="success-message">
-          <div class="success-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <h2>You're Registered!</h2>
-          <p>Thank you for joining WheELS for Autism 2026. A confirmation email with event details, rider rules, and safety guidelines has been sent to your inbox. Route details will be shared closer to the event date.</p>
-          <br/>
-          <p style="font-size:0.85rem;"><strong>Sunday, August 30, 2026</strong><br/>Registration opens 6:15 AM &nbsp;|&nbsp; Pedals Up 7:15 AM<br/>The Els Center of Excellence, Jupiter, FL</p>
-        </div>
-      </div>
-
-      <!-- SIDEBAR -->
-      <div class="reg-sidebar">
-        <div class="sidebar-card">
-          <h3>Spots Remaining</h3>
-          <div class="impact-number">50</div>
-          <div class="impact-text">Maximum riders for this event</div>
-          <div class="spots-bar"><div class="spots-fill"></div></div>
-          <p class="spots-text"><strong>Spaces are limited.</strong> Don't wait — register now!</p>
-        </div>
-        <div class="sidebar-card">
-          <h3>What's Included</h3>
-          <ul class="checklist">
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Ride entry (50 or 100 miles)
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Snacks &amp; coffee by Big Easy Cafe by Ernie Els
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Secure supported ride with SAG van
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Official event jersey ($100+)
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Pace groups for all abilities
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Routes through beautiful Jupiter, FL
-            </li>
-          </ul>
-        </div>
-        <div class="sidebar-card" style="background:var(--navy);color:var(--white)">
-          <h3 style="color:var(--white)">Your Impact</h3>
-          <p style="font-size:0.875rem;color:rgba(255,255,255,0.75);line-height:1.6;">Your support fuels life-changing programs, education, resources, and hope at Els for Autism® — for individuals with autism and their families.</p>
-          <br/>
-          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);">In 2024, our riders raised over <strong style="color:var(--white)">$27,000</strong> together.</p>
-        </div>
-      </div>
-    </div>
+    <p class="section-sub center">Spaces are limited to 50 riders. Registration is managed through Els for Autism — click below to secure your spot and make an impact.</p>
+    <br/><br/>
+    <a href="https://www.elsforautism.org/get-involved/affiliate-events/" target="_blank" class="btn-primary" style="background:var(--blue);color:var(--white);font-size:1.15rem;padding:18px 48px;display:inline-block;">Register Here &rarr;</a>
+    <p style="margin-top:20px;font-size:0.85rem;color:var(--gray);">You will be directed to the Els for Autism® affiliate events page.</p>
   </div>
 </section>
 
