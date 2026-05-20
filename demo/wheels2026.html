@@ -23,7 +23,6 @@
       --gray-dark: #374151;
       --border: #D1D5DB;
       --success: #059669;
-      --error: #DC2626;
     }
 
     html { scroll-behavior: smooth; }
@@ -123,47 +122,41 @@
       overflow: hidden;
     }
 
-.hero-logo-card {
-  background: var(--white);
-  border-radius: 14px;
-  padding: 28px 80px;
-  margin-bottom: 36px;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.25);
-  max-width: 960px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+    .hero-logo-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px 80px;
+      margin-bottom: 36px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-.hero-logo-card::before,
-.hero-logo-card::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 2px;
-  background: var(--blue);
-  transform: translateY(-50%);
-  opacity: 0.4;
-}
+    .hero-logo-card::before,
+    .hero-logo-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 2px;
+      background: var(--blue);
+      transform: translateY(-50%);
+      opacity: 0.4;
+    }
 
-.hero-logo-card::before { left: 32px; }
-.hero-logo-card::after  { right: 32px; }
+    .hero-logo-card::before { left: 32px; }
+    .hero-logo-card::after  { right: 32px; }
 
-.hero-logo-card img {
-  width: min(360px, 65%);
-  height: auto;
-  display: block;
-}
+    .hero-logo-card img {
+      width: min(360px, 65%);
+      height: auto;
+      display: block;
+    }
 
-@media (max-width: 640px) {
-  .hero-logo-card { padding: 20px 32px; border-radius: 10px; }
-  .hero-logo-card::before,
-  .hero-logo-card::after { display: none; }
-  .hero-logo-card img { width: min(260px, 80%); }
-}
     .hero-tagline {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(1rem, 3vw, 1.25rem);
@@ -597,323 +590,32 @@
     }
 
     /* JERSEY SHOWCASE */
-.jersey-showcase {
-  margin: 48px auto 0;
-  max-width: 960px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 48px rgba(27, 44, 110, 0.15);
-  background: var(--white);
-  border: 1px solid var(--blue-light);
-}
-
-.jersey-showcase img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.jersey-disclaimer {
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--gray);
-  margin-top: 24px;
-  font-style: italic;
-}
-
-@media (max-width: 640px) {
-  .jersey-showcase { border-radius: 14px; margin-top: 32px; }
-}
-
-    /* REGISTRATION */
-    .registration { background: var(--gray-light); }
-
-    .reg-layout {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 48px;
-      align-items: start;
-      margin-top: 48px;
-    }
-
-    .reg-form {
+    .jersey-showcase {
+      margin: 48px auto 0;
+      max-width: 960px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(27, 44, 110, 0.15);
       background: var(--white);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border: 1px solid var(--blue-light);
     }
 
-    .form-section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 28px 0 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--blue-light);
-    }
-
-    .form-section-title:first-child { margin-top: 0; }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray-dark);
-    }
-
-    .form-group label span { color: var(--error); margin-left: 2px; }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 11px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-family: 'Open Sans', sans-serif;
-      color: var(--gray-dark);
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
+    .jersey-showcase img {
       width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(43,111,212,0.12);
-    }
-
-    .donation-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .donation-option { position: relative; }
-
-    .donation-option input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .donation-option label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 12px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
-      height: 100%;
-    }
-
-    .donation-option input[type="radio"]:checked + label {
-      border-color: var(--blue);
-      background: var(--blue-light);
-    }
-
-    .donation-option label .don-amount {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .donation-option label .don-desc {
-      font-size: 0.75rem;
-      color: var(--gray);
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    .donation-option label .don-badge {
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 50px;
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .custom-amount-wrap { display: none; margin-bottom: 16px; }
-    .custom-amount-wrap.visible { display: block; }
-
-    .jersey-section {
-      display: none;
-      background: var(--blue-light);
-      border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    .jersey-section.visible { display: block; }
-
-    .jersey-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-    .waiver-box {
-      background: var(--gray-light);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      max-height: 180px;
-      overflow-y: auto;
-      font-size: 0.8rem;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .waiver-check {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .waiver-check input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      accent-color: var(--blue);
-      cursor: pointer;
-    }
-
-    .waiver-check label {
-      font-size: 0.875rem;
-      color: var(--gray-dark);
-      cursor: pointer;
-    }
-
-    .waiver-check label strong { color: var(--navy); }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--blue);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      letter-spacing: 0.02em;
-    }
-
-    .submit-btn:hover {
-      background: var(--navy);
-      transform: translateY(-1px);
-    }
-
-    .form-note {
+    .jersey-disclaimer {
       text-align: center;
       font-size: 0.78rem;
       color: var(--gray);
-      margin-top: 12px;
+      margin-top: 24px;
+      font-style: italic;
     }
 
-    /* Sidebar */
-    .reg-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sidebar-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    }
-
-    .sidebar-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-
-    .checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.875rem;
-      color: var(--gray-dark);
-    }
-
-    .checklist li svg {
-      width: 16px;
-      height: 16px;
-      color: var(--success);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .impact-number {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--blue);
-      line-height: 1;
-    }
-
-    .impact-text {
-      font-size: 0.875rem;
-      color: var(--gray);
-      margin-top: 4px;
-    }
-
-    .spots-bar {
-      background: var(--gray-light);
-      border-radius: 50px;
-      height: 8px;
-      overflow: hidden;
-      margin: 12px 0 8px;
-    }
-
-    .spots-fill {
-      background: linear-gradient(90deg, var(--blue), var(--navy));
-      height: 100%;
-      width: 30%;
-      border-radius: 50px;
-    }
-
-    .spots-text { font-size: 0.8rem; color: var(--gray); }
-    .spots-text strong { color: var(--navy); }
+    /* REGISTRATION */
+    .registration { background: var(--gray-light); }
 
     /* CLOSING CTA */
     .closing-cta {
@@ -1016,52 +718,11 @@
 
     footer .footer-link:hover { color: rgba(255,255,255,0.7); }
 
-    /* SUCCESS */
-    .success-message {
-      display: none;
-      background: var(--white);
-      border-radius: 16px;
-      padding: 60px 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .success-icon {
-      width: 72px;
-      height: 72px;
-      background: #D1FAE5;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-
-    .success-icon svg { width: 36px; height: 36px; color: var(--success); }
-
-    .success-message h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .success-message p {
-      color: var(--gray);
-      max-width: 420px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .story-grid { grid-template-columns: 1fr; gap: 36px; }
       .why-grid { grid-template-columns: 1fr; }
       .rides-grid { grid-template-columns: 1fr; }
-      .jersey-grid { grid-template-columns: 1fr 1fr; }
-      .reg-layout { grid-template-columns: 1fr; }
-      .reg-sidebar { order: -1; }
       .impact-banner { flex-direction: column; text-align: center; }
     }
 
@@ -1069,13 +730,13 @@
       nav { padding: 0 16px; }
       .nav-links { display: none; }
       section { padding: 60px 16px; }
-      .form-row { grid-template-columns: 1fr; }
-      .donation-options { grid-template-columns: 1fr; }
-      .jersey-form-grid { grid-template-columns: 1fr; }
-      .jersey-grid { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
       .stat-item:last-child { border-bottom: none; }
-      .hero-logo-card { padding: 24px 28px; }
+      .hero-logo-card { padding: 20px 32px; border-radius: 10px; }
+      .hero-logo-card::before,
+      .hero-logo-card::after { display: none; }
+      .hero-logo-card img { width: min(260px, 80%); }
+      .jersey-showcase { border-radius: 14px; margin-top: 32px; }
     }
   </style>
 </head>
@@ -1158,7 +819,7 @@
         <p class="section-label">Our Story</p>
         <h2 class="section-title">It Started with a Group of Friends and One Big Idea.</h2>
         <p class="section-sub">Max Skalatsky started this ride in 2024 with a group of friends who came together to support Els for Autism through a meaningful cycling fundraiser. That first ride raised <strong style="color:var(--navy)">over $27,000</strong> for Els for Autism and the life-changing work they do for individuals with autism and their families.</p>
-        <p class="section-sub">Inspired by the incredible impact and support, we've decided to do the ride again in 2026. </p>
+        <p class="section-sub">Inspired by the incredible impact and support, we've decided to do the ride again in 2026.</p>
         <div class="highlight-box">
           <p><strong>100% of donations raised</strong> through this ride will directly support Els for Autism and the life-changing services, programs, education, and resources they provide for individuals with autism and their families.</p>
         </div>
@@ -1188,7 +849,7 @@
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
           </div>
           <div class="detail-text">
-            <strong>Start & Finish</strong>
+            <strong>Start &amp; Finish</strong>
             <span>The Els Center of Excellence<br/>18370 Limestone Creek Rd, Jupiter, FL 33458</span>
           </div>
         </div>
@@ -1207,7 +868,7 @@
           </div>
           <div class="detail-text">
             <strong>Presented By</strong>
-            <span>Skalatsky &amp Associates</span>
+            <span>Skalatsky &amp; Associates</span>
           </div>
         </div>
       </div>
@@ -1268,26 +929,11 @@
         <div class="ride-distance">50 <span>Miles</span></div>
         <div class="ride-price">$50 Suggested Donation</div>
         <ul class="ride-features">
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Ride entry
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            One rest stop
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Snacks &amp; coffee (Big Easy Cafe by Ernie Els)
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Secure supported ride
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Support van
-          </li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Ride entry</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>One rest stop</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Snacks &amp; coffee (Big Easy Cafe by Ernie Els)</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Secure supported ride</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Support van</li>
         </ul>
         <div class="pace-tags">
           <span class="pace-tag">Under 20 MPH Group</span>
@@ -1300,30 +946,12 @@
         <div class="ride-distance">100 <span>Miles</span></div>
         <div class="ride-price">$100+ Suggested Donation</div>
         <ul class="ride-features">
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Ride entry
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Two rest stops
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Snacks &amp; coffee (Big Easy Cafe by Ernie Els)
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Secure supported ride
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Support van
-          </li>
-          <li>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            Official event jersey (order by July 1)
-          </li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Ride entry</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Two rest stops</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Snacks &amp; coffee (Big Easy Cafe by Ernie Els)</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Secure supported ride</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Support van</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Official event jersey (order by July 1)</li>
         </ul>
         <div class="pace-tags">
           <span class="pace-tag">18–20 MPH Group Only</span>
@@ -1340,11 +968,9 @@
     <p class="section-label">Event Jersey Concept</p>
     <h2 class="section-title">Ride in the Official WheELS Jersey</h2>
     <p class="section-sub center">Donations of $100+ include an official WheELS for Autism event jersey — designed for performance and built for every mile. <strong style="color:var(--navy)">Order by July 1, 2026</strong> to guarantee your jersey.</p>
-
     <div class="jersey-showcase">
-      <img src="jersey.png" alt="WheELS for Autism Event Jersey Concept — front and back views with Lightweight Breathable Fabric, Moisture Wicking Technology, Performance Fit, and Three Rear Pockets" />
+      <img src="jersey.png" alt="WheELS for Autism Event Jersey Concept" />
     </div>
-
     <p class="jersey-disclaimer">Disclaimer: This is not the final jersey version. Design and details are subject to change.</p>
   </div>
 </section>
@@ -1356,7 +982,7 @@
     <h2 class="section-title">Register for WheELS for Autism 2026</h2>
     <p class="section-sub center">Spaces are limited to 50 riders. Registration is managed through Els for Autism — click below to secure your spot and make an impact.</p>
     <br/><br/>
-    <a href="https://www.elsforautism.org/get-involved/affiliate-events/" target="_blank" class="btn-primary" style="background:var(--blue);color:var(--white);font-size:1.15rem;padding:18px 48px;display:inline-block;">Register Here &rarr;</a>
+    <a href="https://www.elsforautism.org/get-involved/affiliate-events/" target="_blank" class="btn-primary" style="background:var(--blue);color:var(--white);font-size:1.15rem;padding:18px 48px;">Register Here &rarr;</a>
     <p style="margin-top:20px;font-size:0.85rem;color:var(--gray);">You will be directed to the Els for Autism® affiliate events page.</p>
   </div>
 </section>
@@ -1374,7 +1000,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo-text">Whe<span>ELS</span> for Autism</div>
-  <p>Presented by Skalatsky &amp Associates &nbsp;|&nbsp; Supporting Els for Autism®</p>
+  <p>Presented by Skalatsky &amp; Associates &nbsp;|&nbsp; Supporting Els for Autism®</p>
   <p>Sunday, August 30, 2026 &nbsp;|&nbsp; Jupiter, Florida</p>
   <br/>
   <p><a href="https://elsforautism.org" target="_blank" class="footer-link">elsforautism.org</a> &nbsp;|&nbsp; <a href="https://www.wheelsforautism.com" class="footer-link">wheelsforautism.com</a></p>
@@ -1382,81 +1008,5 @@
   <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">&copy; 2026 WheELS for Autism. All rights reserved.</p>
 </footer>
 
-<script>
-  // Show/hide custom amount field
-  document.querySelectorAll('input[name="donation"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-      const customWrap = document.getElementById('custom-amount-wrap');
-      const jerseySection = document.getElementById('jersey-section');
-      const customInput = document.getElementById('custom-amount');
-
-      customWrap.classList.toggle('visible', this.value === 'custom');
-      customInput.required = this.value === 'custom';
-
-      const showJersey = this.value === '100' || this.value === 'custom';
-      jerseySection.classList.toggle('visible', showJersey);
-
-      const jerseyGender = document.getElementById('jersey-gender');
-      const jerseySize = document.getElementById('jersey-size');
-      jerseyGender.required = showJersey;
-      jerseySize.required = showJersey;
-    });
-  });
-
-  // Also show jersey for custom amounts >= 100
-  document.getElementById('custom-amount').addEventListener('input', function() {
-    const jerseySection = document.getElementById('jersey-section');
-    const val = parseFloat(this.value);
-    jerseySection.classList.toggle('visible', val >= 100);
-  });
-
-  // Phone formatting
-  ['phone', 'ec-phone'].forEach(id => {
-    document.getElementById(id).addEventListener('input', function(e) {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length >= 6) v = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
-      else if (v.length >= 3) v = '(' + v.slice(0,3) + ') ' + v.slice(3);
-      e.target.value = v;
-    });
-  });
-
-  // Form submission
-  document.getElementById('registration-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const required = this.querySelectorAll('[required]');
-    let valid = true;
-
-    required.forEach(field => {
-      field.style.borderColor = '';
-      if (!field.value || (field.type === 'checkbox' && !field.checked)) {
-        field.style.borderColor = 'var(--error)';
-        valid = false;
-      }
-    });
-
-    if (!valid) {
-      const firstError = this.querySelector('[style*="var(--error)"]');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
-    document.getElementById('reg-form-wrap').style.display = 'none';
-    document.getElementById('success-message').style.display = 'block';
-    document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // Smooth nav highlight on scroll
-  const sections = document.querySelectorAll('section[id], div[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'white' : '';
-    });
-  });
-</script>
 </body>
 </html>
