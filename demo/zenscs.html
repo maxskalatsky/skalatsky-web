@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zen Senior Care Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #FAF6F0;
+      --green: #3D6B52;
+      --green-dark: #2d5140;
+      --gold: #C49A5A;
+      --text: #4a5a4e;
+      --text-light: #7a8a7e;
+      --card: #EDE8DF;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(250,246,240,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,154,90,0.2);
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--green-dark); color: white !important; }
+    section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    .hero-wrap {
+      min-height: 100vh;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 80px;
+    }
+    .hero-inner { max-width: 800px; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 4px;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+    .hero-btn {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .hero-btn:hover { background: var(--green-dark); }
+    .section-bar {
+      display: inline-block;
+      width: 4px;
+      height: 32px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--green);
+      display: inline;
+      vertical-align: middle;
+    }
+    .mission-wrap {
+      background: var(--green);
+      padding: 100px 48px;
+    }
+    .mission-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mission-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 32px;
+    }
+    .mission-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 24px;
+    }
+    .mission-text {
+      font-size: 19px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .pillar-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .pillar-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .two-col.reverse { direction: rtl; }
+    .two-col.reverse > * { direction: ltr; }
+    .two-col img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .two-col-text h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .two-col-text p {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .check-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .service-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .service-card-desc {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .stats-wrap {
+      background: var(--card);
+      padding: 80px 48px;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.0;
+    }
+    .stat-label {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-top: 8px;
+    }
+    .stat-detail h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .stat-detail p {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .testimonial-wrap {
+      background: var(--cream);
+      padding: 80px 48px;
+    }
+    .testimonial-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .quote-attr {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+      max-width: 760px;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(196,154,90,0.15);
+    }
+    .team-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .team-info {
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .involve-wrap {
+      background: var(--green);
+      padding: 80px 48px;
+    }
+    .involve-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .involve-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 48px;
+    }
+    .involve-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .involve-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .involve-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .involve-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .involve-card-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+    .contact-wrap {
+      background: var(--cream);
+      padding: 80px 48px;
+    }
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-box {
+      background: var(--green);
+      border-radius: 16px;
+      padding: 48px;
+      margin-top: 40px;
+    }
+    .contact-box p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 12px;
+    }
+    .contact-box a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-tagline {
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    footer {
+      background: var(--green-dark);
+      padding: 24px 48px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 60px 24px; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+      .two-col.reverse { direction: ltr; }
+      .three-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .involve-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Zen Senior Care</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="#impact">Impact</a>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-tag">Senior Care Services</div>
+    <h1 class="hero-title">Zen Senior Care Services</h1>
+    <p class="hero-sub">Caring For You Is Our Priority</p>
+    <a href="#services" class="hero-btn">Explore Our Services</a>
+  </div>
+</div>
+<div class="mission-wrap">
+  <div class="mission-inner">
+    <div class="mission-line"></div>
+    <h2 class="mission-heading">Our Mission & Vision</h2>
+    <p class="mission-text">Empowering seniors and individuals with disabilities to live with dignity, confidence, and independence through fierce advocacy and compassionate support.</p>
+  </div>
+</div>
+<section id="services">
+  <div><span class="section-bar"></span><h2 class="section-title">Our Four Pillars of Support</h2></div>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <span class="pillar-icon">🩺</span>
+      <div class="pillar-title">Medical Advocacy</div>
+      <p class="pillar-desc">Navigating healthcare systems and ensuring informed medical choices.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">🏠</span>
+      <div class="pillar-title">Housing Stability</div>
+      <p class="pillar-desc">Assisting in finding safe, accessible, and sustainable housing solutions.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">👨‍👩‍👧</span>
+      <div class="pillar-title">Family Support</div>
+      <p class="pillar-desc">Providing tools and education for caregivers to prevent burnout.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">💚</span>
+      <div class="pillar-title">Well-being</div>
+      <p class="pillar-desc">Fostering social engagement and reducing loneliness in the community.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <div><span class="section-bar"></span><h2 class="section-title">Medical Advocacy & Healthcare</h2></div>
+  <div class="two-col">
+    <div class="two-col-text">
+      <h3>How We Help</h3>
+      <p>Understanding medical options and insurance plans can be overwhelming. We simplify the process to empower families.</p>
+      <ul class="check-list">
+        <li>Patient advocacy for proper care</li>
+        <li>Navigating insurance carriers</li>
+        <li>Coordination of proactive treatment</li>
+      </ul>
+    </div>
+    <img src="https://ikshealth.com/wp-content/uploads/2026/05/Female-doctor-consulting-elderly-patient-in-medical-office-1024x535.webp" alt="Medical Advocacy" />
+  </div>
+</section>
+<section>
+  <div><span class="section-bar"></span><h2 class="section-title">Housing Assistance</h2></div>
+  <div class="two-col reverse">
+    <div class="two-col-text">
+      <h3>Safe & Comfortable Living</h3>
+      <p>A safe and comfortable home is essential for well-being. We connect individuals with housing that matches their accessibility and financial needs.</p>
+      <p>We protect housing rights, advocate against evictions, and navigate assisted living placements with confidence.</p>
+    </div>
+    <img src="https://the-501.com/wp-content/uploads/2025/05/AL_Lounge_2022_08_10_BalMat19_A-scaled.jpg" alt="Housing Assistance" />
+  </div>
+</section>
+<section>
+  <div><span class="section-bar"></span><h2 class="section-title">Family Assistance & Support</h2></div>
+  <div class="three-grid">
+    <div class="service-card">
+      <div class="service-card-title">Educational Workshops</div>
+      <p class="service-card-desc">Covering essential topics like Medicare, Medicaid, and estate planning to inform future decisions.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-title">Caregiver Support</div>
+      <p class="service-card-desc">One-on-one sessions to help families navigate complex healthcare and financial arrangements.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-title">Burnout Prevention</div>
+      <p class="service-card-desc">Mental health resources and peer support groups to help caregivers maintain their own well-being.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <div><span class="section-bar"></span><h2 class="section-title">Community & Well-being</h2></div>
+  <div class="two-col">
+    <div class="two-col-text">
+      <h3>Beating Social Isolation</h3>
+      <p>Loneliness can lead to declining physical and mental health. We foster meaningful social connections to ensure no one is left behind.</p>
+      <ul class="check-list">
+        <li>Social engagement events</li>
+        <li>Volunteer companionship</li>
+        <li>Transportation navigation</li>
+      </ul>
+    </div>
+    <img src="https://media.istockphoto.com/id/2205501160/photo/lively-conversation-and-laughter.jpg?s=612x612&w=0&k=20&c=ECKR5B-WIbFexihJP_Udy84u6CDWtkuhJLIkmlbxQAc=" alt="Community Well-being" />
+  </div>
+</section>
+<div class="stats-wrap">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Recommended by Families</div>
+    </div>
+    <div class="stat-detail">
+      <h4>Transforming Care</h4>
+      <p>93% of our caregivers feel better prepared to cope with the challenges of aging and disability support, ensuring long-term stability and peace of mind for the entire household.</p>
+    </div>
+  </div>
+</div>
+<div class="testimonial-wrap">
+  <div class="testimonial-inner">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">"Zen Senior Care Services made a difficult process much easier by providing us with reputable options tailored to our needs. Their support was invaluable."</p>
+    <div class="quote-attr">— Fariba M., Mission Hills, CA</div>
+  </div>
+</div>
+<section id="team">
+  <div><span class="section-bar"></span><h2 class="section-title">Meet Our Leadership Team</h2></div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/053/955/767/small/latin-hispanic-female-professional-business-woman-looking-at-camera-and-smiling-european-businesswoman-ceo-holding-digital-tablet-using-fintech-tab-application-standing-at-workplace-in-office-photo.jpg" alt="Nara Murillo" />
+      <div class="team-info">
+        <div class="team-name">Nara Murillo</div>
+        <div class="team-role">Chief Executive Officer</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="https://market-resized.envatousercontent.com/photodune.net/EVA/TRX/13/40/9c/d7/a8/v1_E10/E109CHHE.jpg?auto=format&q=94&mark=https%3A%2F%2Fassets.market-storefront.envato-static.com%2Fwatermarks%2Fphoto-260724.png&opacity=0.2&cf_fit=contain&w=590&h=885&s=9d3cd0b3a480cec78e1f6fa695ce2b09549729b85eb40c2ff1fde65b9a5e888" alt="Barbara Slingluff" />
+      <div class="team-info">
+        <div class="team-name">Barbara Slingluff</div>
+        <div class="team-role">Chief Operating Officer</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="involve-wrap" id="impact">
+  <div class="involve-inner">
+    <h2 class="involve-title">Ways To Get Involved</h2>
+    <div class="involve-grid">
+      <div class="involve-card">
+        <span class="involve-icon">🎁</span>
+        <div class="involve-card-title">Donate Today</div>
+        <p class="involve-card-desc">Your contribution provides essential resources for vulnerable seniors in our community.</p>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">🤝</span>
+        <div class="involve-card-title">Volunteer</div>
+        <p class="involve-card-desc">Sign up to be a companion or provide professional expertise to those who need it most.</p>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">📣</span>
+        <div class="involve-card-title">Spread the Word</div>
+        <p class="involve-card-desc">Advocacy starts with awareness. Share our mission with your network.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <div><span class="section-bar"></span><h2 class="section-title">Questions & Support</h2></div>
+    <div class="contact-box">
+      <p><strong style="color:white;">Website:</strong> <a href="https://www.zenscs.org">www.zenscs.org</a></p>
+      <p><strong style="color:white;">Email:</strong> <a href="mailto:info@zenscs.org">info@zenscs.org</a></p>
+      <p class="contact-tagline">We advocate fiercely. We guide with compassion.</p>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>&copy; 2026 Zen Senior Care Services &nbsp;&bull;&nbsp; www.zenscs.org | <a href="https://skalatsky.com/index.html" class="footer-credit" target="_blank" rel="noopener">Site by Skalatsky &amp; Associates</a>
+</footer>
+</body>
+</html>
