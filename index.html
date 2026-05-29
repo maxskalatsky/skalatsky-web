@@ -162,8 +162,24 @@
     box-shadow: 0 0 0 5px #ffffff, 0 0 0 9px #006699;
     overflow: hidden;
   }
-  .partner-logo 
-     { max-width: 100%; height: auto; }
+  .partner-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.partner-logo-wrap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partner-logo {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
      
 .teamimg a {
     display: block;
@@ -583,25 +599,25 @@
       </div>
     </div>
        
-       <div class="row" id="partners-logos">
+   <div class="row" id="partners-logos">
   <div class="col-md-4 col-sm-4 text-center bottom30">
     <div class="partner-logo-wrap">
       <a href="https://clutchsolutions.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Clutch Solutions website">
-        <img src="images/partner-clutch.png" alt="Clutch Solutions" class="partner-logo" style="max-width:100%;height:auto;" loading="lazy" decoding="async" />
+        <img src="images/partner-clutch.png" alt="Clutch Solutions" class="partner-logo" loading="lazy" decoding="async" />
       </a>
     </div>
   </div>
   <div class="col-md-4 col-sm-4 text-center bottom30">
     <div class="partner-logo-wrap">
       <a href="https://www.practical-fusion.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Practical Fusion website">
-        <img src="images/partner-practical-fusion.png" alt="Practical Fusion" class="partner-logo" style="max-width:100%;height:auto;" loading="lazy" decoding="async" />
+        <img src="images/partner-practical-fusion.png" alt="Practical Fusion" class="partner-logo" loading="lazy" decoding="async" />
       </a>
     </div>
   </div>
   <div class="col-md-4 col-sm-4 text-center bottom30">
     <div class="partner-logo-wrap">
       <a href="https://www.eaccfl.com" target="_blank" rel="noopener noreferrer" aria-label="Visit EACC Florida website">
-        <img src="images/partner-eaccv1.png" alt="EACC Florida" class="partner-logo" style="max-width:100%;height:auto;" loading="lazy" decoding="async" />
+        <img src="images/partner-eaccv1.png" alt="EACC Florida" class="partner-logo" loading="lazy" decoding="async" />
       </a>
     </div>
   </div>
