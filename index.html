@@ -282,15 +282,15 @@
 ═══════════════════════════════════════════ -->
 <section aria-label="Value proposition" style="margin:0; padding:0;">
   <div class="container-fluid" style="padding:0; margin:0;">
-    <div class="row" style="margin:0; display:flex;">
+    <div class="row" style="margin:0; display:flex; flex-wrap:wrap;">
 
-      <div class="col-md-6 col-sm-6" style="background-color:#004F82; padding: 48px; flex:1;">
+      <div class="col-md-6 col-sm-6" style="background-color:#004F82; padding: 48px; flex:1; min-width:300px;">
         <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">Days, Not Months</h2>
         <h3 style="color:#00C99C; font-size: 16px; margin-bottom: 12px;">No Kickoff. No Brief. No Timeline.</h3>
         <p style="color:#ffffff;">What companies spend hundreds of thousands of dollars and quarters assembling, S&amp;A deploys two to three times faster than any traditional approach. Brand, digital, apps, and platforms. All on demand.</p>
       </div>
 
-      <div class="col-md-6 col-sm-6" style="background-color:#0069AA; padding: 48px; flex:1;">
+      <div class="col-md-6 col-sm-6" style="background-color:#0069AA; padding: 48px; flex:1; min-width:300px;">
         <h2 style="color:#ffffff; font-size: 28px; line-height: 1.3; margin-top: 0;">Who We're Built For</h2>
         <h3 style="color:#00C99C; font-size: 16px; margin-bottom: 12px;">Fewer Decision Makers. Faster Results.</h3>
         <p style="color:#ffffff;">Private owners, PE firms, and growing companies are the only ones who can truly operate at the pace of AI.</p>
@@ -299,6 +299,15 @@
     </div>
   </div>
 </section>
+
+<style>
+@media (max-width: 767px) {
+  .valprop-card {
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+</style>
 <!-- Value proposition ends -->
 
 <!-- ═══════════════════════════════════════════
