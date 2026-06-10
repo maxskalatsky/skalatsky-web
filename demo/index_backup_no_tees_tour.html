@@ -139,6 +139,7 @@
       transition:background 0.2s, border-color 0.2s;
     }
     .btn-primary:hover, .btn-primary:focus-visible { background:var(--white); border-color:var(--white); }
+    .btn-primary.hover-blue:hover, .btn-primary.hover-blue:focus-visible { background:var(--blue); border-color:var(--blue); color:var(--white); }
     .btn-outline {
       font-family:var(--body); font-weight:700; font-size:0.8rem;
       letter-spacing:0.14em; text-transform:uppercase;
@@ -167,6 +168,7 @@
       margin-bottom:1.4rem;
     }
     .hairline-top { border-top:1px solid var(--w12); }
+    .divider-blue { width:42px; height:4px; background:var(--blue); margin-bottom:1.5rem; }
 
     /* ── THE TOUR ── */
     .what-inner { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center; max-width:1200px; margin:0 auto; }
@@ -187,6 +189,8 @@
     }
     .what-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--w12); border:1px solid var(--w12); }
     .stat-box { background:var(--black); padding:2.2rem 1.5rem; text-align:center; }
+    .stat-box.blue { background:var(--blue); }
+    .stat-box.blue .stat-label { color:rgba(255,255,255,0.7); }
     .stat-num { font-family:var(--poster); font-size:3.6rem; color:var(--white); line-height:0.9; display:block; }
     .stat-label {
       font-family:var(--body); font-weight:700; font-size:0.68rem;
@@ -214,6 +218,8 @@
       letter-spacing:0.1em; text-transform:uppercase; color:var(--black); line-height:1.5;
     }
     .slogan-text mark { background:var(--neon); color:var(--black); padding:0 0.25em; }
+    .slogan-text mark.blue { background:var(--blue); color:var(--white); }
+    .slogans-serif { color:var(--blue); }
     .slogans-footer { display:flex; justify-content:space-between; align-items:center; margin-top:3rem; flex-wrap:wrap; gap:1.5rem; }
     .slogans-footer img { height:54px; width:auto; }
     .badge-oval.dark { color:var(--black); }
@@ -231,6 +237,11 @@
       filter:grayscale(1); transition:transform 0.4s ease;
     }
     .player-card:hover .player-card-bg { transform:scale(1.04); }
+    .player-card::after {
+      content:''; position:absolute; left:0; bottom:0; height:4px; width:0;
+      background:var(--blue); z-index:3; transition:width 0.3s ease;
+    }
+    .player-card:hover::after { width:100%; }
     .player-card-bg::before {
       content:attr(data-num);
       position:absolute; top:0.9rem; right:1rem;
@@ -432,7 +443,7 @@
       </div>
       <div class="what-stats">
         <div class="stat-box"><span class="stat-num">32</span><span class="stat-label">Players Per Event</span></div>
-        <div class="stat-box"><span class="stat-num">1v1</span><span class="stat-label">Match Format</span></div>
+        <div class="stat-box blue"><span class="stat-num">1v1</span><span class="stat-label">Match Format</span></div>
         <div class="stat-box"><span class="stat-num">6&ndash;8</span><span class="stat-label">Tour Stops / Year</span></div>
         <div class="stat-box"><span class="stat-num">30yd</span><span class="stat-label">Radius of Play</span></div>
       </div>
@@ -451,7 +462,7 @@
         <div class="slogan"><span class="slogan-num">04</span><span class="slogan-text">The short game is war</span></div>
         <div class="slogan"><span class="slogan-num">05</span><span class="slogan-text">Pressure builds the real ones</span></div>
         <div class="slogan"><span class="slogan-num">06</span><span class="slogan-text">Short shots, long memories made</span></div>
-        <div class="slogan"><span class="slogan-num">07</span><span class="slogan-text">No gimmicks, <mark>no second chances</mark></span></div>
+        <div class="slogan"><span class="slogan-num">07</span><span class="slogan-text">No gimmicks, <mark class="blue">no second chances</mark></span></div>
       </div>
       <div class="slogans-footer">
         <img src="data:image/png;base64," alt="NO TEES TOUR™" style="display:none;">
@@ -525,6 +536,7 @@
       <div class="episode-meta">
         <p class="section-label">Latest Episode</p>
         <h2 class="section-title">Watch<br>The Tour</h2>
+        <div class="divider-blue" aria-hidden="true"></div>
         <p class="episode-serif">Every chip. Every putt. Every elimination.</p>
         <p class="copy">Follow the competition from the latest tour stop. Unscripted and unforgettable.</p>
         <a href="https://www.youtube.com/@crosshandproductions" target="_blank" rel="noopener" class="btn-outline" style="margin-top:0.5rem;">All Episodes &rarr;</a>
@@ -545,6 +557,7 @@
     <div class="inner">
       <p class="section-label">Sponsors &amp; Partners</p>
       <h2 class="section-title">Our Partners</h2>
+      <div class="divider-blue" aria-hidden="true"></div>
       <div class="partners-grid">
         <div class="partner-box title"><div class="partner-placeholder"></div><span class="partner-tier">Title Partner</span></div>
         <div class="partner-box"><div class="partner-placeholder"></div><span class="partner-tier">Official Partner</span></div>
@@ -567,7 +580,7 @@
           <li>Follow your players hole by hole</li>
           <li>Be there for the winner reveal</li>
         </ul>
-        <a href="#" class="btn-primary">Download on the App Store</a>
+        <a href="#" class="btn-primary hover-blue">Download on the App Store</a>
       </div>
       <div class="app-mockup" aria-hidden="true">
         <div class="phone-frame">
@@ -657,7 +670,7 @@
             <textarea id="fnotes" name="Notes" placeholder="Tell us about your game, background, or why you belong on the tour..."></textarea>
           </div>
           <div class="form-submit">
-            <button type="submit" class="btn-primary">Submit My Application</button>
+            <button type="submit" class="btn-primary hover-blue">Submit My Application</button>
           </div>
           <p class="form-note">Applications are reviewed by the No Tees Tour™ team. Must be 18+. Selected players will be contacted directly.</p>
         </form>
