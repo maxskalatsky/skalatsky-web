@@ -463,8 +463,8 @@
               <p style="font-size:17px; font-weight:600; color:#004F82; margin-bottom:4px;">Your gap map</p>
               <p style="font-size:13px; color:#777; margin-bottom:18px;">Prioritized by signal strength across your answers.</p>
               <div id="diag-gap-list" style="margin-bottom:22px;"></div>
-              <p style="font-size:14px; color:#555; margin-bottom:16px;">If you want to talk through any of this, reach out to Max directly.</p>
-              <a onclick="window.location.href='mailto:max@skalatsky.com?subject=Growth Diagnostic'" style="display:inline-block; background:#006699; color:#fff; font-size:14px; font-weight:600; padding:10px 24px; border-radius:4px; text-decoration:none; cursor:pointer;">Get in Touch</a>
+              <p style="font-size:14px; color:#555; margin-bottom:16px;">If you want to talk through any of this, reach out to S&amp;A directly.</p>
+              <button onclick="window.location.href='mailto:max@skalatsky.com?subject=Growth Diagnostic'" style="background:#006699; color:#fff; font-size:14px; font-weight:600; padding:10px 24px; border-radius:4px; border:none; cursor:pointer;">Get in Touch</button>
               <span style="display:inline-block; margin-left:18px; font-size:13px; color:#aaa; cursor:pointer; text-decoration:underline;" onclick="resetDiagnostic()">Start over</span>
             </div>
 
@@ -586,6 +586,7 @@ function openDiagnostic() {
   document.getElementById('diag-expanded').style.display = 'block';
   currentStep = 0;
   diagSequence = ['0','1','2','3','4','5','6'];
+  diagAnswers = {};
   renderQuestion('0');
 }
 
@@ -602,16 +603,29 @@ function resetDiagnostic() {
   var allQ = document.querySelectorAll('.dq');
   allQ.forEach(function(q) { q.style.display = 'none'; });
   renderQuestion('0');
-  document.querySelector('.dq[data-q="0"]').style.display = 'block';
 }
 
 function renderQuestion(qKey) {
+  var allQ = document.querySelectorAll('.dq');
+  allQ.forEach(function(q) { q.style.display = 'none'; });
+  document.getElementById('diag-results').style.display = 'none';
+
   var q = diagData[qKey];
   var block = document.querySelector('.dq[data-q="' + qKey + '"]');
   if (!block) return;
   block.style.display = 'block';
+
   var container = block.querySelector('.dq-options');
   container.innerHTML = '';
+
+  if (currentStep > 0) {
+    var backBtn = document.createElement('div');
+    backBtn.style.cssText = 'margin-bottom:14px; cursor:pointer; display:inline-block;';
+    backBtn.innerHTML = '<span style="font-size:13px; color:#006699; text-decoration:underline;">Back</span>';
+    backBtn.onclick = function() { goBack(); };
+    container.appendChild(backBtn);
+  }
+
   q.options.forEach(function(opt, oi) {
     var btn = document.createElement('div');
     btn.style.cssText = 'border:1px solid #d0dce8; border-radius:4px; padding:11px 16px; margin-bottom:8px; cursor:pointer; background:#fff;';
@@ -623,37 +637,42 @@ function renderQuestion(qKey) {
   });
 }
 
+function goBack() {
+  if (currentStep <= 0) return;
+  var prevKey = diagSequence[currentStep - 1];
+  delete diagAnswers[diagSequence[currentStep]];
+  if (diagSequence[currentStep] === '5b') {
+    diagSequence = diagSequence.filter(function(k) { return k !== '5b'; });
+  }
+  currentStep--;
+  renderQuestion(prevKey);
+}
+
 function selectAnswer(qKey, optIndex) {
   var opt = diagData[qKey].options[optIndex];
   diagAnswers[qKey] = { optIndex: optIndex, gaps: opt.gaps };
 
-  var current = document.querySelector('.dq[data-q="' + qKey + '"]');
-  current.style.display = 'none';
-
-  var nextKey = opt.next || getNextKey(qKey);
-
-  if (nextKey === 'results') {
-    showResults();
-    return;
-  }
-
-  if (nextKey === '5b') {
+  if (opt.next === '5b') {
     if (diagSequence.indexOf('5b') === -1) {
       var idx = diagSequence.indexOf('5');
       diagSequence.splice(idx + 1, 0, '5b');
     }
   }
 
-  renderQuestion(nextKey);
-}
+  currentStep++;
 
-function getNextKey(current) {
-  var idx = diagSequence.indexOf(current);
-  if (idx === -1 || idx >= diagSequence.length - 1) return 'results';
-  return diagSequence[idx + 1];
+  if (currentStep >= diagSequence.length) {
+    showResults();
+    return;
+  }
+
+  renderQuestion(diagSequence[currentStep]);
 }
 
 function showResults() {
+  var allQ = document.querySelectorAll('.dq');
+  allQ.forEach(function(q) { q.style.display = 'none'; });
+
   var gapCounts = {};
   Object.keys(diagAnswers).forEach(function(qKey) {
     diagAnswers[qKey].gaps.forEach(function(g) {
