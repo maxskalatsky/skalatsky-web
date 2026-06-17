@@ -310,6 +310,9 @@
 </style>
 <!-- Value proposition ends -->
 
+Here is the complete drop-in replacement for the services section. This includes the unification card animation on the header hover, four individual content-rich popouts on each bullet cell hover, and "Imagery, video and motion" with AI removed.
+
+```html
 <!-- ═══════════════════════════════════════════
      SERVICES
 ═══════════════════════════════════════════ -->
@@ -329,75 +332,193 @@
 
       <!-- POSITION THE BRAND -->
       <div class="col-md-4 col-sm-6" style="padding:0 15px;">
-        <div class="icon_box equalheight" style="padding:0; overflow:visible; position:relative;">
+        <div class="icon_box equalheight" style="padding:24px; position:relative;">
 
-          <!-- UNIFICATION CARD (hover state) -->
-          <div class="sa-unification" style="display:none; position:absolute; top:0; left:0; right:0; z-index:100; background:#004F82; border-radius:12px; padding:1.5rem; box-shadow:0 8px 32px rgba(0,79,130,0.25); border:1px solid rgba(0,198,156,0.2);">
-            <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; color:#00C99C; margin:0 0 6px;">S&A SERVICES</p>
-            <p style="font-size:18px; font-weight:700; color:#ffffff; margin:0 0 4px;">Position the Brand</p>
-            <p style="font-size:12px; color:rgba(255,255,255,0.6); margin:0 0 18px; line-height:1.6;">A system, not a menu. Three strategic layers built in sequence, powered by one production engine.</p>
-            <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin:0 0 16px;">
+          <!-- HEADER WITH UNIFICATION HOVER -->
+          <div style="position:relative; display:inline-block; width:100%;">
+            <h3 class="text-capitalize darkcolor bottom10 sa-ptb-trigger" style="text-align:center; cursor:default;">Position the Brand</h3>
+            <hr style="border-top: 2px solid #006699; width:100%; margin: 8px 0 16px 0;" />
 
-            <div style="display:flex; flex-direction:column; gap:8px;">
-
-              <div style="display:grid; grid-template-columns:32px 1fr; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
-                <div style="width:32px; height:32px; border-radius:50%; background:rgba(0,198,156,0.15); border:1px solid rgba(0,198,156,0.4); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#00C99C;">01</div>
-                <div>
-                  <p style="font-size:10px; font-weight:700; letter-spacing:0.07em; color:#00C99C; margin:0 0 2px;">FOUNDATION</p>
-                  <p style="font-size:13px; font-weight:700; color:#ffffff; margin:0 0 2px;">Go-to-market architecture</p>
-                  <p style="font-size:11px; color:rgba(255,255,255,0.5); margin:0; line-height:1.5;">The blueprint. Who the buyer is, where you play, and in what order you move.</p>
+            <!-- UNIFICATION POPUP -->
+            <div class="sa-unification-popup" style="display:none; position:absolute; top:0; left:50%; transform:translateX(-50%); width:300px; background:#004F82; border-radius:12px; padding:1.25rem; box-shadow:0 12px 32px rgba(0,31,64,0.35); border:1px solid rgba(0,198,156,0.25); z-index:500;">
+              <div class="sa-anim-row" style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+                <div class="sa-ab-block" id="sab1" style="flex:1; display:flex; flex-direction:row; align-items:center; gap:7px; padding:10px 8px; border-radius:7px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); opacity:0; transform:translateX(-8px); transition:opacity 0.35s ease, transform 0.35s ease, background 0.25s, border-color 0.25s;">
+                  <div class="sa-icon-wrap" style="width:26px; height:26px; border-radius:5px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.25s;"><i class="ti ti-compass" style="font-size:13px; color:rgba(255,255,255,0.4); transition:color 0.25s;" aria-hidden="true"></i></div>
+                  <p style="font-size:11px; font-weight:700; color:#fff; margin:0; line-height:1.3;">Map the opportunity</p>
+                </div>
+                <span class="sa-arr" id="sarr1" style="font-size:13px; color:rgba(0,198,156,0.4); flex-shrink:0; opacity:0; transition:opacity 0.3s ease;">&#8594;</span>
+                <div class="sa-ab-block" id="sab2" style="flex:1; display:flex; flex-direction:row; align-items:center; gap:7px; padding:10px 8px; border-radius:7px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); opacity:0; transform:translateX(-8px); transition:opacity 0.35s ease, transform 0.35s ease, background 0.25s, border-color 0.25s;">
+                  <div class="sa-icon-wrap" style="width:26px; height:26px; border-radius:5px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.25s;"><i class="ti ti-pencil" style="font-size:13px; color:rgba(255,255,255,0.4); transition:color 0.25s;" aria-hidden="true"></i></div>
+                  <p style="font-size:11px; font-weight:700; color:#fff; margin:0; line-height:1.3;">Craft the story</p>
+                </div>
+                <span class="sa-arr" id="sarr2" style="font-size:13px; color:rgba(0,198,156,0.4); flex-shrink:0; opacity:0; transition:opacity 0.3s ease;">&#8594;</span>
+                <div class="sa-ab-block" id="sab3" style="flex:1; display:flex; flex-direction:row; align-items:center; gap:7px; padding:10px 8px; border-radius:7px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); opacity:0; transform:translateX(-8px); transition:opacity 0.35s ease, transform 0.35s ease, background 0.25s, border-color 0.25s;">
+                  <div class="sa-icon-wrap" style="width:26px; height:26px; border-radius:5px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.25s;"><i class="ti ti-speakerphone" style="font-size:13px; color:rgba(255,255,255,0.4); transition:color 0.25s;" aria-hidden="true"></i></div>
+                  <p style="font-size:11px; font-weight:700; color:#fff; margin:0; line-height:1.3;">Reach the right room</p>
                 </div>
               </div>
 
-              <div style="display:grid; grid-template-columns:32px 1fr; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
-                <div style="width:32px; height:32px; border-radius:50%; background:rgba(0,198,156,0.15); border:1px solid rgba(0,198,156,0.4); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#00C99C;">02</div>
-                <div>
-                  <p style="font-size:10px; font-weight:700; letter-spacing:0.07em; color:#00C99C; margin:0 0 2px;">LANGUAGE LAYER</p>
-                  <p style="font-size:13px; font-weight:700; color:#ffffff; margin:0 0 2px;">Positioning and messaging</p>
-                  <p style="font-size:11px; color:rgba(255,255,255,0.5); margin:0; line-height:1.5;">What you say, to whom, and why this over anything else.</p>
+              <div id="sa-divider" style="width:100%; height:1px; background:rgba(255,255,255,0.08); margin:6px 0; opacity:0; transition:opacity 0.3s ease;"></div>
+
+              <div id="sab4wrap" style="display:flex; justify-content:center; opacity:0; transform:translateY(6px); transition:opacity 0.4s ease, transform 0.4s ease;">
+                <div style="display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:30px; background:rgba(0,198,156,0.12); border:1px solid rgba(0,198,156,0.35);">
+                  <i class="ti ti-sparkles" style="font-size:14px; color:#00C99C;" aria-hidden="true"></i>
+                  <p style="font-size:11px; font-weight:700; color:#fff; margin:0; white-space:nowrap;">Make it seen, heard, and felt</p>
+                  <div style="display:flex; gap:4px;">
+                    <div class="sa-dot" id="sd1" style="width:5px; height:5px; border-radius:50%; background:#00C99C; opacity:0.2; transition:opacity 0.3s ease;"></div>
+                    <div class="sa-dot" id="sd2" style="width:5px; height:5px; border-radius:50%; background:#00C99C; opacity:0.2; transition:opacity 0.3s ease;"></div>
+                    <div class="sa-dot" id="sd3" style="width:5px; height:5px; border-radius:50%; background:#00C99C; opacity:0.2; transition:opacity 0.3s ease;"></div>
+                  </div>
                 </div>
               </div>
-
-              <div style="display:grid; grid-template-columns:32px 1fr; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
-                <div style="width:32px; height:32px; border-radius:50%; background:rgba(0,198,156,0.15); border:1px solid rgba(0,198,156,0.4); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#00C99C;">03</div>
-                <div>
-                  <p style="font-size:10px; font-weight:700; letter-spacing:0.07em; color:#00C99C; margin:0 0 2px;">ACTIVATION LAYER</p>
-                  <p style="font-size:13px; font-weight:700; color:#ffffff; margin:0 0 2px;">Content, copy and campaigns</p>
-                  <p style="font-size:11px; color:rgba(255,255,255,0.5); margin:0; line-height:1.5;">The right words and assets in front of the right buyer at the right moment.</p>
-                </div>
-              </div>
-
-              <div style="padding:12px 14px; border-radius:8px; background:rgba(0,102,153,0.4); border:1px dashed rgba(0,198,156,0.3); display:grid; grid-template-columns:28px 1fr; gap:10px; align-items:center;">
-                <div style="font-size:18px; color:#00C99C;">&#10022;</div>
-                <div>
-                  <p style="font-size:12px; font-weight:700; color:#ffffff; margin:0 0 2px;">AI imagery, video and motion</p>
-                  <p style="font-size:11px; color:rgba(255,255,255,0.5); margin:0; line-height:1.5;">The production engine that serves all three layers.</p>
-                </div>
-              </div>
-
             </div>
-            <p style="font-size:11px; color:rgba(255,255,255,0.3); text-align:center; margin:16px 0 0; font-style:italic;">Built for revenue. Not overhead.</p>
           </div>
 
-          <!-- DEFAULT STATE -->
-          <div class="sa-default" style="padding:24px;">
-            <h3 class="text-capitalize darkcolor bottom10" style="text-align:center;">Position the Brand</h3>
-            <hr style="border-top: 2px solid #006699; width:100%; margin: 8px 0 16px 0;" />
-            <div style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; margin-bottom:6px;">
+          <!-- BULLET 1: GTM ARCHITECTURE -->
+          <div class="sa-bullet-wrap" style="position:relative; margin-bottom:6px;">
+            <div class="sa-bullet sa-bullet-trigger" data-popup="sa-popup-gtm" style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; cursor:pointer; transition:border-color 0.2s, background 0.2s;">
               <div style="width:5px; height:5px; border-radius:50%; background:#006699; flex-shrink:0;"></div>
               <span style="font-size:13px; color:#6b7280;">Go-to-market architecture</span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; margin-bottom:6px;">
+            <div id="sa-popup-gtm" class="sa-bullet-popup" style="display:none; position:absolute; left:105%; top:0; width:280px; background:#fff; border-radius:10px; padding:1.1rem; box-shadow:0 8px 28px rgba(0,31,64,0.15); border:1px solid #e2eaf0; border-top:3px solid #006699; z-index:400;">
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.1em; color:#006699; margin:0 0 4px;">POSITION THE BRAND</p>
+              <p style="font-size:14px; font-weight:700; color:#004F82; margin:0 0 6px;">Go-to-market architecture</p>
+              <p style="font-size:11px; color:#6b7280; line-height:1.6; margin:0 0 12px; padding-bottom:10px; border-bottom:1px solid #e2eaf0;">The strategic blueprint everything else is built on. Who the buyer is, where you play, and in what order you move.</p>
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.08em; color:#9ca3af; margin:0 0 8px;">HOW WE DELIVER IT</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">1</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Discovery and market context</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Map the competitive landscape and pressure test the product against what the market actually values.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">2</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Buyer definition and persona mapping</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define the primary buyer, the influencer, and the economic decision maker.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">3</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Positioning and messaging framework</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define what it is, who it is for, why this over any alternative, and what the proof points are.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">4</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Beachhead and sequencing</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Identify which segment to go after first and in what order to expand.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">5</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Activation planning</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define which channels carry the message, in what format, on what cadence, and with what call to action.</p></div>
+                </div>
+              </div>
+              <p style="font-size:10px; color:#9ca3af; font-style:italic; margin:10px 0 0; padding-top:10px; border-top:1px solid #e2eaf0;">Layer 1 of 3 in the strategic stack</p>
+            </div>
+          </div>
+
+          <!-- BULLET 2: POSITIONING AND MESSAGING -->
+          <div class="sa-bullet-wrap" style="position:relative; margin-bottom:6px;">
+            <div class="sa-bullet sa-bullet-trigger" data-popup="sa-popup-pos" style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; cursor:pointer; transition:border-color 0.2s, background 0.2s;">
               <div style="width:5px; height:5px; border-radius:50%; background:#006699; flex-shrink:0;"></div>
               <span style="font-size:13px; color:#6b7280;">Positioning and messaging</span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; margin-bottom:6px;">
+            <div id="sa-popup-pos" class="sa-bullet-popup" style="display:none; position:absolute; left:105%; top:0; width:280px; background:#fff; border-radius:10px; padding:1.1rem; box-shadow:0 8px 28px rgba(0,31,64,0.15); border:1px solid #e2eaf0; border-top:3px solid #006699; z-index:400;">
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.1em; color:#006699; margin:0 0 4px;">POSITION THE BRAND</p>
+              <p style="font-size:14px; font-weight:700; color:#004F82; margin:0 0 6px;">Positioning and messaging</p>
+              <p style="font-size:11px; color:#6b7280; line-height:1.6; margin:0 0 12px; padding-bottom:10px; border-bottom:1px solid #e2eaf0;">The language layer that makes a product instantly understood by the right buyer. Positioning defines where you play. Messaging defines what you say when you get there.</p>
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.08em; color:#9ca3af; margin:0 0 8px;">HOW WE DELIVER IT</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">1</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Positioning foundation</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define the category, the problem you solve, and the one claim no competitor can credibly make.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">2</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Audience alignment</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Match positioning to each buyer type so the message lands differently without contradicting itself.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">3</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Messaging hierarchy</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Build the primary message, supporting proof points, and objection responses in one framework.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">4</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Channel translation</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Adapt the core message for each surface it needs to live on without losing the thread.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">5</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Validation and refinement</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Test the language with real buyers, listen for where it sticks and where it slides, and sharpen.</p></div>
+                </div>
+              </div>
+              <p style="font-size:10px; color:#9ca3af; font-style:italic; margin:10px 0 0; padding-top:10px; border-top:1px solid #e2eaf0;">Layer 2 of 3 in the strategic stack</p>
+            </div>
+          </div>
+
+          <!-- BULLET 3: CONTENT COPY AND CAMPAIGNS -->
+          <div class="sa-bullet-wrap" style="position:relative; margin-bottom:6px;">
+            <div class="sa-bullet sa-bullet-trigger" data-popup="sa-popup-content" style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; cursor:pointer; transition:border-color 0.2s, background 0.2s;">
               <div style="width:5px; height:5px; border-radius:50%; background:#006699; flex-shrink:0;"></div>
               <span style="font-size:13px; color:#6b7280;">Content, copy and campaigns</span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; margin-bottom:6px;">
+            <div id="sa-popup-content" class="sa-bullet-popup" style="display:none; position:absolute; left:105%; top:0; width:280px; background:#fff; border-radius:10px; padding:1.1rem; box-shadow:0 8px 28px rgba(0,31,64,0.15); border:1px solid #e2eaf0; border-top:3px solid #006699; z-index:400;">
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.1em; color:#006699; margin:0 0 4px;">POSITION THE BRAND</p>
+              <p style="font-size:14px; font-weight:700; color:#004F82; margin:0 0 6px;">Content, copy and campaigns</p>
+              <p style="font-size:11px; color:#6b7280; line-height:1.6; margin:0 0 12px; padding-bottom:10px; border-bottom:1px solid #e2eaf0;">The activation layer that puts positioning in front of the right people at the right moment. Every word and every asset has a specific job tied to a specific outcome.</p>
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.08em; color:#9ca3af; margin:0 0 8px;">HOW WE DELIVER IT</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">1</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Content strategy</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define what to say, to whom, on which channels, and in what sequence based on the buyer journey.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">2</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Copy development</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Write the words that do the work. Website, sales collateral, email sequences, landing pages, ad creative.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">3</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Campaign architecture</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Design the full campaign structure including offer, audience, channel mix, timeline, and success metrics.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">4</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Asset production</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Build the content the campaign requires. Blog posts, case studies, social content, email programs.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#f0f6fb; border:1px solid #006699; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#006699; flex-shrink:0; margin-top:1px;">5</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Performance and iteration</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Measure what lands, cut what does not, and feed the signal back into the next cycle.</p></div>
+                </div>
+              </div>
+              <p style="font-size:10px; color:#9ca3af; font-style:italic; margin:10px 0 0; padding-top:10px; border-top:1px solid #e2eaf0;">Layer 3 of 3 in the strategic stack</p>
+            </div>
+          </div>
+
+          <!-- BULLET 4: IMAGERY VIDEO AND MOTION -->
+          <div class="sa-bullet-wrap" style="position:relative; margin-bottom:6px;">
+            <div class="sa-bullet sa-bullet-trigger" data-popup="sa-popup-img" style="display:flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid #e5e7eb; border-radius:8px; cursor:pointer; transition:border-color 0.2s, background 0.2s;">
               <div style="width:5px; height:5px; border-radius:50%; background:#006699; flex-shrink:0;"></div>
-              <span style="font-size:13px; color:#6b7280;">AI imagery, video and motion</span>
+              <span style="font-size:13px; color:#6b7280;">Imagery, video and motion</span>
+            </div>
+            <div id="sa-popup-img" class="sa-bullet-popup" style="display:none; position:absolute; left:105%; top:0; width:280px; background:#fff; border-radius:10px; padding:1.1rem; box-shadow:0 8px 28px rgba(0,31,64,0.15); border:1px solid #e2eaf0; border-top:3px solid #00C99C; z-index:400;">
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.1em; color:#00C99C; margin:0 0 4px;">POSITION THE BRAND</p>
+              <p style="font-size:14px; font-weight:700; color:#004F82; margin:0 0 6px;">Imagery, video and motion</p>
+              <p style="font-size:11px; color:#6b7280; line-height:1.6; margin:0 0 12px; padding-bottom:10px; border-bottom:1px solid #e2eaf0;">The visual and production engine that serves every layer of the strategic stack. Runs alongside the work, not after it.</p>
+              <p style="font-size:9px; font-weight:700; letter-spacing:0.08em; color:#9ca3af; margin:0 0 8px;">HOW WE DELIVER IT</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#e6faf6; border:1px solid #00C99C; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#00C99C; flex-shrink:0; margin-top:1px;">1</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Creative brief and visual direction</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Define the visual language and style that expresses the positioning without a word of copy.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#e6faf6; border:1px solid #00C99C; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#00C99C; flex-shrink:0; margin-top:1px;">2</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Image generation and curation</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Produce on-brand imagery at speed. Campaign visuals, hero assets, social creative, and product illustration.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#e6faf6; border:1px solid #00C99C; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#00C99C; flex-shrink:0; margin-top:1px;">3</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Video and motion production</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Short form video, animated explainers, and motion graphics that move the message further than static assets can.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#e6faf6; border:1px solid #00C99C; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#00C99C; flex-shrink:0; margin-top:1px;">4</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Asset formatting and delivery</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Every file sized and optimized for its destination. No generic outputs.</p></div>
+                </div>
+                <div style="display:flex; gap:8px; align-items:flex-start;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:#e6faf6; border:1px solid #00C99C; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#00C99C; flex-shrink:0; margin-top:1px;">5</div>
+                  <div><p style="font-size:11px; font-weight:700; color:#1a1a1a; margin:0 0 1px;">Iteration and refresh</p><p style="font-size:10px; color:#6b7280; margin:0; line-height:1.5;">Keep the visual library current as campaigns evolve, markets shift, and new creative needs emerge.</p></div>
+                </div>
+              </div>
+              <p style="font-size:10px; color:#9ca3af; font-style:italic; margin:10px 0 0; padding-top:10px; border-top:1px solid #e2eaf0;">Production track — runs alongside all three layers</p>
             </div>
           </div>
 
@@ -456,23 +577,142 @@
   </div>
 </section>
 
+<style>
+.sa-bullet-trigger:hover {
+  border-color: #006699 !important;
+  background: #f0f6fb !important;
+}
+.sa-bullet-trigger:hover span {
+  color: #004F82 !important;
+}
+</style>
+
 <script>
 (function() {
-  var col = document.querySelector('.sa-default').closest('.icon_box');
-  var def = document.querySelector('.sa-default');
-  var uni = document.querySelector('.sa-unification');
-  if (!col || !def || !uni) return;
-  col.parentElement.addEventListener('mouseenter', function() {
-    def.style.display = 'none';
-    uni.style.display = 'block';
+
+  var tabler = document.createElement('link');
+  tabler.rel = 'stylesheet';
+  tabler.href = 'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css';
+  document.head.appendChild(tabler);
+
+  var trigger = document.querySelector('.sa-ptb-trigger');
+  var popup = document.querySelector('.sa-unification-popup');
+  var animTimer = null;
+
+  function resetAnim() {
+    var blocks = ['sab1','sab2','sab3'];
+    blocks.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(-8px)';
+      el.style.background = 'rgba(255,255,255,0.05)';
+      el.style.borderColor = 'rgba(255,255,255,0.08)';
+      var icon = el.querySelector('i');
+      if (icon) { icon.style.color = 'rgba(255,255,255,0.4)'; }
+      var iconWrap = el.querySelector('.sa-icon-wrap');
+      if (iconWrap) { iconWrap.style.background = 'rgba(255,255,255,0.08)'; }
+    });
+    ['sarr1','sarr2'].forEach(function(id) {
+      document.getElementById(id).style.opacity = '0';
+    });
+    var ab4 = document.getElementById('sab4wrap');
+    ab4.style.opacity = '0';
+    ab4.style.transform = 'translateY(6px)';
+    document.getElementById('sa-divider').style.opacity = '0';
+    ['sd1','sd2','sd3'].forEach(function(id) {
+      document.getElementById(id).style.opacity = '0.2';
+    });
+  }
+
+  function activateBlock(id) {
+    var el = document.getElementById(id);
+    el.style.opacity = '1';
+    el.style.transform = 'translateX(0)';
+    el.style.background = 'rgba(0,198,156,0.15)';
+    el.style.borderColor = 'rgba(0,198,156,0.5)';
+    var icon = el.querySelector('i');
+    if (icon) { icon.style.color = '#00C99C'; }
+    var iconWrap = el.querySelector('.sa-icon-wrap');
+    if (iconWrap) { iconWrap.style.background = 'rgba(0,198,156,0.2)'; }
+  }
+
+  function deactivateBlock(id) {
+    var el = document.getElementById(id);
+    el.style.background = 'rgba(255,255,255,0.05)';
+    el.style.borderColor = 'rgba(255,255,255,0.08)';
+    var icon = el.querySelector('i');
+    if (icon) { icon.style.color = 'rgba(255,255,255,0.5)'; }
+    var iconWrap = el.querySelector('.sa-icon-wrap');
+    if (iconWrap) { iconWrap.style.background = 'rgba(255,255,255,0.08)'; }
+  }
+
+  function runAnim() {
+    resetAnim();
+    var t1 = setTimeout(function() { activateBlock('sab1'); }, 300);
+    var t2 = setTimeout(function() { deactivateBlock('sab1'); document.getElementById('sarr1').style.opacity = '1'; activateBlock('sab2'); }, 1100);
+    var t3 = setTimeout(function() { deactivateBlock('sab2'); document.getElementById('sarr2').style.opacity = '1'; activateBlock('sab3'); }, 1900);
+    var t4 = setTimeout(function() { deactivateBlock('sab3'); document.getElementById('sa-divider').style.opacity = '1'; }, 2700);
+    var t5 = setTimeout(function() { var ab4 = document.getElementById('sab4wrap'); ab4.style.opacity = '1'; ab4.style.transform = 'translateY(0)'; document.getElementById('sd1').style.opacity = '1'; }, 3000);
+    var t6 = setTimeout(function() { document.getElementById('sd2').style.opacity = '1'; }, 3300);
+    var t7 = setTimeout(function() { document.getElementById('sd3').style.opacity = '1'; }, 3600);
+    animTimer = setTimeout(function() { runAnim(); }, 7000);
+  }
+
+  if (trigger && popup) {
+    trigger.addEventListener('mouseenter', function() {
+      popup.style.display = 'block';
+      runAnim();
+    });
+    trigger.addEventListener('mouseleave', function(e) {
+      if (!popup.contains(e.relatedTarget)) {
+        popup.style.display = 'none';
+        clearTimeout(animTimer);
+        resetAnim();
+      }
+    });
+    popup.addEventListener('mouseleave', function(e) {
+      if (e.relatedTarget !== trigger) {
+        popup.style.display = 'none';
+        clearTimeout(animTimer);
+        resetAnim();
+      }
+    });
+  }
+
+  document.querySelectorAll('.sa-bullet-trigger').forEach(function(bullet) {
+    var popupId = bullet.getAttribute('data-popup');
+    var bulletPopup = document.getElementById(popupId);
+    if (!bulletPopup) return;
+
+    bullet.addEventListener('mouseenter', function() {
+      document.querySelectorAll('.sa-bullet-popup').forEach(function(p) { p.style.display = 'none'; });
+      bulletPopup.style.display = 'block';
+    });
+    bullet.addEventListener('mouseleave', function(e) {
+      if (!bulletPopup.contains(e.relatedTarget)) {
+        bulletPopup.style.display = 'none';
+      }
+    });
+    bulletPopup.addEventListener('mouseleave', function(e) {
+      if (e.relatedTarget !== bullet) {
+        bulletPopup.style.display = 'none';
+      }
+    });
   });
-  col.parentElement.addEventListener('mouseleave', function() {
-    uni.style.display = 'none';
-    def.style.display = 'block';
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.sa-bullet-wrap') && !e.target.closest('.sa-ptb-trigger') && !e.target.closest('.sa-unification-popup')) {
+      document.querySelectorAll('.sa-bullet-popup').forEach(function(p) { p.style.display = 'none'; });
+      if (popup) { popup.style.display = 'none'; }
+    }
   });
+
 })();
 </script>
 <!-- Services ends -->
+```
+
+Five distinct hover states total. Header triggers the animated unification card. Each of the four bullets triggers its own content-rich popout to the right. Imagery, video and motion updated with AI removed and teal accent to distinguish it as the production track. Ready to test.
      
 <!-- ═══════════════════════════════════════════
      GROWTH DIAGNOSTIC STRIP
