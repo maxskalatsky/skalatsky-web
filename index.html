@@ -332,7 +332,7 @@
         <div class="icon_box equalheight" style="padding:24px;">
 
           <div class="sa-title-wrap" style="text-align:center; margin-bottom:10px;">
-            <h3 class="sa-ptb-title text-capitalize" style="margin:0; padding:6px 12px; border-radius:6px; display:inline-block; transition:background 0.25s, color 0.25s; cursor:default;">Position the Brand</h3>
+            <h3 class="text-capitalize darkcolor bottom10" style="text-align:center; font-size:14px; font-weight:700; letter-spacing:0.05em; margin:0 0 8px;"><span id="sa-ptb-swap">Position the Brand</span></h3>
           </div>
           <hr style="border-top:2px solid #006699; width:100%; margin:0 0 16px 0;" />
 
@@ -1213,6 +1213,48 @@ function showResults() {
   });
 })();
 </script>
+     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script defer src="js/bootstrap.min.js"></script>
+<script defer src="js/jquery.matchHeight-min.js"></script>
+<script defer src="js/parallaxie.js"></script>
+<script defer src="js/wow.min.js"></script>
+<script defer src="js/functions.js"></script>
+<script>
+(function() {
+  var btn = document.querySelector('.navbar-toggle');
+  var menu = document.getElementById('fixed-collapse-navbar');
+  if (!btn || !menu) return;
+  menu.addEventListener('show.bs.collapse', function() {
+    btn.setAttribute('aria-expanded', 'true');
+  });
+  menu.addEventListener('hide.bs.collapse', function() {
+    btn.setAttribute('aria-expanded', 'false');
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var el = document.getElementById('sa-ptb-swap');
+  if (!el) return;
+  el.parentElement.addEventListener('mouseenter', function() {
+    el.textContent = 'Four moves. One system. Built in sequence.';
+    el.style.color = '#ffffff';
+    el.parentElement.style.background = '#006699';
+    el.parentElement.style.borderRadius = '6px';
+    el.parentElement.style.padding = '4px 10px';
+  });
+  el.parentElement.addEventListener('mouseleave', function() {
+    el.textContent = 'Position the Brand';
+    el.style.color = '';
+    el.parentElement.style.background = '';
+    el.parentElement.style.borderRadius = '';
+    el.parentElement.style.padding = '';
+  });
+})();
+</script>
+
+</body>
 
 </body>
 </html>
