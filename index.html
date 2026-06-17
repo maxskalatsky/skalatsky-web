@@ -330,10 +330,8 @@
       <!-- POSITION THE BRAND -->
       <div class="col-md-4 col-sm-6" style="padding:0 15px;">
         <div class="icon_box equalheight" style="padding:24px;">
-
-          <div class="sa-title-wrap" style="text-align:center; margin-bottom:10px;">
             <h3 class="text-capitalize darkcolor bottom10" style="text-align:center;"><span id="sa-ptb-swap">Position the Brand</span></h3>
-          </div>
+
           <hr style="border-top:2px solid #006699; width:100%; margin:0 0 16px 0;" />
 
           <div class="sa-row" onclick="saPop('sa-pop-gtm', this)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border:1px solid #e5e7eb; border-radius:8px; margin-bottom:7px; cursor:pointer; transition:border-color 0.2s, background 0.2s;">
@@ -1240,6 +1238,7 @@ function showResults() {
   el.parentElement.addEventListener('mouseenter', function() {
     el.textContent = 'Four moves. One system. Built in sequence.';
     el.style.color = '#ffffff';
+    el.style.fontSize = '10px';
     el.parentElement.style.background = '#006699';
     el.parentElement.style.borderRadius = '6px';
     el.parentElement.style.padding = '4px 10px';
@@ -1247,6 +1246,7 @@ function showResults() {
   el.parentElement.addEventListener('mouseleave', function() {
     el.textContent = 'Position the Brand';
     el.style.color = '';
+    el.style.fontSize = '';
     el.parentElement.style.background = '';
     el.parentElement.style.borderRadius = '';
     el.parentElement.style.padding = '';
