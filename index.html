@@ -420,7 +420,7 @@
         <div class="intro-text center wow fadeInUp">
           <span class="heading-title bottom25">Free AI Audit</span>
           <h2 class="darkcolor bottom25" id="ai-audit-heading">What does Google actually think of your website?</h2>
-          <p class="bottom35">Find out in under two minutes. Free. No email required.</p>
+          <p class="bottom35">Find out in under two minutes. Free.</p>
         </div>
       </div>
     </div>
@@ -441,11 +441,12 @@
         #sa-audit .sa-opt.sa-on span{color:var(--ink);}
         #sa-audit .sa-opt.sa-on .sa-dot{border-color:var(--p);}
         #sa-audit .sa-opt.sa-on .sa-dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--p);}
-        #sa-audit .sa-field label{display:block;font-size:15px;font-weight:600;margin:0 0 11px;}
+        #sa-audit .sa-field{margin-bottom:14px;}
+        #sa-audit .sa-field label{display:block;font-size:15px;font-weight:600;margin:0 0 9px;}
         #sa-audit .sa-input{width:100%;font-size:15px;font-family:inherit;color:var(--ink);padding:13px 15px;border:1px solid var(--line2);border-radius:8px;outline:none;transition:border-color .15s,box-shadow .15s;}
         #sa-audit .sa-input:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(0,102,153,.12);}
         #sa-audit .sa-input::placeholder{color:#9aa2af;}
-        #sa-audit .sa-cta{text-align:center;margin-top:22px;}
+        #sa-audit .sa-cta{text-align:center;margin-top:20px;}
         #sa-audit .sa-cta .button{cursor:pointer;}
         #sa-audit .sa-err{color:var(--gF);font-size:13.5px;margin:12px 0 0;display:none;text-align:center;}
         #sa-audit .sa-note{text-align:center;color:var(--muted2);font-size:12.5px;margin:14px 0 0;}
@@ -466,7 +467,6 @@
         #sa-audit .sa-gauge .sa-prog{fill:none;stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.22,1,.36,1);}
         #sa-audit .sa-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
         #sa-audit .sa-gauge-letter{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em;}
-        #sa-audit .sa-gauge-letter small{font-size:22px;vertical-align:super;}
         #sa-audit .sa-gauge-score{font-size:12px;font-weight:700;color:var(--muted2);margin-top:3px;}
         #sa-audit .sa-hero-k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:0 0 6px;}
         #sa-audit .sa-hero-t{font-size:20px;font-weight:700;color:var(--ink);margin:0 0 7px;}
@@ -517,12 +517,16 @@
             <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q3" value="nothing"><span>We have not done anything yet.</span></label>
           </div>
           <div class="sa-field">
+            <label for="sa-email">Your work email</label>
+            <input type="email" id="sa-email" class="sa-input" placeholder="you@company.com" autocomplete="email" inputmode="email">
+          </div>
+          <div class="sa-field">
             <label for="sa-url">Your website</label>
             <input type="url" id="sa-url" class="sa-input" placeholder="yourbusiness.com" autocomplete="url" inputmode="url">
           </div>
           <div class="sa-cta"><button id="sa-run" class="button default" type="button">Run My Free Audit</button></div>
           <p id="sa-err" class="sa-err"></p>
-          <p class="sa-note">One free audit per website. Your results appear right here.</p>
+          <p class="sa-note">One free audit per website. We email your results and never share your address.</p>
         </div>
       </div>
 
@@ -571,6 +575,7 @@
           });
         });
         function normalizeUrl(raw){var v=(raw||'').trim();if(!v)return null;if(!/^https?:\/\//i.test(v))v='https://'+v;try{var u=new URL(v);return (u.hostname&&u.hostname.indexOf('.')>-1)?u:null;}catch(e){return null;}}
+        function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
         function answers(){function val(n){var el=root.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}return {q1:val('q1'),q2:val('q2'),q3:val('q3')};}
         var LIMIT_KEY='sa_audit_done_v2';
         function loadLimit(){try{return JSON.parse(localStorage.getItem(LIMIT_KEY)||'{}');}catch(e){return {};}}
@@ -580,13 +585,15 @@
           err.style.display='none';
           var a=answers();
           if(!a.q1||!a.q2||!a.q3){err.textContent='Please answer all three questions first.';err.style.display='block';return;}
+          var email=($('sa-email').value||'').trim();
+          if(!validEmail(email)){err.textContent='Please enter a valid email so we can send your results.';err.style.display='block';return;}
           var u=normalizeUrl($('sa-url').value);
           if(!u){err.textContent='Please enter a valid website address, for example yourbusiness.com.';err.style.display='block';return;}
           var key=u.hostname.replace(/^www\./,'').toLowerCase();
           var done=loadLimit();
           if(done[key]){render(done[key]);return;}
           startLoading();
-          runAudit(u.href,a).then(function(rep){
+          runAudit(u.href,a,email).then(function(rep){
             if(rep && rep.error){stopLoading();err.textContent='We could not reach that site. Check the address and try again.';err.style.display='block';return;}
             rep.displayUrl=u.hostname.replace(/^www\./,'');rep.answers=a;done[key]=rep;saveLimit(done);render(rep);
           }).catch(function(){stopLoading();err.textContent='Something went wrong running the audit. Please try again in a moment.';err.style.display='block';});
@@ -635,8 +642,8 @@
         }
         function countUp(el,to,dur){var start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var e=1-Math.pow(1-p,3);el.textContent=Math.round(e*to)+' / 100';if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
         var SA_WORKER_URL="https://sa-ai-audit.saaudit.workers.dev";
-        function runAudit(url,ans){
-          if(SA_WORKER_URL){return fetch(SA_WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:url,answers:ans})}).then(function(res){return res.json();});}
+        function runAudit(url,ans,email){
+          if(SA_WORKER_URL){return fetch(SA_WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:url,answers:ans,email:email})}).then(function(res){return res.json();});}
           return new Promise(function(res){setTimeout(function(){res({error:'no engine'});},800);});
         }
       })();
@@ -644,7 +651,6 @@
     </div>
   </div>
 </section>
-
 
 
 <!-- AI TEAM -->
