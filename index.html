@@ -467,7 +467,7 @@
         #sa-audit .sa-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
         #sa-audit .sa-gauge-letter{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em;}
         #sa-audit .sa-gauge-letter small{font-size:22px;vertical-align:super;}
-        #sa-audit .sa-gauge-score{font-size:12px;font-weight:700;color:var(--muted2);margin-top:3px;}
+        #sa-audit .sa-gauge-score{font-size:12px;font-weight:700;color:var(--muted2);margin-top:3px;display:none;}
         #sa-audit .sa-hero-k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:0 0 6px;}
         #sa-audit .sa-hero-t{font-size:20px;font-weight:700;color:var(--ink);margin:0 0 7px;}
         #sa-audit .sa-hero-d{font-size:14px;color:var(--muted);margin:0;}
@@ -546,8 +546,9 @@
   <p class="sa-rurl" id="sa-rurl"></p>
   <p class="sa-section-label">Position the Brand</p>
   <div class="sa-pos-card" id="sa-pos-card">
-    <p class="sa-pos-verdict" id="sa-pos-verdict"></p>
     <div class="sa-pos-tests" id="sa-pos-tests"></div>
+        <hr class="sa-pos-divider">
+        <p class="sa-pos-verdict" id="sa-pos-verdict"></p>
   </div>
   <p class="sa-section-label">Drive Demand</p>
   <div class="sa-hero">
@@ -699,7 +700,7 @@
           });
           $('sa-close-lead').textContent=closingLead(r.answers);
           $('sa-report').style.display='block';
-          var pos=r.positioning||{};var posCard=$('sa-pos-card');var posColors={green:'#00C99C',yellow:'var(--gC)',red:'var(--gF)'};posCard.style.borderTopColor=posColors[pos.color]||'var(--line)';$('sa-pos-verdict').textContent=pos.verdict||'';var posTests=$('sa-pos-tests');posTests.innerHTML='';if(pos.headline_result){var ht=document.createElement('span');ht.className='sa-pos-tag';ht.textContent='Headline: '+pos.headline_result;ht.style.borderColor=posColors[pos.headline_result==='pass'?'green':pos.headline_result==='partial'?'yellow':'red']||'var(--line)';ht.style.color=ht.style.borderColor;posTests.appendChild(ht);}if(pos.menu_result){var mt=document.createElement('span');mt.className='sa-pos-tag';mt.textContent='What you deliver: '+pos.menu_result;mt.style.borderColor=posColors[pos.menu_result==='pass'?'green':pos.menu_result==='partial'?'yellow':'red']||'var(--line)';mt.style.color=mt.style.borderColor;posTests.appendChild(mt);}var div=document.createElement('hr');div.className='sa-pos-divider';posTests.after(div);var cap=r.capability||{};$('sa-cap-gap').textContent=cap.gap||'';$('sa-cap-consequence').textContent=cap.consequence||'';
+          var pos=r.positioning||{};var posCard=$('sa-pos-card');var posColors={green:'#00C99C',yellow:'var(--gC)',red:'var(--gF)'};posCard.style.borderTopColor=posColors[pos.color]||'var(--line)';$('sa-pos-verdict').textContent=pos.verdict||'';var posTests=$('sa-pos-tests');posTests.innerHTML='';if(pos.headline_result){var ht=document.createElement('span');ht.className='sa-pos-tag';ht.textContent='Headline: '+pos.headline_result;ht.style.borderColor=posColors[pos.headline_result==='pass'?'green':pos.headline_result==='partial'?'yellow':'red']||'var(--line)';ht.style.color=ht.style.borderColor;posTests.appendChild(ht);}if(pos.menu_result){var mt=document.createElement('span');mt.className='sa-pos-tag';mt.textContent='What you deliver: '+pos.menu_result;mt.style.borderColor=posColors[pos.menu_result==='pass'?'green':pos.menu_result==='partial'?'yellow':'red']||'var(--line)';mt.style.color=mt.style.borderColor;posTests.appendChild(mt);}if(pos.give_result){var gt=document.createElement('span');gt.className='sa-pos-tag';gt.textContent='Give First: '+pos.give_result;gt.style.borderColor=pos.give_result==='pass'?'var(--gA)':'var(--gF)';gt.style.color=gt.style.borderColor;posTests.appendChild(gt);}var div=document.createElement('hr');div.className='sa-pos-divider';posTests.after(div);var cap=r.capability||{};$('sa-cap-gap').textContent=cap.gap||'';$('sa-cap-consequence').textContent=cap.consequence||'';
           if($('sa-report').scrollIntoView)$('sa-report').scrollIntoView({behavior:'smooth',block:'start'});
           requestAnimationFrame(function(){requestAnimationFrame(function(){
             prog.style.strokeDashoffset=C*(1-r.seoScore/100);
