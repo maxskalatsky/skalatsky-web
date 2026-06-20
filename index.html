@@ -678,6 +678,7 @@
 
         function render(r){
           clearInterval(t); $('sa-loading').style.display='none'; $('sa-intake').style.display='none'; btn.disabled=false;
+          console.log('worker response:', JSON.stringify(r));
           $('sa-rurl').textContent=r.displayUrl||r.url;
           var base=r.seoGrade.charAt(0), mod=r.seoGrade.slice(1);
           var col=GC[base]||'var(--gC)';
