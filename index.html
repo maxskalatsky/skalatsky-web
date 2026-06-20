@@ -493,7 +493,7 @@
         #sa-audit .sa-section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
         #sa-audit .sa-pos-card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--line);border-radius:10px;padding:20px 22px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease,border-left-color .4s ease;}
         #sa-audit .sa-pos-card.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-pos-verdict{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 6px;}
+        #sa-audit .sa-pos-verdict{font-size:15px;font-weight:400;color:var(--ink);margin:0 0 6px;}
         #sa-audit .sa-pos-tests{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
         #sa-audit .sa-pos-tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted2);}
         #sa-audit .sa-cap-card{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:14px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
@@ -501,16 +501,6 @@
         #sa-audit .sa-cap-gap{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 8px;}
         #sa-audit .sa-cap-consequence{font-size:13px;color:#4b5563;margin:0;line-height:1.55;}
         #sa-audit .sa-redo{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted2);font-size:12.5px;font-family:inherit;text-decoration:underline;cursor:pointer;}
-        #sa-audit .sa-section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
-        #sa-audit .sa-pos-card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--line);border-radius:10px;padding:20px 22px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease,border-left-color .4s ease;}
-        #sa-audit .sa-pos-card.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-pos-verdict{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 6px;}
-        #sa-audit .sa-pos-tests{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
-        #sa-audit .sa-pos-tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted2);}
-        #sa-audit .sa-cap-card{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:14px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
-        #sa-audit .sa-cap-card.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-cap-gap{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 8px;}
-        #sa-audit .sa-cap-consequence{font-size:13px;color:#4b5563;margin:0;line-height:1.55;}
         @media (max-width:640px){#sa-audit .sa-panel,#sa-audit .sa-hero,#sa-audit .sa-agent{padding:20px;}#sa-audit .sa-hero{flex-direction:column;text-align:center;gap:16px;}#sa-audit .sa-find-wrap{grid-template-columns:1fr;}#sa-audit .sa-agent-row{flex-direction:column;align-items:flex-start;gap:12px;}#sa-audit .sa-meter{flex-wrap:wrap;}#sa-audit .sa-seg{flex:1 1 40%;}}
       </style>
 
@@ -555,8 +545,8 @@
   <p class="sa-rurl" id="sa-rurl"></p>
   <p class="sa-section-label">Position the Brand</p>
   <div class="sa-pos-card" id="sa-pos-card">
+        <div class="sa-pos-tests" id="sa-pos-tests"></div>
     <p class="sa-pos-verdict" id="sa-pos-verdict"></p>
-    <div class="sa-pos-tests" id="sa-pos-tests"></div>
   </div>
   <p class="sa-section-label">Drive Demand</p>
   <div class="sa-hero">
