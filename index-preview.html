@@ -95,10 +95,106 @@
   .sa-row.active .sa-chev { transform:rotate(90deg); }
   #sa-signal-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:10000;align-items:center;justify-content:center;}
   #sa-signal-modal.open{display:flex;}
-  #sa-signal-modal-inner{position:relative;width:90%;height:90%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
+  #sa-signal-modal-inner{position:relative;width:90%;height:90%;background:#f7f9fb;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
+  #sa-signal-modal-body{height:100%;overflow-y:auto;padding:40px 20px;}
   #sa-signal-modal-close{position:absolute;top:12px;right:14px;z-index:1;background:rgba(255,255,255,0.92);border:1px solid #d0dce8;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;color:#4b5563;font-weight:700;padding:0;}
   #sa-signal-modal-close:hover{background:#fff;color:#1a1a1a;}
-  #sa-signal-modal iframe{width:100%;height:100%;border:none;display:block;}
+  #sa-audit h1{font-size:22px;color:#004F82;margin:0 0 6px;}
+  #sa-audit p.sub{font-size:14px;color:#777;margin:0 0 32px;}
+  #sa-audit{--p:#006699;--b2:#004F82;--teal:#00C99C;--ink:#1a1a1a;--muted:#777;--muted2:#9ca3af;--line:#e2eaf0;--line2:#d0dce8;--soft:#f7f9fb;--softblue:#f0f6fb;--signal-tier-1:#1F6B4E;--signal-tier-2:#3A9E72;--signal-tier-3:#4A9E8F;--signal-tier-4:#7AABB8;--signal-tier-5:#9BAEBB;max-width:760px;margin:0 auto;color:var(--ink);}
+  #sa-audit *,#sa-audit *::before,#sa-audit *::after{box-sizing:border-box;}
+  #sa-audit .sa-panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);padding:30px;}
+  #sa-audit .sa-field label{display:block;font-size:15px;font-weight:600;margin:0 0 11px;}
+  #sa-audit .sa-input{width:100%;font-size:15px;font-family:inherit;color:var(--ink);padding:13px 15px;border:1px solid var(--line2);border-radius:8px;outline:none;transition:border-color .15s,box-shadow .15s;}
+  #sa-audit .sa-input:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(0,102,153,.12);}
+  #sa-audit .sa-input::placeholder{color:#9aa2af;}
+  #sa-audit .sa-btn{display:inline-block;background:#006699;color:#fff;font-size:15px;font-weight:700;font-family:inherit;padding:13px 32px;border:none;border-radius:8px;cursor:pointer;transition:background .15s;text-decoration:none;}
+  #sa-audit .sa-btn:hover{background:#004F82;}
+  #sa-audit .sa-cta{text-align:center;margin-top:24px;}
+  #sa-audit .sa-err{color:#cf3b3b;font-size:13.5px;margin:12px 0 0;display:none;text-align:center;}
+  #sa-audit .sa-note{text-align:center;color:var(--muted2);font-size:12.5px;margin:14px 0 0;}
+  #sa-audit .sa-loading{display:none;text-align:center;padding:46px 0;}
+  #sa-audit .sa-scan{position:relative;width:110px;height:110px;margin:0 auto 20px;}
+  #sa-audit .sa-scan svg{transform:rotate(-90deg);}
+  #sa-audit .sa-scan .sa-scan-ring{fill:none;stroke:var(--line);stroke-width:6;}
+  #sa-audit .sa-scan .sa-scan-arc{fill:none;stroke:var(--p);stroke-width:6;stroke-linecap:round;stroke-dasharray:80 320;animation:sa-spin 1s linear infinite;}
+  @keyframes sa-spin{to{stroke-dashoffset:-400;}}
+  #sa-audit .sa-loading-txt{font-size:14.5px;color:var(--b2);font-weight:600;}
+  #sa-audit .sa-rtitle{font-size:18px;font-weight:700;color:var(--b2);word-break:break-word;margin:0 0 6px;}
+  #sa-audit .sa-rtagline{font-size:13px;color:var(--muted);margin:0 0 24px;}
+  #sa-audit .sa-section-label{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
+  #sa-audit .sa-hero{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-left:4px solid #e2eaf0;border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);padding:28px;}
+  #sa-audit .sa-seo-top{display:flex;align-items:center;gap:28px;}
+  #sa-audit .sa-gauge{position:relative;width:140px;height:140px;flex:0 0 auto;}
+  #sa-audit .sa-gauge svg{transform:rotate(-90deg);}
+  #sa-audit .sa-gauge .sa-track{fill:none;stroke:var(--line);stroke-width:11;}
+  #sa-audit .sa-gauge .sa-prog{fill:none;stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.22,1,.36,1);}
+  #sa-audit .sa-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  #sa-audit .sa-gauge-letter{font-size:48px;font-weight:700;line-height:1;}
+  #sa-audit .sa-gauge-letter small{font-size:22px;vertical-align:super;}
+  #sa-audit .sa-gauge-score{display:none;}
+  #sa-audit .sa-hero-d{font-size:14px;font-weight:600;color:var(--ink);margin:0;line-height:1.5;}
+  #sa-audit .sa-find-wrap{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  #sa-audit .sa-find{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 17px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;}
+  #sa-audit .sa-find.sa-in{opacity:1;transform:none;}
+  #sa-audit .sa-find-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  #sa-audit .sa-find-cat{font-size:14px;font-weight:700;color:var(--ink);}
+  #sa-audit .sa-pill{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:3px 9px;border-radius:999px;}
+  #sa-audit .sa-find-txt{font-size:11px;color:#4b5563;margin:0;line-height:1.55;}
+  #sa-audit .sa-agent{margin-top:18px;background:#fff;border:1px solid var(--line);border-left:4px solid #e2eaf0;border-radius:12px;padding:24px 26px;}
+  #sa-audit .sa-agent-row{display:flex;align-items:center;gap:18px;}
+  #sa-audit .sa-agent-level{font-size:22px;font-weight:700;letter-spacing:.03em;color:#fff;padding:9px 18px;border-radius:8px;flex:0 0 auto;opacity:0;transform:scale(.9);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1);}
+  #sa-audit .sa-agent-level.sa-in{opacity:1;transform:none;}
+  #sa-audit .sa-agent-line{font-size:14px;color:#4b5563;margin:0;}
+  #sa-audit .sa-fwd-card{margin-top:18px;background:#E6F1FB;border:1px solid #b8d4f0;border-left:4px solid #185FA5;border-radius:12px;padding:24px 26px;}
+  #sa-audit .sa-fwd-txt{font-size:14px;color:#042C53;margin:0;line-height:1.65;}
+  #sa-audit .sa-pos-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:10px;padding:22px 24px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
+  #sa-audit .sa-pos-card.sa-in{opacity:1;transform:none;}
+  #sa-audit .sa-pos-verdict{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 6px;}
+  #sa-audit .sa-pos-tests{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+  #sa-audit .sa-pos-divider{border:none;border-top:1px solid var(--line);margin:0 0 14px;}
+  #sa-audit .sa-pos-tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 14px;border-radius:999px;border:1.5px solid var(--line);color:#fff;}
+  #sa-audit .sa-close{text-align:center;margin:28px 0 4px;}
+  #sa-audit .sa-close-lead{font-size:14px;color:var(--muted);max-width:540px;margin:0 auto 16px;}
+  #sa-audit .sa-close-q{font-size:18px;font-weight:700;color:var(--ink);margin:0 0 16px;}
+  #sa-audit .sa-redo{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted2);font-size:12.5px;font-family:inherit;text-decoration:underline;cursor:pointer;}
+  #sa-audit .sa-optional-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted2);background:#f0f4f8;border-radius:4px;padding:2px 7px;margin-left:7px;vertical-align:middle;}
+  #sa-audit .sa-field-hint{font-size:12px;color:var(--muted2);margin:6px 0 0;}
+  #sa-audit .sa-report{display:none;margin-top:10px;padding-bottom:20px;}
+  #sa-audit .sa-compare-box{margin-top:14px;padding:16px 20px;background:#f8fafc;border:1px solid var(--line);border-radius:10px;}
+  #sa-audit .sa-compare-lbl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:0 0 8px;letter-spacing:.02em;}
+  #sa-audit .sa-compare-row{display:flex;gap:10px;align-items:center;}
+  #sa-audit .sa-compare-inp{flex:1;}
+  #sa-audit .sa-compare-btn{padding:11px 22px;font-size:14px;}
+  #sa-audit .sa-compare-ok{font-size:12px;color:#00a583;margin:10px 0 0;display:none;}
+  #sa-audit .sa-comp-result-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-top:4px;}
+  #sa-audit .sa-comp-tbl{width:100%;border-collapse:collapse;}
+  #sa-audit .sa-comp-th-dim{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);padding:0 0 12px;text-align:left;width:38%;}
+  #sa-audit .sa-comp-th-site{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1a1a1a;padding:0 0 12px;text-align:center;}
+  #sa-audit .sa-comp-tbl td{padding:8px 0;border-top:1px solid var(--line);vertical-align:middle;}
+  #sa-audit .sa-comp-tbl td:not(:first-child){text-align:center;}
+  #sa-audit .sa-comp-dim{font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;}
+  #sa-audit .sa-comp-grade{display:inline-block;font-size:15px;font-weight:700;padding:3px 10px;border-radius:6px;color:#fff;}
+  #sa-audit .sa-comp-level{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:6px;color:#fff;}
+  #sa-audit .sa-comp-verdict-wrap{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
+  #sa-audit .sa-comp-verdict-p{font-size:14px;color:#4b5563;margin:0 0 4px;line-height:1.6;}
+  @media(max-width:640px){#sa-audit .sa-seo-top{flex-direction:column;text-align:center;gap:16px;}#sa-audit .sa-find-wrap{grid-template-columns:1fr;}#sa-audit .sa-agent-row{flex-direction:column;align-items:flex-start;gap:12px;}#sa-audit .sa-comp-tbl th,#sa-audit .sa-comp-tbl td{font-size:9px;}}
+  #sa-audit .sa-intake-divider{border:none;border-top:1px solid var(--line);margin:20px 0 16px;}
+  #sa-audit .sa-intake-q{margin-bottom:16px;}
+  #sa-audit .sa-intake-qlabel{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 9px;}
+  #sa-audit .sa-intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  #sa-audit .sa-intake-inp{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  #sa-audit .sa-intake-opt-lbl{display:flex;align-items:center;font-size:13px;color:var(--ink);padding:8px 12px;border:0.5px solid var(--line2);border-radius:8px;cursor:pointer;user-select:none;transition:border-color .12s,background .12s;line-height:1.35;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="radio"]):hover{border-color:#1F6B4E;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="radio"]:checked){background:#f0f7f4;border-color:#1F6B4E;font-weight:600;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="checkbox"]):hover{border-color:#4A9E8F;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="checkbox"]:checked){background:#f0f7f6;border-color:#4A9E8F;font-weight:600;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="radio"])::before{content:'';display:block;width:16px;height:16px;min-width:16px;border-radius:50%;border:1.5px solid #c8d4de;background:#fff;margin-right:8px;flex-shrink:0;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="radio"]:checked)::before{border-color:#1F6B4E;background:radial-gradient(circle,#fff 28%,#1F6B4E 28%);}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="checkbox"])::before{content:'';display:block;width:16px;height:16px;min-width:16px;border-radius:3px;border:1.5px solid #c8d4de;background:#fff;margin-right:8px;flex-shrink:0;}
+  #sa-audit .sa-intake-opt-lbl:has(input[type="checkbox"]:checked)::before{border-color:#4A9E8F;background:#4A9E8F url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1.5 5l2.5 2.5 4.5-4.5'/%3E%3C/svg%3E") center/10px no-repeat;}
+  #sa-audit .sa-btn:disabled{background:#b0bec5;cursor:not-allowed;}
+  #sa-audit .sa-btn:disabled:hover{background:#b0bec5;}
 </style>
 </head>
 <body data-offset="50" data-spy="scroll" data-target=".scrolly">
@@ -890,9 +986,503 @@
 <div id="sa-signal-modal">
   <div id="sa-signal-modal-inner">
     <button id="sa-signal-modal-close" onclick="saModalClose()" aria-label="Close modal">&#10005;</button>
-    <iframe src="https://maxskalatsky.github.io/skalatsky-web/tools/digital-signal/digital-audit.html" title="The Digital Signal" loading="lazy"></iframe>
+    <div id="sa-signal-modal-body">
+      <div id="sa-audit">
+        <div id="sa-intake">
+          <h1>The Digital Signal</h1>
+          <p class="sub">Your website is the front door to your business. Find out what signal it is sending.</p>
+          <div class="sa-panel">
+            <div class="sa-field">
+              <label for="sa-email">Your work email</label>
+              <input type="email" id="sa-email" class="sa-input" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+            <div class="sa-field" style="margin-top:16px">
+              <label for="sa-url">Your website</label>
+              <input type="url" id="sa-url" class="sa-input" placeholder="yourbusiness.com" autocomplete="url" inputmode="url">
+            </div>
+            <hr class="sa-intake-divider">
+            <div class="sa-intake-q">
+              <p class="sa-intake-qlabel">What best describes this company?</p>
+              <div class="sa-intake-grid">
+                <label class="sa-intake-opt-lbl"><input type="radio" name="sa-q1" value="small_growing" class="sa-intake-inp">Small or growing business</label>
+                <label class="sa-intake-opt-lbl"><input type="radio" name="sa-q1" value="midmarket_regional" class="sa-intake-inp">Established or mid-market company</label>
+                <label class="sa-intake-opt-lbl"><input type="radio" name="sa-q1" value="large_national_global" class="sa-intake-inp">Large national or global brand</label>
+                <label class="sa-intake-opt-lbl"><input type="radio" name="sa-q1" value="nonprofit_gov_media" class="sa-intake-inp">Nonprofit or mission-driven organization</label>
+              </div>
+            </div>
+            <div class="sa-intake-q">
+              <p class="sa-intake-qlabel">Who visits this site?</p>
+              <div class="sa-intake-grid">
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q2" value="cold_prospects" class="sa-intake-inp">Cold prospects</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q2" value="existing_clients" class="sa-intake-inp">Existing clients or members</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q2" value="investors" class="sa-intake-inp">Investors or institutions</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q2" value="talent" class="sa-intake-inp">Talent or recruits</label>
+              </div>
+            </div>
+            <div class="sa-intake-q">
+              <p class="sa-intake-qlabel">What does this site need to do?</p>
+              <div class="sa-intake-grid">
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="generate_leads" class="sa-intake-inp">Generate leads</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="build_authority" class="sa-intake-inp">Build authority</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="serve_relationships" class="sa-intake-inp">Serve existing relationships</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="inform_educate" class="sa-intake-inp">Inform and educate</label>
+              </div>
+            </div>
+            <div class="sa-cta"><button id="sa-run" class="sa-btn" type="button" disabled>Show Me My Signal</button></div>
+            <p id="sa-err" class="sa-err"></p>
+            <p class="sa-note">Free. One per email. Results appear here instantly.</p>
+          </div>
+        </div>
+
+        <div id="sa-loading" class="sa-loading">
+          <div class="sa-scan"><svg width="110" height="110" viewBox="0 0 120 120"><circle class="sa-scan-ring" cx="60" cy="60" r="52"></circle><circle class="sa-scan-arc" cx="60" cy="60" r="52"></circle></svg></div>
+          <p class="sa-loading-txt" id="sa-loading-txt">Reading your front door.</p>
+        </div>
+
+        <div id="sa-report" class="sa-report">
+          <p class="sa-rtitle" id="sa-rurl"></p>
+          <p class="sa-rtagline">Your website is the front door to your business. Find out what signal it is sending.</p>
+          <p class="sa-section-label" id="sa-lbl-pos">Position the brand</p>
+          <div class="sa-pos-card" id="sa-pos-card">
+            <div class="sa-pos-tests" id="sa-pos-tests"></div>
+            <hr class="sa-pos-divider">
+            <p class="sa-pos-verdict" id="sa-pos-verdict"></p>
+          </div>
+          <p class="sa-section-label" id="sa-lbl-seo">SEO readiness</p>
+          <div class="sa-hero" id="sa-seo-card">
+            <div class="sa-seo-top">
+              <div class="sa-gauge">
+                <svg width="140" height="140" viewBox="0 0 150 150"><circle class="sa-track" cx="75" cy="75" r="64"></circle><circle class="sa-prog" id="sa-prog" cx="75" cy="75" r="64"></circle></svg>
+                <div class="sa-gauge-center"><div class="sa-gauge-letter" id="sa-gletter"></div><div class="sa-gauge-score" id="sa-gscore"></div></div>
+              </div>
+              <div class="sa-hero-meta">
+                <p class="sa-hero-d" id="sa-gdesc"></p>
+              </div>
+            </div>
+            <div class="sa-find-wrap" id="sa-finds"></div>
+          </div>
+          <p class="sa-section-label" id="sa-lbl-agent">Agent readiness</p>
+          <div class="sa-agent" id="sa-agent-card">
+            <div class="sa-agent-row"><div class="sa-agent-level" id="sa-alevel"></div><p class="sa-agent-line" id="sa-aline"></p></div>
+          </div>
+          <div id="sa-audience-wrap" style="display:none">
+            <p class="sa-section-label">Audience clarity</p>
+            <div class="sa-agent" id="sa-audience-card">
+              <div class="sa-agent-row"><div class="sa-agent-level" id="sa-aud-level"></div><p class="sa-agent-line" id="sa-aud-line"></p></div>
+            </div>
+          </div>
+          <div id="sa-fwd-section" style="display:none">
+            <p class="sa-section-label">The forward signal</p>
+            <div class="sa-fwd-card">
+              <p class="sa-fwd-txt" id="sa-fwd-txt"></p>
+            </div>
+            <div id="sa-compare-box" class="sa-compare-box">
+              <label class="sa-compare-lbl" for="sa-admired-inp">A site you admire</label>
+              <div class="sa-compare-row">
+                <input type="url" id="sa-admired-inp" class="sa-input sa-compare-inp" placeholder="inspiration.com" inputmode="url" autocomplete="off">
+                <button id="sa-compare-btn" class="sa-btn sa-compare-btn" type="button">Compare</button>
+              </div>
+              <p id="sa-compare-ok" class="sa-compare-ok"></p>
+            </div>
+            <div id="sa-compare-result" style="display:none">
+              <p class="sa-section-label" style="text-transform:none;letter-spacing:0;font-size:13px;font-weight:700;color:var(--ink)">Ensure your digital signal is the strongest in the marketplace.</p>
+              <div class="sa-comp-result-card">
+                <table class="sa-comp-tbl">
+                  <thead><tr><th class="sa-comp-th-dim"></th><th class="sa-comp-th-site" id="sa-comp-th-yours">Your site</th><th class="sa-comp-th-site" id="sa-comp-th-theirs">Their site</th></tr></thead>
+                  <tbody id="sa-comp-tbody"></tbody>
+                </table>
+                <div class="sa-comp-verdict-wrap">
+                  <p class="sa-comp-verdict-p" id="sa-comp-verdict-txt"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="sa-close-cta" style="display:none;text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);">
+            <a class="sa-btn" id="sa-cta-mailto" href="mailto:signal@skalatsky.com" style="display:inline-block">Start the conversation.</a>
+            <button class="sa-redo" id="sa-redo" type="button">Run another website</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+(function(){
+  "use strict";
+  var SA_WORKER_URL = "https://sa-ai-audit.saaudit.workers.dev";
+  var root = document.getElementById('sa-audit');
+  var $ = function(id){ return document.getElementById(id); };
+
+  function normalizeUrl(raw){
+    var v=(raw||'').trim(); if(!v) return null;
+    if(!/^https?:\/\//i.test(v)) v='https://'+v;
+    try{ var u=new URL(v); return (u.hostname&&u.hostname.indexOf('.')>-1)?u:null; }catch(e){ return null; }
+  }
+  var LIMIT_KEY='sa_audit_done_dev_v3';
+  function loadLimit(){ try{ return JSON.parse(localStorage.getItem(LIMIT_KEY)||'{}'); }catch(e){ return {}; } }
+  function saveLimit(m){ try{ localStorage.setItem(LIMIT_KEY,JSON.stringify(m)); }catch(e){} }
+
+  var btn=$('sa-run'), err=$('sa-err');
+  function intakeValid(){
+    var emailVal=($('sa-email').value||'').trim();
+    var emailOk=emailVal.length>0&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+    var urlOk=!!normalizeUrl($('sa-url').value);
+    var q1=document.querySelector('input[name="sa-q1"]:checked');
+    var q2=document.querySelectorAll('input[name="sa-q2"]:checked');
+    var q3=document.querySelectorAll('input[name="sa-q3"]:checked');
+    return !!(emailOk&&urlOk&&q1&&q2.length>0&&q3.length>0);
+  }
+  function updateBtn(){ btn.disabled=!intakeValid(); }
+  document.querySelectorAll('input[name="sa-q1"],input[name="sa-q2"],input[name="sa-q3"]').forEach(function(el){ el.addEventListener('change',updateBtn); });
+  $('sa-email').addEventListener('input',updateBtn);
+  $('sa-url').addEventListener('input',updateBtn);
+  btn.addEventListener('click', function(){
+    err.style.display='none';
+    var emailVal=($('sa-email').value||'').trim();
+    if(!emailVal||emailVal.indexOf('@')<1){ err.textContent='Please enter a valid work email.'; err.style.display='block'; return; }
+    var u=normalizeUrl($('sa-url').value);
+    if(!u){ err.textContent='Please enter a valid website address.'; err.style.display='block'; return; }
+    var cacheKey=emailVal.toLowerCase();
+    var done=loadLimit();
+    if(done[cacheKey]){ render(done[cacheKey]); return; }
+    startLoading();
+    var q1Sel=document.querySelector('input[name="sa-q1"]:checked');
+    var q2Sels=Array.from(document.querySelectorAll('input[name="sa-q2"]:checked'));
+    var q3Sels=Array.from(document.querySelectorAll('input[name="sa-q3"]:checked'));
+    fetch(SA_WORKER_URL,{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url:u.href,email:emailVal,entityType:q1Sel?q1Sel.value:null,primaryVisitor:q2Sels.map(function(e){return e.value;}),siteGoal:q3Sels.map(function(e){return e.value;})}) })
+      .then(function(res){ var s=res.status; return res.json().then(function(d){ d._s=s; return d; }); })
+      .then(function(rep){
+        if(rep._s===429){
+          stopLoading();
+          var subj=encodeURIComponent('My Digital Signal Results');
+          var bod=encodeURIComponent('Hi, I already ran The Digital Signal for '+u.href+' and would like to discuss my results.');
+          err.innerHTML='You have already run a free Signal. <a href="mailto:signal@skalatsky.com?subject='+subj+'&body='+bod+'" style="color:inherit;font-weight:700;text-decoration:underline">Email signal@skalatsky.com</a> to discuss your results.';
+          err.style.display='block'; return;
+        }
+        if(rep.error){ stopLoading(); err.textContent=rep.error+(rep.detail?' — '+rep.detail:''); err.style.display='block'; return; }
+        rep.displayUrl=u.hostname.replace(/^www\./,'');
+        done[cacheKey]=rep; saveLimit(done);
+        render(rep);
+      })
+      .catch(function(){
+        stopLoading();
+        err.textContent='Something went wrong. Please try again.'; err.style.display='block';
+      });
+  });
+
+  $('sa-redo').addEventListener('click', function(){
+    currentReport=null; compareUsed=false;
+    $('sa-report').style.display='none';
+    $('sa-close-cta').style.display='none';
+    $('sa-intake').style.display='block';
+    document.querySelectorAll('input[name="sa-q1"],input[name="sa-q2"],input[name="sa-q3"]').forEach(function(el){ el.checked=false; });
+    updateBtn();
+    $('sa-url').value=''; $('sa-url').focus();
+  });
+
+  var compareUsed=false, currentReport=null;
+  var compareBoxEl=$('sa-compare-box');
+
+  $('sa-compare-btn').addEventListener('click',function(){
+    if(compareUsed) return;
+    var raw=($('sa-admired-inp').value||'').trim();
+    if(!raw) return;
+    var admNorm=normalizeUrl(raw);
+    if(!admNorm) return;
+    var cbtn=$('sa-compare-btn'), cinp=$('sa-admired-inp');
+    cbtn.disabled=true; cbtn.textContent='Comparing...';
+    fetch(SA_WORKER_URL,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        action:'compare', admiredUrl:admNorm.href,
+        seoGrade:currentReport?currentReport.seoGrade:'',
+        agentLevel:currentReport?currentReport.agentLevel:'',
+        positioningVerdict:currentReport&&currentReport.positioning?currentReport.positioning.verdict:'',
+        positioningHook:currentReport&&currentReport.positioning?currentReport.positioning.hook:'',
+        positioningFit:currentReport&&currentReport.positioning?currentReport.positioning.fit:'',
+        positioningRelevance:currentReport&&currentReport.positioning?currentReport.positioning.relevance:'',
+        findings:currentReport?(currentReport.findings||[]).map(function(f){return{category:f.category,status:f.status};}): [],
+        originalSignal:currentReport?(currentReport.forwardSignal||''):'',
+      })
+    })
+    .then(function(res){return res.json();})
+    .then(function(data){
+      if(data.enrichedSignal){
+        $('sa-fwd-txt').textContent=data.enrichedSignal;
+      }
+      if(compareBoxEl && compareBoxEl.parentNode) compareBoxEl.parentNode.removeChild(compareBoxEl);
+      compareUsed=true;
+      if(data.admiredPositioning) renderCompareResult(data.admiredUrl||admNorm.href,data.admiredPositioning,data.admiredSeoGrade||'',data.admiredAgentLevel||'');
+    })
+    .catch(function(){ cbtn.disabled=false; cbtn.textContent='Compare'; });
+  });
+
+  function renderCompareResult(admiredUrl,admiredPos,admiredSeoGrade,admiredAgentLevel){
+    var userPos=currentReport?(currentReport.positioning||{}):{};
+    var userSeoGrade=currentReport?(currentReport.seoGrade||'F'):'F';
+    var userAgentLevel=currentReport?(currentReport.agentLevel||'BASIC'):'BASIC';
+    var userDomain=(currentReport&&(currentReport.displayUrl||currentReport.url)||'').replace(/^https?:\/\//,'').replace(/\/$/,'');
+    var admiredDomain=(admiredUrl||'').replace(/^https?:\/\//,'').replace(/\/$/,'');
+    $('sa-comp-th-yours').textContent=userDomain||'Your site';
+    $('sa-comp-th-theirs').textContent=admiredDomain;
+    var tagColor=function(v){ return v==='lands'||v==='clear'||v==='connects'?T1:v==='partial'?T3:T5; };
+    var tagLabel={lands:'strong',partial:'partial',missing:'missing',clear:'clear',unclear:'unclear',connects:'strong'};
+    var gradeColor=function(g){ return GC[(g||'F').charAt(0)]||T5; };
+    var rows=[
+      {label:'THE HOOK',uv:userPos.hook,av:admiredPos.hook,type:'pos'},
+      {label:'THE FIT',uv:userPos.fit,av:admiredPos.fit,type:'pos'},
+      {label:'THE RELEVANCE',uv:userPos.relevance,av:admiredPos.relevance,type:'pos'},
+      {label:'SEO GRADE',uv:userSeoGrade,av:admiredSeoGrade,type:'grade'},
+      {label:'AGENT READINESS',uv:userAgentLevel,av:admiredAgentLevel,type:'level'},
+    ];
+    var tbody=$('sa-comp-tbody'); tbody.innerHTML='';
+    rows.forEach(function(row){
+      var tr=document.createElement('tr');
+      var tdL=document.createElement('td'); tdL.className='sa-comp-dim'; tdL.textContent=row.label; tr.appendChild(tdL);
+      [row.uv,row.av].forEach(function(val){
+        var td=document.createElement('td');
+        var span=document.createElement('span');
+        if(row.type==='pos'){
+          span.className='sa-pos-tag'; span.textContent=tagLabel[val]||val||'';
+          var c=tagColor(val); span.style.background=c; span.style.color='#fff'; span.style.border='none';
+        } else if(row.type==='grade'){
+          span.className='sa-comp-grade'; span.textContent=(val||'F').charAt(0); span.style.background=gradeColor((val||'F').charAt(0));
+        } else {
+          span.className='sa-comp-level'; span.textContent=val||'BASIC'; span.style.background=AC[val]||T5; span.style.color='#fff';
+        }
+        td.appendChild(span); tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    var ps=function(p){ return (p.hook==='lands'?2:p.hook==='partial'?1:0)+(p.fit==='clear'?2:p.fit==='partial'?1:0)+(p.relevance==='connects'?2:p.relevance==='partial'?1:0); };
+    var gs=function(g){ return {A:5,B:4,C:3,D:2,F:1}[(g||'F').charAt(0)]||1; };
+    var ls=function(l){ return {ADVANCED:4,CAPABLE:3,EMERGING:2,BASIC:1}[l]||1; };
+    var aTotal=ps(admiredPos)+gs(admiredSeoGrade)+ls(admiredAgentLevel);
+    var uTotal=ps(userPos)+gs(userSeoGrade)+ls(userAgentLevel);
+    var vtxt=$('sa-comp-verdict-txt');
+    if(aTotal>uTotal){
+      var dims=[];
+      if(ps(admiredPos)>ps(userPos)) dims.push('positioning');
+      if(gs(admiredSeoGrade)>gs(userSeoGrade)) dims.push('SEO');
+      if(ls(admiredAgentLevel)>ls(userAgentLevel)) dims.push('AI visibility');
+      var dimStr=dims.length?dims.join(', '):'key areas';
+      vtxt.textContent='The site you admire is outperforming yours on '+dimStr+'. Those gaps are closable and closing them is exactly what we do.';
+    } else {
+      vtxt.textContent='You are already ahead on positioning, SEO, and AI visibility. The question is whether you stay there as they close the gap.';
+    }
+    $('sa-compare-result').style.display='block';
+  }
+
+  function buildAuditMailto(r) {
+    var domain=(r.displayUrl||(r.url||'').replace(/^https?:\/\//,'').replace(/\/$/,''));
+    var lines=[];
+    lines.push('Hi, I just ran The Digital Signal on '+domain+'. Here is what it found.');
+    lines.push('');
+    if(r.entityType==='known_brand'){
+      var ba=r.brandAuthority?r.brandAuthority.label:'';
+      var cd=r.contentDepth?r.contentDepth.label:'';
+      var av=r.aiVisibility?r.aiVisibility.label:'';
+      var ac=r.audienceClarity?r.audienceClarity.label:'';
+      lines.push('Brand Authority: '+ba+', Content Depth: '+cd+', AI Visibility: '+av+', Audience Clarity: '+ac);
+    } else {
+      var pos=r.positioning||{};
+      lines.push('Position the Brand: '+(pos.hook||'')+', '+(pos.fit||'')+', '+(pos.relevance||''));
+      lines.push('');
+      lines.push('SEO Readiness: '+(r.seoGrade||''));
+      lines.push('');
+      lines.push('Agent Readiness: '+(r.agentLevel||''));
+    }
+    lines.push('I would like to talk about what this means for my business.');
+    var subject='My Digital Signal: '+domain;
+    return 'mailto:signal@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+  }
+
+  function buildMailtoHref(admiredUrl, outcome) {
+    var r=currentReport||{};
+    var pos=r.positioning||{};
+    var lines=[];
+    lines.push('POSITION THE BRAND');
+    lines.push('Hook: '+(pos.hook||'')+'  |  Fit: '+(pos.fit||'')+'  |  Relevance: '+(pos.relevance||''));
+    if(pos.disqualifier) lines.push('TRUST KILLER detected');
+    lines.push(pos.verdict||'');
+    lines.push('');
+    lines.push('SEO READINESS');
+    lines.push('Grade: '+(r.seoGrade||'')+'  -  '+(r.seoGradeTitle||''));
+    (r.findings||[]).forEach(function(f){ lines.push('  '+f.category+': '+f.status); });
+    lines.push('');
+    lines.push('AGENT READINESS');
+    lines.push((r.agentLevel||'')+'  -  '+(r.agentLine||''));
+    if(r.forwardSignal){ lines.push(''); lines.push('FORWARD SIGNAL'); lines.push(r.forwardSignal); }
+    if(admiredUrl){
+      lines.push('');
+      lines.push('COMPARISON');
+      lines.push('Admired site: '+admiredUrl.replace(/^https?:\/\//,'').replace(/\/$/,''));
+      lines.push(outcome||'');
+    }
+    lines.push('');
+    lines.push('I would like to discuss what comes next.');
+    var subject='My Digital Signal: '+(r.displayUrl||(r.url||'').replace(/^https?:\/\//,'').replace(/\/$/,''));
+    return 'mailto:signal@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+  }
+
+  var msgs=['Reading your front door.','Checking what Google thinks.','Looking for what others miss.','Finding your biggest opportunity.','Pulling it all together.'];
+  var t=null;
+  function startLoading(){
+    btn.disabled=true; $('sa-intake').style.display='none'; $('sa-report').style.display='none';
+    $('sa-loading').style.display='block';
+    var i=0; $('sa-loading-txt').textContent=msgs[0];
+    t=setInterval(function(){ i=(i+1)%msgs.length; $('sa-loading-txt').textContent=msgs[i]; },1300);
+  }
+  function stopLoading(){ clearInterval(t); $('sa-loading').style.display='none'; $('sa-intake').style.display='block'; updateBtn(); }
+
+  var T1='#1F6B4E',T2='#3A9E72',T3='#4A9E8F',T4='#7AABB8',T5='#9BAEBB';
+  var GC={A:T1,B:T2,C:T3,D:T4,F:T5};
+  var STATUS={strong:{l:'Strong',c:T1,bg:'rgba(31,107,78,0.07)'},ok:{l:'Fair',c:T3,bg:'rgba(74,158,143,0.07)'},weak:{l:'Needs work',c:T4,bg:'rgba(122,171,184,0.07)'},critical:{l:'Critical',c:T5,bg:'rgba(155,174,187,0.07)'}};
+  var AC={ADVANCED:T1,OPTIMIZED:T1,CAPABLE:T2,EMERGING:T3,LIMITED:T4,BASIC:T5,'NOT READY':T5};
+
+  function tierColor(t){ return t===1?T1:t===2?T2:t===3?T3:t===4?T4:T5; }
+
+  function renderEnterprise(r){
+    $('sa-lbl-pos').textContent='Brand Authority';
+    $('sa-lbl-seo').textContent='Content Depth';
+    $('sa-lbl-agent').textContent='AI Visibility';
+
+    var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
+    posCard.style.borderLeftColor=baC;
+    var posTests=$('sa-pos-tests'); posTests.innerHTML='';
+    var baB=document.createElement('div'); baB.className='sa-agent-level';
+    baB.style.background=baC;
+    baB.textContent=ba.label.toUpperCase();
+    posTests.appendChild(baB);
+    $('sa-pos-verdict').textContent=ba.text;
+
+    var cd=r.contentDepth, cdC=tierColor(cd.tier);
+    $('sa-seo-card').style.borderLeftColor=cdC;
+    var gauge=$('sa-seo-card').querySelector('.sa-gauge');
+    if(gauge) gauge.style.display='none';
+    var seoTop=$('sa-seo-card').querySelector('.sa-seo-top');
+    var cdBadge=document.createElement('div'); cdBadge.id='sa-ent-cd-badge'; cdBadge.className='sa-agent-level';
+    cdBadge.style.background=cdC;
+    cdBadge.textContent=cd.label.toUpperCase();
+    var heroMeta=seoTop?seoTop.querySelector('.sa-hero-meta'):null;
+    if(seoTop&&heroMeta) seoTop.insertBefore(cdBadge, heroMeta);
+    $('sa-gdesc').textContent=cd.text;
+    $('sa-finds').innerHTML='';
+
+    var av=r.aiVisibility, avC=tierColor(av.tier);
+    var avLvl=$('sa-alevel'); avLvl.textContent=av.label.toUpperCase(); avLvl.style.background=avC; avLvl.style.color='#fff';
+    $('sa-aline').textContent=av.text; $('sa-agent-card').style.borderLeftColor=avC;
+
+    var ac=r.audienceClarity, acC=tierColor(ac.tier);
+    var audLvl=$('sa-aud-level'); audLvl.textContent=ac.label.toUpperCase(); audLvl.style.background=acC; audLvl.style.color='#fff';
+    $('sa-aud-line').textContent=ac.text; $('sa-audience-card').style.borderLeftColor=acC;
+    $('sa-audience-wrap').style.display='block';
+
+    var fwdSection=$('sa-fwd-section');
+    if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
+    else { fwdSection.style.display='none'; }
+
+    $('sa-cta-mailto').href=buildAuditMailto(r);
+    $('sa-close-cta').style.display='block';
+    $('sa-compare-result').style.display='none';
+    $('sa-report').style.display='block';
+
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      setTimeout(function(){ posCard.classList.add('sa-in'); baB.classList.add('sa-in'); },150);
+      setTimeout(function(){ cdBadge.classList.add('sa-in'); },250);
+      setTimeout(function(){ avLvl.classList.add('sa-in'); },350);
+      setTimeout(function(){ audLvl.classList.add('sa-in'); },450);
+    }); });
+  }
+
+  function render(r){
+    clearInterval(t); $('sa-loading').style.display='none'; $('sa-intake').style.display='none'; btn.disabled=false;
+    currentReport=r;
+    $('sa-rurl').textContent='The Digital Signal: '+(r.displayUrl||r.url);
+
+    $('sa-audience-wrap').style.display='none';
+    $('sa-lbl-pos').textContent='Position the brand';
+    $('sa-lbl-seo').textContent='SEO readiness';
+    $('sa-lbl-agent').textContent='Agent readiness';
+    if(compareBoxEl) compareBoxEl.style.display='';
+    var oldCdBadge=$('sa-ent-cd-badge');
+    if(oldCdBadge&&oldCdBadge.parentNode) oldCdBadge.parentNode.removeChild(oldCdBadge);
+    var seoGauge=$('sa-seo-card').querySelector('.sa-gauge');
+    if(seoGauge) seoGauge.style.display='';
+
+    if(r.entityType==='known_brand'){ renderEnterprise(r); return; }
+
+    var base=r.seoGrade.charAt(0);
+    var col=GC[base]||T3;
+    $('sa-gletter').innerHTML=base;
+    $('sa-gletter').style.color=col;
+    $('sa-gdesc').textContent=r.seoGradeDesc;
+    $('sa-seo-card').style.borderLeftColor=col;
+    var C=2*Math.PI*64; var prog=$('sa-prog');
+    prog.style.stroke=col; prog.style.strokeDasharray=C; prog.style.strokeDashoffset=C;
+    var sc=$('sa-gscore'); sc.textContent='0 / 100';
+    var wrap=$('sa-finds'); wrap.innerHTML='';
+    r.findings.forEach(function(f){
+      var s=STATUS[f.status]||STATUS.ok;
+      var el=document.createElement('div'); el.className='sa-find'; el.style.background=s.bg;
+      el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
+      el.querySelector('.sa-find-cat').textContent=f.category;
+      var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
+      el.querySelector('.sa-find-txt').textContent=f.text;
+      wrap.appendChild(el);
+    });
+    var lvl=$('sa-alevel'); lvl.textContent=r.agentLevel; lvl.style.background=AC[r.agentLevel]||T3; lvl.style.color='#fff';
+    $('sa-aline').textContent=r.agentLine;
+    $('sa-agent-card').style.borderLeftColor=AC[r.agentLevel]||T3;
+    var fwdSection=$('sa-fwd-section');
+    if(r.forwardSignal){$('sa-fwd-txt').textContent=r.forwardSignal;fwdSection.style.display='block';}
+    else{fwdSection.style.display='none';}
+    compareUsed=false;
+    var compareResult=$('sa-compare-result');
+    if(compareBoxEl && !$('sa-compare-box') && compareResult && compareResult.parentNode){
+      compareResult.parentNode.insertBefore(compareBoxEl,compareResult);
+    }
+    var cai=$('sa-admired-inp'); if(cai){cai.disabled=false; cai.value=''; cai.style.opacity='1';}
+    var cbtn2=$('sa-compare-btn'); if(cbtn2){cbtn2.disabled=false; cbtn2.textContent='Compare'; cbtn2.style.opacity='1';}
+    var cok=$('sa-compare-ok'); if(cok) cok.style.display='none';
+    if(compareResult) compareResult.style.display='none';
+    $('sa-cta-mailto').href=buildAuditMailto(r);
+    $('sa-close-cta').style.display='block';
+    var pos=r.positioning||{}; var posCard=$('sa-pos-card');
+    var posColors={green:T1,yellow:T3,red:T5};
+    posCard.style.borderLeftColor=posColors[pos.color]||'#e2eaf0';
+    $('sa-pos-verdict').textContent=pos.verdict||'';
+    var posTests=$('sa-pos-tests'); posTests.innerHTML='';
+    var tagC=function(v){ return v==='lands'||v==='clear'||v==='connects'?T1:v==='partial'?T3:T5; };
+    var tagDisp={lands:'strong',partial:'partial',missing:'missing',clear:'clear',unclear:'unclear',connects:'strong'};
+    [{n:'hook',v:pos.hook},{n:'fit',v:pos.fit},{n:'relevance',v:pos.relevance}].forEach(function(t){
+      var el=document.createElement('span'); el.className='sa-pos-tag';
+      el.textContent='The '+t.n+' is '+(tagDisp[t.v]||t.v||''); var c=tagC(t.v); el.style.background=c; el.style.color='#fff'; el.style.border='none';
+      posTests.appendChild(el);
+    });
+    if(pos.disqualifier){
+      var tk=document.createElement('span'); tk.className='sa-pos-tag';
+      tk.textContent='TRUST KILLER'; tk.style.background=T5; tk.style.color='#fff'; tk.style.border='none'; tk.style.fontWeight='800';
+      posTests.appendChild(tk);
+    }
+    $('sa-report').style.display='block';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      prog.style.strokeDashoffset=C*(1-r.seoScore/100);
+      countUp(sc,r.seoScore,1300);
+      wrap.querySelectorAll('.sa-find').forEach(function(el,i){ setTimeout(function(){ el.classList.add('sa-in'); },250+i*130); });
+      setTimeout(function(){ lvl.classList.add('sa-in'); },300);
+      setTimeout(function(){ posCard.classList.add('sa-in'); },150);
+    }); });
+  }
+
+  function countUp(el,to,dur){
+    var start=null;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3); el.textContent=Math.round(e*to)+' / 100'; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+})();
+</script>
 
 <!-- SCRIPTS -->
 <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
