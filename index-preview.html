@@ -95,8 +95,8 @@
   .sa-row.active .sa-chev { transform:rotate(90deg); }
   #sa-signal-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:10000;align-items:center;justify-content:center;}
   #sa-signal-modal.open{display:flex;}
-  #sa-signal-modal-inner{position:relative;width:88%;max-width:660px;max-height:90vh;background:#f7f9fb;border-radius:12px;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
-  #sa-signal-modal-body{overflow-y:auto;padding:40px 20px;max-height:90vh;}
+  #sa-signal-modal-inner{position:relative;width:88%;max-width:660px;max-height:85vh;background:#f7f9fb;border-radius:12px;overflow-y:scroll;-webkit-overflow-scrolling:touch;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
+  #sa-signal-modal-body{padding:40px 20px;}
   #sa-signal-modal-close{position:absolute;top:12px;right:14px;z-index:1;background:rgba(255,255,255,0.92);border:1px solid #d0dce8;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;color:#4b5563;font-weight:700;padding:0;}
   #sa-signal-modal-close:hover{background:#fff;color:#1a1a1a;}
   #sa-audit h1{font-size:22px;color:#004F82;margin:0 0 6px;text-align:center;}
@@ -124,8 +124,8 @@
   @keyframes sa-pulse{0%,100%{height:12px;opacity:.5;}50%{height:42px;opacity:1;}}
   #sa-audit .sa-loading-txt{font-size:14.5px;color:var(--b2);font-weight:600;}
   #sa-audit .sa-meter{display:none;}
-  #sa-audit .sa-rtitle{font-size:18px;font-weight:700;color:var(--b2);word-break:break-word;margin:0 0 6px;}
-  #sa-audit .sa-rtagline{font-size:13px;color:var(--muted);margin:0 0 24px;}
+  #sa-audit .sa-rtitle{font-size:18px;font-weight:700;color:var(--b2);word-break:break-word;margin:0 0 6px;text-align:center;}
+  #sa-audit .sa-rtagline{font-size:13px;color:var(--muted);margin:0 0 24px;text-align:center;}
   #sa-audit .sa-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin:18px 0 6px;padding-top:6px;border-top:1px solid var(--line);}
   #sa-audit .sa-hero{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-left:4px solid #e2eaf0;border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);padding:28px;}
   #sa-audit .sa-seo-top{display:flex;align-items:center;gap:28px;}
@@ -1131,10 +1131,6 @@
     if(!/^https?:\/\//i.test(v)) v='https://'+v;
     try{ var u=new URL(v); return (u.hostname&&u.hostname.indexOf('.')>-1)?u:null; }catch(e){ return null; }
   }
-  var LIMIT_KEY='sa_audit_done_dev_v3';
-  function loadLimit(){ try{ return JSON.parse(localStorage.getItem(LIMIT_KEY)||'{}'); }catch(e){ return {}; } }
-  function saveLimit(m){ try{ localStorage.setItem(LIMIT_KEY,JSON.stringify(m)); }catch(e){} }
-
   var btn=$('sa-run'), err=$('sa-err');
   function intakeValid(){
     var emailVal=($('sa-email').value||'').trim();
@@ -1155,9 +1151,6 @@
     if(!emailVal||emailVal.indexOf('@')<1){ err.textContent='Please enter a valid work email.'; err.style.display='block'; return; }
     var u=normalizeUrl($('sa-url').value);
     if(!u){ err.textContent='Please enter a valid website address.'; err.style.display='block'; return; }
-    var cacheKey=emailVal.toLowerCase();
-    var done=loadLimit();
-    if(done[cacheKey]){ render(done[cacheKey]); return; }
     startLoading();
     var q1Sel=document.querySelector('input[name="sa-q1"]:checked');
     var q2Sels=Array.from(document.querySelectorAll('input[name="sa-q2"]:checked'));
@@ -1174,7 +1167,6 @@
         }
         if(rep.error){ stopLoading(); err.textContent=rep.error+(rep.detail?' — '+rep.detail:''); err.style.display='block'; return; }
         rep.displayUrl=u.hostname.replace(/^www\./,'');
-        done[cacheKey]=rep; saveLimit(done);
         render(rep);
       })
       .catch(function(){
@@ -1542,7 +1534,6 @@
   function saModalClose() {
     document.getElementById('sa-signal-modal').classList.remove('open');
     document.body.style.overflow = '';
-    try { localStorage.removeItem('sa_audit_done_v2'); } catch(e) {}
   }
   window.saModalOpen = saModalOpen;
   window.saModalClose = saModalClose;
