@@ -794,13 +794,14 @@
           prog.style.stroke=col; prog.style.strokeDasharray=C; prog.style.strokeDashoffset=C;
           var sc=$('sa-gscore'); sc.textContent='0 / 100';
           var wrap=$('sa-finds'); wrap.innerHTML='';
+          var decodeHTML=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
           orderFindings(r).forEach(function(f){
             var s=STATUS[f.status]||STATUS.ok;
             var el=document.createElement('div'); el.className='sa-find'; el.style.borderLeftColor=s.c;
             el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
             el.querySelector('.sa-find-cat').textContent=f.category;
             var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
-            el.querySelector('.sa-find-txt').textContent=f.text;
+            el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
             wrap.appendChild(el);
           });
           var lvl=$('sa-alevel'); lvl.textContent=r.agentLevel; lvl.style.background=AC[r.agentLevel]||'var(--gC)';
@@ -1424,13 +1425,14 @@
     prog.style.stroke=col; prog.style.strokeDasharray=C; prog.style.strokeDashoffset=C;
     var sc=$('sa-gscore'); sc.textContent='0 / 100';
     var wrap=$('sa-finds'); wrap.innerHTML='';
+    var decodeHTML=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
     r.findings.forEach(function(f){
       var s=STATUS[f.status]||STATUS.ok;
       var el=document.createElement('div'); el.className='sa-find'; el.style.background=s.bg;
       el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
       el.querySelector('.sa-find-cat').textContent=f.category;
       var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
-      el.querySelector('.sa-find-txt').textContent=f.text;
+      el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
       wrap.appendChild(el);
     });
     var MC={BASIC:'#9BAEBB',EMERGING:'#3A9E72',CAPABLE:'#4A9E8F',ADVANCED:'#1F6B4E'};
