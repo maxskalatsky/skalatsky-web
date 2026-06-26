@@ -95,7 +95,7 @@
   .sa-row.active .sa-chev { transform:rotate(90deg); }
   #sa-signal-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:10000;align-items:center;justify-content:center;}
   #sa-signal-modal.open{display:flex;}
-  #sa-signal-modal-inner{position:relative;width:88%;max-width:660px;max-height:90vh;background:#f7f9fb;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
+  #sa-signal-modal-inner{position:relative;width:88%;max-width:660px;max-height:90vh;background:#f7f9fb;border-radius:12px;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:0 24px 80px rgba(0,0,0,0.45);}
   #sa-signal-modal-body{overflow-y:auto;padding:40px 20px;max-height:90vh;}
   #sa-signal-modal-close{position:absolute;top:12px;right:14px;z-index:1;background:rgba(255,255,255,0.92);border:1px solid #d0dce8;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;color:#4b5563;font-weight:700;padding:0;}
   #sa-signal-modal-close:hover{background:#fff;color:#1a1a1a;}
@@ -244,7 +244,7 @@
 
 <main id="main-content">
 
-<section class="full-screen large-sized center-block parallaxie" id="home" aria-label="Hero">
+<section class="large-sized center-block parallaxie" id="home" aria-label="Hero" style="height:480px;min-height:360px;">
   <div class="container">
     <div class="row">
       <div class="col-md-2 col-sm-1"></div>
@@ -373,7 +373,7 @@
 <!-- Services ends -->
 
 <!-- SIGNAL CTA STRIP -->
-<section style="padding:52px 0;text-align:center;background:#f7f9fb;border-top:1px solid #e2eaf0;border-bottom:1px solid #e2eaf0;">
+<section style="padding:32px 0;text-align:center;background:#f7f9fb;border-top:1px solid #e2eaf0;border-bottom:1px solid #e2eaf0;">
   <div class="container">
     <p style="font-size:14px;color:#777;margin:0 0 18px;">See how your site stacks up.</p>
     <a class="button default" href="#" onclick="saModalOpen();return false;">Get Your Free Signal</a>
@@ -1542,6 +1542,7 @@
   function saModalClose() {
     document.getElementById('sa-signal-modal').classList.remove('open');
     document.body.style.overflow = '';
+    try { localStorage.removeItem('sa_audit_done_v2'); } catch(e) {}
   }
   window.saModalOpen = saModalOpen;
   window.saModalClose = saModalClose;
