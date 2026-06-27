@@ -799,8 +799,7 @@
             var s=STATUS[f.status]||STATUS.ok;
             var el=document.createElement('div'); el.className='sa-find'; el.style.borderLeftColor=s.c;
             el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-            var catLabel={'Authority':'Authority (backlinks and trust signals)','Visibility':'Visibility (on-page SEO)','First Impressions':'First Impressions (technical health)','Content Structure':'Content Structure'};
-            el.querySelector('.sa-find-cat').textContent=catLabel[f.category]||f.category;
+            el.querySelector('.sa-find-cat').textContent=f.category;
             var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
             el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
             wrap.appendChild(el);
@@ -1032,7 +1031,7 @@
               <p class="sa-intake-qlabel">What does this site need to do?</p>
               <div class="sa-intake-grid">
                 <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="generate_leads" class="sa-intake-inp">Generate leads</label>
-                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="build_authority" class="sa-intake-inp">Build authority</label>
+                <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="build_authority" class="sa-intake-inp">Establish credibility</label>
                 <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="serve_relationships" class="sa-intake-inp">Serve existing relationships</label>
                 <label class="sa-intake-opt-lbl"><input type="checkbox" name="sa-q3" value="inform_educate" class="sa-intake-inp">Inform and educate</label>
               </div>
@@ -1446,8 +1445,7 @@
       var s=STATUS[f.status]||STATUS.ok;
       var el=document.createElement('div'); el.className='sa-find'; el.style.background=s.bg;
       el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-      var catLabel={'Authority':'Authority (backlinks and trust signals)','Visibility':'Visibility (on-page SEO)','First Impressions':'First Impressions (technical health)','Content Structure':'Content Structure'};
-      el.querySelector('.sa-find-cat').textContent=catLabel[f.category]||f.category;
+      el.querySelector('.sa-find-cat').textContent=f.category;
       var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
       el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
       wrap.appendChild(el);
