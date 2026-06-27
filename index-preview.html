@@ -799,7 +799,8 @@
             var s=STATUS[f.status]||STATUS.ok;
             var el=document.createElement('div'); el.className='sa-find'; el.style.borderLeftColor=s.c;
             el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-            el.querySelector('.sa-find-cat').textContent=f.category;
+            var catLabel={'Authority':'Authority (backlinks and trust signals)','Visibility':'Visibility (on-page SEO)','First Impressions':'First Impressions (technical health)','Content Structure':'Content Structure'};
+            el.querySelector('.sa-find-cat').textContent=catLabel[f.category]||f.category;
             var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
             el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
             wrap.appendChild(el);
@@ -1187,11 +1188,14 @@
   $('sa-compare-btn').addEventListener('click',function(){
     if(compareUsed) return;
     var raw=($('sa-admired-inp').value||'').trim();
-    if(!raw) return;
+    var compareOk=$('sa-compare-ok');
+    if(!raw){ compareOk.textContent='Please enter a website address, for example competitor.com.'; compareOk.style.color='var(--gF)'; compareOk.style.display='block'; return; }
     var admNorm=normalizeUrl(raw);
-    if(!admNorm) return;
+    if(!admNorm){ compareOk.textContent='Please enter a valid website address, for example competitor.com.'; compareOk.style.color='var(--gF)'; compareOk.style.display='block'; return; }
+    compareOk.style.display='none';
     var cbtn=$('sa-compare-btn'), cinp=$('sa-admired-inp');
     cbtn.disabled=true; cbtn.textContent='Comparing...';
+    var compareOk2=$('sa-compare-ok'); compareOk2.textContent='Comparing that site now. This takes about 15 seconds.'; compareOk2.style.color='var(--b2)'; compareOk2.style.display='block';
     fetch(SA_WORKER_URL,{
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -1208,6 +1212,7 @@
     })
     .then(function(res){return res.json();})
     .then(function(data){
+      var compareOk3=$('sa-compare-ok'); if(compareOk3) compareOk3.style.display='none';
       if(data.enrichedSignal){
         $('sa-fwd-txt').textContent=data.enrichedSignal;
       }
@@ -1289,11 +1294,22 @@
       lines.push('Brand Authority: '+ba+', Content Depth: '+cd+', AI Visibility: '+av+', Audience Clarity: '+ac);
     } else {
       var pos=r.positioning||{};
-      lines.push('Position the Brand: '+(pos.hook||'')+', '+(pos.fit||'')+', '+(pos.relevance||''));
+      var friendlyPos=function(v,dim){
+        if(dim==='hook') return v==='lands'?'Clear and direct':v==='partial'?'Partially clear':'Not established';
+        if(dim==='fit') return v==='clear'?'Well defined':v==='partial'?'Partially defined':'Not defined';
+        if(dim==='relevance') return v==='connects'?'Connects well':v==='partial'?'Partially connects':'Not connecting';
+        return v||'';
+      };
+      var friendlyAgent=function(v){ return {ADVANCED:'Advanced (strong AI visibility)',CAPABLE:'Capable (solid AI visibility)',EMERGING:'Emerging (building AI visibility)',BASIC:'Basic (limited AI visibility)'}[v]||v||''; };
+      lines.push('Position the Brand');
+      lines.push('  Hook: '+friendlyPos(pos.hook,'hook'));
+      lines.push('  Fit: '+friendlyPos(pos.fit,'fit'));
+      lines.push('  Relevance: '+friendlyPos(pos.relevance,'relevance'));
       lines.push('');
-      lines.push('SEO Readiness: '+(r.seoGrade||''));
+      lines.push('SEO Readiness: Grade '+(r.seoGrade||''));
+      if(r.seoGradeTitle) lines.push('  '+r.seoGradeTitle);
       lines.push('');
-      lines.push('Agent Readiness: '+(r.agentLevel||''));
+      lines.push('Agent Readiness: '+friendlyAgent(r.agentLevel));
     }
     lines.push('I would like to talk about what this means for my business.');
     var subject='My Digital Signal: '+domain;
@@ -1430,7 +1446,8 @@
       var s=STATUS[f.status]||STATUS.ok;
       var el=document.createElement('div'); el.className='sa-find'; el.style.background=s.bg;
       el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-      el.querySelector('.sa-find-cat').textContent=f.category;
+      var catLabel={'Authority':'Authority (backlinks and trust signals)','Visibility':'Visibility (on-page SEO)','First Impressions':'First Impressions (technical health)','Content Structure':'Content Structure'};
+      el.querySelector('.sa-find-cat').textContent=catLabel[f.category]||f.category;
       var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
       el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
       wrap.appendChild(el);
