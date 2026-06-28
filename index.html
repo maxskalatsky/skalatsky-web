@@ -627,9 +627,6 @@
             rep.answers=a;
             done[key]=rep; saveLimit(done);
             render(rep);
-          }).catch(function(){
-            stopLoading();
-            err.textContent='Something went wrong running the audit. Please try again in a moment.';err.style.display='block';
           });
         });
         $('sa-redo').addEventListener('click',function(){

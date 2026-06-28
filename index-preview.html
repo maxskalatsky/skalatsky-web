@@ -737,9 +737,6 @@
             rep.answers=a;
             done[key]=rep; saveLimit(done);
             render(rep);
-          }).catch(function(){
-            stopLoading();
-            err.textContent='Something went wrong running the audit. Please try again in a moment.';err.style.display='block';
           });
         });
         $('sa-redo').addEventListener('click',function(){
@@ -1166,7 +1163,7 @@
       })
       .catch(function(){
         stopLoading();
-        err.textContent='Something went wrong. Please try again.'; err.style.display='block';
+        err.textContent='We couldn\'t reach that site. Try again or enter a different URL.'; err.style.display='block';
       });
   });
 
