@@ -1102,7 +1102,6 @@
           </div>
           <div id="sa-close-cta" style="display:none;text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);">
             <a class="sa-btn" id="sa-cta-mailto" href="mailto:signal@skalatsky.com" style="display:inline-block">Start the conversation.</a>
-            <button class="sa-redo" id="sa-redo" type="button">Run another website</button>
           </div>
         </div>
       </div>
@@ -1163,16 +1162,6 @@
         stopLoading();
         err.textContent='We couldn\'t reach that site. Try again or enter a different URL.'; err.style.display='block';
       });
-  });
-
-  $('sa-redo').addEventListener('click', function(){
-    currentReport=null; compareUsed=false;
-    $('sa-report').style.display='none';
-    $('sa-close-cta').style.display='none';
-    $('sa-intake').style.display='block';
-    document.querySelectorAll('input[name="sa-q1"],input[name="sa-q2"],input[name="sa-q3"]').forEach(function(el){ el.checked=false; });
-    updateBtn();
-    $('sa-url').value=''; $('sa-url').focus();
   });
 
   var compareUsed=false, currentReport=null;
