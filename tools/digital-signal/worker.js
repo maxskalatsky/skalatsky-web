@@ -4,6 +4,15 @@ import { inferBusinessType, getForwardSignal, getCompareSignal, polishWithClaude
 
 const DEV_MODE = false; // disable KV email gate in dev; set false before promoting to production
 
+const ALLOWLIST = [
+  "max.skalatsky@gmail.com",
+  "brett@skalatsky.com",
+  "justin@skalatsky.com",
+  "mari@skalatsky.com",
+  "esteban@skalatsky.com",
+  "kwallnofer@gmail.com",
+];
+
 async function classifyEntity(url, env) {
   if (!env.ANTHROPIC_API_KEY) return "private_company";
   try {
@@ -88,7 +97,7 @@ export default {
     }
 
     // One free Signal per email — check KV before running anything expensive
-    if (!DEV_MODE && env.AUDITS) {
+    if (!DEV_MODE && env.AUDITS && !ALLOWLIST.includes(email)) {
       const prior = await env.AUDITS.get(email);
       if (prior) {
         return json({ error: "You have already run a free Signal. Email signal@skalatsky.com to discuss your results." }, 429, cors);
