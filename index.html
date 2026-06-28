@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +23,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://skalatsky.com/">
 <meta property="og:site_name" content="Skalatsky &amp; Associates">
-<meta property="og:title" content="Skalatsky &amp; Associates | Marketing. Product. Technology.">
-<meta property="og:description" content="AI-powered marketing and technology firm delivering brand, demand gen, apps, and platforms fast. Forward-deployed engineers and AI agents embedded in your business.">
+<meta property="og:title" content="Skalatsky &amp; Associates | Marketing &amp; Technology Execution">
+<meta property="og:description" content="AI-powered marketing and technology firm. Brand, demand gen, apps, and platforms — delivered by forward-deployed engineers and AI agents, without the overhead.">
 <meta property="og:image" content="https://skalatsky.com/images/og-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -33,8 +32,8 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://skalatsky.com/">
-<meta name="twitter:title" content="Skalatsky &amp; Associates | Marketing. Product. Technology.">
-<meta name="twitter:description" content="AI-powered marketing and technology firm delivering brand, demand gen, apps, and platforms fast. Forward-deployed engineers and AI agents embedded in your business.">
+<meta name="twitter:title" content="Skalatsky &amp; Associates | Marketing &amp; Technology Execution">
+<meta name="twitter:description" content="AI-powered marketing and technology firm. Brand, demand gen, apps, and platforms — delivered by forward-deployed engineers and AI agents, without the overhead.">
 <meta name="twitter:image" content="https://skalatsky.com/images/og-preview.png">
 <meta name="twitter:image:alt" content="Skalatsky &amp; Associates — Marketing &amp; Technology Execution">
 
@@ -240,7 +239,7 @@
 
 <main id="main-content">
 
-<section class="large-sized full-screen center-block parallaxie" id="home" aria-label="Hero">
+<section class="full-screen large-sized center-block parallaxie" id="home" aria-label="Hero">
   <div class="container">
     <div class="row">
       <div class="col-md-2 col-sm-1"></div>
@@ -278,7 +277,7 @@
 <!-- ═══════════════════════════════════════════
      SERVICES
 ═══════════════════════════════════════════ -->
-<section class="padding_top padding_bottom" id="services" aria-labelledby="services-heading" style="padding-bottom:24px;">
+<section class="padding_top padding_bottom" id="services" aria-labelledby="services-heading">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
@@ -602,7 +601,7 @@
         #sa-audit .sa-close-lead{font-size:14px;font-weight:400;color:var(--muted);max-width:540px;margin:0 auto 16px;}
         #sa-audit .sa-close-q{font-size:18px;font-weight:700;color:var(--ink);margin:0 0 16px;}
         #sa-audit .sa-redo{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted2);font-size:12.5px;font-family:inherit;text-decoration:underline;cursor:pointer;}
-        #sa-audit .sa-section-label{font-size:11px;font-weight:800!important;letter-spacing:.14em;text-transform:uppercase;color:#1a1a1a!important;margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
+        #sa-audit .sa-section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
         #sa-audit .sa-pos-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--line);border-left:none;border-radius:10px;padding:22px 24px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease,border-top-color .4s ease;}
         #sa-audit .sa-pos-card.sa-in{opacity:1;transform:none;}
         #sa-audit .sa-pos-verdict{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 6px;}
@@ -689,6 +688,7 @@
     <p class="sa-close-lead" id="sa-close-lead"></p>
     <p class="sa-close-q">If any of this resonates, let&rsquo;s talk.</p>
     <a class="button default" href="mailto:audit@skalatsky.com">audit@skalatsky.com</a>
+    <button class="sa-redo" id="sa-redo" type="button">Run another website</button>
   </div>
 </div>
 
@@ -789,14 +789,13 @@
           prog.style.stroke=col; prog.style.strokeDasharray=C; prog.style.strokeDashoffset=C;
           var sc=$('sa-gscore'); sc.textContent='0 / 100';
           var wrap=$('sa-finds'); wrap.innerHTML='';
-          var decodeHTML=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
           orderFindings(r).forEach(function(f){
             var s=STATUS[f.status]||STATUS.ok;
             var el=document.createElement('div'); el.className='sa-find'; el.style.borderLeftColor=s.c;
             el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
             el.querySelector('.sa-find-cat').textContent=f.category;
             var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
-            el.querySelector('.sa-find-txt').textContent=decodeHTML(f.text);
+            el.querySelector('.sa-find-txt').textContent=f.text;
             wrap.appendChild(el);
           });
           var lvl=$('sa-alevel'); lvl.textContent=r.agentLevel; lvl.style.background=AC[r.agentLevel]||'var(--gC)';
@@ -908,7 +907,7 @@
 
 
 <!-- AI TEAM -->
-<section class="padding_top padding_bottom" id="theteam" aria-labelledby="theagency-heading" style="padding-top:24px;">
+<section class="padding_top padding_bottom" id="theteam" aria-labelledby="theagency-heading">
   <div class="container">
     <div class="row"><div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2"><div class="intro-text center wow fadeInUp"><span class="heading-title bottom25">Meet The AI Team</span><h2 class="darkcolor bottom25" id="theagency-heading">Six AI Agents. One Operating Model.</h2><p>Not a platform, not a product, not a promise. Six agents, each with a defined role and a real scope of work spanning brand, demand gen, digital, business development, product strategy, and full-stack engineering. Andrew takes the brief, figures out who handles it, and the team gets it done. The output is always the same: a real, tangible asset, delivered fast.</p></div></div></div>
     <div class="agent-grid">
@@ -1067,7 +1066,6 @@
           <p class="sa-section-label" id="sa-lbl-agent">Agent readiness</p>
           <div class="sa-agent" id="sa-agent-card">
             <div id="sa-agent-meter" class="sa-agent-meter"></div>
-            <div class="sa-agent-level" id="sa-alevel"></div>
             <p class="sa-agent-line" id="sa-aline" style="margin-top:10px;font-size:13.5px;color:var(--ink);"></p>
           </div>
           <div id="sa-audience-wrap" style="display:none">
@@ -1104,6 +1102,7 @@
           </div>
           <div id="sa-close-cta" style="display:none;text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);">
             <a class="sa-btn" id="sa-cta-mailto" href="mailto:signal@skalatsky.com" style="display:inline-block">Start the conversation.</a>
+            <button class="sa-redo" id="sa-redo" type="button">Run another website</button>
           </div>
         </div>
       </div>
@@ -1647,12 +1646,6 @@ function showResults(){
   document.getElementById('diag-results').style.display='block';
 }
 </script>
-
-<div id="test-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;" onclick="this.style.display='none'">
-  <div style="background:#fff;border-radius:12px;width:80%;max-width:600px;height:80vh;overflow-y:scroll;padding:24px;">
-    <p>Line 1</p><p>Line 2</p><p>Line 3</p><p>Line 4</p><p>Line 5</p><p>Line 6</p><p>Line 7</p><p>Line 8</p><p>Line 9</p><p>Line 10</p><p>Line 11</p><p>Line 12</p><p>Line 13</p><p>Line 14</p><p>Line 15</p><p>Line 16</p><p>Line 17</p><p>Line 18</p><p>Line 19</p><p>Line 20</p>
-  </div>
-</div>
 
 </body>
 </html>
