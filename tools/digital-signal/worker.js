@@ -6,11 +6,19 @@ const DEV_MODE = false; // disable KV email gate in dev; set false before promot
 
 const ALLOWLIST = [
   "max.skalatsky@gmail.com",
+  "max@skalatsky.com",
   "brett@skalatsky.com",
   "justin@skalatsky.com",
   "mari@skalatsky.com",
   "esteban@skalatsky.com",
   "kwallnofer@gmail.com",
+  "gkboko@gmail.com",
+  "yukiuk@hotmail.com",
+  "harry00jordan@gmail.com",
+  "agurock1@verizon.net",
+  "elach10@gmail.com",
+  "christopheraudie@gmail.com",
+  "john22harrison77@gmail.com",
 ];
 
 async function classifyEntity(url, env) {
