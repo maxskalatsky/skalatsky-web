@@ -1348,56 +1348,7 @@
   function tierColor(t){ return t===1?T1:t===2?T2:t===3?T3:t===4?T4:T5; }
 
   function renderEnterprise(r){
-    $('sa-lbl-pos').textContent='Brand Authority';
-    $('sa-lbl-seo').textContent='Content Depth';
-    $('sa-lbl-agent').textContent='AI Visibility';
-
-    var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
-    posCard.style.borderLeftColor=baC;
-    var posTests=$('sa-pos-tests'); posTests.innerHTML='';
-    var baB=document.createElement('div'); baB.className='sa-agent-level';
-    baB.style.background=baC;
-    baB.textContent=ba.label.toUpperCase();
-    posTests.appendChild(baB);
-    $('sa-pos-verdict').textContent=ba.text;
-
-    var cd=r.contentDepth, cdC=tierColor(cd.tier);
-    $('sa-seo-card').style.borderLeftColor=cdC;
-    var gauge=$('sa-seo-card').querySelector('.sa-gauge');
-    if(gauge) gauge.style.display='none';
-    var seoTop=$('sa-seo-card').querySelector('.sa-seo-top');
-    var cdBadge=document.createElement('div'); cdBadge.id='sa-ent-cd-badge'; cdBadge.className='sa-agent-level';
-    cdBadge.style.background=cdC;
-    cdBadge.textContent=cd.label.toUpperCase();
-    var heroMeta=seoTop?seoTop.querySelector('.sa-hero-meta'):null;
-    if(seoTop&&heroMeta) seoTop.insertBefore(cdBadge, heroMeta);
-    $('sa-gdesc').textContent=cd.text;
-    $('sa-finds').innerHTML='';
-
-    var av=r.aiVisibility, avC=tierColor(av.tier);
-    var avLvl=$('sa-alevel'); avLvl.textContent=av.label.toUpperCase(); avLvl.style.background=avC; avLvl.style.color='#fff';
-    $('sa-aline').textContent=av.text; $('sa-agent-card').style.borderLeftColor=avC;
-
-    var ac=r.audienceClarity, acC=tierColor(ac.tier);
-    var audLvl=$('sa-aud-level'); audLvl.textContent=ac.label.toUpperCase(); audLvl.style.background=acC; audLvl.style.color='#fff';
-    $('sa-aud-line').textContent=ac.text; $('sa-audience-card').style.borderLeftColor=acC;
-    $('sa-audience-wrap').style.display='block';
-
-    var fwdSection=$('sa-fwd-section');
-    if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
-    else { fwdSection.style.display='none'; }
-
-    $('sa-cta-mailto').href=buildAuditMailto(r);
-    $('sa-close-cta').style.display='block';
-    $('sa-compare-result').style.display='none';
-    $('sa-report').style.display='block';
-
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      setTimeout(function(){ posCard.classList.add('sa-in'); baB.classList.add('sa-in'); },150);
-      setTimeout(function(){ cdBadge.classList.add('sa-in'); },250);
-      setTimeout(function(){ avLvl.classList.add('sa-in'); },350);
-      setTimeout(function(){ audLvl.classList.add('sa-in'); },450);
-    }); });
+    console.log('renderEnterprise called with:', r); alert('Got response: ' + r.businessName);
   }
 
   function render(r){
