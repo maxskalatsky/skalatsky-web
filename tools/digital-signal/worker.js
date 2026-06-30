@@ -2,7 +2,7 @@ import { dataForSeoOnPage, fetchAgentSignals, detectJsFramework, extractHtmlMeta
 import { scoreSeo, letterFromScore, scorePositioning, scoreAgentReadiness, buildRulesReport, scoreEnterprise, resolveProfile } from "./scorer.js";
 import { inferBusinessType, getForwardSignal, getCompareSignal, polishWithClaude, getEnterpriseBenchmarkSignal } from "./signals.js";
 
-const DEV_MODE = false; // disable KV email gate in dev; set false before promoting to production
+const DEV_MODE = false;
 
 const ALLOWLIST = [
   "max.skalatsky@gmail.com",
@@ -49,7 +49,6 @@ async function classifyEntity(url, env) {
   } catch { return "private_company"; }
 }
 
-
 export default {
   async fetch(request, env) {
     const cors = {
@@ -73,11 +72,10 @@ export default {
       };
     } catch (e) {
       console.warn("userContext parse failed, using fallback:", String(e));
-      userContext = { entityType: 'small_growing', primaryVisitor: ['cold_prospects'], siteGoal: ['generate_leads'] };
+      userContext = { entityType: "small_growing", primaryVisitor: ["cold_prospects"], siteGoal: ["generate_leads"] };
     }
-    console.log("userContext:", JSON.stringify(userContext));
 
-    // Compare action — separate from the main audit flow, no email/KV required
+    // Compare action
     if (body.action === "compare") {
       if (!env.ANTHROPIC_API_KEY) return json({ error: "api not configured" }, 503, cors);
       const admiredUrl = normalizeUrl(body.admiredUrl);
@@ -98,13 +96,11 @@ export default {
     const target = normalizeUrl(body.url);
     if (!target) return json({ error: "invalid url" }, 400, cors);
 
-
     const email = (body.email || "").trim().toLowerCase();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return json({ error: "A valid work email is required." }, 400, cors);
     }
 
-    // One free Signal per email — check KV before running anything expensive
     if (!DEV_MODE && env.AUDITS && !ALLOWLIST.includes(email)) {
       const prior = await env.AUDITS.get(email);
       if (prior) {
@@ -112,15 +108,14 @@ export default {
       }
     }
 
-    // Classify entity before any scoring — determines which pipeline runs
     const entityType = await classifyEntity(target, env);
 
     try {
-      // ── ENTERPRISE PATH (known_brand) ──────────────────────────────────────
+      // ENTERPRISE PATH
       if (entityType === "known_brand") {
         const extra = await Promise.race([
           fetchAgentSignals(target, env),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("fetch timeout")), 40000))
+          new Promise((_, reject) => setTimeout(() => reject(new Error("fetch timeout")), 25000))
         ]);
         let rawPage = { checks: {}, meta: {} };
         try { rawPage = await dataForSeoOnPage(target, env); } catch {}
@@ -133,6 +128,7 @@ export default {
             email, url: target, timestamp: new Date().toISOString(), entityType: "known_brand",
           }));
         }
+
         const fwd = env.ANTHROPIC_API_KEY
           ? await getEnterpriseBenchmarkSignal(extra.html || "", brand, enterpriseScores, target, env)
           : null;
@@ -147,8 +143,7 @@ export default {
         }, 200, cors);
       }
 
-      // ── PRIVATE COMPANY PATH (unchanged) ───────────────────────────────────
-      // 1. crawl --------------------------------------------------------------
+      // PRIVATE COMPANY PATH
       const rawPage = await dataForSeoOnPage(target, env);
       const extra = await fetchAgentSignals(target, env);
 
@@ -157,22 +152,18 @@ export default {
         ? patchPageFromHtml(rawPage, extractHtmlMeta(extra.html || "", target))
         : rawPage;
 
-      // 2. score --------------------------------------------------------------
       const scores = scoreSeo(page);
       const seoGrade = letterFromScore(scores.total);
 
-      // Business type inference — runs in parallel with synchronous steps below
       const businessCtxPromise = env.ANTHROPIC_API_KEY
         ? inferBusinessType(extra.html || "", target, env)
         : Promise.resolve(null);
 
-      // 3. agent readiness ----------------------------------------------------
       const agent = scoreAgentReadiness(extra, scores, seoGrade);
-
-      // 4. findings -----------------------------------------------------------
       const brand = extractBrand(target, extra.html || "", page.meta?.title);
       let report = buildRulesReport(brand, scores, seoGrade, agent, page, userContext);
       const profile = resolveProfile(userContext);
+
       if ((env.FINDINGS_MODE || "rules") === "llm" && env.ANTHROPIC_API_KEY) {
         report = await polishWithClaude(report, page, brand, env);
       }
@@ -190,7 +181,6 @@ export default {
         positioning = { ...positioning, color: "yellow" };
       }
 
-      // Log audit to KV
       if (env.AUDITS) {
         await env.AUDITS.put(email, JSON.stringify({
           email, url: target, timestamp: new Date().toISOString(),
@@ -198,18 +188,16 @@ export default {
         }));
       }
 
-      // Forward Signal — Claude-generated opportunity observation
       if (env.ANTHROPIC_API_KEY) {
         const fwd = await getForwardSignal(extra.html, positioning, report.seoGrade, report.findings, agent.level, businessCtx, profile, env);
         if (fwd) report.forwardSignal = fwd;
-      } else {
-        console.warn("ANTHROPIC_API_KEY not bound — Forward Signal skipped");
       }
 
       report.businessName = brand;
       report.positioning = positioning;
       report.rendering_mode = extra.rendering_mode || "fetch";
       return json(report, 200, cors);
+
     } catch (e) {
       return json({ error: "audit failed", detail: String(e) }, 502, cors);
     }
