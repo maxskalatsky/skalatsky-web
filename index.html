@@ -968,55 +968,60 @@
 
   function renderEnterprise(r){
     $('sa-lbl-pos').textContent='Brand Authority';
-      $('sa-lbl-seo').textContent='Content Depth';
-      $('sa-lbl-agent').textContent='AI Visibility';
+    $('sa-lbl-seo').textContent='Content & Visibility';
+    $('sa-lbl-agent').textContent='Audience Clarity';
+    var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
+    posCard.style.borderLeftColor=baC;
+    var posTests=$('sa-pos-tests'); posTests.innerHTML='';
+    var baPill=document.createElement('span'); baPill.className='sa-pos-tag';
+    baPill.textContent=ba.label.toUpperCase();
+    baPill.style.background=baC; baPill.style.color='#fff'; baPill.style.border='none';
+    posTests.appendChild(baPill);
+    $('sa-pos-verdict').textContent=ba.text;
 
-      var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
-      posCard.style.borderLeftColor=baC;
-      var posTests=$('sa-pos-tests'); posTests.innerHTML='';
-      var baB=document.createElement('div'); baB.className='sa-agent-level';
-      baB.style.background=baC;
-      baB.textContent=ba.label.toUpperCase();
-      posTests.appendChild(baB);
-      $('sa-pos-verdict').textContent=ba.text;
+    var gauge=$('sa-seo-card').querySelector('.sa-gauge');
+    if(gauge) gauge.style.display='none';
+    var oldCdBadge=$('sa-ent-cd-badge');
+    if(oldCdBadge&&oldCdBadge.parentNode) oldCdBadge.parentNode.removeChild(oldCdBadge);
+    $('sa-gdesc').textContent='';
+    $('sa-seo-card').style.borderLeftColor='#e2eaf0';
 
-      var cd=r.contentDepth, cdC=tierColor(cd.tier);
-      $('sa-seo-card').style.borderLeftColor=cdC;
-      var gauge=$('sa-seo-card').querySelector('.sa-gauge');
-      if(gauge) gauge.style.display='none';
-      var seoTop=$('sa-seo-card').querySelector('.sa-seo-top');
-      var cdBadge=document.createElement('div'); cdBadge.id='sa-ent-cd-badge'; cdBadge.className='sa-agent-level';
-      cdBadge.style.background=cdC;
-      cdBadge.textContent=cd.label.toUpperCase();
-      var heroMeta=seoTop?seoTop.querySelector('.sa-hero-meta'):null;
-      if(seoTop&&heroMeta) seoTop.insertBefore(cdBadge, heroMeta);
-      $('sa-gdesc').textContent=cd.text;
-      $('sa-finds').innerHTML='';
+    var wrap=$('sa-finds'); wrap.innerHTML='';
+    var metrics=[
+      {cat:'Content Depth', m:r.contentDepth},
+      {cat:'AI Visibility', m:r.aiVisibility}
+    ];
+    metrics.forEach(function(item){
+      var s=item.m, c=tierColor(s.tier);
+      var el=document.createElement('div'); el.className='sa-find';
+      el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
+      el.querySelector('.sa-find-cat').textContent=item.cat;
+      var pill=el.querySelector('.sa-pill'); pill.textContent=s.label; pill.style.background=c;
+      el.querySelector('.sa-find-txt').textContent=s.text;
+      wrap.appendChild(el);
+    });
 
-      var av=r.aiVisibility, avC=tierColor(av.tier);
-      var avLvl=$('sa-alevel'); avLvl.textContent=av.label.toUpperCase(); avLvl.style.background=avC; avLvl.style.color='#fff';
-      $('sa-aline').textContent=av.text; $('sa-agent-card').style.borderLeftColor=avC;
+    var ac=r.audienceClarity, acC=tierColor(ac.tier);
+    var meterEl=$('sa-agent-meter'); if(meterEl) meterEl.innerHTML='';
+    var avLvl=$('sa-alevel'); avLvl.style.display='inline-block'; avLvl.textContent=ac.label.toUpperCase(); avLvl.style.background=acC; avLvl.style.color='#fff';
+    $('sa-aline').textContent=ac.text; $('sa-agent-card').style.borderLeftColor=acC;
 
-      var ac=r.audienceClarity, acC=tierColor(ac.tier);
-      var audLvl=$('sa-aud-level'); audLvl.textContent=ac.label.toUpperCase(); audLvl.style.background=acC; audLvl.style.color='#fff';
-      $('sa-aud-line').textContent=ac.text; $('sa-audience-card').style.borderLeftColor=acC;
-      $('sa-audience-wrap').style.display='block';
+    $('sa-audience-wrap').style.display='none';
 
-      var fwdSection=$('sa-fwd-section');
-      if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
-      else { fwdSection.style.display='none'; }
+    var fwdSection=$('sa-fwd-section');
+    if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
+    else { fwdSection.style.display='none'; }
 
-      $('sa-cta-mailto').href=buildAuditMailto(r);
-      $('sa-close-cta').style.display='block';
-      $('sa-compare-result').style.display='none';
-      $('sa-report').style.display='block';
+    $('sa-cta-mailto').href=buildAuditMailto(r);
+    $('sa-close-cta').style.display='block';
+    $('sa-compare-result').style.display='none';
+    $('sa-report').style.display='block';
 
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){
-        setTimeout(function(){ posCard.classList.add('sa-in'); baB.classList.add('sa-in'); },150);
-        setTimeout(function(){ cdBadge.classList.add('sa-in'); },250);
-        setTimeout(function(){ avLvl.classList.add('sa-in'); },350);
-        setTimeout(function(){ audLvl.classList.add('sa-in'); },450);
-      }); });
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      setTimeout(function(){ posCard.classList.add('sa-in'); baPill.classList.add('sa-in'); },150);
+      wrap.querySelectorAll('.sa-find').forEach(function(el,i){ setTimeout(function(){ el.classList.add('sa-in'); },250+i*130); });
+      setTimeout(function(){ avLvl.classList.add('sa-in'); },450);
+    }); });
   }
 
   function render(r){

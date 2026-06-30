@@ -88,7 +88,7 @@ export async function fetchWithScrapfly(url, apiKey) {
     "?key=" + encodeURIComponent(apiKey) +
     "&url=" + encodeURIComponent(url) +
     "&render_js=true&asp=true&country=us";
-  const res = await fetch(endpoint, { signal: AbortSignal.timeout(25000) });
+  const res = await fetch(endpoint, { signal: AbortSignal.timeout(90000) });
   if (!res.ok) throw new Error(`Scrapfly HTTP ${res.status}`);
   const data = await res.json();
   if (!data?.result?.success) throw new Error(`Scrapfly error: ${JSON.stringify(data?.result?.error || data?.message || "unknown")}`);

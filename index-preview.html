@@ -1165,16 +1165,6 @@
       });
   });
 
-  $('sa-redo').addEventListener('click', function(){
-    currentReport=null; compareUsed=false;
-    $('sa-report').style.display='none';
-    $('sa-close-cta').style.display='none';
-    $('sa-intake').style.display='block';
-    document.querySelectorAll('input[name="sa-q1"],input[name="sa-q2"],input[name="sa-q3"]').forEach(function(el){ el.checked=false; });
-    updateBtn();
-    $('sa-url').value=''; $('sa-url').focus();
-  });
-
   var compareUsed=false, currentReport=null;
   var compareBoxEl=$('sa-compare-box');
 
@@ -1646,12 +1636,6 @@ function showResults(){
   document.getElementById('diag-results').style.display='block';
 }
 </script>
-
-<div id="test-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;" onclick="this.style.display='none'">
-  <div style="background:#fff;border-radius:12px;width:80%;max-width:600px;height:80vh;overflow-y:scroll;padding:24px;">
-    <p>Line 1</p><p>Line 2</p><p>Line 3</p><p>Line 4</p><p>Line 5</p><p>Line 6</p><p>Line 7</p><p>Line 8</p><p>Line 9</p><p>Line 10</p><p>Line 11</p><p>Line 12</p><p>Line 13</p><p>Line 14</p><p>Line 15</p><p>Line 16</p><p>Line 17</p><p>Line 18</p><p>Line 19</p><p>Line 20</p>
-  </div>
-</div>
 
 </body>
 </html>
