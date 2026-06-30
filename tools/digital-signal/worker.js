@@ -2,9 +2,9 @@ import { dataForSeoOnPage, fetchAgentSignals, detectJsFramework, extractHtmlMeta
 import { scoreSeo, letterFromScore, scorePositioning, scoreAgentReadiness, buildRulesReport, scoreEnterprise, resolveProfile } from "./scorer.js";
 import { inferBusinessType, getForwardSignal, getCompareSignal, polishWithClaude, getEnterpriseBenchmarkSignal } from "./signals.js";
 
-const DEV_MODE = false;
+const DEV_MODE = false; // bypass KV email gate during dev testing; set false before promoting to production
 
-const ALLOWLIST = [
+const ALLOWED_EMAILS = [
   "max.skalatsky@gmail.com",
   "max@skalatsky.com",
   "brett@skalatsky.com",
@@ -19,7 +19,37 @@ const ALLOWLIST = [
   "elach10@gmail.com",
   "christopheraudie@gmail.com",
   "john22harrison77@gmail.com",
-];
+].map(e => e.toLowerCase());
+
+async function logToNotion(env, { businessName, email, url, seoGrade, agentLevel }) {
+  if (!env.NOTION_API_KEY) return;
+  const today = new Date().toISOString().split("T")[0];
+  const props = {
+    "Prospect Name": { title: [{ text: { content: businessName || "" } }] },
+    "Prospect Email": { email: email || null },
+    "Prospect Company": { rich_text: [{ text: { content: businessName || "" } }] },
+    "Prospect URL": { url: url || null },
+    "Signal Date": { date: { start: today } },
+  };
+  if (seoGrade) props["SEO Grade"] = { select: { name: seoGrade } };
+  if (agentLevel) props["Agent Level"] = { select: { name: agentLevel } };
+  try {
+    await fetch("https://api.notion.com/v1/pages", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${env.NOTION_API_KEY}`,
+        "Notion-Version": "2022-06-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        parent: { database_id: "cd12287db4f143a3931f09a8ac8f55c8" },
+        properties: props,
+      }),
+    });
+  } catch (e) {
+    console.warn("Notion log failed:", String(e));
+  }
+}
 
 async function classifyEntity(url, env) {
   if (!env.ANTHROPIC_API_KEY) return "private_company";
@@ -49,6 +79,7 @@ async function classifyEntity(url, env) {
   } catch { return "private_company"; }
 }
 
+
 export default {
   async fetch(request, env) {
     const cors = {
@@ -72,10 +103,11 @@ export default {
       };
     } catch (e) {
       console.warn("userContext parse failed, using fallback:", String(e));
-      userContext = { entityType: "small_growing", primaryVisitor: ["cold_prospects"], siteGoal: ["generate_leads"] };
+      userContext = { entityType: 'small_growing', primaryVisitor: ['cold_prospects'], siteGoal: ['generate_leads'] };
     }
+    console.log("userContext:", JSON.stringify(userContext));
 
-    // Compare action
+    // Compare action — separate from the main audit flow, no email/KV required
     if (body.action === "compare") {
       if (!env.ANTHROPIC_API_KEY) return json({ error: "api not configured" }, 503, cors);
       const admiredUrl = normalizeUrl(body.admiredUrl);
@@ -101,21 +133,24 @@ export default {
       return json({ error: "A valid work email is required." }, 400, cors);
     }
 
-    if (!DEV_MODE && env.AUDITS && !ALLOWLIST.includes(email)) {
+    // One free Signal per email — check KV before running anything expensive
+    const isAllowlisted = ALLOWED_EMAILS.includes(email);
+    if (!DEV_MODE && !isAllowlisted && env.AUDITS) {
       const prior = await env.AUDITS.get(email);
       if (prior) {
         return json({ error: "You have already run a free Signal. Email signal@skalatsky.com to discuss your results." }, 429, cors);
       }
     }
 
+    // Classify entity before any scoring — determines which pipeline runs
     const entityType = await classifyEntity(target, env);
 
     try {
-      // ENTERPRISE PATH
+      // ── ENTERPRISE PATH (known_brand) ──────────────────────────────────────
       if (entityType === "known_brand") {
         const extra = await Promise.race([
           fetchAgentSignals(target, env),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("fetch timeout")), 25000))
+          new Promise((_, reject) => setTimeout(() => reject(new Error("fetch timeout")), 40000))
         ]);
         let rawPage = { checks: {}, meta: {} };
         try { rawPage = await dataForSeoOnPage(target, env); } catch {}
@@ -128,7 +163,7 @@ export default {
             email, url: target, timestamp: new Date().toISOString(), entityType: "known_brand",
           }));
         }
-
+        await logToNotion(env, { businessName: brand, email, url: target, seoGrade: null, agentLevel: null });
         const fwd = env.ANTHROPIC_API_KEY
           ? await getEnterpriseBenchmarkSignal(extra.html || "", brand, enterpriseScores, target, env)
           : null;
@@ -143,7 +178,7 @@ export default {
         }, 200, cors);
       }
 
-      // PRIVATE COMPANY PATH
+      // ── PRIVATE COMPANY PATH ───────────────────────────────────────────────
       const rawPage = await dataForSeoOnPage(target, env);
       const extra = await fetchAgentSignals(target, env);
 
@@ -160,10 +195,10 @@ export default {
         : Promise.resolve(null);
 
       const agent = scoreAgentReadiness(extra, scores, seoGrade);
+
       const brand = extractBrand(target, extra.html || "", page.meta?.title);
       let report = buildRulesReport(brand, scores, seoGrade, agent, page, userContext);
       const profile = resolveProfile(userContext);
-
       if ((env.FINDINGS_MODE || "rules") === "llm" && env.ANTHROPIC_API_KEY) {
         report = await polishWithClaude(report, page, brand, env);
       }
@@ -187,17 +222,19 @@ export default {
           seoScore: scores.total, seoGrade, agentLevel: agent.level,
         }));
       }
+      await logToNotion(env, { businessName: brand, email, url: target, seoGrade, agentLevel: agent.level });
 
       if (env.ANTHROPIC_API_KEY) {
         const fwd = await getForwardSignal(extra.html, positioning, report.seoGrade, report.findings, agent.level, businessCtx, profile, env);
         if (fwd) report.forwardSignal = fwd;
+      } else {
+        console.warn("ANTHROPIC_API_KEY not bound — Forward Signal skipped");
       }
 
       report.businessName = brand;
       report.positioning = positioning;
       report.rendering_mode = extra.rendering_mode || "fetch";
       return json(report, 200, cors);
-
     } catch (e) {
       return json({ error: "audit failed", detail: String(e) }, 502, cors);
     }
