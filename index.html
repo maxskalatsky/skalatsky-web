@@ -967,46 +967,55 @@
   function tierColor(t){ return t===1?T1:t===2?T2:t===3?T3:t===4?T4:T5; }
 
   function renderEnterprise(r){
-    $('sa-lbl-pos').textContent='Brand Authority';
-    $('sa-lbl-seo').textContent='Content & Visibility';
-    $('sa-lbl-agent').textContent='Audience Clarity';
-    var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
-    posCard.style.borderLeftColor=baC;
-    var posTests=$('sa-pos-tests'); posTests.innerHTML='';
-    var baPill=document.createElement('span'); baPill.className='sa-pos-tag';
-    baPill.textContent=ba.label.toUpperCase();
-    baPill.style.background=baC; baPill.style.color='#fff'; baPill.style.border='none';
-    posTests.appendChild(baPill);
-    $('sa-pos-verdict').textContent=ba.text;
-
+    $('sa-lbl-pos').textContent='';
+    $('sa-lbl-seo').textContent='';
+    $('sa-lbl-agent').textContent='';
+    $('sa-pos-card').style.display='none';
+    $('sa-agent-card').style.display='none';
     var gauge=$('sa-seo-card').querySelector('.sa-gauge');
     if(gauge) gauge.style.display='none';
     var oldCdBadge=$('sa-ent-cd-badge');
     if(oldCdBadge&&oldCdBadge.parentNode) oldCdBadge.parentNode.removeChild(oldCdBadge);
     $('sa-gdesc').textContent='';
     $('sa-seo-card').style.borderLeftColor='#e2eaf0';
+    $('sa-seo-card').style.boxShadow='none';
+    $('sa-seo-card').style.padding='0';
+    $('sa-seo-card').style.border='none';
+    $('sa-seo-card').style.background='transparent';
+    var TIER_COLORS=['#1F6B4E','#3A9E72','#4A9E8F','#7AABB8','#9BAEBB'];
+    function dotColors(tier){
+      var capped=Math.min(tier,3);
+      var arr=[];
+      for(var i=5;i>=1;i--){ arr.push(i<=(6-capped)?TIER_COLORS[i-1]:'#e2eaf0'); }
+      return arr;
+    }
+    function cardHtml(label,metric){
+      var capped=Math.min(metric.tier,3);
+      var c=TIER_COLORS[capped-1];
+      var dots=dotColors(metric.tier).map(function(col){
+        return '<span style="width:14px;height:4px;border-radius:2px;background:'+col+';display:inline-block;"></span>';
+      }).join('');
+      var labelText=capped<metric.tier?'Moderate':metric.label;
+      var bodyText=metric.text;
+      return '<div class="sa-find" style="border-left:4px solid '+c+';border-radius:0 10px 10px 0;">'
+        +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">'
+        +'<span style="font-size:13px;font-weight:700;color:var(--ink);">'+label+'</span>'
+        +'<span style="font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:'+c+';padding:3px 10px;border-radius:999px;">'+labelText+'</span>'
+        +'<span style="display:inline-flex;gap:3px;">'+dots+'</span>'
+        +'</div>'
+        +'<p class="sa-find-txt" style="font-size:12px;">'+bodyText+'</p>'
+        +'</div>';
+    }
 
-    var wrap=$('sa-finds'); wrap.innerHTML='';
-    var metrics=[
-      {cat:'Content Depth', m:r.contentDepth},
-      {cat:'AI Visibility', m:r.aiVisibility}
-    ];
-    metrics.forEach(function(item){
-      var s=item.m, c=tierColor(s.tier);
-      var el=document.createElement('div'); el.className='sa-find';
-      el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-      el.querySelector('.sa-find-cat').textContent=item.cat;
-      var pill=el.querySelector('.sa-pill'); pill.textContent=s.label; pill.style.background=c;
-      el.querySelector('.sa-find-txt').textContent=s.text;
-      wrap.appendChild(el);
-    });
-
-    var ac=r.audienceClarity, acC=tierColor(ac.tier);
-    var meterEl=$('sa-agent-meter'); if(meterEl) meterEl.innerHTML='';
-    var avLvl=$('sa-alevel'); avLvl.style.display='inline-block'; avLvl.textContent=ac.label.toUpperCase(); avLvl.style.background=acC; avLvl.style.color='#fff';
-    $('sa-aline').textContent=ac.text; $('sa-agent-card').style.borderLeftColor=acC;
-
-    $('sa-audience-wrap').style.display='none';
+    var wrap=$('sa-finds');
+    wrap.style.display='flex';
+    wrap.style.flexDirection='column';
+    wrap.style.gap='12px';
+    wrap.innerHTML=''
+      +cardHtml('Brand authority', r.brandAuthority)
+      +cardHtml('Content depth', r.contentDepth)
+      +cardHtml('AI visibility', r.aiVisibility)
+      +cardHtml('Audience clarity', r.audienceClarity);
 
     var fwdSection=$('sa-fwd-section');
     if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
@@ -1018,9 +1027,7 @@
     $('sa-report').style.display='block';
 
     requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      setTimeout(function(){ posCard.classList.add('sa-in'); baPill.classList.add('sa-in'); },150);
-      wrap.querySelectorAll('.sa-find').forEach(function(el,i){ setTimeout(function(){ el.classList.add('sa-in'); },250+i*130); });
-      setTimeout(function(){ avLvl.classList.add('sa-in'); },450);
+      wrap.querySelectorAll('.sa-find').forEach(function(el,i){ setTimeout(function(){ el.classList.add('sa-in'); },150+i*130); });
     }); });
   }
 
