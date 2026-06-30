@@ -526,388 +526,6 @@
 </div>
 
  
-<!-- S&A AI AUDIT TOOL
-<section class="padding_top padding_bottom" id="ai-audit" aria-labelledby="ai-audit-heading">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-        <div class="intro-text center wow fadeInUp">
-          <span class="heading-title bottom25">Free AI Audit</span>
-          <h2 class="darkcolor bottom25" id="ai-audit-heading">See your business the way the internet does.</h2>
-          <p class="bottom35">Find out in under two minutes. Free. No email required.</p>
-        </div>
-      </div>
-    </div>
-    <div id="sa-audit">
-      <style>
-        #sa-audit{--p:#006699;--b2:#004F82;--teal:#00C99C;--teal-d:#00a583;--ink:#1a1a1a;--muted:#777;--muted2:#9ca3af;--line:#e2eaf0;--line2:#d0dce8;--soft:#f7f9fb;--softblue:#f0f6fb;--gA:#00a583;--gB:#1f9d57;--gC:#d8a200;--gD:#e07b21;--gF:#cf3b3b;max-width:760px;margin:0 auto;color:var(--ink);}
-        #sa-audit *,#sa-audit *::before,#sa-audit *::after{box-sizing:border-box;}
-        #sa-audit .sa-panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);padding:30px;}
-        #sa-audit .sa-q{margin-bottom:24px;}
-        #sa-audit .sa-q-label{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 12px;display:flex;gap:9px;align-items:baseline;}
-        #sa-audit .sa-q-n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--softblue);color:var(--p);font-size:12px;font-weight:700;flex:0 0 auto;}
-        #sa-audit .sa-opt{display:flex;align-items:center;gap:11px;border:1px solid var(--line2);border-radius:8px;padding:11px 14px;margin-bottom:8px;cursor:pointer;transition:border-color .15s,background .15s;}
-        #sa-audit .sa-opt:hover{border-color:var(--p);background:var(--softblue);}
-        #sa-audit .sa-opt .sa-dot{width:17px;height:17px;border-radius:50%;border:2px solid #c2ccd8;flex:0 0 auto;position:relative;transition:border-color .15s;}
-        #sa-audit .sa-opt input{position:absolute;opacity:0;width:0;height:0;}
-        #sa-audit .sa-opt span{font-size:14px;color:#4b5563;}
-        #sa-audit .sa-opt.sa-on{border-color:var(--p);background:var(--softblue);}
-        #sa-audit .sa-opt.sa-on span{color:var(--ink);}
-        #sa-audit .sa-opt.sa-on .sa-dot{border-color:var(--p);}
-        #sa-audit .sa-opt.sa-on .sa-dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--p);}
-        #sa-audit .sa-field label{display:block;font-size:15px;font-weight:600;margin:0 0 11px;}
-        #sa-audit .sa-input{width:100%;font-size:15px;font-family:inherit;color:var(--ink);padding:13px 15px;border:1px solid var(--line2);border-radius:8px;outline:none;transition:border-color .15s,box-shadow .15s;}
-        #sa-audit .sa-input:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(0,102,153,.12);}
-        #sa-audit .sa-input::placeholder{color:#9aa2af;}
-        #sa-audit .sa-cta{text-align:center;margin-top:24px;}
-        #sa-audit .sa-cta .button{cursor:pointer;}
-        #sa-audit .sa-err{color:var(--gF);font-size:13.5px;margin:12px 0 0;display:none;text-align:center;}
-        #sa-audit .sa-note{text-align:center;color:var(--muted2);font-size:12.5px;margin:14px 0 0;}
-        #sa-audit .sa-loading{display:none;text-align:center;padding:46px 0;}
-        #sa-audit .sa-scan{position:relative;width:110px;height:110px;margin:0 auto 20px;}
-        #sa-audit .sa-scan svg{transform:rotate(-90deg);}
-        #sa-audit .sa-scan .sa-scan-ring{fill:none;stroke:var(--line);stroke-width:6;}
-        #sa-audit .sa-scan .sa-scan-arc{fill:none;stroke:var(--p);stroke-width:6;stroke-linecap:round;stroke-dasharray:80 320;animation:sa-spin 1s linear infinite;}
-        @keyframes sa-spin{to{stroke-dashoffset:-400;}}
-        #sa-audit .sa-loading-txt{font-size:14.5px;color:var(--b2);font-weight:600;min-height:22px;}
-        #sa-audit .sa-report{display:none;margin-top:10px;}
-        #sa-audit .sa-rhead{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:0 0 4px;text-align:center;}
-        #sa-audit .sa-rurl{font-size:16px;font-weight:700;color:var(--b2);word-break:break-all;margin:0 0 22px;text-align:center;}
-        #sa-audit .sa-hero{display:flex;align-items:center;gap:28px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--p);border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);padding:28px;}
-        #sa-audit .sa-gauge{position:relative;width:140px;height:140px;flex:0 0 auto;}
-        #sa-audit .sa-gauge svg{transform:rotate(-90deg);}
-        #sa-audit .sa-gauge .sa-track{fill:none;stroke:var(--line);stroke-width:11;}
-        #sa-audit .sa-gauge .sa-prog{fill:none;stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.22,1,.36,1);}
-        #sa-audit .sa-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-        #sa-audit .sa-gauge-letter{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em;}
-        #sa-audit .sa-gauge-letter small{font-size:22px;vertical-align:super;}
-        #sa-audit .sa-gauge-score{font-size:12px;font-weight:700;color:var(--muted2);margin-top:3px;display:none;}
-        #sa-audit .sa-hero-k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:0 0 6px;}
-        #sa-audit .sa-hero-t{font-size:20px;font-weight:700;color:var(--ink);margin:0 0 7px;}
-        #sa-audit .sa-hero-d{font-size:14px;color:var(--muted);margin:0;}
-        #sa-audit .sa-find-wrap{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-        #sa-audit .sa-find{background:#fff;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:10px;padding:16px 17px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;}
-        #sa-audit .sa-find.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-find-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
-        #sa-audit .sa-find-cat{font-size:14px;font-weight:700;color:var(--ink);}
-        #sa-audit .sa-pill{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:3px 9px;border-radius:999px;}
-        #sa-audit .sa-find-txt{font-size:13px;color:#4b5563;margin:0;line-height:1.55;}
-        #sa-audit .sa-agent{margin-top:18px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:24px 26px;}
-        #sa-audit .sa-agent-k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:0 0 16px;}
-        #sa-audit .sa-agent-row{display:flex;align-items:center;gap:18px;margin-bottom:18px;}
-        #sa-audit .sa-agent-level{font-size:22px;font-weight:700;letter-spacing:.03em;color:#fff;padding:9px 18px;border-radius:8px;flex:0 0 auto;opacity:0;transform:scale(.9);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1);}
-        #sa-audit .sa-agent-level.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-agent-line{font-size:14px;color:#4b5563;margin:0;}
-        #sa-audit .sa-meter{display:flex;gap:6px;}
-        #sa-audit .sa-seg{flex:1;text-align:center;padding:8px 4px;border-radius:6px;background:#fff;border:1px solid var(--line);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted2);transition:all .4s ease;}
-        #sa-audit .sa-seg.sa-on{color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,31,64,.14);}
-        #sa-audit .sa-close{text-align:center;margin:28px 0 4px;}
-        #sa-audit .sa-close-lead{font-size:14px;font-weight:400;color:var(--muted);max-width:540px;margin:0 auto 16px;}
-        #sa-audit .sa-close-q{font-size:18px;font-weight:700;color:var(--ink);margin:0 0 16px;}
-        #sa-audit .sa-redo{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted2);font-size:12.5px;font-family:inherit;text-decoration:underline;cursor:pointer;}
-        #sa-audit .sa-section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin:22px 0 8px;padding-top:6px;border-top:1px solid var(--line);}
-        #sa-audit .sa-pos-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--line);border-left:none;border-radius:10px;padding:22px 24px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease,border-top-color .4s ease;}
-        #sa-audit .sa-pos-card.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-pos-verdict{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 6px;}
-        #sa-audit .sa-pos-tests{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
-        #sa-audit .sa-pos-divider{border:none;border-top:1px solid var(--line);margin:0 0 14px;}
-        #sa-audit .sa-pos-tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 14px;border-radius:999px;border:1.5px solid var(--line);color:var(--muted2);}
-        #sa-audit .sa-cap-card{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:14px;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
-        #sa-audit .sa-cap-card.sa-in{opacity:1;transform:none;}
-        #sa-audit .sa-cap-gap{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 8px;}
-        #sa-audit .sa-cap-consequence{font-size:13px;color:#4b5563;margin:0;line-height:1.55;}
-        @media (max-width:640px){#sa-audit .sa-panel,#sa-audit .sa-hero,#sa-audit .sa-agent{padding:20px;}#sa-audit .sa-hero{flex-direction:column;text-align:center;gap:16px;}#sa-audit .sa-find-wrap{grid-template-columns:1fr;}#sa-audit .sa-agent-row{flex-direction:column;align-items:flex-start;gap:12px;}#sa-audit .sa-meter{flex-wrap:wrap;}#sa-audit .sa-seg{flex:1 1 40%;}}
-      </style>
-
-      <div id="sa-intake">
-        <div class="sa-panel">
-          <div class="sa-q" data-q="q1">
-            <p class="sa-q-label"><span class="sa-q-n">1</span>What best describes your business right now?</p>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q1" value="stalled"><span>We have revenue and customers but growth has stalled.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q1" value="growing"><span>We are growing and need to accelerate.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q1" value="established"><span>We are established and know something is not working.</span></label>
-          </div>
-          <div class="sa-q" data-q="q2">
-            <p class="sa-q-label"><span class="sa-q-n">2</span>What matters most to you right now?</p>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q2" value="traffic"><span>More traffic and visibility.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q2" value="leads"><span>More leads and conversions.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q2" value="both"><span>I need both and do not know where to start.</span></label>
-          </div>
-          <div class="sa-q" data-q="q3">
-            <p class="sa-q-label"><span class="sa-q-n">3</span>What have you done about it so far?</p>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q3" value="tried"><span>We have tried a few things but nothing has stuck.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q3" value="hired"><span>We hired someone and did not see results.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q3" value="know"><span>We know what needs to be done but cannot execute it.</span></label>
-            <label class="sa-opt"><span class="sa-dot"></span><input type="radio" name="q3" value="nothing"><span>We have not done anything yet.</span></label>
-          </div>
-          <div class="sa-field">
-            <label for="sa-url">Your website</label>
-            <input type="url" id="sa-url" class="sa-input" placeholder="yourbusiness.com" autocomplete="url" inputmode="url">
-          </div>
-          <div class="sa-cta"><button id="sa-run" class="button default" type="button">Run My Free Audit</button></div>
-          <p id="sa-err" class="sa-err"></p>
-          <p class="sa-note">One free audit per website. Your results appear right here.</p>
-        </div>
-      </div>
-
-      <div id="sa-loading" class="sa-loading">
-        <div class="sa-scan"><svg width="110" height="110" viewBox="0 0 120 120"><circle class="sa-scan-ring" cx="60" cy="60" r="52"></circle><circle class="sa-scan-arc" cx="60" cy="60" r="52"></circle></svg></div>
-        <p class="sa-loading-txt" id="sa-loading-txt">Crawling your site&hellip;</p>
-      </div>
-
-      <div id="sa-report" class="sa-report">
-  <p class="sa-rhead">Benchmark results for</p>
-  <p class="sa-rurl" id="sa-rurl"></p>
-  <p class="sa-section-label">Position the Brand</p>
-  <div class="sa-pos-card" id="sa-pos-card">
-    <div class="sa-pos-tests" id="sa-pos-tests"></div>
-        <hr class="sa-pos-divider">
-        <p class="sa-pos-verdict" id="sa-pos-verdict"></p>
-  </div>
-  <p class="sa-section-label">Drive Demand</p>
-  <div class="sa-hero">
-    <div class="sa-gauge">
-      <svg width="140" height="140" viewBox="0 0 150 150"><circle class="sa-track" cx="75" cy="75" r="64"></circle><circle class="sa-prog" id="sa-prog" cx="75" cy="75" r="64"></circle></svg>
-      <div class="sa-gauge-center"><div class="sa-gauge-letter" id="sa-gletter"></div><div class="sa-gauge-score" id="sa-gscore"></div></div>
-    </div>
-    <div class="sa-hero-meta">
-      <p class="sa-hero-k">SEO Grade</p>
-      <p class="sa-hero-t" id="sa-gtitle"></p>
-      <p class="sa-hero-d" id="sa-gdesc"></p>
-    </div>
-  </div>
-  <div class="sa-find-wrap" id="sa-finds"></div>
-  <div class="sa-agent">
-    <p class="sa-agent-k">Agent Readiness &mdash; can AI assistants read your site?</p>
-    <div class="sa-agent-row"><div class="sa-agent-level" id="sa-alevel"></div><p class="sa-agent-line" id="sa-aline"></p></div>
-    <div class="sa-meter" id="sa-meter"></div>
-  </div>
-  <p class="sa-context" id="sa-context"></p>
-  <p class="sa-section-label">Build the Product</p>
-  <div class="sa-cap-card" id="sa-cap-card">
-    <p class="sa-cap-gap" id="sa-cap-gap"></p>
-    <p class="sa-cap-consequence" id="sa-cap-consequence"></p>
-  </div>
-  <div class="sa-close">
-    <p class="sa-close-lead" id="sa-close-lead"></p>
-    <p class="sa-close-q">If any of this resonates, let&rsquo;s talk.</p>
-    <a class="button default" href="mailto:audit@skalatsky.com">audit@skalatsky.com</a>
-    <button class="sa-redo" id="sa-redo" type="button">Run another website</button>
-  </div>
-</div>
-
-      <script>
-      (function(){
-        "use strict";
-        var root=document.getElementById('sa-audit');
-        var $=function(id){return document.getElementById(id);};
-
-        root.querySelectorAll('.sa-opt input').forEach(function(inp){
-          inp.addEventListener('change',function(){
-            root.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){
-              o.closest('.sa-opt').classList.toggle('sa-on',o.checked);
-            });
-          });
-        });
-
-        function normalizeUrl(raw){
-          var v=(raw||'').trim(); if(!v) return null;
-          if(!/^https?:\/\//i.test(v)) v='https://'+v;
-          try{var u=new URL(v); return (u.hostname&&u.hostname.indexOf('.')>-1)?u:null;}catch(e){return null;}
-        }
-        function answers(){
-          function val(n){var el=root.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
-          return {q1:val('q1'),q2:val('q2'),q3:val('q3')};
-        }
-
-        var LIMIT_KEY='sa_audit_done_v2';
-        function loadLimit(){try{return JSON.parse(localStorage.getItem(LIMIT_KEY)||'{}');}catch(e){return {};}}
-        function saveLimit(m){try{localStorage.setItem(LIMIT_KEY,JSON.stringify(m));}catch(e){}}
-
-        var btn=$('sa-run'),err=$('sa-err');
-        btn.addEventListener('click',function(){
-          err.style.display='none';
-          var a=answers();
-          if(!a.q1||!a.q2||!a.q3){err.textContent='Please answer all three questions first.';err.style.display='block';return;}
-          var u=normalizeUrl($('sa-url').value);
-          if(!u){err.textContent='Please enter a valid website address, for example yourbusiness.com.';err.style.display='block';return;}
-          var key=u.hostname.replace(/^www\./,'').toLowerCase();
-          var done=loadLimit();
-          if(done[key]){render(done[key]);return;}
-          startLoading();
-          runAudit(u.href,a).then(function(rep){
-            rep.displayUrl=u.hostname.replace(/^www\./,'');
-            rep.answers=a;
-            done[key]=rep; saveLimit(done);
-            render(rep);
-          });
-        });
-        $('sa-redo').addEventListener('click',function(){
-          $('sa-report').style.display='none';
-          $('sa-intake').style.display='block';
-          if($('sa-intake').scrollIntoView)$('sa-intake').scrollIntoView({behavior:'smooth',block:'center'});
-        });
-
-        var msgs=['Crawling your site…','Reading what Google sees…','Scanning AI search readiness…','Writing your report…'];
-        var t=null;
-        function startLoading(){
-          btn.disabled=true; $('sa-intake').style.display='none'; $('sa-report').style.display='none';
-          $('sa-loading').style.display='block';
-          var i=0;$('sa-loading-txt').textContent=msgs[0];
-          t=setInterval(function(){i=(i+1)%msgs.length;$('sa-loading-txt').textContent=msgs[i];},1300);
-        }
-        function stopLoading(){clearInterval(t);$('sa-loading').style.display='none';$('sa-intake').style.display='block';btn.disabled=false;}
-
-        var GC={A:'var(--gA)',B:'var(--gB)',C:'var(--gC)',D:'var(--gD)',F:'var(--gF)'};
-        var STATUS={strong:{l:'Strong',c:'var(--gA)'},ok:{l:'Fair',c:'var(--gC)'},weak:{l:'Needs work',c:'var(--gD)'},critical:{l:'Critical',c:'var(--gF)'}};
-        var LEVELS=['BASIC','EMERGING','CAPABLE','ADVANCED'];
-        var AC={BASIC:'var(--gF)',EMERGING:'var(--gD)',CAPABLE:'var(--gC)',ADVANCED:'var(--gA)'};
-
-        function orderFindings(r){
-          var def=['Visibility','First Impressions','Content Structure','Authority'];
-          var a=r.answers, ord=def;
-          if(a&&a.q2==='traffic') ord=['Visibility','Content Structure','First Impressions','Authority'];
-          else if(a&&a.q2==='leads') ord=['First Impressions','Content Structure','Visibility','Authority'];
-          return ord.map(function(c){return r.findings.filter(function(f){return f.category===c;})[0];});
-        }
-        function closingLead(a){
-          if(!a) return '';
-          var pri={traffic:'getting found by more of the right people',leads:'turning visitors into leads',both:'both traffic and conversion'}[a.q2]||'';
-          var ctx={tried:'You have tried a few things that have not stuck.',hired:'You have paid for help before without the results.',know:'You know what needs doing but cannot get it executed.',nothing:'You have not started on this yet.'}[a.q3]||'';
-          var s=ctx;
-          if(pri) s+=(s?' ':'')+'Right now, what matters most is '+pri+'.';
-          return s;
-        }
-
-        function render(r){
-          clearInterval(t); $('sa-loading').style.display='none'; $('sa-intake').style.display='none'; btn.disabled=false;
-          console.log('worker response:', JSON.stringify(r));
-          $('sa-rurl').textContent=r.displayUrl||r.url;
-          var base=r.seoGrade.charAt(0), mod=r.seoGrade.slice(1);
-          var col=GC[base]||'var(--gC)';
-          $('sa-gletter').innerHTML=base+(mod?'<small>'+mod+'</small>':'');
-          $('sa-gletter').style.color=col;
-          $('sa-gtitle').textContent=r.seoGradeTitle;
-          $('sa-gdesc').textContent=r.seoGradeDesc;
-          var C=2*Math.PI*64; var prog=$('sa-prog');
-          prog.style.stroke=col; prog.style.strokeDasharray=C; prog.style.strokeDashoffset=C;
-          var sc=$('sa-gscore'); sc.textContent='0 / 100';
-          var wrap=$('sa-finds'); wrap.innerHTML='';
-          orderFindings(r).forEach(function(f){
-            var s=STATUS[f.status]||STATUS.ok;
-            var el=document.createElement('div'); el.className='sa-find'; el.style.borderLeftColor=s.c;
-            el.innerHTML='<div class="sa-find-top"><span class="sa-find-cat"></span><span class="sa-pill"></span></div><p class="sa-find-txt"></p>';
-            el.querySelector('.sa-find-cat').textContent=f.category;
-            var pill=el.querySelector('.sa-pill'); pill.textContent=s.l; pill.style.background=s.c;
-            el.querySelector('.sa-find-txt').textContent=f.text;
-            wrap.appendChild(el);
-          });
-          var lvl=$('sa-alevel'); lvl.textContent=r.agentLevel; lvl.style.background=AC[r.agentLevel]||'var(--gC)';
-          $('sa-aline').textContent=r.agentLine;
-          var meter=$('sa-meter'); meter.innerHTML='';
-          LEVELS.forEach(function(n){
-            var seg=document.createElement('div'); seg.className='sa-seg'; seg.textContent=n; seg.dataset.lv=n;
-            meter.appendChild(seg);
-          });
-          $('sa-close-lead').textContent=closingLead(r.answers);
-          $('sa-report').style.display='block';
-          var pos=r.positioning||{};var posCard=$('sa-pos-card');var posColors={green:'#00C99C',yellow:'var(--gC)',red:'var(--gF)'};posCard.style.borderTopColor=posColors[pos.color]||'var(--line)';$('sa-pos-verdict').textContent=pos.verdict||'';var posTests=$('sa-pos-tests');posTests.innerHTML='';if(pos.headline_result){var ht=document.createElement('span');ht.className='sa-pos-tag';ht.textContent='Headline: '+pos.headline_result;ht.style.borderColor=posColors[pos.headline_result==='pass'?'green':pos.headline_result==='partial'?'yellow':'red']||'var(--line)';ht.style.color=ht.style.borderColor;posTests.appendChild(ht);}if(pos.menu_result){var mt=document.createElement('span');mt.className='sa-pos-tag';mt.textContent='What you deliver: '+pos.menu_result;mt.style.borderColor=posColors[pos.menu_result==='pass'?'green':pos.menu_result==='partial'?'yellow':'red']||'var(--line)';mt.style.color=mt.style.borderColor;posTests.appendChild(mt);}if(pos.give_result){var gt=document.createElement('span');gt.className='sa-pos-tag';gt.textContent='Give First: '+pos.give_result;gt.style.borderColor=pos.give_result==='pass'?'var(--gA)':'var(--gF)';gt.style.color=gt.style.borderColor;posTests.appendChild(gt);}var div=document.createElement('hr');div.className='sa-pos-divider';posTests.after(div);var cap=r.capability||{};$('sa-cap-gap').textContent=cap.gap||'';$('sa-cap-consequence').textContent=cap.consequence||'';
-          if($('sa-report').scrollIntoView)$('sa-report').scrollIntoView({behavior:'smooth',block:'start'});
-          requestAnimationFrame(function(){requestAnimationFrame(function(){
-            prog.style.strokeDashoffset=C*(1-r.seoScore/100);
-            countUp(sc,r.seoScore,1300);
-            var finds=wrap.querySelectorAll('.sa-find');
-            finds.forEach(function(el,i){setTimeout(function(){el.classList.add('sa-in');},250+i*130);});
-            setTimeout(function(){lvl.classList.add('sa-in');},300);
-            var idx=LEVELS.indexOf(r.agentLevel);
-            meter.querySelectorAll('.sa-seg').forEach(function(seg,i){
-              setTimeout(function(){ if(i<=idx){seg.classList.add('sa-on'); seg.style.background=AC[r.agentLevel];} },500+i*140);
-            });
-            setTimeout(function(){posCard.classList.add('sa-in');},150);
-            setTimeout(function(){$('sa-cap-card').classList.add('sa-in');},900);
-          });});
-        }
-        function countUp(el,to,dur){
-          var start=null;
-          function step(ts){
-            if(!start)start=ts; var p=Math.min((ts-start)/dur,1);
-            var e=1-Math.pow(1-p,3); el.textContent=Math.round(e*to)+' / 100';
-            if(p<1)requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-        }
-
-        // LIVE engine. Leave SA_WORKER_URL set to use the deployed worker.
-        var SA_WORKER_URL = "https://sa-ai-audit.saaudit.workers.dev";
-        function runAudit(url,ans){
-          if(SA_WORKER_URL){
-            return fetch(SA_WORKER_URL,{
-              method:'POST', headers:{'Content-Type':'application/json'},
-              body:JSON.stringify({url:url,answers:ans})
-            }).then(function(res){ return res.json(); });
-          }
-          return new Promise(function(res){ setTimeout(function(){res(mockReport(url,ans));},2600); });
-        }
-
-        function seedFrom(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
-        function rng(seed){var s=seed||1;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
-        function pick(a,r){return a[Math.floor(r()*a.length)];}
-        function brandFrom(url){try{return new URL(url).hostname.replace(/^www\./,'').split('.')[0];}catch(e){return 'your site';}}
-        function letter(s){var L=s>=90?'A':s>=80?'B':s>=70?'C':s>=60?'D':'F';if(L==='F')return 'F';var o=s%10;return L+(o>=7?'+':o<=2?'−':'');}
-
-        function mockReport(url,ans){
-          var brand=brandFrom(url), B=brand.charAt(0).toUpperCase()+brand.slice(1);
-          var r=rng(seedFrom(url.toLowerCase()));
-          var onpage=Math.round(12+r()*18), tech=Math.round(12+r()*18), content=Math.round(11+r()*19), auth=Math.round(2+r()*8);
-          var total=onpage+tech+content+auth, grade=letter(total);
-          var titles={A:'Strong fundamentals',B:'Solid, with gaps',C:'Average',D:'Underperforming',F:'Critical'};
-          var descs={A:'Most of what Google rewards is already in place.',B:'A few specific gaps are holding back better rankings.',C:'The basics are partly there but real visibility is being left on the table.',D:'Several core signals Google looks for are missing or broken.',F:'Google is struggling to understand and rank '+B+' at all.'};
-          function band(s,m){var p=s/m;return p>=.8?'strong':p>=.6?'ok':p>=.4?'weak':'critical';}
-          var pools={
-            Visibility:{
-              critical:['Search engines can reach '+B+', but key pages have no descriptive titles.',B+' is missing the basic tags Google reads, so it ranks for almost nothing it could win.'],
-              weak:['Several pages share the same generic title, so Google cannot tell them apart.','Titles read like internal labels, not what a customer would search for '+B+'.'],
-              ok:['Google indexes '+B+' cleanly; the next step is targeting the phrases your buyers use.','Most pages are titled, but a few compete with each other for the same terms.'],
-              strong:[B+' is fully indexed with clear, distinct titles, so Google knows what to rank you for.']
-            },
-            'First Impressions':{
-              critical:['Pages load slowly enough that most visitors leave before seeing anything.','Core pages render slowly and shift as they load, a direct ranking penalty.'],
-              weak:['The site is fine on desktop but lags on mobile, where most traffic arrives.','Large unoptimized images are slowing the first impression, especially on phones.'],
-              ok:['Load speed is reasonable; tightening images would move '+B+' from fine to fast.','The mobile experience works but is not quite snappy.'],
-              strong:['Pages load fast and stay stable on desktop and mobile, exactly what Google rewards.']
-            },
-            'Content Structure':{
-              critical:['Content has almost no heading structure, so Google and AI cannot parse what '+B+' does.','Pages are walls of text with no clear sections.'],
-              weak:['Headings skip levels and repeat, so the hierarchy reads as confusing.','Key services are mentioned in passing rather than in clearly labeled sections.'],
-              ok:['Content is organized; clear question and answer sections would help '+B+' show up in AI results.','Most pages are structured well; a few thin pages need more substance.'],
-              strong:['Content is cleanly structured with clear headings, which Google and AI can read and quote.']
-            },
-            Authority:{
-              critical:['Almost no reputable sites link to '+B+', so Google has little reason to trust it.',B+' has effectively no link authority, which caps how high it can rank.'],
-              weak:['A few sites link to you, but not from the sources that move rankings.','Your backlink profile is thin compared to the sites outranking '+B+'.'],
-              ok:['You have earned a modest set of links; a push for a few authoritative ones would help.',B+' has a reasonable foundation but trails the top competitors.'],
-              strong:[B+' has earned links from credible sources, giving Google reason to trust and rank it.']
-            }
-          };
-          function f(cat,s,m){var b=band(s,m);return {category:cat,status:b,text:pick(pools[cat][b],r)};}
-          var agentScore=Math.max(8,Math.min(96,Math.round(content*0.6+tech*0.7+r()*30)));
-          var agentLevel=agentScore>=80?'ADVANCED':agentScore>=60?'CAPABLE':agentScore>=40?'EMERGING':'BASIC';
-          var aLines={
-            BASIC:'AI assistants like ChatGPT and Google can barely read '+B+'. When someone asks AI for a business like yours, you are effectively invisible.',
-            EMERGING:'AI assistants can find '+B+' but struggle to understand what you offer, so you rarely get recommended.',
-            CAPABLE:B+' is readable to AI assistants and can appear in their answers, though cleaner competitors are usually cited first.',
-            ADVANCED:'AI assistants can clearly read and summarize '+B+', so you are positioned to be recommended when buyers ask AI tools.'
-          };
-          return {url:url,seoGrade:grade,seoScore:total,seoGradeTitle:titles[grade.charAt(0)],seoGradeDesc:descs[grade.charAt(0)],
-            findings:[f('Visibility',onpage,30),f('First Impressions',tech,30),f('Content Structure',content,30),f('Authority',auth,10)],
-            agentLevel:agentLevel,agentScore:agentScore,agentLine:aLines[agentLevel]};
-        }
-      })();
-      </script>
-    </div>
-  </div>
-</section>
--->
 
 
 <!-- AI TEAM -->
@@ -1070,6 +688,7 @@
           <p class="sa-section-label" id="sa-lbl-agent">Agent readiness</p>
           <div class="sa-agent" id="sa-agent-card">
             <div id="sa-agent-meter" class="sa-agent-meter"></div>
+            <div class="sa-agent-level" id="sa-alevel" style="display:none"></div>
             <p class="sa-agent-line" id="sa-aline" style="margin-top:10px;font-size:13.5px;color:var(--ink);"></p>
           </div>
           <div id="sa-audience-wrap" style="display:none">
@@ -1348,7 +967,56 @@
   function tierColor(t){ return t===1?T1:t===2?T2:t===3?T3:t===4?T4:T5; }
 
   function renderEnterprise(r){
-    console.log('renderEnterprise called with:', r); alert('Got response: ' + r.businessName);
+    $('sa-lbl-pos').textContent='Brand Authority';
+      $('sa-lbl-seo').textContent='Content Depth';
+      $('sa-lbl-agent').textContent='AI Visibility';
+
+      var ba=r.brandAuthority, baC=tierColor(ba.tier), posCard=$('sa-pos-card');
+      posCard.style.borderLeftColor=baC;
+      var posTests=$('sa-pos-tests'); posTests.innerHTML='';
+      var baB=document.createElement('div'); baB.className='sa-agent-level';
+      baB.style.background=baC;
+      baB.textContent=ba.label.toUpperCase();
+      posTests.appendChild(baB);
+      $('sa-pos-verdict').textContent=ba.text;
+
+      var cd=r.contentDepth, cdC=tierColor(cd.tier);
+      $('sa-seo-card').style.borderLeftColor=cdC;
+      var gauge=$('sa-seo-card').querySelector('.sa-gauge');
+      if(gauge) gauge.style.display='none';
+      var seoTop=$('sa-seo-card').querySelector('.sa-seo-top');
+      var cdBadge=document.createElement('div'); cdBadge.id='sa-ent-cd-badge'; cdBadge.className='sa-agent-level';
+      cdBadge.style.background=cdC;
+      cdBadge.textContent=cd.label.toUpperCase();
+      var heroMeta=seoTop?seoTop.querySelector('.sa-hero-meta'):null;
+      if(seoTop&&heroMeta) seoTop.insertBefore(cdBadge, heroMeta);
+      $('sa-gdesc').textContent=cd.text;
+      $('sa-finds').innerHTML='';
+
+      var av=r.aiVisibility, avC=tierColor(av.tier);
+      var avLvl=$('sa-alevel'); avLvl.textContent=av.label.toUpperCase(); avLvl.style.background=avC; avLvl.style.color='#fff';
+      $('sa-aline').textContent=av.text; $('sa-agent-card').style.borderLeftColor=avC;
+
+      var ac=r.audienceClarity, acC=tierColor(ac.tier);
+      var audLvl=$('sa-aud-level'); audLvl.textContent=ac.label.toUpperCase(); audLvl.style.background=acC; audLvl.style.color='#fff';
+      $('sa-aud-line').textContent=ac.text; $('sa-audience-card').style.borderLeftColor=acC;
+      $('sa-audience-wrap').style.display='block';
+
+      var fwdSection=$('sa-fwd-section');
+      if(r.forwardSignal){ $('sa-fwd-txt').textContent=r.forwardSignal; fwdSection.style.display='block'; if(compareBoxEl) compareBoxEl.style.display='none'; }
+      else { fwdSection.style.display='none'; }
+
+      $('sa-cta-mailto').href=buildAuditMailto(r);
+      $('sa-close-cta').style.display='block';
+      $('sa-compare-result').style.display='none';
+      $('sa-report').style.display='block';
+
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        setTimeout(function(){ posCard.classList.add('sa-in'); baB.classList.add('sa-in'); },150);
+        setTimeout(function(){ cdBadge.classList.add('sa-in'); },250);
+        setTimeout(function(){ avLvl.classList.add('sa-in'); },350);
+        setTimeout(function(){ audLvl.classList.add('sa-in'); },450);
+      }); });
   }
 
   function render(r){
