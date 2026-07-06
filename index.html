@@ -521,9 +521,9 @@
 .hww-header { display:grid; grid-template-columns:2fr 64px 1fr; margin-bottom:8px; padding-bottom:12px; border-bottom:2px solid #0d2d6b; }
 .hww-label-sa { font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#00C99C; }
 .hww-label-trad { font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#9ca3af; text-align:right; }
-.hww-row { display:grid; grid-template-columns:2fr 64px 1fr; padding:14px 0; border-bottom:1px solid #f0f2f5; align-items:center; }
+.hww-row { display:grid; grid-template-columns:2fr 64px 1fr; padding:14px 0; border-bottom:1px solid #f0f2f5; align-items:stretch; }
 .hww-row:last-child { border-bottom:none; }
-.hww-sa { background:#f7fafd; border-radius:8px; padding:16px 20px; margin-right:8px; }
+.hww-sa { background:#f7fafd; border-radius:8px; padding:16px 20px; margin-right:8px; display:flex; flex-direction:column; justify-content:space-between; }
 .hww-timing { font-size:10px; font-weight:700; color:#006699; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
 .hww-name { font-size:20px; font-weight:800; color:#0d2d6b; margin-bottom:8px; letter-spacing:-0.01em; }
 .hww-body { font-size:12.5px; color:#6b7280; line-height:1.7; margin-bottom:10px; }
@@ -532,14 +532,14 @@
 .hww-chip-1 { background:#0d2d6b; }
 .hww-chip-2 { background:#006699; }
 .hww-chip-3 { background:#0069AA; }
-.hww-center { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; }
+.hww-center { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; align-self:center; }
 .hww-num { width:36px; height:36px; border-radius:50%; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .hww-num-1 { background:#0d2d6b; }
 .hww-num-2 { background:#006699; }
 .hww-num-3 { background:#0069AA; }
 .hww-num-4 { background:#004F82; }
 .hww-line { width:1px; height:20px; background:#e5e7eb; }
-.hww-trad { background:#fafafa; border-radius:8px; padding:16px 20px; margin-left:8px; }
+.hww-trad { background:#fafafa; border-radius:8px; padding:16px 20px; margin-left:8px; display:flex; flex-direction:column; justify-content:flex-start; }
 .hww-trad-timing { font-size:10px; font-weight:700; color:#a0aab4; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
 .hww-trad-label { font-size:14px; font-weight:700; color:#9ca3af; margin-bottom:8px; }
 .hww-trad-body { font-size:12.5px; color:#9ca3af; line-height:1.7; }
