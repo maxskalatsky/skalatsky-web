@@ -913,7 +913,7 @@
             </div>
           </div>
           <div id="sa-close-cta" style="display:none;text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);">
-            <a class="sa-btn" id="sa-cta-mailto" href="mailto:signal@skalatsky.com" style="display:inline-block">Start the conversation.</a>
+            <a class="sa-btn" id="sa-cta-mailto" href="mailto:max@skalatsky.com" style="display:inline-block">Start the conversation.</a>
           </div>
         </div>
       </div>
@@ -963,7 +963,7 @@
           stopLoading();
           var subj=encodeURIComponent('My Digital Signal Results');
           var bod=encodeURIComponent('Hi, I already ran The Digital Signal for '+u.href+' and would like to discuss my results.');
-          err.innerHTML='You have already run a free Signal. <a href="mailto:signal@skalatsky.com?subject='+subj+'&body='+bod+'" style="color:inherit;font-weight:700;text-decoration:underline">Email signal@skalatsky.com</a> to discuss your results.';
+          err.innerHTML='You have already run a free Signal. <a href="mailto:max@skalatsky.com?subject='+subj+'&body='+bod+'" style="color:inherit;font-weight:700;text-decoration:underline">Email max@skalatsky.com</a> to discuss your results.';
           err.style.display='block'; return;
         }
         if(rep.error){ stopLoading(); err.textContent=rep.error+(rep.detail?' — '+rep.detail:''); err.style.display='block'; return; }
@@ -1107,7 +1107,7 @@
     }
     lines.push('I would like to talk about what this means for my business.');
     var subject='My Digital Signal: '+domain;
-    return 'mailto:signal@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+    return 'mailto:max@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
   }
 
   function buildMailtoHref(admiredUrl, outcome) {
@@ -1135,7 +1135,7 @@
     lines.push('');
     lines.push('I would like to discuss what comes next.');
     var subject='My Digital Signal: '+(r.displayUrl||(r.url||'').replace(/^https?:\/\//,'').replace(/\/$/,''));
-    return 'mailto:signal@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+    return 'mailto:max@skalatsky.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
   }
 
   var msgs=['Reading your front door.','Checking your signal.','Scoring your presence.','Writing your report.'];
