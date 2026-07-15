@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&A Concept: Cooper and Hunter Room Sizing Tool</title>
+<style>
+  :root {
+    --navy:    #0d2d6b;
+    --blue:    #006699;
+    --blue2:   #004F82;
+    --teal:    #00C99C;
+    --ink:     #1a1a1a;
+    --body:    #4b5563;
+    --muted:   #6b7280;
+    --faint:   #9ca3af;
+    --line:    #e2eaf0;
+    --surface: #f7f9fb;
+    --info-bg: #E6F1FB;
+    --info-border: #b8d4f0;
+    --info-text: #042C53;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Open Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #fff;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 2px solid var(--navy); padding-bottom: 20px; margin-bottom: 30px;
+  }
+  .header-left .firm-name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .header-left .firm-sub {
+    font-size: 11px; color: var(--muted); letter-spacing: 0.10em;
+    text-transform: uppercase; margin-top: 2px;
+  }
+  .header-right { text-align: right; }
+  .header-right .doc-type {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  .header-right .doc-date { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .title-block { margin-bottom: 24px; }
+  .title-block .doc-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+  }
+  .title-block h1 { font-size: 24px; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 8px; }
+  .title-block .subtitle { font-size: 13px; color: var(--body); line-height: 1.6; }
+
+  .concept-note {
+    background: var(--info-bg); border: 1px solid var(--info-border); border-left: 4px solid var(--blue);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 32px; font-size: 13px; color: var(--info-text); line-height: 1.6;
+  }
+
+  .tool-frame {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 16px 48px rgba(0,31,64,0.10);
+    overflow: hidden;
+  }
+  .tool-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 20px 26px;
+  }
+  .tool-header .tool-name { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+  .tool-header .tool-tag { font-size: 12px; color: #c8e0ec; }
+  .tool-body { padding: 26px; background: #fff; }
+
+  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  }
+  .field input, .field select {
+    font-family: inherit; font-size: 14px; padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 8px; color: var(--ink); background: var(--surface);
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--blue); background: #fff; }
+
+  .calc-button {
+    width: 100%; background: var(--blue); color: #fff; font-weight: 700; font-size: 14px;
+    border: none; border-radius: 8px; padding: 13px; cursor: pointer; margin-bottom: 4px;
+  }
+  .calc-button:hover { background: var(--blue2); }
+
+  .result-card {
+    margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 22px; display: none;
+  }
+  .result-card.show { display: block; }
+  .result-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .result-value { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+  .result-note { font-size: 13px; color: var(--body); line-height: 1.55; margin-bottom: 10px; }
+  .result-cta {
+    display: inline-block; font-size: 12px; font-weight: 700; color: var(--blue);
+    text-decoration: none; border-bottom: 1px solid var(--blue);
+  }
+  .disclaimer { font-size: 11px; color: var(--faint); margin-top: 16px; line-height: 1.5; }
+
+  .footer {
+    border-top: 1px solid var(--line); padding-top: 18px; margin-top: 32px; display: flex;
+    justify-content: space-between; align-items: center;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); }
+  .footer-right { font-size: 11px; color: var(--faint); }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <div class="firm-name">Skalatsky &amp; Associates</div>
+      <div class="firm-sub">Marketing &nbsp;|&nbsp; Product &nbsp;|&nbsp; Technology</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-type">Concept Mock</div>
+      <div class="doc-date">July 15, 2026</div>
+    </div>
+  </div>
+
+  <div class="title-block">
+    <div class="doc-label">Growth Motion To Consider &nbsp;&middot;&nbsp; Cooper and Hunter</div>
+    <h1>Room and Load Sizing Tool</h1>
+    <div class="subtitle">A working mock of the free tool referenced in the marketing plan. Meant to live on the website and travel on its own through social media, not a sales asset, a genuinely useful thing people come back to.</div>
+  </div>
+
+  <div class="concept-note">
+    This is a live, working calculator, not a static image, so it can be clicked through directly. The framing below the tool box is what would sit on the actual product page, this frame is only here to explain the concept.
+  </div>
+
+  <div class="tool-frame">
+    <div class="tool-header">
+      <div class="tool-name">What Size Do You Actually Need</div>
+      <div class="tool-tag">Free room and zone sizing tool from Cooper and Hunter</div>
+    </div>
+    <div class="tool-body">
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="sqft">Room Square Footage</label>
+          <input type="number" id="sqft" placeholder="e.g. 350" min="50">
+        </div>
+        <div class="field">
+          <label for="ceiling">Ceiling Height</label>
+          <select id="ceiling">
+            <option value="standard">Standard, 8 ft or less</option>
+            <option value="high">Vaulted or above 8 ft</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="climate">Climate Zone</label>
+          <select id="climate">
+            <option value="hot">Hot and humid</option>
+            <option value="mixed" selected>Mixed climate</option>
+            <option value="cold">Cold winters</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="insulation">Insulation Quality</label>
+          <select id="insulation">
+            <option value="poor">Older home, poor insulation</option>
+            <option value="average" selected>Average insulation</option>
+            <option value="good">New build, well insulated</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sun">Sun Exposure</label>
+          <select id="sun">
+            <option value="low">Mostly shaded</option>
+            <option value="moderate" selected>Moderate</option>
+            <option value="high">Full sun most of the day</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="zones">Number of Zones</label>
+          <select id="zones">
+            <option value="1">Single zone</option>
+            <option value="2">Two zones</option>
+            <option value="3">Three or more zones</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calc-button" onclick="calculateSize()">Calculate My Size</button>
+
+      <div class="result-card" id="resultCard">
+        <div class="result-label">Recommended Capacity</div>
+        <div class="result-value" id="resultValue">–</div>
+        <div class="result-note" id="resultNote"></div>
+        <a class="result-cta" href="#">Find a Cooper and Hunter dealer near you &rarr;</a>
+      </div>
+
+      <div class="disclaimer">This tool gives a fast estimate for planning purposes. A licensed installer should confirm final sizing with a full load calculation before purchase.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">Skalatsky &amp; Associates &nbsp;&middot;&nbsp; skalatsky.com &nbsp;&middot;&nbsp; max@skalatsky.com</div>
+    <div class="footer-right">Concept mock, not built or deployed</div>
+  </div>
+
+<script>
+function calculateSize() {
+  var sqft = parseFloat(document.getElementById('sqft').value);
+  if (!sqft || sqft <= 0) {
+    document.getElementById('resultValue').textContent = 'Enter a square footage above';
+    document.getElementById('resultNote').textContent = '';
+    document.getElementById('resultCard').classList.add('show');
+    return;
+  }
+
+  var base = sqft * 20;
+
+  var ceiling = document.getElementById('ceiling').value;
+  if (ceiling === 'high') base *= 1.10;
+
+  var climate = document.getElementById('climate').value;
+  if (climate === 'hot') base *= 1.15;
+  else if (climate === 'cold') base *= 0.95;
+
+  var insulation = document.getElementById('insulation').value;
+  if (insulation === 'poor') base *= 1.15;
+  else if (insulation === 'good') base *= 0.90;
+
+  var sun = document.getElementById('sun').value;
+  if (sun === 'high') base *= 1.10;
+  else if (sun === 'low') base *= 0.95;
+
+  var low = Math.round((base * 0.92) / 500) * 500;
+  var high = Math.round((base * 1.08) / 500) * 500;
+
+  var zones = document.getElementById('zones').value;
+  var zoneLabel = zones === '1' ? 'single zone system' : (zones === '2' ? 'two zone system' : 'multi zone system');
+
+  document.getElementById('resultValue').textContent = low.toLocaleString() + ' – ' + high.toLocaleString() + ' BTU';
+  document.getElementById('resultNote').textContent = 'This points to a ' + zoneLabel + ' in that range. Cooper and Hunter carries options across this capacity band for the conditions you selected.';
+  document.getElementById('resultCard').classList.add('show');
+}
+</script>
+
+</body>
+</html>

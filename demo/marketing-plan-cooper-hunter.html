@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&A: Cooper and Hunter Marketing Plan</title>
+<style>
+  :root {
+    --navy:    #0d2d6b;
+    --blue:    #006699;
+    --blue2:   #004F82;
+    --blue3:   #0069AA;
+    --blue4:   #003560;
+    --teal:    #00C99C;
+    --success: #00a583;
+    --ink:     #1a1a1a;
+    --body:    #4b5563;
+    --muted:   #6b7280;
+    --faint:   #9ca3af;
+    --line:    #e2eaf0;
+    --surface: #f7f9fb;
+    --info-bg: #E6F1FB;
+    --info-border: #b8d4f0;
+    --info-text: #042C53;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Open Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #fff;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .header-left .firm-name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .header-left .firm-sub {
+    font-size: 11px; color: var(--muted); letter-spacing: 0.10em;
+    text-transform: uppercase; margin-top: 2px;
+  }
+  .header-right { text-align: right; }
+  .header-right .doc-type {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  .header-right .doc-date { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .title-block { margin-bottom: 24px; }
+  .title-block .doc-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+  }
+  .title-block h1 { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 8px; }
+  .title-block .subtitle { font-size: 13px; color: var(--body); max-width: 660px; line-height: 1.6; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    margin: 32px 0 14px; padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  .section-label:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+  .signal-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 22px; box-shadow: 0 10px 30px rgba(0,31,64,.05); margin-bottom: 16px;
+  }
+  .signal-note { font-size: 13px; color: var(--body); }
+
+  .stage-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stage-card {
+    flex: 1; min-width: 220px; border-radius: 10px; padding: 16px 18px;
+    color: #fff; position: relative;
+  }
+  .stage-card .stage-num {
+    width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.2);
+    color: #fff; font-size: 11px; font-weight: 800; display: flex;
+    align-items: center; justify-content: center; margin-bottom: 10px;
+  }
+  .stage-card .stage-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .stage-card .stage-note { font-size: 12px; line-height: 1.5; opacity: 0.9; }
+  .stage-card.active-stage { box-shadow: 0 10px 30px rgba(0,31,64,.15); }
+
+  .pillar-list { margin-bottom: 6px; }
+  .pillar-row {
+    display: flex; gap: 16px; align-items: flex-start; background: #fff;
+    border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px;
+    margin-bottom: 12px; box-shadow: 0 10px 30px rgba(0,31,64,.04);
+  }
+  .pillar-num {
+    width: 28px; height: 28px; border-radius: 50%; color: #fff; font-size: 12px;
+    font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .pillar-content { flex: 1; }
+  .pillar-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .pillar-why { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
+  .pillar-bullets { list-style: disc; padding-left: 16px; margin: 0; }
+  .pillar-bullets li { font-size: 13px; color: var(--body); line-height: 1.55; margin-bottom: 3px; }
+
+  .output-card {
+    background: var(--info-bg); border: 1px solid var(--info-border);
+    border-left: 4px solid var(--blue); border-radius: 10px; padding: 18px 24px; margin-bottom: 10px;
+  }
+  .output-card .output-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 6px;
+  }
+  .output-card .output-body { font-size: 13px; color: var(--info-text); line-height: 1.6; }
+
+  .needs-list { list-style: disc; padding-left: 18px; }
+  .needs-list li { font-size: 13px; color: var(--body); line-height: 1.6; margin-bottom: 4px; }
+
+  .footer {
+    border-top: 1px solid var(--line); padding-top: 18px; display: flex;
+    justify-content: space-between; align-items: center; margin-top: 24px;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); }
+  .footer-right { font-size: 11px; color: var(--faint); }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <div class="firm-name">Skalatsky &amp; Associates</div>
+      <div class="firm-sub">Marketing &nbsp;|&nbsp; Product &nbsp;|&nbsp; Technology</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-type">Marketing Plan, First Draft</div>
+      <div class="doc-date">July 15, 2026</div>
+    </div>
+  </div>
+
+  <div class="title-block">
+    <div class="doc-label">Stage 1 of 3 &nbsp;&middot;&nbsp; Marketing Plan &rarr; Execution Playbook &rarr; KPI Framework</div>
+    <h1>Cooper and Hunter</h1>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-note">
+      Built from the prospect diagnostic and the introductory call with the CFO. First draft, meant to be sharpened once the marketing team assessment call happens and real revenue, budget, and tech stack numbers are in hand. No financial figures are assumed here that were not stated on the call.
+    </div>
+  </div>
+
+  <div class="section-label">The Mandate</div>
+  <div class="signal-card">
+    <div class="signal-note">
+      Aspirational target is one billion dollars in revenue. Current organic offline growth runs around twenty percent, against a market growing four to five percent a year, so the business is already outgrowing its category well before any new marketing investment. No formal marketing plan or roadmap exists today, marketing KPIs exist but are not tied to a strategy. The CFO is building a five year strategic plan starting in September, with marketing named as a key component. The 2026 budget is largely set, so this plan is aimed at the 2027 investment cycle and the September planning process, not an immediate spend decision.
+    </div>
+  </div>
+
+  <div class="section-label">Two Channels, Two Different Problems</div>
+  <div class="signal-card">
+    <div class="signal-note">
+      Wholesale is a finite, known universe, with hundreds of distributor accounts sold through a six person wholesale team. The primary growth levers are commercial excellence and account penetration, but worth pressure testing lead gen as well. Online and retail, Amazon, eBay, satellite sites, and Google Ads, behaves like a normal funnel and is where product line segmentation, a premium line plus two economy lines for price sensitive regions, will matter most. The two channels need different marketing motions, and this plan treats them separately rather than as one blended growth number.
+    </div>
+  </div>
+
+  <div class="section-label">A Third Channel Worth Considering</div>
+  <div class="signal-card">
+    <div class="signal-note">
+      The specification channel: architects, mechanical engineers, general contractors, and large owner operators, hotel groups, multifamily developers, school districts, on new construction and retrofit projects. This is different in kind from both existing channels, not capped like the finite distributor list, and not a price race like Amazon or eBay. It directly monetizes a differentiator that already exists but is not yet systematized, the engineering support team that today functions as a quiet support function inside individual deals rather than its own demand engine. One hotel chain or multifamily developer standardizing on the brand across properties is worth many distributor relationships combined, which is the kind of leverage that moves toward a billion, since wholesale growth caps out at the account count no matter how well it is run.
+    </div>
+  </div>
+
+  <div class="section-label">Where This Plan Sits</div>
+  <div class="stage-row">
+    <div class="stage-card active-stage" style="background:#0d2d6b;">
+      <div class="stage-num">1</div>
+      <div class="stage-title">Marketing Plan</div>
+      <div class="stage-note">Review to update existing or building from scratch. Needs strategy, direction, pillars, right to win.</div>
+    </div>
+    <div class="stage-card" style="background:#0069AA;">
+      <div class="stage-num">2</div>
+      <div class="stage-title">Execution Playbook</div>
+      <div class="stage-note">Channel by channel actions, personas, owners, and sequencing. Iterate post assessment call findings.</div>
+    </div>
+    <div class="stage-card" style="background:#003560;">
+      <div class="stage-num">3</div>
+      <div class="stage-title">KPI Framework</div>
+      <div class="stage-note">Targets and measurement, once a real revenue and budget baseline exists by channel.</div>
+    </div>
+  </div>
+
+  <div class="section-label">The Plan, Six Pillars</div>
+  <div class="pillar-list">
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#0d2d6b;">1</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Win the recommendation moment, dealer and homeowner</div>
+        <ul class="pillar-bullets">
+          <li>Comparison content for the dealer decision to carry Cooper and Hunter, built from the real reasons distributors stay, not assumption</li>
+          <li>The same comparison built for the homeowner decision between Cooper and Hunter and named competitors</li>
+          <li>Get named in the answer when a dealer or homeowner asks an AI assistant which brand to buy or carry</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#006699;">2</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Make customer service the named differentiator</div>
+        <ul class="pillar-bullets">
+          <li>Customer service is US based, multilingual, highly responsive support for installers. It is a strong signal this is the real reason distributors stay, not a nice to have</li>
+          <li>Turn responsiveness into something specific and marketed rather than implied, named response commitments and real resolution stories, the kind of thing a China direct or offshore support competitor cannot easily match</li>
+          <li>Feature it explicitly inside the dealer facing comparison content from pillar one, since it is a concrete point of difference competitors cannot copy quickly</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#0069AA;">3</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Arm the six person wholesale team for a finite account universe</div>
+        <ul class="pillar-bullets">
+          <li>Battle cards and case content built on the proof points already confirmed: warehouse depth across Miami, Dallas, and LA with a genuine never out of stock position on parts, and an engineering team that doubles as a sales tool on commercial jobs</li>
+          <li>The COVID story, stocking aggressively while competitors held back, used deliberately as a credibility anchor in dealer facing content</li>
+          <li>Sales enablement that helps a small team expand existing accounts, not just win new ones</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#004F82;">4</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Grow the online channel as its own motion</div>
+        <ul class="pillar-bullets">
+          <li>Marketplace review generation, since retail listings currently carry very little proof</li>
+          <li>Content and campaigns aligned to the planned product segmentation, premium line versus the two economy lines for price sensitive regions</li>
+          <li>A distinct online KPI set from wholesale, since the two channels do not grow the same way</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#003560;">5</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Build the marketing foundation that does not exist yet</div>
+        <ul class="pillar-bullets">
+          <li>The execution playbook and KPI framework that follow this plan, stages two and three</li>
+          <li>A tech stack and API assessment, currently unknown and flagged on the call as needing review</li>
+          <li>Clear ownership across the current marketing split, wholesale, Amazon and eBay, and satellite marketplaces</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-num" style="background:#0d2d6b;">6</div>
+      <div class="pillar-content">
+        <div class="pillar-title">Open the specification and commercial project channel</div>
+        <ul class="pillar-bullets">
+          <li>Systematize the engineering support team's existing relationships into a dedicated business development motion aimed at architects, mechanical engineers, and general contractors</li>
+          <li>Target large owner operators, hotel groups, multifamily developers, and school districts, for standardization deals across properties rather than one project at a time</li>
+          <li>Treat this as new surface area to open, not an optimization of wholesale or online, since it is not capped like the distributor list and not price led like retail</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Growth Motion To Consider</div>
+  <div class="signal-card">
+    <div class="signal-note">
+      A lightweight, free tool that lives on the website and gets its own life on social media, not a sales asset, a genuinely useful thing people come back to. The strongest candidate is a room and load sizing tool, input square footage, ceiling height, climate zone, insulation quality, and sun exposure, and get back a straightforward BTU range and product recommendation. It solves a real, common problem, most homeowners and even some installers oversize or undersize a unit, it is inherently shareable content, and every use puts a Cooper and Hunter recommendation directly in front of the person making the decision, at the exact moment they are deciding. It also feeds pillar one directly, ChatGPT itself already referenced proper load sizing as a marker of a good installation, so a credible public sizing tool is the kind of resource that earns citation over time. A working mock of what this could look like is <a href="sizing-tool-mock-cooper-hunter.html" style="color: var(--blue); font-weight: 700;">linked here</a>.
+    </div>
+  </div>
+
+  <div class="section-label">What This Plan Still Needs</div>
+  <div class="output-card">
+    <div class="output-label">Before this becomes the execution playbook</div>
+    <div class="output-body">
+      <ul class="needs-list">
+        <li>Findings from the marketing team assessment call with the wholesale head and online sales lead</li>
+        <li>Confirmation on whether a formal marketing plan already exists in any form</li>
+        <li>Current revenue and growth by channel, wholesale versus online, not assumed here</li>
+        <li>Current marketing budget and allocation across the wholesale, Amazon and eBay, and satellite teams</li>
+        <li>Tech stack and API detail, referenced on the call as unknown</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">Skalatsky &amp; Associates &nbsp;&middot;&nbsp; skalatsky.com &nbsp;&middot;&nbsp; max@skalatsky.com</div>
+    <div class="footer-right">First draft, prepared ahead of the marketing team assessment call</div>
+  </div>
+
+</body>
+</html>
