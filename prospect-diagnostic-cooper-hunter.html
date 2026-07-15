@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&A: Pre Meeting Prospect Diagnostic, Cooper and Hunter</title>
+<style>
+  :root {
+    --navy:    #0d2d6b;
+    --blue:    #006699;
+    --blue2:   #004F82;
+    --blue3:   #0069AA;
+    --blue4:   #003560;
+    --teal:    #00C99C;
+    --success: #00a583;
+    --ink:     #1a1a1a;
+    --body:    #4b5563;
+    --muted:   #6b7280;
+    --faint:   #9ca3af;
+    --line:    #e2eaf0;
+    --surface: #f7f9fb;
+    --info-bg: #E6F1FB;
+    --info-border: #b8d4f0;
+    --info-text: #042C53;
+    --gradeA:  #1F6B4E;
+    --gray-panel: #fafafa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Open Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #fff;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .header-left .firm-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .header-left .firm-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-right { text-align: right; }
+  .header-right .doc-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .header-right .doc-date {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .title-block { margin-bottom: 24px; }
+  .title-block .doc-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .title-block h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .title-block .subtitle {
+    font-size: 13px;
+    color: var(--body);
+    max-width: 640px;
+    line-height: 1.6;
+  }
+  .metrics-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .metric-card {
+    flex: 1;
+    min-width: 160px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .metric-card .metric-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .metric-card .metric-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 32px 0 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .section-label:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+  .signal-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 10px 30px rgba(0,31,64,.05);
+    margin-bottom: 16px;
+  }
+  .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--faint);
+  }
+  .pill.gradeA { background: var(--gradeA); }
+  .pill.strong { background: var(--gradeA); }
+  .pill.capable { background: var(--gradeA); }
+  .signal-note { font-size: 13px; color: var(--body); }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+  }
+  .compare-table th {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table th:first-child { text-align: left; color: var(--faint); }
+  .compare-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .compare-table td:first-child {
+    text-align: left;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .compare-table .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--faint);
+  }
+  .compare-table .badge.good { background: var(--gradeA); }
+  .compare-table th.us { color: var(--teal); }
+  .compare-table .conclusion {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--body);
+  }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .findings-col .col-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .findings-col.assets .col-title { color: var(--success); }
+  .findings-col.gaps .col-title { color: #b0561f; }
+  .finding-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--body);
+  }
+  .finding-item .fnum {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--navy);
+    margin-right: 4px;
+  }
+
+  .output-card {
+    background: var(--info-bg);
+    border: 1px solid var(--info-border);
+    border-left: 4px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-bottom: 8px;
+  }
+  .output-card .output-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .output-card .output-body {
+    font-size: 13px;
+    color: var(--info-text);
+    line-height: 1.6;
+  }
+  .gap-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .opportunity-block {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 26px 28px;
+    margin: 24px 0 32px;
+  }
+  .opportunity-block .op-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .op-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+  .op-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(255,255,255,0.14); color: #fff;
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .op-text { font-size: 13px; color: #c8e0ec; line-height: 1.6; }
+  .op-text strong { color: #fff; }
+
+  .tier-list { margin-bottom: 24px; }
+  .tier-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 10px 30px rgba(0,31,64,.04);
+  }
+  .tier-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    color: #fff; font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .tier-content { flex: 1; }
+  .tier-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .tier-title { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .tier-effort-wrap { display: flex; align-items: center; gap: 8px; }
+  .tier-effort-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .tier-dots { display: flex; gap: 4px; }
+  .tier-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .tier-dot.filled { background: var(--blue); }
+  .tier-bullets { list-style: disc; padding-left: 16px; margin: 0; }
+  .tier-bullets li { font-size: 13px; color: var(--body); line-height: 1.55; margin-bottom: 2px; }
+
+  .closing-block {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+  .closing-block .closing-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .closing-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+  .closing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; margin-top: 7px; }
+  .closing-text { font-size: 13px; color: var(--body); line-height: 1.55; }
+  .closing-text strong { color: var(--navy); }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); }
+  .footer-right { font-size: 11px; color: var(--faint); }
+
+  @media print {
+    body { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <div class="firm-name">Skalatsky &amp; Associates</div>
+      <div class="firm-sub">Marketing &nbsp;|&nbsp; Product &nbsp;|&nbsp; Technology</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-type">Prospect Diagnostic</div>
+      <div class="doc-date">July 15, 2026</div>
+    </div>
+  </div>
+
+  <div class="title-block">
+    <div class="doc-label">Pre Meeting Brief &nbsp;&middot;&nbsp; B2B Manufacturer / Distributor</div>
+    <h1>Cooper and Hunter</h1>
+     </div>
+
+  <div class="section-label">Company Snapshot</div>
+  <div class="signal-card">
+    <div class="signal-note">
+      Cooper and Hunter is an HVAC manufacturer and distributor, cooperandhunter.us, selling through a Pro Tech dealer network and retail channels including Home Depot and Amazon. The ask on this call: the CFO wants to grow sales aggressively.
+    </div>
+  </div>
+
+  <div class="section-label">The Digital Signal</div>
+  <div class="signal-card">
+    <div class="pill-row">
+      <span class="pill">Hook Missing</span>
+      <span class="pill">Fit Partial</span>
+      <span class="pill">Relevance Partial</span>
+    </div>
+    <div class="signal-note">
+      SEO grade A. Visibility, first impressions, and content structure all score strong. Authority is the one weak mark, a thin link profile against the sites currently outranking cooperandhunter.us. Agent readiness lands at Capable, meaning AI assistants can already read and surface the site, but that thin authority is why better known competitors get cited first.
+    </div>
+  </div>
+
+  <div class="signal-card">
+    <table class="compare-table">
+      <tr>
+        <th></th>
+        <th class="us">Cooperandhunter.us</th>
+        <th>Senville</th>
+      </tr>
+      <tr>
+        <td>Hook</td>
+        <td><span class="badge">Missing</span></td>
+        <td><span class="badge">Missing</span></td>
+      </tr>
+      <tr>
+        <td>Fit</td>
+        <td><span class="badge">Partial</span></td>
+        <td><span class="badge">Partial</span></td>
+      </tr>
+      <tr>
+        <td>Relevance</td>
+        <td><span class="badge">Partial</span></td>
+        <td><span class="badge">Partial</span></td>
+      </tr>
+      <tr>
+        <td>SEO Grade</td>
+        <td><span class="badge good">A</span></td>
+        <td><span class="badge good">A</span></td>
+      </tr>
+      <tr>
+        <td>Agent Readiness</td>
+        <td><span class="badge good">Capable</span></td>
+        <td><span class="badge good">Capable</span></td>
+      </tr>
+    </table>
+    <div class="conclusion">Cooper and Hunter is already ahead of this direct competitor on positioning fundamentals, SEO, and AI visibility. The open question for the CFO: do they stay ahead as Senville closes the gap, or does Senville's stronger trust signal start winning the comparison that AI assistants and buyers both run.</div>
+  </div>
+
+  <div class="section-label">Findings</div>
+  <div class="findings-grid">
+    <div class="findings-col assets">
+      <div class="col-title">What is working</div>
+      <div class="finding-item"><span class="fnum">1.</span>SEO fundamentals score an A. Indexing, page speed, and content structure already do what search engines and AI assistants reward.</div>
+      <div class="finding-item"><span class="fnum">2.</span>Agent readiness sits at Capable, ahead of Basic or Emerging. The site is already legible to AI assistants and can appear in their answers.</div>
+      <div class="finding-item"><span class="fnum">3.</span>Real third party proof and real spend already exist: a 30+ project gallery, sponsorships with NASCAR, the Yankees, and the Florida Panthers, 12.5K Instagram followers with an active posting cadence, a named Pro Tech dealer program, and a new 100,000 square foot distribution center built to serve Central US growth.</div>
+      <div class="finding-item"><span class="fnum">4.</span>20+ years in business and products sold in 50+ countries give real scale to point to, credibility a newer brand cannot claim.</div>
+    </div>
+    <div class="findings-col gaps">
+      <div class="col-title">What is missing</div>
+      <div class="finding-item"><span class="fnum">1.</span>Brand hook is missing entirely per the Digital Signal. A visitor cannot tell what the company does or why it matters without digging.</div>
+      <div class="finding-item"><span class="fnum">2.</span>Authority is the one weak SEO mark, thin link profile compared to the sites currently outranking cooperandhunter.us.</div>
+      <div class="finding-item"><span class="fnum">3.</span>No social proof number appears near the top of the site, while Senville leads its own homepage with "Installed in Over 500,000 Homes."</div>
+      <div class="finding-item"><span class="fnum">4.</span>Retail review presence is thin and mixed. Home Depot listings show low volume, 2.0 out of 5 on 7 reviews for one mini split SKU, 3.0 out of 5 on 2 reviews for another, a sign review generation is not being actively managed at the point of sale.</div>
+    </div>
+  </div>
+
+  <div class="section-label">AI Recommendation Layer</div>
+  <div class="output-card">
+    <div class="output-label">Confirmed, live ChatGPT test</div>
+    <div class="output-body">
+      Two queries run live. First, "what is the best HVAC mini split brand for a dealer or installer to carry," scored on reliability, dealer support, parts availability, and profit potential. Cooper and Hunter does not appear. The full ranked table names Mitsubishi Electric, Daikin, Fujitsu, Gree, LG, and Samsung. Second, "which mini split brand should I buy for my home." Cooper and Hunter does not appear there either. Best overall goes to Mitsubishi Electric, best value to Daikin, best budget to Gree, with Fujitsu, LG, and Samsung also named.
+    </div>
+    <div class="gap-note">This is the sharpest finding in the whole diagnostic. Cooper and Hunter is absent at both decision points that drive its sales, the dealer who decides what to stock and the homeowner who decides what to buy. Not ranked low, not mentioned at all, while six named competitors fill every slot. This is the visual to lead with in the room.</div>
+  </div>
+
+  <div class="section-label">Decision Maker</div>
+  <div class="output-card">
+    <div class="output-label">Fractional CFO, newly hired</div>
+    <div class="output-body">
+      Founder and CEO is Marat Terchiyev, publicly quoted on the Dallas area expansion and framed around reaching more of the country faster, a growth and logistics mindset. The CFO on this call is fractional and was just brought on, which is why nothing surfaced in public search, LinkedIn has not caught up yet.
+    </div>
+    <div class="gap-note">A newly hired fractional CFO is usually brought in specifically to professionalize growth and spend decisions, and works across multiple companies at once, so the calibration is efficiency and numbers first, not brand story. Lead with the spend already committed not converting frame. That is the argument a fractional CFO is paid to act on fast, and this diagnostic is likely surfacing gaps in Cooper and Hunter's marketing return that no one inside the company has laid out this plainly yet.</div>
+  </div>
+
+  <div class="section-label">The Frame For This Call</div>
+  <div class="output-card">
+    <div class="output-label">This is not a spend problem</div>
+    <div class="output-body">
+      Cooper and Hunter is already paying for brand: three major sports sponsorships, an active social channel with real followers and real project content, a new distribution center built for growth. None of that spend shows up where a buyer or an AI assistant actually looks first, the website's hook, its trust signals, and its authority. That is the sales problem in one line: the top of the funnel is funded, the conversion layer is not capturing it. For a CFO focused on aggressive growth, the fastest path is not more spend, it is making the spend already committed actually convert.
+    </div>
+  </div>
+
+  <div class="section-label">The Sales Opportunity, Lightest To Heaviest</div>
+  <div class="tier-list">
+
+    <div class="tier-row">
+      <div class="tier-num" style="background:#0d2d6b;">1</div>
+      <div class="tier-content">
+        <div class="tier-head">
+          <div class="tier-title">Convert visitors already on the site into leads</div>
+          <div class="tier-effort-wrap">
+            <span class="tier-effort-label">Days, no new spend</span>
+            <span class="tier-dots"><span class="tier-dot filled"></span><span class="tier-dot"></span><span class="tier-dot"></span><span class="tier-dot"></span></span>
+          </div>
+        </div>
+        <ul class="tier-bullets">
+          <li>Move the project gallery above the fold, where a buyer or dealer is deciding whether to inquire</li>
+          <li>Add one proof number to the homepage headline so trust is established before the visitor has to dig</li>
+          <li>Put existing Instagram project photos to work as sales proof on the site, not just social content</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tier-row">
+      <div class="tier-num" style="background:#006699;">2</div>
+      <div class="tier-content">
+        <div class="tier-head">
+          <div class="tier-title">Turn buyers and dealers into repeat sales and referrals</div>
+          <div class="tier-effort-wrap">
+            <span class="tier-effort-label">Days, low spend</span>
+            <span class="tier-dots"><span class="tier-dot filled"></span><span class="tier-dot filled"></span><span class="tier-dot"></span><span class="tier-dot"></span></span>
+          </div>
+        </div>
+        <ul class="tier-bullets">
+          <li>A post purchase review flow so satisfied homeowners generate the proof retail listings are missing</li>
+          <li>Sales enablement material the Pro Tech network can use to close new dealers and larger orders</li>
+          <li>Short interviews with top dealers and repeat homeowners to capture the actual reasons they buy and stay</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tier-row">
+      <div class="tier-num" style="background:#0069AA;">3</div>
+      <div class="tier-content">
+        <div class="tier-head">
+          <div class="tier-title">Win the moment a dealer or homeowner is choosing between brands</div>
+          <div class="tier-effort-wrap">
+            <span class="tier-effort-label">Scoped project</span>
+            <span class="tier-dots"><span class="tier-dot filled"></span><span class="tier-dot filled"></span><span class="tier-dot filled"></span><span class="tier-dot"></span></span>
+          </div>
+        </div>
+        <ul class="tier-bullets">
+          <li>Comparison content built from real dealer language, aimed at the decision to carry Cooper and Hunter over Daikin or Gree</li>
+          <li>The same comparison built for the homeowner decision between those brands</li>
+          <li>Get named in the answer when a dealer or homeowner asks an AI assistant which brand to buy or carry</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tier-row">
+      <div class="tier-num" style="background:#004F82;">4</div>
+      <div class="tier-content">
+        <div class="tier-head">
+          <div class="tier-title">Grow the number of dealers selling the product</div>
+          <div class="tier-effort-wrap">
+            <span class="tier-effort-label">Ongoing</span>
+            <span class="tier-dots"><span class="tier-dot filled"></span><span class="tier-dot filled"></span><span class="tier-dot filled"></span><span class="tier-dot filled"></span></span>
+          </div>
+        </div>
+        <ul class="tier-bullets">
+          <li>A dealer recruitment push with real media spend into the new Lancaster, Texas territory, turning new distribution capacity into new accounts</li>
+          <li>Ongoing press and dealer network placements that put Cooper and Hunter in front of installers who have not yet been asked to carry it</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="closing-block">
+    <div class="closing-label">Walk In With</div>
+    <div class="closing-item"><div class="closing-dot"></div><div class="closing-text"><strong>The Digital Signal comparison</strong> against Senville, on screen and ready to share.</div></div>
+    <div class="closing-item"><div class="closing-dot"></div><div class="closing-text"><strong>Both ChatGPT screenshots</strong>, the dealer and installer ranking and the homeowner ranking. Cooper and Hunter appears in neither, while six named competitors fill both.</div></div>
+    <div class="closing-item"><div class="closing-dot"></div><div class="closing-text"><strong>The Home Depot review page</strong> open in a tab as a live example of thin, unmanaged review volume.</div></div>
+    <div class="closing-item"><div class="closing-dot"></div><div class="closing-text"><strong>Open with:</strong> "You are already spending on brand, NASCAR, the Yankees, the Panthers, an active social channel. When someone asks an AI assistant which HVAC brand to buy, what do you think happens with that spend?" Let the ChatGPT screenshot and the Digital Signal comparison answer it. The pitch that follows is about converting spend already committed into sales, not asking for new budget.</div></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">Skalatsky &amp; Associates &nbsp;&middot;&nbsp; skalatsky.com &nbsp;&middot;&nbsp; max@skalatsky.com</div>
+    <div class="footer-right">Prepared for internal use ahead of the Cooper and Hunter call</div>
+  </div>
+
+</body>
+</html>
