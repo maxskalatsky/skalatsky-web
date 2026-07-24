@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Executive AI Question Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#006699; --brand-deep:#004F82; --navy:#0d2d6b; --teal:#00C99C; --info:#185FA5;
+  --ink:#1a1a1a; --body:#4b5563; --secondary:#6b7280; --faint:#9ca3af;
+  --wash:#f7f9fb; --wash-blue:#f0f6fb; --line:#e2eaf0;
+  --s1:#0d2d6b; --s2:#006699; --s3:#0069AA; --s4:#004F82; --s5:#003560;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--wash);color:var(--ink);padding:40px 20px 60px}
+.wrap{max-width:880px;margin:0 auto}
+h1{font-size:30px;font-weight:800;color:var(--navy);margin:0 0 8px;text-align:center}
+.sub{font-size:14.5px;color:var(--body);line-height:1.6;max-width:680px;margin:0 auto;text-align:center}
+
+details.lensbox{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,31,64,.06);margin-top:24px;overflow:hidden}
+details.lensbox summary{cursor:pointer;list-style:none;padding:14px 20px;font-size:13px;font-weight:700;color:var(--brand-deep);display:flex;align-items:center;gap:10px}
+details.lensbox summary::-webkit-details-marker{display:none}
+details.lensbox summary .chev{transition:transform .2s;color:var(--brand)}
+details.lensbox[open] summary .chev{transform:rotate(90deg)}
+.lensgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;gap:10px 24px;padding:4px 20px 18px}
+.lensitem{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--body)}
+.lensitem .num{flex:none;width:20px;height:20px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.lensitem b{color:var(--ink)}
+
+.picker{position:sticky;top:0;z-index:20;background:var(--wash);padding:18px 0 14px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tab{border:1px solid var(--line);background:#fff;color:var(--body);font-family:inherit;font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer;transition:all .15s;box-shadow:0 10px 30px rgba(0,31,64,.04)}
+.tab:hover{background:var(--wash-blue);border-color:var(--brand)}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:700}
+.tab:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,102,153,.12)}
+
+.grid{display:flex;flex-direction:column;gap:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,31,64,.06);overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--brand)}
+.qbtn{width:100%;text-align:left;background:none;border:none;font-family:inherit;cursor:pointer;padding:16px 20px;display:flex;align-items:flex-start;gap:12px}
+.qbtn:hover{background:var(--wash-blue)}
+.chev{flex:none;margin-top:3px;transition:transform .2s;color:var(--brand)}
+.card.open .chev{transform:rotate(90deg)}
+.q{font-size:15px;font-weight:700;color:var(--ink);line-height:1.45}
+.body{display:none;padding:2px 20px 18px 44px}
+.card.open .body{display:block}
+.read{font-size:13.5px;line-height:1.65;color:var(--body)}
+.read b{color:var(--ink)}
+.lens{margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.lens span{color:var(--brand-deep)}
+
+.stages{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.stage{display:flex;gap:12px;align-items:flex-start}
+.stage .num{flex:none;width:24px;height:24px;border-radius:50%;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.stage .txt{font-size:13px;line-height:1.55;color:var(--body)}
+.stage .txt b{color:var(--ink)}
+.principle{margin-top:14px;padding:12px 14px;background:#f7fafd;border-left:4px solid var(--teal);border-radius:8px;font-size:13px;line-height:1.6;color:var(--ink);font-weight:600}
+
+.foot{margin-top:40px;text-align:center;font-size:13px;color:var(--secondary)}
+.foot b{color:var(--navy);font-weight:700}
+.foot a{color:var(--brand);text-decoration:none}
+@media(max-width:640px){body{padding:24px 12px 48px} h1{font-size:24px} .lensgrid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row} .body{padding-left:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>The Executive AI Question Bank</h1>
+  <p class="sub">The questions I heard throughout this year interacting with executives and partners, organized into four categories of ten. Open any question for the honest read on what it is really asking. Questions carrying an Operator's Lens tag are the ones that need operator judgment; the rest need a competent IT function.</p>
+
+  <details class="lensbox">
+    <summary><svg class="chev" width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M2 1l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>The Operator's Lens</summary>
+    <div class="lensgrid">
+      <div class="lensitem"><span class="num">1</span><span><b>Better tools never made the enterprise faster.</b></span></div>
+      <div class="lensitem"><span class="num">2</span><span><b>Projects die in alignment, perfection and hearing every voice.</b></span></div>
+      <div class="lensitem"><span class="num">3</span><span><b>Speed is manufactured, not found.</b></span></div>
+      <div class="lensitem"><span class="num">4</span><span><b>In market at 80 percent beats out of market at 100.</b></span></div>
+      <div class="lensitem"><span class="num">5</span><span><b>The executive job is judgment.</b></span></div>
+      <div class="lensitem"><span class="num">6</span><span><b>Agents compress production, not coordination.</b></span></div>
+      <div class="lensitem"><span class="num">7</span><span><b>Demo speed is not delivery speed.</b></span></div>
+      <div class="lensitem"><span class="num">8</span><span><b>Personal grade and production grade agents are different species.</b></span></div>
+      <div class="lensitem"><span class="num">9</span><span><b>Enterprises are buying AI and not absorbing it.</b></span></div>
+      <div class="lensitem"><span class="num">10</span><span><b>Autonomy is an open secret.</b></span></div>
+    </div>
+  </details>
+
+  <div class="picker"><div class="tabs" id="tabs"></div></div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="foot"><b>Max Skalatsky</b> | <a href="mailto:max@skalatsky.com">max@skalatsky.com</a></div>
+</div>
+
+<script>
+const CATS = ["Strategy & Operations","People & Absorption","Quality & Economics","Governance & Data"];
+
+const SDLC = `
+<div class="stages">
+<div class="stage"><span class="num" style="background:var(--s1)">1</span><span class="txt"><b>Idea.</b> A plain language memo becomes a brief that names the owner, the users, and the data involved. Everything downstream refers back to it.</span></div>
+<div class="stage"><span class="num" style="background:var(--s2)">2</span><span class="txt"><b>Front Door.</b> The brief becomes the request, the ticket, and the permanent record. Every app is on the record before any building starts.</span></div>
+<div class="stage"><span class="num" style="background:var(--s3)">3</span><span class="txt"><b>Triage.</b> How far the app reaches, how easily it can be undone, how sensitive its data is, and whether something like it already exists. Result: approved, reused, or escalated.</span></div>
+<div class="stage"><span class="num" style="background:var(--s4)">4</span><span class="txt"><b>Provisioning.</b> One approval sets up the standard environment for that kind of app: an isolated workspace with limits and a record of activity from day zero.</span></div>
+<div class="stage"><span class="num" style="background:var(--s5)">5</span><span class="txt"><b>Build.</b> The person builds with an AI assistant inside that workspace, with tests generated alongside. Routine changes ship on their own; consequential ones reach a person.</span></div>
+<div class="stage"><span class="num" style="background:var(--teal)">6</span><span class="txt"><b>Run and Change.</b> Promote what people use, retire what they do not, and send every change back through the front door. Governing the fleet, not just the launch.</span></div>
+</div>
+<div class="principle">One principle runs through every stage: AI does the labor, fixed rules set the guardrails, and humans handle the exceptions.</div>`;
+
+const DATA = [
+// Strategy & Operating Model (10)
+{c:0,q:"What does the operating model look like, for my direct reports and for the org, once AI is in the loop?",r:"Most companies bolt AI onto a structure designed for human throughput and wonder why nothing compounds. Answering honestly forces role redesign, different spans of control, and a faster decision rhythm. The executive job stays judgment; the mechanical layer underneath is what AI is eating.",l:{n:5,t:"The executive job is judgment"}},
+{c:0,q:"How do we prioritize use cases?",r:"The default is a popularity contest of demos. The right filter is boring: how often the task happens, what it costs, and how easily the result can be checked. Frequent, expensive, easy to check wins. Most companies chase the impressive and hard to check first, which is backwards.",l:{n:7,t:"Demo speed is not delivery speed"}},
+{c:0,q:"What is the path from AI Literate to AI Enabled to AI First?",r:"The absorption question in maturity model clothing. Literate means people can use the tools. Enabled means daily work assumes them. First means the company is designed around them. Each step is a change to how the company operates, not a training course, and you cannot skip one. That is why most rollouts stall.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:0,q:"As a CEO, what do I need to know about AI to run my org?",r:"Five things: where checking the work piles up, what AI work costs per unit of output, which data gives you an edge, which roles change first, and how much change your company can absorb per quarter. Everything else is delegation. The wrong version of this question is a request for a technology briefing.",l:{n:5,t:"The executive job is judgment"}},
+{c:0,q:"Should I hire an internal team or work with an external partner?",r:"External partners for speed and for patterns learned elsewhere. Internal for anything touching your own workflows and data. The trap is outsourcing the learning itself, so the company never builds the muscle and stays dependent forever.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:0,q:"Who should own AI internally?",r:"The simple answer is that this is another IT tool. But because it cuts across the entire organization, ownership should sit outside IT. A central group outside IT owns standards, security, and spend, while the business units own use cases and results, with one named owner at the top, because ownerless programs die in deliberation.",l:{n:2,t:"Where projects die"}},
+{c:0,q:"When processes are the problem, where do I start?",r:"Start where volume is high, the steps are written down, and one accountable person owns the result. Automating a broken process gives you a faster broken process, and the drag was never the technology to begin with. If none of that exists, the first project is writing the process down, not automating it.",l:{n:1,t:"Better tools never made the enterprise faster"}},
+{c:0,q:"Are we behind?",r:"Nearly everyone is behind on absorption and roughly even on tools, so the answer is almost always 'yes, and so is everyone you fear.' The useful reframe: behind on what measurable result, and by how much?",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:0,q:"What is our absorption capacity per quarter, and what governs it?",r:"Builders now ship at five times the old pace; organizations absorb at one. If you cannot name your absorption rate, every roadmap you approve is fiction. What governs it is not budget. It is review capacity, training time, and how much change the culture can take before it rejects the transplant.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:0,q:"What are our kill criteria for pilots?",r:"Companies are excellent at starting AI pilots and nearly incapable of ending them. Every pilot should launch with a date and a number that triggers either scale or shutdown. A portfolio of eighteen month old pilots is not experimentation. It is a slush fund with a demo reel.",l:{n:3,t:"Speed is manufactured"}},
+
+// People & Absorption (10)
+{c:1,q:"How do we let non engineers build vibe coded apps that become useful and are not a nightmare for IT?",r:"One of the most common questions I get, and it deserves a full answer: <b>a Citizen Developer SDLC.</b> A six stage lifecycle that takes software built by non technical employees from personal prototype to governed production. It exists because AI collapsed the cost of writing software to near zero and moved the hard part downstream: making sure what got built is sound, and keeping a growing fleet of it governed once it is live." + SDLC,l:{n:8,t:"Personal vs production agents"}},
+{c:1,q:"How do I transform a multi thousand person org to adopt AI without leaving anyone behind?",r:"Adoption moves in waves, staged by role and by how easily each role's work can be checked. Start with the willing, publish visible wins, then make the new way the default.",l:{n:3,t:"Speed is manufactured"}},
+{c:1,q:"How do I stand up the internal motion to drive AI when everyone has a day job?",r:"Where most transformations quietly die. Volunteer champion networks decay in a quarter. What works: dedicated capacity, even part time, with adoption written into goals and a leader whose promotion depends on it. If AI progress is nobody's job, it is nobody's job.",l:{n:2,t:"Where projects die"}},
+{c:1,q:"How do we get people excited instead of scared of losing their jobs?",r:"People are not calmed by speeches. They are calmed by seeing what their role becomes and getting paid time to grow into it. The strongest signal leadership can send: take the first person whose work gets automated and move them into a better role, publicly.",l:{n:3,t:"Speed is manufactured"}},
+{c:1,q:"How can I give the front line guardrails to build useful tools without breaking things?",r:"Stages 2 through 4 of the Citizen Developer SDLC: a front door that puts every app on the record, a triage step that sizes the risk, and a workspace with limits built in from day zero. The alternative is prohibition, which just pushes people onto personal accounts in secret, and that is strictly worse for the security team that asked for it.",l:{n:8,t:"Personal vs production agents"}},
+{c:1,q:"How can non technical people change and improve apps they did not build?",r:"Stage 6 of the Citizen Developer SDLC. Changes route back through the front door as lightweight requests. Routine ones ship on their own; consequential ones reach a person. The question hiding inside the access question, who reviews a change before it touches real work, is the part that matters.",l:{n:8,t:"Personal vs production agents"}},
+{c:1,q:"What does staged trust look like for a given workflow?",r:"A workflow climbs a ladder: AI drafts and a human sends. AI acts and a human reviews. AI acts and a human spot checks. AI acts alone on the routine tier. Each rung is earned through measured accuracy on the one below. You cannot jump a company from no automation to full automation, so design the rungs on purpose.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:1,q:"Where does AI fit into how people already work, versus asking them to work differently?",r:"Adoption succeeds where AI shows up inside existing habits: the inbox, the customer system, the ticket queue, the document being written. Every new screen you introduce taxes the absorption budget. The rollout that requires no new habit beats the better tool that requires one.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:1,q:"What happens to middle management when coordination gets automated?",r:"The unasked question in every town hall. A large share of middle management is information routing: collecting status, aligning people, passing work along. Human coordination survives near term because AI is compressing production instead. But that routing layer thins over time, and the surviving roles shift to judgment, coaching, and handling exceptions. Planning for it beats being surprised by it.",l:{n:6,t:"Agents compress production, not coordination"}},
+{c:1,q:"What visible progress will the org see in the first thirty days?",r:"Absorption runs on belief, and belief runs on visible motion. If the first month produces governance documents and a steering committee, the company has already priced the program as theater. Ship something small people can see move, then never let the program sit in one phase for weeks.",l:{n:3,t:"Speed is manufactured"}},
+
+// Quality & Economics (10)
+{c:2,q:"When an agent does eight hours of work, how does a human check it in eight minutes?",r:"Checking the work is the new bottleneck, so whoever makes the review cheap wins the economics. Work is delivered in a checkable form, with clear rules to question and escalate, and with the review role properly assigned. Without an answer here, autonomy stays capped no matter how good the model is.",l:{n:10,t:"Autonomy is an open secret"}},
+{c:2,q:"How do we know an agent we created is actually good? How do we measure and improve it?",r:"The same way software earns trust: a fixed set of real cases it must pass, scored automatically, rerun every time something changes. Skip this and you are shipping vibes.",l:{n:8,t:"Personal vs production agents"}},
+{c:2,q:"How do we test software that has AI features in it?",r:"Run it through many different outcomes that test normal conditions and edge cases. This way you grade the features on pass rates across many real examples instead of pass or fail on each one. Treat test sets as living assets that grow over time.",l:{n:8,t:"Personal vs production agents"}},
+{c:2,q:"What is our review layer, organizationally, not just technically?",r:"Everyone asks how to check AI work. Almost nobody asks who checks it and what that job looks like. Review is becoming a real role: people whose skill is rapidly validating machine output in their own domain. That is the human judgment layer AI does not touch, made official. Companies that design this role early break the autonomy ceiling first.",l:{n:6,t:"Agents compress production, not coordination"}},
+{c:2,q:"How do we capture the full scope of ROI?",r:"Time saved is the weakest measure, because saved minutes rarely turn into anything on their own. Measure what changed in the business instead: processes that finish faster, lower cost per unit of output, fewer errors, revenue that moved. The full return only appears when the freed capacity is redeployed to new work, and that is a leadership decision, not a measurement problem.",l:{n:5,t:"The executive job is judgment"}},
+{c:2,q:"How do I control AI spend across the org without limiting productivity?",r:"The way cloud spend got tamed a decade ago: budgets per team, visibility into what each workload costs, alerts on anomalies, generous caps with exceptions on request. The mistake is cutting spend before understanding value. The goal is money routed to what works, not money minimized.",l:null},
+{c:2,q:"What does AI usage actually cost per unit of work?",r:"The billing meter counts usage, but usage has no value by itself. Tie cost to outcomes: cost per resolved ticket, per qualified lead, per reviewed contract. Accounting for usage without accounting for output just gives you a smaller invoice to argue about.",l:null},
+{c:2,q:"What does AI work cost at scale, once maintenance is priced in?",r:"The demo is nearly free; production is not. Models update and break what depended on them, workflows drift, and usage costs grow with volume. Something that worked a month ago can be obsolete today. Any business case that prices only the build is understating the true cost.",l:{n:8,t:"Personal vs production agents"}},
+{c:2,q:"When is AI ready to face our customers?",r:"Later than the demos suggest, and only at the top of the trust ladder. Internal work comes first because a colleague catches mistakes a customer pays for. The honest sequence: internal and reviewed, then customer facing with a human approving, then autonomous only on the narrow, routine, easily reversed interactions. Skipping to the end is how AI ends up in the news.",l:{n:10,t:"Autonomy is an open secret"}},
+{c:2,q:"Who is accountable when AI work product causes harm?",r:"Liability is arriving before the org charts are ready. A contract clause drafted by AI, a pricing error, a compliance miss: the chain of accountability must name a person for each system and each workflow before the incident, not after. Insurers and regulators will force this question. Better to answer it voluntarily.",l:{n:8,t:"Personal vs production agents"}},
+
+// Governance, Data & Platform (10)
+{c:3,q:"How do we govern AI?",r:"AI governance is your existing governance applied to a new kind of actor: who can access what, how changes get approved, what gets logged. The genuinely new pieces: a quality gate before anything deploys, a named person accountable for each system, and an inventory of what is running. An AI ethics council before an AI inventory is backwards.",l:{n:8,t:"Personal vs production agents"}},
+{c:3,q:"How do I roll out AI tools securely without putting company data at risk?",r:"Make the safe path the easy path: a company controlled account, contracts that forbid training on your data, and permissions that limit what the AI can reach. The bigger risk is people pasting sensitive material into personal accounts because the official path was too slow to arrive.",l:null},
+{c:3,q:"How do we protect proprietary data while using AI?",r:"The major vendors now contractually exclude training on your data, so the real exposure is internal: AI given broader access than the person operating it should have. Data protection in this era is mostly the old discipline of access control. The rule that works: the AI sees exactly what its operator could already see, nothing more.",l:null},
+{c:3,q:"Who should get access, and can employees create without touching critical systems?",r:"Broader access than instinct suggests. A seat costs almost nothing next to an employee who never learns. The safety half is the Citizen Developer SDLC's provisioning stage: everyone can build in an isolated workspace with limits from day zero, and nothing reaches critical systems until it earns the right through triage.",l:{n:8,t:"Personal vs production agents"}},
+{c:3,q:"Which of our security objections are actually readiness objections?",r:"The diagnostic question a vendor cannot ask and an operator can. Half of what gets labeled a security or compliance blocker is a company admitting, in the only language it is allowed to use, that it is not ready. The tell: objections that survive after every technical control is satisfied. Those need a ramp, not a checklist.",l:{n:9,t:"Buying AI, not absorbing it"}},
+{c:3,q:"How do we build a central company brain that captures tacit knowledge?",r:"Harder than it sounds, because the knowledge that matters is not in documents. It lives in decisions, escalations, and the judgment of your best people. It gets captured as a byproduct of real work, with AI sitting inside live workflows, or it does not get captured at all. The 'upload our wiki' version fails on arrival because the wiki was already stale.",l:{n:5,t:"The executive job is judgment"}},
+{c:3,q:"How do we deal with fragmented data without a massive overhaul?",r:"The premise finally changed: you no longer need the five year unification program first. Searching across messy sources is exactly what current AI does well, and the fragmentation was always a people problem anyway, information scattered across inboxes and heads that someone had to pull into a decision. Unify access and permissions, not storage, and fix data quality only where real work touches it.",l:{n:1,t:"Better tools never made the enterprise faster"}},
+{c:3,q:"How do we adopt AI without being locked into one vendor?",r:"Legitimate but overweighted. The real switching cost lives in what you build around the model, your tests, your prompts, your integrations, not in the model itself, which takes days to swap. Keep those assets portable and the cost of leaving stays low. The bigger risk is paying a permanent capability tax, never using any vendor's best features in the name of staying neutral.",l:null},
+{c:3,q:"Who owns a build after it is deployed?",r:"Quietly one of the best questions asked. AI systems decay: models update, data drifts, edge cases pile up. Every deployed system needs a named owner, a maintenance budget, and a retirement plan. That is exactly what the Citizen Developer SDLC's final stage exists for: promote what people use, retire what they do not, route every change back through the front door. The alternative is unowned automation, a new kind of debt that makes decisions.",l:{n:8,t:"Personal vs production agents"}},
+{c:3,q:"What is our exit plan if a vendor changes pricing, terms, or direction?",r:"Different from lock in. Lock in asks whether you can leave. An exit plan asks what specifically happens in the ninety days after you decide to: which work pauses, what moves first, who owns the move. Writing this down once removes most of the anxiety that fuels the vendor question.",l:null}
+];
+
+const tabsEl=document.getElementById('tabs'), grid=document.getElementById('grid');
+let cat=-1;
+
+function buildTabs(){
+  let html=`<button class="tab ${cat===-1?'on':''}" data-c="-1">All</button>`;
+  CATS.forEach((c,i)=>{html+=`<button class="tab ${cat===i?'on':''}" data-c="${i}">${c}</button>`;});
+  tabsEl.innerHTML=html;
+}
+tabsEl.addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b) return;
+  cat=parseInt(b.dataset.c); buildTabs(); render();
+});
+
+function render(){
+  const items=DATA.filter(d=>cat===-1||d.c===cat);
+  grid.innerHTML=items.map(d=>{
+    const lens=d.l?`<div class="lens">Operator's Lens <span>${d.l.n}: ${d.l.t}</span></div>`:'';
+    return `<div class="card">
+      <button class="qbtn">
+        <svg class="chev" width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M2 1l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="q">${d.q}</span>
+      </button>
+      <div class="body"><div class="read">${d.r}</div>${lens}</div>
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.card').forEach(c=>{
+    c.querySelector('.qbtn').addEventListener('click',()=>c.classList.toggle('open'));
+  });
+}
+buildTabs(); render();
+</script>
+</body>
+</html>
