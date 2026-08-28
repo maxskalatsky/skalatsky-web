@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Equinix Software Diagnostic</title>
+<title>Equinix Software Intelligence</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -15,18 +14,57 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--wash);color:var(--body);
 font-family:'Open Sans',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:15px;line-height:1.6}
-.wrap{max-width:900px;margin:0 auto;padding:44px 24px 64px}
-h1{font-size:30px;font-weight:800;color:var(--navy);margin:0 0 10px;line-height:1.2}
-.deck{font-size:16px;color:var(--sec);margin:0 0 8px;max-width:680px}
-.stamp{font-size:13px;color:var(--muted);margin:0 0 24px}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
+.shell{max-width:1440px;margin:0 auto;padding:44px 32px 64px}
+h1{font-size:30px;font-weight:800;color:var(--navy);margin:0 0 10px;line-height:1.2;text-align:center}
+.deck{font-size:16px;color:var(--sec);margin:0 0 8px;text-align:center}
+.stamp{font-size:13px;color:var(--muted);margin:0 0 24px;text-align:center}
+
+.dashgroup-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin:0 0 8px}
+.dash{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 14px}
+@media(min-width:700px){.dash{grid-template-columns:repeat(4,1fr)}}
+.statline{display:flex;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;
+box-shadow:0 10px 30px rgba(0,31,64,.06);margin:0 0 22px;overflow:hidden}
+.statitem{padding:10px 14px;font-size:12px;color:var(--sec);border-right:1px solid var(--line);
+border-bottom:1px solid var(--line);white-space:nowrap}
+.statitem:last-child{border-right:none}
+.statitem b{color:var(--navy);font-weight:700;margin-right:5px}
+@media(min-width:1000px){.dash{grid-template-columns:repeat(4,1fr)}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;
+box-shadow:0 10px 30px rgba(0,31,64,.06)}
+.stat .label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sec);margin-bottom:6px}
+.stat .val{font-size:22px;font-weight:800;color:var(--navy);line-height:1.15}
+.stat .sub{font-size:12px;color:var(--muted);margin-top:4px}
+.status-strip{background:var(--tint);border:1px solid var(--line2);border-radius:10px;padding:14px 18px;margin:0 0 28px;font-size:13.5px;color:var(--deep)}
+.status-strip strong{color:var(--navy)}
+
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;align-items:center}
 .btn{background:#fff;border:1px solid var(--line2);color:var(--deep);font-family:inherit;
 font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
 padding:8px 14px;border-radius:999px;cursor:pointer}
 .btn:hover{background:var(--tint);border-color:var(--blue)}
 .btn.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.refbtn{border-color:#EF9F27;color:#8a5a00}
+.btn.refbtn.on{background:#EF9F27;border-color:#EF9F27;color:#412402}
+.sep{width:1px;height:20px;background:var(--line2);margin:0 4px}
+
+.layout{display:block}
+@media(min-width:960px){.layout{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}}
+.nav{display:none}
+@media(min-width:960px){.nav{display:block;position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
+background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}}
+.nav a{display:block;font-size:12.5px;color:var(--sec);text-decoration:none;padding:7px 10px;border-radius:6px;line-height:1.4}
+.nav a:hover{background:var(--tint);color:var(--deep)}
+.nav .n{color:var(--faint);font-weight:700;margin-right:6px;font-size:10px}
+.nav .navhead{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);
+padding:10px 10px 4px}
+.navmobile{display:flex;gap:6px;overflow-x:auto;padding:10px 2px;margin:0 0 20px;position:sticky;top:0;
+background:var(--wash);z-index:5;border-bottom:1px solid var(--line)}
+@media(min-width:960px){.navmobile{display:none}}
+.navmobile a{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--deep);background:#fff;
+border:1px solid var(--line2);border-radius:999px;padding:6px 12px;text-decoration:none;white-space:nowrap}
+
 details{background:#fff;border:1px solid var(--line);border-radius:10px;margin:0 0 12px;
-box-shadow:0 10px 30px rgba(0,31,64,.06);overflow:hidden}
+box-shadow:0 10px 30px rgba(0,31,64,.06);overflow:hidden;scroll-margin-top:70px}
 summary{cursor:pointer;list-style:none;padding:17px 22px;display:flex;align-items:baseline;gap:12px}
 summary::-webkit-details-marker{display:none}
 summary:hover{background:var(--tint)}
@@ -60,9 +98,6 @@ text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
 .counter{background:#fff;border:1px solid var(--line);border-left:4px solid var(--err);padding:15px 18px;margin:14px 0}
 .src{display:block;margin-top:8px;font-size:12px;color:var(--faint)}
 .caveat{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
-ol.q{margin:8px 0 0;padding-left:22px}
-ol.q li{margin-bottom:13px}
-ol.q strong{color:var(--navy)}
 .foot{margin-top:36px;font-size:12px;color:var(--faint)}
 .era{border-left:3px solid var(--line2);padding:0 0 0 16px;margin:0 0 18px}
 .era:last-of-type{margin-bottom:0}
@@ -83,14 +118,48 @@ ol.q strong{color:var(--navy)}
 .risk.md{border-left-color:#EF9F27}
 .risk.lo{border-left-color:var(--line2)}
 .xref{font-size:12.5px;color:var(--faint);font-style:normal}
+
+.sap{background:#f7fafd;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:8px;padding:14px 18px;margin:14px 0}
+.sap .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#04342C;
+background:var(--teal);display:inline-block;border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.sap p{margin:0;font-size:13.5px;color:var(--ink)}
+
+.ref{border-left:3px solid var(--line2);padding:10px 14px;margin:12px 0;border-radius:6px;
+font-size:13.5px;color:var(--sec);transition:background .15s ease,border-color .15s ease}
+.ref .reftag{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+color:var(--faint);margin-bottom:4px}
+.ref p{margin:0;font-size:13.5px}
+body.show-ref .content .ref{background:#FFF7E8;border-left-color:#EF9F27}
+body.show-ref .content .ref .reftag{color:#8a5a00}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="shell">
 
-<h1>Equinix Software Diagnostic</h1>
-<p class="deck">How the business got to where it is, the interconnection software portfolio, the open weight demand thesis, where the software sits in the AI stack, what happens over the next four quarters, and what the platform looks like from outside it.</p>
-<p class="stamp">Version 3 · August 13, 2026 · Working document · Original August 2, 2026</p>
+<h1>Equinix Software Intelligence</h1>
+<p class="deck">How the business got to where it is, the interconnection software portfolio, the open weight demand thesis, where the software sits in the AI stack, who buys it, how it stacks up against competitors, the next four quarters, live company data as it lands, and different parallels drawn from direct experience.</p>
+<p class="stamp">Version 5 · August 28, 2026 · Working document · Original August 2, 2026</p>
+
+<div class="dash">
+<div class="stat"><div class="label">Q2 2026 revenue</div><div class="val">$2.625B</div><div class="sub">Up 16%, recurring revenue up 11%</div></div>
+<div class="stat"><div class="label">Interconnections</div><div class="val">522,700</div><div class="sub">Record 9,700 net adds in the quarter</div></div>
+<div class="stat"><div class="label">Cloud Router bookings</div><div class="val">+170%</div><div class="sub">Year over year, including no cage customers</div></div>
+<div class="stat"><div class="label">Cloud on ramp share</div><div class="val">35%+</div><div class="sub">Stated share, AI Summit keynote</div></div>
+</div>
+
+<div class="statline">
+<div class="statitem"><b>8 of 10</b>AI model providers hosted</div>
+<div class="statitem"><b>10 of 10</b>cloud, SaaS, NSP, bank coverage</div>
+<div class="statitem"><b>70+</b>metros</div>
+<div class="statitem"><b>200+</b>AI customers</div>
+<div class="statitem"><b>~70% by 2029</b>AI inference share of capacity, up from ~30%</div>
+<div class="statitem"><b>400+ Gbps</b>target connection speed, up from 10 to 50 today</div>
+<div class="statitem"><b>5M+</b>target interconnections, up from 492,000+</div>
+<div class="statitem"><b>40 to 120+ kW</b>AI rack power vs 5 to 10 kW traditional</div>
+<div class="statitem"><b>&lt;10 ms</b>real time inference latency target</div>
+</div>
+
+<div class="status-strip"><strong>Where the plan says we are now, Q3 2026.</strong> Consolidate and instrument. No new launches, Geo Zones should move from preview to general availability with real pricing, and a single owner should be assigned across the automation surfaces. See section 07 for the full four quarter map and the tell to watch this quarter.</div>
 
 <div class="controls">
 <button class="btn" onclick="setAll(true)">Expand all</button>
@@ -99,10 +168,36 @@ ol.q strong{color:var(--navy)}
 <button class="btn" data-f="business" onclick="filt(this,'business')">Business</button>
 <button class="btn" data-f="thesis" onclick="filt(this,'thesis')">Thesis</button>
 <button class="btn" data-f="forward" onclick="filt(this,'forward')">Forward view</button>
-<button class="btn" data-f="field" onclick="filt(this,'field')">Field work</button>
+<div class="sep"></div>
+<button class="btn refbtn" id="refbtn" onclick="toggleRef(this)">Reference</button>
 </div>
 
-<details data-cat="business" open>
+<div class="navmobile">
+<a href="#s01">01</a><a href="#s02">02</a><a href="#s03">03</a><a href="#s04">04</a><a href="#s05">05</a>
+<a href="#s06">06</a><a href="#s07">07</a><a href="#s08">08</a><a href="#s09">09</a><a href="#s10">10</a><a href="#s11">11</a>
+</div>
+
+<div class="layout">
+<nav class="nav">
+<div class="navhead">Business</div>
+<a href="#s01"><span class="n">01</span>What the software business is</a>
+<a href="#s02"><span class="n">02</span>How the business got here</a>
+<a href="#s03"><span class="n">03</span>What is free, and what that forces</a>
+<a href="#s09"><span class="n">09</span>Who buys it, and who would</a>
+<a href="#s10"><span class="n">10</span>Competitors by subdomain</a>
+<a href="#s11"><span class="n">11</span>Customer use cases and Megaport share</a>
+<div class="navhead">Thesis</div>
+<a href="#s04"><span class="n">04</span>The open weight demand wave</a>
+<a href="#s05"><span class="n">05</span>Where software sits in the AI stack</a>
+<a href="#s06"><span class="n">06</span>Where the software can go</a>
+<a href="#s08"><span class="n">08</span>Which sales motion it requires</a>
+<div class="navhead">Forward view</div>
+<a href="#s07"><span class="n">07</span>The next four quarters</a>
+</nav>
+
+<div class="content">
+
+<details id="s01" data-cat="business" open>
 <summary><span class="num">01</span><span class="stitle">What the software business is</span><span class="tag">Business</span></summary>
 <div class="inner">
 <p>Equinix is a REIT that owns 282 data centers, 179 of them outright. The software exists to make that footprint programmable and to keep customers from needing to leave it.</p>
@@ -115,18 +210,20 @@ ol.q strong{color:var(--navy)}
 <li><strong>Distributed AI Hub.</strong> Launched March 2026. Deploys AI workloads across geographies without the customer managing the networking underneath.</li>
 <li><strong>Metal.</strong> Sunset June 30, 2026. The one major software bet the company has killed, and the most useful case in the portfolio. <span class="xref">Analyzed in section 02.</span></li>
 </ul>
+<div class="ref"><span class="reftag">Equinix Community · Aug 20, 2026</span><p>Fabric's Network Map added a FiberMap tab so customers can see the physical fiber paths under their virtual circuits, toggling between a high level view and a detailed fiber path view. A visibility feature, not a new provisioning capability, and one a facility light competitor cannot replicate since it does not own the buildings the fiber runs through. Useful mainly for the regulated buyer proving physical path diversity for redundancy, section 11.</p></div>
 <div class="callout">
 <p><strong>The numbers that matter, Q2 2026.</strong> Revenue $2.625B, up 16%, with roughly $120M of non recurring xScale fees inside it. Recurring revenue $2.377B, up 11%. Adjusted EBITDA margin up 300 basis points to 53%. A record 9,700 net interconnections, bringing the total to 522,700. Interconnection revenue $453M, growing 9 to 11% depending on the measure. Guidance and the long term outlook both raised, with planned capital expenditure of $5B to $7B annually for 2027 through 2029.</p>
 <p>Two software figures stand out. Cloud Router bookings grew 170% year over year, including demand from customers with no colocation footprint. And Equinix hosts eight of the top ten AI model providers and eight of the top ten neoclouds. Neither Fabric nor Network Edge is broken out as a line item, so any revenue figure attributed to either is someone's estimate.</p>
 <span class="src">Verified against the Q2 2026 press release of July 29, 2026 and the earnings call transcript.</span>
 </div>
+<div class="ref"><span class="reftag">Equinix AI Summit keynote, Fox Martin</span><p>Company slides show interconnections growing from 398,000 in 2021 to 452,000 in 2023 to 492,000 in 2025, a steady trend the 522,700 Q2 2026 figure above continues rather than accelerates. Cloud on ramps grew slower over the same stretch, 175 to 210 to 223, suggesting on ramp count is maturing while raw interconnections keep compounding. The slide carries a 2025 copyright mark, so treat 492,000 as a trend anchor rather than a current figure.</p></div>
 </div>
 </details>
 
-<details data-cat="business">
+<details id="s02" data-cat="business">
 <summary><span class="num">02</span><span class="stitle">How the business got here, 2001 to 2026</span><span class="tag new">New</span></summary>
 <div class="inner">
-<p>Twenty five years in five year blocks. Each block asks one question: where did the money come from, and what did that force the company to become. The point of the exercise is the pattern at the end, which is the strongest available evidence for what the software line can and cannot be.</p>
+<p>Twenty five years in five year blocks. Each block asks one question: where did the money come from, and what did that force the company to become. The arc runs from a near bankruptcy rescue, through interconnection becoming the margin engine, through the REIT conversion and the cloud arriving as customer and threat at once, through a genuine run at platform ambition that Metal's failure eventually capped, and back to software again in 2026, this time built strictly around the physical asset rather than around compute. The point of the exercise is the pattern that falls out at the end, laid out in the table below: every product that stayed tied to the facility survived, and the one that did not was killed. That pattern is the strongest available evidence for what the software line can and cannot become.</p>
 
 <div class="era">
 <div class="yrs">2001 to 2005</div>
@@ -192,7 +289,7 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="business">
+<details id="s03" data-cat="business">
 <summary><span class="num">03</span><span class="stitle">What is free, and what that forces</span><span class="tag">Business</span></summary>
 <div class="inner">
 <table>
@@ -208,7 +305,7 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="thesis">
+<details id="s04" data-cat="thesis">
 <summary><span class="num">04</span><span class="stitle">How the open weight wave drives demand</span><span class="tag">Thesis</span></summary>
 <div class="inner">
 <p>The CEO named four AI demand patterns on the Q2 call: private AI stacks to cut token costs, sovereign deployments for residency, AI factory batch inference often requiring liquid cooling, and latency sensitive metro inference. Three of the four are the open weight transition described in enterprise language.</p>
@@ -219,6 +316,7 @@ ol.q strong{color:var(--navy)}
 <li><strong>Agentic traffic is bursty and machine to machine.</strong> Dynamic bandwidth between fixed endpoints is the shape of a Fabric connection.</li>
 <li><strong>Inference sprawls where training concentrates.</strong> Training sits in a few campuses. Inference follows users and data, which re rates a distributed footprint.</li>
 </ul>
+<div class="ref"><span class="reftag">McKinsey, cited in Equinix AI Summit keynote</span><p>Equinix cites a McKinsey forecast showing AI inference's share of data center capacity rising from roughly 30% in 2025 to roughly 70% by 2029, with training's share falling by the same amount. An independent forecast, not an Equinix internal number, and it measures share of capacity rather than absolute volume, so it supports the inference sprawl mechanism above without resolving whether that inference lands inside third party interconnected space or captive hyperscaler infrastructure.</p></div>
 <div class="callout">
 <p><strong>Three tensions to carry, not paper over.</strong> The pricing above is metered API pricing on someone else's hardware, so on its own it argues for renting open weight inference rather than self hosting it. Cheap inference is also deflationary per workload, so the win is many more inference endpoints in many more places rather than higher spend per customer. And the cost gap sits between models at different capability tiers, since V4 Flash scores 50 on the Intelligence Index. That shows the cheap tier becoming good enough for routine work rather than the frontier commoditizing.</p>
 </div>
@@ -229,7 +327,7 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="thesis">
+<details id="s05" data-cat="thesis">
 <summary><span class="num">05</span><span class="stitle">Where the software sits in the AI stack</span><span class="tag">Thesis</span></summary>
 <div class="inner">
 <p>Eight layers, mapped to a construction site. The model is the carpenter. The harness is the job site, which splits into context and memory. Orchestration is the build sequence. Inference is materials consumed. Latency is hours on the job. Below those sit the machines and the lot.</p>
@@ -254,15 +352,16 @@ ol.q strong{color:var(--navy)}
 <h3>Model independence is now stated policy at both ends of the market</h3>
 <p>Microsoft says its evals should keep improving even when any given model is removed, and keeps the surrounding memory, context, tools, and skills outside the model on purpose. Andrew Ng's OpenWorker ships with no inference service at all and routes to whichever provider the user supplies. DeepSeek prices routine work at a fraction of frontier cost. Customers running several models across several providers need deterministic private paths between them.</p>
 <span class="src">Satya Nadella, August 2026. OpenWorker launch, July 23, 2026. Artificial Analysis, reported August 2026.</span>
-
+<div class="ref"><span class="reftag">Yang Song, Equinix Chief Data Science and AI Officer · Aug 27, 2026</span><p>Equinix's own AI officer makes this same argument in its own words: falling per token model prices raise, not lower, total AI bills, citing an outside estimate that the model invoice is only 28% of total production AI cost, with the rest in orchestration, retrieval, retries, and observability. The stated fix is intelligent routing across models, explicitly tied to Fabric Intelligence and Distributed AI Hub. This upgrades the evidence from other companies behaving as if model independence matters to Equinix stating outright that it is the reason to buy its connectivity, though it is Equinix marketing its own products, not independent data on adoption.</p></div>
 <h3>Latency is structural, and it is the meter Equinix owns</h3>
 <p>Serving inference at scale relies on batching, which buys throughput by adding wait. Generating each token also requires streaming the model weights and the growing context out of memory, so long context and multi step agent loops slow down as they run. A better model fixes neither. Token cost is a vendor negotiation. Milliseconds are distance.</p>
 <p>Custom inference hardware pools memory across chips so a rack behaves like one machine. Agent workloads chain a model call, a data lookup, and several tool calls, each crossing a network that this work leaves alone. That gap is where the software division lives.</p>
 <span class="src">Etched investment memo, August 2026, written by the investor, so the vendor specifics are held loosely.</span>
+<div class="ref"><span class="reftag">Equinix AI Summit session, The Infrastructure Mismatch</span><p>Equinix puts numbers on this directly: AI racks draw 40 to 120 plus kilowatts against 5 to 10 for a traditional rack, and real time inference needs under 10 milliseconds of latency against 100 to 500 milliseconds tolerated by traditional workloads. The same slide frames single cloud provider architecture against multicloud and specialized AI providers as a partner risk, the same neutrality argument Yang Song makes above, and pairs security as multi environment governance and data sovereignty against a traditional perimeter model.</p></div>
 </div>
 </details>
 
-<details data-cat="thesis">
+<details id="s06" data-cat="thesis">
 <summary><span class="num">06</span><span class="stitle">Where the software can go</span><span class="tag">Thesis</span></summary>
 <div class="inner">
 <h4>With a monetization path</h4>
@@ -279,15 +378,20 @@ ol.q strong{color:var(--navy)}
 <li>Playground and the developer platform. A funnel rather than a product.</li>
 <li>Documentation and OpenAPI quality. Every hour of friction is a circuit bought somewhere else.</li>
 </ul>
+<div class="ref"><span class="reftag">Equinix AI Summit, Interconnection Evolution</span><p>Equinix states its global network covers 70 plus metros with a 35 percent plus share of cloud on ramps, and describes its ecosystem layer as roughly 3,000 cloud and IT service providers plus 2,000 plus network service providers, a broader figure than the 2,000 plus AI ecosystem partners cited above for Application Connect specifically. Worth keeping as two separate counts rather than merging the general partner base with the AI marketplace figure.</p></div>
 <div class="callout">
 <p><strong>The structural test.</strong> A control layer makes the layer beneath it substitutable. Terraform did exactly that to clouds. Software that is only valuable because of where it runs does the opposite. Application Connect is the right shape, because a private path to inference capacity is worth more from a building that contains the capacity. A generic control plane for distributed AI infrastructure is the wrong shape, because it works equally well pointed at someone else's footprint. If the software would work just as well against a competitor's facility, it makes Equinix more replaceable.</p>
 <p><span class="xref">Section 02 is the empirical case for this. Every product that passed the test survived. The one that failed it was killed.</span></p>
 </div>
+<div class="sap"><div class="lbl">SAP parallel</div>
+<p>The same tension shows up as ERP versus platform and data services. Both are real products, but only one is tied to what the company structurally owns and controls end to end. Equinix owns the buildings the way SAP owned the core transactional system, and the products that survive here are the ones that make that ownership harder to route around, not the ones that could run just as well somewhere else.</p>
+</div>
+<div class="ref"><span class="reftag">Equinix AI Summit, Global Network target state</span><p>Equinix's own stated AI ready target is 400 plus Gbps per customer connection and 5 million plus interconnections, against a current 492,000 plus, alongside a shift from manual log review and portal orders to dynamic AI optimizations. Treat this as an aspirational target the company is stating publicly, not a disclosed current metric, but it is a clean articulation of what the cost attribution and observability monetization path above is actually meant to replace.</p></div>
 <p><strong>Added August 10.</strong> Expansion should go up in value rather than up the stack. The legitimate moves all depend on owning facilities: latency sold as a measured commitment rather than best effort connectivity, placement guidance based on where a customer's models and data actually sit, complete lifecycle control surfaces, and data gravity services. Everything above the metal is being commoditized in public by companies with more money and more reason to do it.</p>
 </div>
 </details>
 
-<details data-cat="forward">
+<details id="s07" data-cat="forward">
 <summary><span class="num">07</span><span class="stitle">The next four quarters: paths, bets, and how it breaks</span><span class="tag new">New</span></summary>
 <div class="inner">
 <p>Projections rather than forecasts. Everything here is judgment built on public disclosure through Q2 2026 and the pattern in section 02. Read the tells rather than the predictions. The tells are checkable in real time; the predictions are not.</p>
@@ -366,7 +470,7 @@ ol.q strong{color:var(--navy)}
 
 <div class="risk md">
 <div class="rh">Too fast on automation, and a trust event</div>
-<p>Agentic provisioning ships broadly before the lifecycle is complete. An agent creates infrastructure it cannot remove, the orphaned resource keeps carrying production traffic, and the incident is customer visible. Enterprise trust in programmatic control collapses and buyers retreat to manual provisioning, which sets the strategy back further than never shipping it. This is not hypothetical: the inconsistency documented in section 11 is exactly the precondition, and it is the cheapest item here to fix.</p>
+<p>Agentic provisioning ships broadly before the lifecycle is complete. An agent creates infrastructure it cannot remove, the orphaned resource keeps carrying production traffic, and the incident is customer visible. Enterprise trust in programmatic control collapses and buyers retreat to manual provisioning, which sets the strategy back further than never shipping it. This is not hypothetical: the Fabric MCP server's missing delete on routers, ports, and connections is exactly the precondition, and it is the cheapest item here to fix.</p>
 </div>
 
 <div class="risk md">
@@ -393,6 +497,12 @@ ol.q strong{color:var(--navy)}
 <p>The first of the four named AI demand patterns is enterprises running open models on private infrastructure to cut token cost. That customer has a real problem Equinix does not currently solve. They need model selection, a serving stack, a harness, routing, evaluation infrastructure, hardware procurement, and network design. Equinix supplies space, power, connectivity, and now residency. The gap between what is sold and what the customer needs to succeed is people, and that gap is filled today by nobody or by an integrator with no stake in the facility.</p>
 <p><strong>Why this is not Metal.</strong> This is the objection that will be raised and it deserves a direct answer. Metal sold compute, a commodity available from a dozen vendors with no structural reason to buy it from a colocation provider. A forward deployed motion sells nothing of the kind. It sells the ability to make the customer's own compute work inside Equinix facilities, using Equinix connectivity, under Equinix sovereignty controls. Inseparable from the asset, which is the test in section 06. There is also precedent the board will recognize: the company bought a professional services firm in 2015 to help customers transition into hybrid architectures. The motion is not foreign. It has simply never been treated as strategic.</p>
 
+<div class="ref"><span class="reftag">Equinix AI Summit, AI Solutions Lab</span><p>Equinix already runs an AI Solutions Lab across 20 Solution Validation Center locations in 10 countries, explicitly chartered to collaborate with AI providers, validate next generation AI solutions, and prove out customer blueprints, close to the reusable reference architecture motion argued for below. Delivery is explicitly partner led, with Deloitte and Accenture named as AI consulting providers alongside Verizon, AMD, Intel, and Dell, which is evidence the capped, partner delivered shape already exists in some form rather than being a bet still to be made. It does not settle volume, whether any engagement has produced a named reference, or whether the program is funded the way the shape below recommends.</p></div>
+
+<div class="sap"><div class="lbl">SAP parallel</div>
+<p>SAP tried staffing implementation and customization internally for years, and it was consistently outcompeted by its own partner network, since partners could adapt the software across industry and geography far faster than an internal org built for one central roadmap ever could. The capped, twenty person version proposed below only works if it stays a requirements pipeline rather than trying to become the delivery org. The moment headcount grows past that, it repeats the exact motion SAP eventually had to hand back to partners.</p>
+</div>
+
 <div class="chairs">
 <div class="chair">
 <div class="role">Board on services</div>
@@ -412,6 +522,8 @@ ol.q strong{color:var(--navy)}
 <p><strong>The shape that survives all three seats.</strong> Capped headcount in the low tens. Funded as sales and marketing expense, never booked as a services revenue line. Deployed only against the private AI stack pattern, not spread across every customer request. Chartered to convert every engagement into a reusable reference architecture, with a hard rule that the same problem is never solved bespoke twice. Measured on recurring bookings pulled through and product requirements generated, never on utilization or services margin. Reviewed at four quarters against the ratio, with genuine willingness to shut it down.</p>
 <p>Every other bet on this page improves something that exists. This one changes what the company can learn. The central weakness of the software line across its whole history is that it builds for customers it observes through sales reports rather than through engineers in the room. Metal was designed for a developer nobody at Equinix had watched work.</p>
 </div>
+
+<div class="ref"><span class="reftag">Equinix, Distributed AI in action</span><p>Equinix's own customer facing message for this motion is prove ROI before investing in your own GPU infrastructure, marketing language for the same build versus buy decision argued above. Thin on its own, but it confirms some version of this motion is already being sold to customers rather than purely proposed internally, alongside language on retrieval augmented generation that is consistent with section 05's coverage table, Equinix positioned as the plumbing under a RAG deployment rather than owning RAG itself.</p></div>
 
 <h3>The metric set that would settle most of this</h3>
 <p>Six numbers. None is currently disclosed. The first organization to build them internally wins the argument regardless of which path it chooses.</p>
@@ -435,18 +547,21 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="thesis">
+<details id="s08" data-cat="thesis">
 <summary><span class="num">08</span><span class="stitle">Which sales motion the software line requires</span><span class="tag">Thesis</span></summary>
 <div class="inner">
 <p>Two questions decide an enterprise go to market motion. How exposed is the person who signs, and does social proof travel in that market.</p>
 <p>A network engineer provisioning a connection carries low personal exposure. The work is additive, reversible, not a system of record, and not customer facing. Reputation there travels engineer to engineer through documentation and hands on trials rather than by marquee logo. Both conditions point the same way: win on math and speed. Time to first working connection, cost against alternatives, and whether an evaluator can get moving alone.</p>
 <p>That makes the free tier, the documentation, and the automation surfaces the go to market rather than a convenience. It also puts the software line at odds with the core facilities motion, which is long cycle, high exposure, and relationship driven. A company built end to end for the second motion will feel friction running the first, in pricing, in sales compensation, in how trials work, and in who owns the developer experience.</p>
+<div class="sap"><div class="lbl">SAP parallel</div>
+<p>A sales organization built and compensated for long cycle enterprise relationships will always underinvest in a self serve motion, since the incentives point the same salesperson toward the bigger, slower deal every time. This was true at SAP with a data and platform motion competing for attention against ERP, and it shows up here the same way, in trial design, in pricing, and in who actually owns the developer experience.</p>
+</div>
 <p>Read this way, the missing delete is a specific kind of defect. It surfaces in the first hour of an evaluation and loses the deal quietly, with nobody filing a complaint.</p>
 <span class="src">Framework: Lighthouse and Landgrab enterprise go to market analysis, 2026.</span>
 </div>
 </details>
 
-<details data-cat="business">
+<details id="s09" data-cat="business">
 <summary><span class="num">09</span><span class="stitle">Who buys it, and who would</span><span class="tag">Business</span></summary>
 <div class="inner">
 <p>Four archetypes buy interconnection today. The first three are the historical base. The fourth is where the software line grows.</p>
@@ -459,6 +574,7 @@ ol.q strong{color:var(--navy)}
 <tr><td class="k">AI model providers and neoclouds</td><td>Inference capacity to enterprise customers and to data</td><td>Latency to users and to private data, plus residency. Equinix says it hosts eight of the top ten in each category</td></tr>
 </tbody>
 </table>
+<div class="ref"><span class="reftag">Equinix AI Summit keynote</span><p>A company slide claims 10 of 10 in four categories: cloud providers, SaaS providers, network service providers, and investment banks, a different and sharper cut than the 8 of 10 AI model provider and neocloud figure above. Investment banks give a concrete named instance of the regulated and compliance archetype below rather than leaving it abstract.</p></div>
 <h3>Prospects the software line can reach that colocation cannot</h3>
 <ul>
 <li><strong>Customers with no cage.</strong> Cloud Router bookings grew 170% year over year with demand from customers who have no colocation footprint. That is the single clearest signal that the software can be sold on its own, and the group worth sizing first.</li>
@@ -466,11 +582,15 @@ ol.q strong{color:var(--navy)}
 <li><strong>Agent platform builders.</strong> The companies assembling harnesses need their customers' models, data, and tools to reach each other privately. They are a channel rather than an end customer.</li>
 <li><strong>Enterprises running private inference.</strong> The open weight thesis in section 04, expressed as a buyer. Unproven in bookings so far, and the target for the services motion in section 07.</li>
 </ul>
+<div class="ref"><span class="reftag">Equinix AI Summit, 200+ customers slide</span><p>Real named logos by category: Groq in the AI providers overlap, Uber, ServiceNow, and Aon in global footprint, and Bristol Myers Squibb, Alembic, and Harrison.ai in privacy and sovereignty. That last group is a stronger anchor for the regulated archetype than the 1,300 plus financial services figure alone, since it adds pharma and biotech specific data residency requirements as a distinct sovereignty case. A curated logo slide, so useful for naming the archetypes, not for sizing them.</p></div>
+<div class="sap"><div class="lbl">SAP parallel</div>
+<p>The archetypes above are all customers who already had an Equinix relationship, physical or virtual, before they became a software buyer. There is no listed path for a customer who starts small and grows into the platform, which was the exact gap in SAP's mid market motion argued in an internal paper three years ago, that leading with the core product prices out the accounts that could have grown into it, and platform or data access priced for entry is what actually opens that funnel.</p>
+</div>
 <p class="caveat">Caveat. Most published customer material is from 2021 to 2023 and predates both the AI demand patterns and Fabric Intelligence. Treat the first three archetypes as well established and the fourth as recent and thinly documented outside the earnings call.</p>
 </div>
 </details>
 
-<details data-cat="business">
+<details id="s10" data-cat="business">
 <summary><span class="num">10</span><span class="stitle">Competitors by subdomain</span><span class="tag">Business</span></summary>
 <div class="inner">
 <table>
@@ -486,45 +606,8 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="field">
-<summary><span class="num">11</span><span class="stitle">Field notes: the build</span><span class="tag">Field work</span></summary>
-<div class="inner">
-<p>Everything above is research. This section and the next are four hours with the platform and its closest competitor.</p>
-<p>Mocked the Fabric v4 API locally and ran Equinix's own Terraform provider against it, unmodified from the public registry, version 5.1.0. Full cycle clean: apply created a Cloud Router and an IP_VC connection to a service profile, a second plan reported no changes, destroy tore down connection then router in dependency order. A small dashboard over the same mock showed state transitions and every call underneath.</p>
-<p>Four provider rejections, and they are the only new technical knowledge from the day. The OAuth response does not follow RFC 6749: it wants token_timeout and user_name rather than expires_in, and those timeouts must be JSON strings rather than numbers. Service profile access point configs are a strict discriminated union. The wait target is PROVISIONED, not ACTIVE.</p>
-<div class="callout">
-<p><strong>The sharpest thing the build surfaced.</strong> Terraform cannot function without delete on routers and connections. The Fabric MCP server does not support delete for routers, ports, or connections, and the documentation recommends human confirmation on anything that creates or updates. Same company, two automation interfaces, opposite answers on the most dangerous operation. That is the trust ceiling for agentic network operations, stated by the product itself.</p>
-<p><span class="xref">An orphaned Cloud Router is not an idle database row. It holds live routing sessions and keeps attracting traffic, which is what makes this an operational risk rather than a documentation gap. See the trust event scenario in section 07.</span></p>
-</div>
-<p><strong>Added August 10.</strong> Agent tooling is converging on typed approval gates rather than omission. OpenWorker sorts every tool call into risk tiers and gates the destructive ones instead of removing them. Operational guidance on running agent fleets says the same thing from the other side: give agents dedicated credentials with limited permissions and keep their actions attributable. Against that convention, omitting delete is incomplete rather than conservative.</p>
-<p class="caveat">Caveat. The mock echoes back what the provider sends, so a clean second plan proves the loop and the state machine, not that field names match production. VLAN placement was a guess, since neither end of a router to profile connection is a port.</p>
-</div>
-</details>
-
-<details data-cat="field">
-<summary><span class="num">12</span><span class="stitle">Field notes: the portal and the Megaport comparison</span><span class="tag">Field work</span></summary>
-<div class="inner">
-<h4>The portal</h4>
-<ul>
-<li>Quick Connect preselects <strong>Redundant</strong> as the only connection type offered, roughly doubling recurring cost, and says nothing about that on screen. The same step asks for a customer BGP ASN, so a wizard built to make interconnection approachable still assumes the buyer knows what an autonomous system number is.</li>
-<li>Ordering vocabulary is everywhere: Submit Order, purchase order number required, term commitments, early termination fees. This is a procurement flow wearing a console's clothes.</li>
-<li>The marketplace is partly catalog and partly directory. Groq, Zenlayer, Iterate, and Deutsche Telekom carry Connect buttons; Infercom, Vultr, DigitalOcean, Cirries, Argyll, Cloudera, and Outscale offer only View details. A buyer cannot tell which is which without clicking.</li>
-<li>Equinix lists itself as a service provider in its own marketplace. Defensible, and worth asking about given that neutrality is the stated differentiator.</li>
-<li><strong>AI Sovereign</strong> appears as a tag across Infercom, Argyll, and Outscale. The sovereignty demand pattern named on the Q2 call is now an actual taxonomy in the product. That is the strongest outside evidence the strategy is more than narration.</li>
-</ul>
-<h4>Two corrections on Megaport</h4>
-<p>Sales led onboarding is how the category works rather than an Equinix failing. Megaport also gates signup behind a demo. Interconnection allocates physical resources and bills for them, and none of these companies are built for a stranger to swipe a card.</p>
-<p>Running the other way, Equinix's developer surface is deeper. Developer Tools carries Go, Java, and Python SDKs, the Terraform provider, a Pulumi provider, Terraform modules, an API notification center, a messaging gateway, and an entry for Fabric MCP Servers. Megaport has an API key generator and webhooks.</p>
-<p>But Megaport's staging environment mirrors production, deploys nothing, bills nothing, and resets every 24 hours, with the API key generator self serve in the portal. Release notes show active integrators through the year, with dated deprecation windows. In May 2025 they added a safe delete parameter specifically because deleting a product through their Terraform provider could silently take attached circuits with it. That is a company thinking about how its API behaves under an automation client.</p>
-<p>On the Equinix side, the trial states plainly that API and Terraform are unavailable, Playground returns static data, Sandbox requires customer status, and the MCP server is private beta behind an account representative. I built my own sandbox because the competitor gives one away.</p>
-<div class="callout">
-<p><strong>So the gap is access, not tooling.</strong> Equinix publishes more and gates the credential. Megaport publishes less and hands it over immediately. Which posture is right depends on whether the buyer for Fabric Intelligence is a procurement led network team or a platform engineer. That is a question for the product organization, not one to answer from outside.</p>
-</div>
-</div>
-</details>
-
-<details data-cat="business field">
-<summary><span class="num">13</span><span class="stitle">Three customer use cases, and why Megaport still wins share</span><span class="tag new">New</span></summary>
+<details id="s11" data-cat="business">
+<summary><span class="num">11</span><span class="stitle">Three customer use cases, and why Megaport still wins share</span><span class="tag new">New</span></summary>
 <div class="inner">
 <p>Section 09 names the archetypes. This is the walk from a physical footprint into the software line, use case by use case, plus the honest answer to the question that follows immediately: if the case for Fabric is this strong, why does a facility light competitor win any of it at all.</p>
 <table>
@@ -532,7 +615,7 @@ ol.q strong{color:var(--navy)}
 <tbody>
 <tr><td class="k">Multicloud connectivity</td><td>Existing colocated footprint needs a private path to a cloud on ramp</td><td>Network or infrastructure architecture owner</td><td>Latency and total cost, not just speed. Forrester's TEI work cites 30%+ latency reduction and 60 to 70% lower connectivity cost, largely from avoided egress fees. This is the natural first sale because it extends something the customer already has.</td></tr>
 <tr><td class="k">Branch and appliance consolidation</td><td>Many physical routers or firewalls scattered across locations</td><td>IT operations or field infrastructure owner</td><td>Elimination, not speed. One Network Edge hub replaces per site hardware. The VNF operational status feature in section 01 is aimed squarely at this buyer, the one with devices accumulated organically over time, not the architect who already has clean visibility.</td></tr>
-<tr><td class="k">Regulated, compliance hardened architecture</td><td>Sensitive data tier must never touch the public internet</td><td>Security or compliance leader</td><td>Legal exposure, not price. Highest stakes, least price sensitive of the three. Facility level HIPAA, PCI DSS, and FISMA certification is a real structural advantage here, a customer does not have to separately audit the building.</td></tr>
+<tr><td class="k">Regulated, compliance hardened architecture</td><td>Sensitive data tier must never touch the public internet</td><td>Security or compliance leader</td><td>Legal exposure, not price. Highest stakes, least price sensitive of the three. Facility level HIPAA, PCI DSS, and FISMA certification is a real structural advantage here, a customer does not have to separately audit the building. FiberMap, section 01, is a direct tool for this buyer to prove physical path diversity rather than take redundancy on faith.</td></tr>
 </tbody>
 </table>
 
@@ -541,7 +624,7 @@ ol.q strong{color:var(--navy)}
 
 <h3>The Megaport comparison</h3>
 <p>Section 10 already flags Megaport as tenant and competitor at once: it reaches over a thousand facilities by riding other operators' floor space, including Equinix's own, rather than owning buildings. That is worth stating plainly rather than as a caveat: the lack of a land strategy is not a handicap in this comparison, it is the mechanism. Megaport shows up wherever a customer already sits, unconstrained by Equinix's own physical footprint.</p>
-<p>Section 12's field notes independently confirm the second half of it. Megaport's staging environment mirrors production and is self serve from first contact; Equinix's trial excludes API and Terraform, and the MCP server sits behind an account representative. Public review sentiment points the same direction, Megaport rated 4.8 against Fabric's 4.3 on G2, with onboarding speed named specifically and repeatedly as the differentiator, not price and not the underlying connectivity claims.</p>
+<p>Public review sentiment points the same direction: Megaport rated 4.8 against Fabric's 4.3 on G2, with onboarding speed named specifically and repeatedly as the differentiator, not price and not the underlying connectivity claims.</p>
 <div class="counter">
 <p><strong>Hold this as a hypothesis, not a proven cause.</strong> The G2 sample is thin, 11 Fabric reviews against 166 for Megaport, so this is directional signal, not a settled finding. What would settle it is real internal win loss data, actual deals lost to Megaport with documented reasons, which almost certainly exists inside Equinix already and is not visible from outside. Worth validating against that the moment it is accessible, rather than carrying outside review sentiment into a room as proof.</p>
 </div>
@@ -554,29 +637,10 @@ ol.q strong{color:var(--navy)}
 </div>
 </details>
 
-<details data-cat="business thesis forward field" open>
-<summary><span class="num">14</span><span class="stitle">Open questions</span><span class="tag">Always open</span></summary>
-<div class="inner">
-<p>None of these are answered yet. The first determines how much of sections 05, 08, and 11 hold.</p>
-<ol class="q">
-<li><strong>How often does a typical Fabric customer change topology, and what share of the base provisions through the API or Terraform rather than the portal?</strong> High churn plus programmatic use makes the control surfaces an operating layer and the missing delete a real defect. Set and forget makes them an onboarding surface and a smaller argument. Cloud Router bookings growing 170% is directional evidence for the first reading, not proof of it.</li>
-<li><strong>Cloud Router bookings grew 170% year over year, including customers with no colocation footprint. What is the absolute base, and what is driving the non colocation demand?</strong> This is the strongest public signal that the software line stands on its own.</li>
-<li><strong>Is that growth incremental, or is virtual routing replacing physical cross connects at lower margin?</strong> Added August 13. Nobody has asked this publicly and the company likely does not track it in that shape. The observable proxy is divergence between interconnection adds and interconnection revenue growth.</li>
-<li><strong>Is Fabric positioned and sold as plumbing for AI workloads, or still as cloud connectivity that happens to carry AI traffic?</strong></li>
-<li><strong>What share of AI inference lands in third party interconnected space rather than captive hyperscaler and neocloud infrastructure?</strong> That fraction is the real addressable number, and the cloud growth data in section 04 cuts against the optimistic answer.</li>
-<li><strong>Is end to end agent latency dominated by hops between environments rather than inside the rack, and can that be measured?</strong></li>
-<li><strong>Does open weight and private inference demand show up in bookings, or is it still directional?</strong></li>
-<li><strong>Who owns the developer experience today, and is it funded as go to market or as documentation?</strong> Related and sharper: who owns the portal, the API, the Terraform provider, the CLI, and the agentic surfaces, and is it one person.</li>
-<li><strong>Preview stage products do not move revenue for several quarters.</strong> How much patience does the P&amp;L have for a control plane bet inside a REIT that just raised guidance twice?</li>
-<li><strong>Power availability, not demand, is the binding constraint on the core business.</strong> Which parts of the software portfolio can accelerate independently of physical capacity, and which only appear to be slow?</li>
-<li><strong>Metal proves Equinix will exit a software business that does not compound with the footprint.</strong> Any adjacency has to answer why it strengthens interconnection rather than diversifying away from it. The services proposal in section 07 is one attempt at that answer.</li>
-<li><strong>Does the REIT structure cap how large a non qualifying software and services line can become before the structure itself, rather than the market, is the constraint?</strong> Added August 13. Not a four quarter question, but it bounds every long range answer.</li>
-<li><strong>Does the market ever get to price this as software?</strong> That requires breaking out the line, and a separately reported number can also disappoint separately.</li>
-</ol>
 </div>
-</details>
+</div>
 
-<p class="foot">Working document. Figures are from public sources and reproduced as reported. Forward looking material in section 07 is judgment, not modeled output, and reflects no non public information.</p>
+<p class="foot">Working document. Figures are from public sources and reproduced as reported. Forward looking material in section 07 is judgment, not modeled output, and reflects no non public information. The Reference toggle highlights passages drawn directly from Equinix earnings disclosures, community posts, keynote sessions, or Equinix authored articles, as distinct from outside analysis and judgment.</p>
 
 </div>
 <script>
@@ -589,6 +653,18 @@ function filt(btn,cat){
     d.style.display=(cat==='all'||cats.indexOf(cat)>-1)?'':'none';
   });
 }
+function toggleRef(btn){
+  document.body.classList.toggle('show-ref');
+  btn.classList.toggle('on');
+}
+document.querySelectorAll('.nav a, .navmobile a').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el){ el.open = true; el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
 </script>
 </body>
 </html>
