@@ -961,6 +961,8 @@ async function flushQueue() {
   }
 }
 
+let consecutiveGetFailures = 0;
+
 async function refreshFromSheet(showSyncing) {
   if (!isConfigured) return;
   if (showSyncing) setSyncStatus('', 'Syncing…');
@@ -982,11 +984,22 @@ async function refreshFromSheet(showSyncing) {
     state.nextTicketNumber = data.nextTicketNumber;
     state.entries = data.entries || [];
     state.winner = data.winner;
+    consecutiveGetFailures = 0;
     setSyncStatus('ok', 'Synced with Google Sheet');
     render();
   } catch (err) {
     console.error(err);
-    setSyncStatus('error', 'Could not reach the Sheet. Retrying…');
+    consecutiveGetFailures++;
+    // Apps Script occasionally drops a single response even when nothing
+    // is actually wrong. During silent background polling, a lone miss
+    // just waits for the next 6-second poll rather than flashing red --
+    // only a real, sustained outage (two misses in a row) gets flagged.
+    // An explicitly-triggered sync (right after adding a buyer, drawing a
+    // winner, etc.) always shows the result immediately, since the person
+    // is actively waiting to know whether that action went through.
+    if (showSyncing || consecutiveGetFailures >= 2) {
+      setSyncStatus('error', 'Could not reach the Sheet. Retrying…');
+    }
   }
 }
 
