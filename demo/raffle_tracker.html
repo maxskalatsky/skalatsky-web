@@ -935,11 +935,24 @@ async function flushQueue() {
   let queue = loadQueue();
   if (queue.length === 0) return;
   while (queue.length > 0) {
+    const item = queue[0];
+    item._attempts = (item._attempts || 0) + 1;
     try {
-      await sendToSheet(queue[0]);
+      await sendToSheet(item);
       queue.shift();
       saveQueue(queue);
     } catch (err) {
+      if (item._attempts >= 30) {
+        // Something is wrong beyond a flaky connection (a bad URL, a
+        // broken deployment). Stop hammering it and surface that this
+        // one specific item needs manual attention rather than retrying
+        // forever.
+        queue.shift();
+        saveQueue(queue);
+        setSyncStatus('error', 'One saved change kept failing and was dropped after many tries. Check the Sheet.');
+        continue;
+      }
+      saveQueue(queue);
       break;
     }
   }
@@ -1251,10 +1264,16 @@ document.getElementById('addEntryBtn').addEventListener('click', async () => {
   const qty = parseInt(document.getElementById('ticketQty').value, 10) || 0;
   if (qty <= 0) return;
 
+  // A stable id for this specific submission, generated once here and
+  // carried through unchanged on any retries (including offline-queue
+  // retries), so the backend can recognize "this exact add already went
+  // through" and never create a second row for it.
+  const clientId = 'c' + Date.now() + '-' + Math.random().toString(36).slice(2);
+
   const btn = document.getElementById('addEntryBtn');
   btn.disabled = true;
   try {
-    await apiPost({ action: 'addEntry', name, phone, qty, price });
+    await apiPost({ action: 'addEntry', name, phone, qty, price, clientId });
     document.getElementById('buyerFirstName').value = '';
     document.getElementById('buyerLastName').value = '';
     document.getElementById('buyerPhone').value = '';
