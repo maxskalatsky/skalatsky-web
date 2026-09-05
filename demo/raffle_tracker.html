@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Char-Mar School of Dance 50/50 Raffle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #2BAFCB;
+    --sky-hover: #1D8AA3;
+    --sky-light: #6FCBE0;
+    --navy: #0B3D5C;
+    --pink: #F45B8C;
+    --ink: #1a1a1a;
+    --body-gray: #4b5563;
+    --secondary: #5c7686;
+    --muted: #7a8f9c;
+    --faint: #a4bcc6;
+    --surface: #EAF7FB;
+    --surface2: #DFF2F7;
+    --hairline: #D7ECF2;
+    --hairline2: #C3E3EC;
+    --error: #d94f4f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Open Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    padding: 32px 20px 60px;
+  }
+
+  h1, h2, .heading-font {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .masthead {
+    margin-bottom: 28px;
+  }
+
+  .masthead p {
+    margin: 4px 0 0;
+    color: var(--secondary);
+    font-size: 14px;
+  }
+
+  .sync-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: 8px;
+  }
+  .sync-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--faint);
+  }
+  .sync-dot.ok { background: #2ea36f; }
+  .sync-dot.error { background: var(--error); }
+
+  .event-name-input {
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    width: 100%;
+    padding: 0;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  .event-name-input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--sky);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(11,61,92,.07);
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+
+  .card h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sky-hover);
+    margin: 0 0 16px;
+  }
+
+  .pot-hero .amount {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .pot-hero .label {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .split-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .split-box {
+    flex: 1;
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 16px;
+    border-left: 4px solid var(--pink);
+  }
+  .split-box.studio {
+    border-left-color: var(--sky);
+  }
+
+  .split-box .split-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .split-box .split-label {
+    font-size: 12px;
+    color: var(--secondary);
+    margin-top: 2px;
+  }
+
+  .field-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field label {
+    font-size: 12px;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+
+  .field input {
+    border: 1px solid var(--hairline2);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    width: 140px;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(43,175,203,.15);
+  }
+  .field.wide input { width: 100%; }
+  .field.wide { flex: 1; min-width: 160px; }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--sky);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  .btn-primary:hover { background: var(--sky-hover); }
+  .btn-primary:disabled { background: #b7cdd4; cursor: not-allowed; }
+
+  .quick-qty {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-quiet {
+    background: #fff;
+    border: 1px solid var(--hairline2);
+    color: var(--sky-hover);
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 7px 13px;
+    font-size: 13px;
+  }
+  .btn-quiet:hover {
+    background: var(--surface2);
+    border-color: var(--sky);
+  }
+  .btn-quiet:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .entry-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .entry-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 14px;
+    gap: 12px;
+  }
+  .entry-list li:last-child { border-bottom: none; }
+
+  .entry-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .entry-name {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .entry-meta {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .entry-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .entry-amount {
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .remove-btn {
+    background: none;
+    border: none;
+    color: var(--faint);
+    font-size: 13px;
+  }
+  .remove-btn:hover { color: var(--error); }
+
+  .empty-state {
+    color: var(--faint);
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .winner-card input[type="text"] {
+    border: 1px solid var(--hairline2);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    width: 100%;
+  }
+
+  .winner-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .winner-result {
+    margin-top: 18px;
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 18px;
+    border-left: 4px solid var(--pink);
+  }
+
+  .winner-result .ticket-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--pink);
+  }
+
+  .winner-result .name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 4px;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .winner-result .phone {
+    font-size: 13px;
+    color: var(--body-gray);
+    margin-top: 2px;
+  }
+
+  .winner-result .amount {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 10px;
+  }
+
+  .winner-result .not-found {
+    color: var(--error);
+    font-weight: 700;
+  }
+
+  .reset-row {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .reset-link {
+    background: none;
+    border: none;
+    color: var(--faint);
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  .reset-link:hover { color: var(--error); }
+
+  .credit {
+    text-align: center;
+    color: var(--faint);
+    font-size: 11px;
+    margin-top: 28px;
+  }
+
+  .status-msg {
+    font-size: 12px;
+    color: var(--faint);
+    margin-top: 8px;
+  }
+
+  .setup-banner {
+    background: #fff4e0;
+    border: 1px solid #f0d19a;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13px;
+    color: #6b4e00;
+    margin-bottom: 18px;
+  }
+  .setup-banner code {
+    background: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="setupBanner" class="setup-banner" style="display:none;">
+    This app needs its Google Sheet connection set up before it will work. Open the file and replace
+    <code>SCRIPT_URL</code> near the top of the script with your deployed Apps Script web app URL.
+    See setup_instructions.md for the full walkthrough.
+  </div>
+
+  <div class="masthead">
+    <input id="eventName" class="event-name-input" value="Char-Mar 50/50 Raffle" />
+    <p>Track buyers, ticket totals, and the pot in real time.</p>
+    <div class="sync-badge"><span class="sync-dot" id="syncDot"></span><span id="syncLabel">Connecting to Sheet…</span></div>
+  </div>
+
+  <div class="card pot-hero">
+    <h2>Total raised</h2>
+    <div class="amount" id="potTotal">$0.00</div>
+    <div class="label" id="ticketCount">0 tickets sold</div>
+
+    <div class="split-row">
+      <div class="split-box">
+        <div class="split-amount" id="winnerShare">$0.00</div>
+        <div class="split-label">Winner takes home</div>
+      </div>
+      <div class="split-box studio">
+        <div class="split-amount" id="orgShare">$0.00</div>
+        <div class="split-label">Char-Mar keeps</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Add a buyer</h2>
+    <div class="field-row">
+      <div class="field wide">
+        <label>Name</label>
+        <input type="text" id="buyerName" placeholder="First and last name">
+      </div>
+      <div class="field wide">
+        <label>Phone number</label>
+        <input type="text" id="buyerPhone" placeholder="(561) 555-1234">
+      </div>
+    </div>
+    <div class="field-row" style="margin-top: 14px;">
+      <div class="field">
+        <label>Price per ticket</label>
+        <input type="number" id="ticketPrice" min="0" step="0.01" value="1.00">
+      </div>
+      <div class="field">
+        <label>Tickets purchased</label>
+        <input type="number" id="ticketQty" min="1" step="1" value="1">
+      </div>
+      <button class="btn-primary" id="addEntryBtn">Add buyer</button>
+    </div>
+    <div class="quick-qty">
+      <span style="font-size:12px;color:var(--secondary);align-self:center;">Quick fill quantity:</span>
+      <button class="btn-quiet" data-qty="1">1</button>
+      <button class="btn-quiet" data-qty="5">5</button>
+      <button class="btn-quiet" data-qty="10">10</button>
+      <button class="btn-quiet" data-qty="25">25</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Buyers</h2>
+    <ul class="entry-list" id="entryList"></ul>
+    <div class="empty-state" id="emptyState">No buyers recorded yet.</div>
+  </div>
+
+  <div class="card winner-card">
+    <h2>Pick a winner</h2>
+    <div class="winner-actions">
+      <button class="btn-primary" id="drawBtn">Draw random winner</button>
+    </div>
+    <div class="field-row" style="margin-top: 16px;">
+      <div class="field wide">
+        <label>Or look up a specific ticket number</label>
+        <input type="text" id="lookupTicket" placeholder="e.g. 42">
+      </div>
+      <button class="btn-quiet" id="lookupBtn">Look up</button>
+    </div>
+    <div class="winner-result" id="winnerResult" style="display: none;">
+      <div class="ticket-num" id="winnerTicketNum"></div>
+      <div class="name" id="winnerDisplayName"></div>
+      <div class="phone" id="winnerDisplayPhone"></div>
+      <div class="amount" id="winnerPayoutAmount"></div>
+    </div>
+  </div>
+
+  <div class="reset-row">
+    <button class="reset-link" id="resetBtn">Start a new raffle</button>
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+
+  <div class="credit">Char-Mar School of Dance</div>
+
+</div>
+
+<script>
+// ============================================================
+// PASTE YOUR DEPLOYED APPS SCRIPT WEB APP URL BELOW.
+// See setup_instructions.md for how to get this URL.
+// It looks like: https://script.google.com/macros/s/AKfycb.../exec
+// ============================================================
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztKHwJpfjhzd4pWJ-kKwjP0bdxD-rSBQ_dX5MWp4yanSLZO_7Vd0dmlZFvCbiJwdbT/exec";
+
+const POLL_INTERVAL_MS = 6000;
+
+let state = {
+  eventName: "Char-Mar 50/50 Raffle",
+  ticketPrice: 1.00,
+  nextTicketNumber: 1,
+  entries: [],
+  winner: null
+};
+
+let isConfigured = SCRIPT_URL.indexOf("PASTE_YOUR") === -1;
+let editingEventName = false;
+let editingPrice = false;
+
+function fmt(n) {
+  return '$' + Number(n).toFixed(2);
+}
+
+function potTotal() {
+  return state.entries.reduce((sum, e) => sum + e.qty * e.price, 0);
+}
+
+function ticketCount() {
+  return state.entries.reduce((sum, e) => sum + e.qty, 0);
+}
+
+function findEntryByTicketNumber(num) {
+  return state.entries.find(e => num >= e.startNum && num <= e.endNum) || null;
+}
+
+function setSyncStatus(mode, label) {
+  const dot = document.getElementById('syncDot');
+  const lbl = document.getElementById('syncLabel');
+  dot.className = 'sync-dot' + (mode === 'ok' ? ' ok' : mode === 'error' ? ' error' : '');
+  lbl.textContent = label;
+}
+
+async function apiGet() {
+  const res = await fetch(SCRIPT_URL, { method: 'GET' });
+  if (!res.ok) throw new Error('Sheet request failed');
+  return res.json();
+}
+
+async function apiPost(payload) {
+  const res = await fetch(SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) throw new Error('Sheet request failed');
+  return res.json();
+}
+
+async function refreshFromSheet(showSyncing) {
+  if (!isConfigured) return;
+  if (showSyncing) setSyncStatus('', 'Syncing…');
+  try {
+    const data = await apiGet();
+    state.eventName = data.eventName;
+    state.ticketPrice = data.ticketPrice;
+    state.nextTicketNumber = data.nextTicketNumber;
+    state.entries = data.entries || [];
+    state.winner = data.winner;
+    setSyncStatus('ok', 'Synced with Google Sheet');
+    render();
+  } catch (err) {
+    console.error(err);
+    setSyncStatus('error', 'Could not reach the Sheet. Retrying…');
+  }
+}
+
+function render() {
+  if (!editingEventName) document.getElementById('eventName').value = state.eventName;
+  if (!editingPrice) document.getElementById('ticketPrice').value = state.ticketPrice;
+
+  const total = potTotal();
+  const count = ticketCount();
+  document.getElementById('potTotal').textContent = fmt(total);
+  document.getElementById('ticketCount').textContent = count + (count === 1 ? ' ticket sold' : ' tickets sold');
+
+  const winnerHalf = total / 2;
+  document.getElementById('winnerShare').textContent = fmt(winnerHalf);
+  document.getElementById('orgShare').textContent = fmt(total - winnerHalf);
+
+  const list = document.getElementById('entryList');
+  const empty = document.getElementById('emptyState');
+  list.innerHTML = '';
+  if (state.entries.length === 0) {
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    state.entries.slice().reverse().forEach((e) => {
+      const li = document.createElement('li');
+
+      const main = document.createElement('div');
+      main.className = 'entry-main';
+      const name = document.createElement('div');
+      name.className = 'entry-name';
+      name.textContent = e.name || 'Unnamed buyer';
+      const meta = document.createElement('div');
+      meta.className = 'entry-meta';
+      const rangeText = e.qty === 1 ? ('Ticket #' + e.startNum) : ('Tickets #' + e.startNum + '\u2013' + e.endNum);
+      meta.textContent = rangeText + (e.phone ? '  \u00b7  ' + e.phone : '');
+      main.appendChild(name);
+      main.appendChild(meta);
+
+      const right = document.createElement('div');
+      right.className = 'entry-right';
+      const amt = document.createElement('span');
+      amt.className = 'entry-amount';
+      amt.textContent = fmt(e.qty * e.price);
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'remove-btn';
+      removeBtn.textContent = 'Remove';
+      removeBtn.onclick = async () => {
+        removeBtn.disabled = true;
+        try {
+          await apiPost({ action: 'removeEntry', id: e.id });
+          await refreshFromSheet(true);
+        } catch (err) {
+          setSyncStatus('error', 'Could not remove that buyer. Try again.');
+        }
+      };
+      right.appendChild(amt);
+      right.appendChild(removeBtn);
+
+      li.appendChild(main);
+      li.appendChild(right);
+      list.appendChild(li);
+    });
+  }
+
+  renderWinner();
+}
+
+function renderWinner() {
+  const result = document.getElementById('winnerResult');
+  if (!state.winner) {
+    result.style.display = 'none';
+    return;
+  }
+  result.style.display = 'block';
+  if (state.winner.notFound) {
+    document.getElementById('winnerTicketNum').textContent = 'Ticket #' + state.winner.ticketNum;
+    document.getElementById('winnerDisplayName').innerHTML = '<span class="not-found">No buyer holds this ticket</span>';
+    document.getElementById('winnerDisplayPhone').textContent = '';
+    document.getElementById('winnerPayoutAmount').textContent = '';
+  } else {
+    document.getElementById('winnerTicketNum').textContent = 'Winning ticket #' + state.winner.ticketNum;
+    document.getElementById('winnerDisplayName').textContent = state.winner.name || 'Unnamed buyer';
+    document.getElementById('winnerDisplayPhone').textContent = state.winner.phone || '';
+    document.getElementById('winnerPayoutAmount').textContent = fmt(potTotal() / 2) + ' payout';
+  }
+}
+
+document.getElementById('eventName').addEventListener('focus', () => { editingEventName = true; });
+document.getElementById('eventName').addEventListener('change', async (e) => {
+  editingEventName = false;
+  try {
+    await apiPost({ action: 'setMeta', eventName: e.target.value });
+    await refreshFromSheet();
+  } catch (err) {
+    setSyncStatus('error', 'Could not save the event name.');
+  }
+});
+
+document.getElementById('ticketPrice').addEventListener('focus', () => { editingPrice = true; });
+document.getElementById('ticketPrice').addEventListener('change', async (e) => {
+  editingPrice = false;
+  const val = parseFloat(e.target.value);
+  try {
+    await apiPost({ action: 'setMeta', ticketPrice: isNaN(val) ? 0 : val });
+    await refreshFromSheet();
+  } catch (err) {
+    setSyncStatus('error', 'Could not save the ticket price.');
+  }
+});
+
+document.getElementById('addEntryBtn').addEventListener('click', async () => {
+  const name = document.getElementById('buyerName').value.trim();
+  const phone = document.getElementById('buyerPhone').value.trim();
+  const price = parseFloat(document.getElementById('ticketPrice').value) || 0;
+  const qty = parseInt(document.getElementById('ticketQty').value, 10) || 0;
+  if (qty <= 0) return;
+
+  const btn = document.getElementById('addEntryBtn');
+  btn.disabled = true;
+  try {
+    await apiPost({ action: 'addEntry', name, phone, qty, price });
+    document.getElementById('buyerName').value = '';
+    document.getElementById('buyerPhone').value = '';
+    document.getElementById('ticketQty').value = 1;
+    await refreshFromSheet(true);
+  } catch (err) {
+    setSyncStatus('error', 'Could not save that buyer. Try again.');
+  }
+  btn.disabled = false;
+});
+
+document.querySelectorAll('.quick-qty .btn-quiet').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.getElementById('ticketQty').value = btn.getAttribute('data-qty');
+  });
+});
+
+document.getElementById('drawBtn').addEventListener('click', async () => {
+  const entries = state.entries;
+  const total = ticketCount();
+  if (total === 0) return;
+
+  let r = Math.floor(Math.random() * total);
+  let chosen = null;
+  for (const e of entries) {
+    if (r < e.qty) { chosen = e; break; }
+    r -= e.qty;
+  }
+  if (!chosen) return;
+
+  const ticketNum = chosen.startNum + Math.floor(Math.random() * chosen.qty);
+  const winner = { ticketNum, name: chosen.name, phone: chosen.phone, notFound: false };
+
+  const btn = document.getElementById('drawBtn');
+  btn.disabled = true;
+  try {
+    await apiPost({ action: 'setWinner', winner });
+    await refreshFromSheet(true);
+  } catch (err) {
+    setSyncStatus('error', 'Could not save the winner. Try again.');
+  }
+  btn.disabled = false;
+});
+
+document.getElementById('lookupBtn').addEventListener('click', async () => {
+  const raw = document.getElementById('lookupTicket').value.trim();
+  const num = parseInt(raw, 10);
+  if (isNaN(num)) return;
+  const entry = findEntryByTicketNumber(num);
+  const winner = entry
+    ? { ticketNum: num, name: entry.name, phone: entry.phone, notFound: false }
+    : { ticketNum: num, notFound: true };
+
+  const btn = document.getElementById('lookupBtn');
+  btn.disabled = true;
+  try {
+    await apiPost({ action: 'setWinner', winner });
+    await refreshFromSheet(true);
+  } catch (err) {
+    setSyncStatus('error', 'Could not save the winner. Try again.');
+  }
+  btn.disabled = false;
+});
+
+document.getElementById('resetBtn').addEventListener('click', async () => {
+  if (!confirm('Start a new raffle? This clears all buyers and the winner for everyone using this tracker.')) return;
+  try {
+    await apiPost({ action: 'resetRaffle' });
+    await refreshFromSheet(true);
+  } catch (err) {
+    setSyncStatus('error', 'Could not reset. Try again.');
+  }
+});
+
+function init() {
+  if (!isConfigured) {
+    document.getElementById('setupBanner').style.display = 'block';
+    setSyncStatus('error', 'Not connected yet');
+    return;
+  }
+  refreshFromSheet(true);
+  setInterval(() => refreshFromSheet(false), POLL_INTERVAL_MS);
+}
+
+init();
+</script>
+</body>
+</html>
